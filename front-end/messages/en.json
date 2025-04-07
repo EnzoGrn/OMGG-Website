@@ -1,8 +1,14 @@
 {
     "NavbarLinks": {
+        "logoAlt"  : "OMGG's logo",
         "portfolio": "Our creations",
         "omgg"     : "OMGG",
         "blog"     : "Blog",
         "submit"   : "Submit a game"
+    },
+    "Hero": {
+        "heading"   : "Our Mission:",
+        "description": "To offer a new dimension to your games.",
+        "imageAlt"  : "OMGG's logo"
     }
 }

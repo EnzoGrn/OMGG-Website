@@ -27,11 +27,9 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
 
   return (
     <html lang={locale}>
-      <body className="min-h-screen">
+      <body className="min-h-screen bg-background">
         <NextIntlClientProvider>
-          <div className="mx-auto max-w-[1440px] w-full px-4 sm:px-6 lg:px-8">
-            {children}
-          </div>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

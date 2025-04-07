@@ -10,79 +10,77 @@ import { Header } from "./Interface";
 const Navbar = ({ logo, menu, submit }: Header.NavbarProps) => {
   return (
     <section className="py-4">
-      <div className="container">
 
-        {/* Desktop Menu */}
-        <nav className="hidden justify-between lg:flex">
-          <div className="flex items-center">
+      {/* Desktop Menu */}
+      <nav className="hidden justify-between lg:flex">
+        <div className="flex items-center">
 
-            {/* Logo */}
-            {logo &&
-              <Logo logo={logo} />
-            }
+          {/* Logo */}
+          {logo &&
+            <Logo logo={logo} />
+          }
 
-          </div>
-          <div className="flex gap-10 items-center">
-            {menu &&
-              <div className="flex gap-10 items-center">
-                <NavigationMenu>
-                  <NavigationMenuList>
-                    {menu.map((item) => renderMenuItem(item))}
-                  </NavigationMenuList>
-                </NavigationMenu>
-              </div>
-            }
-            {submit &&
-              <Button asChild size="sm">
-                <a href={submit.url}>{submit.title}</a>
+        </div>
+        <div className="flex gap-10 items-center">
+          {menu &&
+            <div className="flex gap-10 items-center">
+              <NavigationMenu>
+                <NavigationMenuList>
+                  {menu.map((item) => renderMenuItem(item))}
+                </NavigationMenuList>
+              </NavigationMenu>
+            </div>
+          }
+          {submit &&
+            <Button asChild size="sm">
+              <a href={submit.url}>{submit.title}</a>
+            </Button>
+          }
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <div className="block lg:hidden">
+        <div className="flex items-center justify-between">
+
+          {/* Logo */}
+          {logo &&
+            <a href={logo?.url} className="flex items-center gap-2">
+              <img src={logo?.src} className="max-h-[43px] w-full" alt={logo?.alt} />
+            </a>
+          }
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Menu className="size-4" />
               </Button>
-            }
-          </div>
-        </nav>
-
-        {/* Mobile Menu */}
-        <div className="block lg:hidden">
-          <div className="flex items-center justify-between">
-
-            {/* Logo */}
-            {logo &&
-              <a href={logo?.url} className="flex items-center gap-2">
-                <img src={logo?.src} className="max-h-[43px] w-full" alt={logo?.alt} />
-              </a>
-            }
-
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
-                  <Menu className="size-4" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle>
-                    {logo &&
-                      <Logo logo={logo} cn="max-h-[43px]" />
-                    }
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col gap-6 p-4">
-                  {menu &&
-                    <Accordion type="single" collapsible className="flex w-full flex-col gap-4">
-                      {menu.map((item) => renderMobileMenuItem(item))}
-                    </Accordion>               
+            </SheetTrigger>
+            <SheetContent className="overflow-y-auto">
+              <SheetHeader>
+                <SheetTitle>
+                  {logo &&
+                    <Logo logo={logo} cn="max-h-[43px]" />
                   }
+                </SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col gap-6 p-4">
+                {menu &&
+                  <Accordion type="single" collapsible className="flex w-full flex-col gap-4">
+                    {menu.map((item) => renderMobileMenuItem(item))}
+                  </Accordion>               
+                }
 
-                  {submit &&
-                    <div className="flex flex-col gap-3">
-                      <Button asChild>
-                        <a href={submit.url}>{submit.title}</a>
-                      </Button>
-                    </div>
-                  }
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
+                {submit &&
+                  <div className="flex flex-col gap-3">
+                    <Button asChild>
+                      <a href={submit.url}>{submit.title}</a>
+                    </Button>
+                  </div>
+                }
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </section>
@@ -93,7 +91,7 @@ const renderMenuItem = (item: Header.MenuItem) => {
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger>
+        <NavigationMenuTrigger className="transition-colors bg-transparent hover:bg-muted hover:text-accent-foreground">
           {item.title}
         </NavigationMenuTrigger>
         <NavigationMenuContent className="bg-popover text-popover-foreground">
@@ -109,7 +107,7 @@ const renderMenuItem = (item: Header.MenuItem) => {
 
   return (
     <NavigationMenuItem key={item.title}>
-      <NavigationMenuLink href={item.url} className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground">
+      <NavigationMenuLink href={item.url} className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground">
         {item.title}
       </NavigationMenuLink>
     </NavigationMenuItem>

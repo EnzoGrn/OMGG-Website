@@ -2,67 +2,42 @@ import { Locale, useTranslations } from "next-intl";
 import { setRequestLocale        } from "next-intl/server";
 import { use                     } from "react";
 import { Navbar                  } from "@/components/Navbar/Navbar";
+import { Hero                    } from "@/components/Section/Hero";
+import { Header                  } from "@/components/Navbar/Constant";
 
-import { Handshake, Sunset, Trees, Zap } from "lucide-react";
+function renderLogo()
+{
+  const t = useTranslations('NavbarLinks');
 
-const logo = {
-  url: "/",
-  src: "./OMGG/Logo/Logo_SideText_Big.svg",
-  alt: "OMGG Logo"
-};
+  Header.logo.alt      = t('logoAlt');
+  Header.menu[0].title = t('portfolio');
+  Header.menu[1].title = t('omgg');
+  Header.menu[2].title = t('blog');
+  Header.submit.title  = t('submit');
 
-const menu = [
-  {
-    title: "Our creations",
-    url: "#",
-    items: [
-      {
-        title: "Vermines",
-        description: "Deck-building card game in the kingdom of the bees!",
-        icon: <img src="./OMGG/Games/Logo/Icon_Vermines.png" alt="Vermines" className="w-5 h-4 shrink-0" />,
-        url: "/"
-      }
-    ]
-  },
-  {
-    title: "OMGG",
-    url: "/",
-    items: [
-      {
-        title: "À propos",
-        description: "Notre histoire, notre mission et nos valeurs",
-        icon: <Trees className="size-5 shrink-0" />,
-        url: "/",
-      },
-      {
-        title: "Carrières",
-        description: "Découvre nos offres d'emploi et rejoins-nous",
-        icon: <Sunset className="size-5 shrink-0" />,
-        url: "/",
-      },
-      {
-        title: "Partenaires",
-        description: "Tu es éditeur ? Découvre notre solution",
-        icon: <Handshake className="size-5 shrink-0" />,
-        url: "/",
-      },
-      {
-        title: "Support",
-        description: "Besoin d'aide ? Contacte notre équipe",
-        icon: <Zap className="size-5 shrink-0" />,
-        url: "/",
-      }
-    ],
-  },
-  {
-    title: "Blog",
-    url: "#",
-  }
-];
+  return(
+    <header className="sticky top-0 z-50 bg-background shadow-sm w-full">
+      <div className="mx-auto max-w-[1440px] w-full px-4 sm:px-6 lg:px-8">
+        <Navbar logo={Header.logo} menu={Header.menu} submit={Header.submit} />
+      </div>
+    </header>
+  );
+}
 
-const submit = {
-  title: "Soumettre un jeu",
-  url: "#"
+function renderHero()
+{
+  const t = useTranslations('Hero');
+
+  return(
+    <Hero
+      heading={t('heading')}
+      description={t('description')}
+      image={{
+        src: "./OMGG/Logo/Logo_SideFullText_Big.svg",
+        alt: t('imageAlt'),
+      }}
+    />
+  );
 }
 
 export default function Home({ params }: { params: Promise<{locale: Locale}> })
@@ -75,8 +50,8 @@ export default function Home({ params }: { params: Promise<{locale: Locale}> })
 
   return (
     <main className="w-full h-full">
-      <Navbar logo={logo} menu={menu} submit={submit}>
-      </Navbar>
+      {renderLogo()}
+      {renderHero()}
     </main>
   );
 }
