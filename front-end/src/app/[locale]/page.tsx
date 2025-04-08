@@ -6,6 +6,7 @@ import { Hero                    } from "@/components/Section/Hero";
 import { Header                  } from "@/components/Navbar/Constant";
 import { Container               } from "@/components/Section/Container";
 import { TextEnum } from "@/lib/enumerations/TextEnum";
+import { Testimonial } from "@/components/Testimonials/Testimonials";
 
 function renderNavbar()
 {
@@ -84,6 +85,7 @@ export default function Home({ params }: { params: Promise<{locale: Locale}> })
       {renderNavbar()}
       {renderHero()}
       {renderAbout()}
+      <Testimonial />
     </main>
   );
 }
