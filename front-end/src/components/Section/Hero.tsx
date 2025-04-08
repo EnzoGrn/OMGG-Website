@@ -3,7 +3,7 @@ import { Badge                       } from "@/components/ui/badge";
 import { Button                      } from "@/components/ui/button";
 import { HeroProps                   } from "./Interface";
 import { Container, ContainerContent } from "./Container";
-import { H1, H2, H3                      } from "@/components/Text/Text";
+import { H1, H2, H3, P               } from "@/components/Text/Text";
 import { cn                          } from "@/lib/utils";
 import { TextEnum } from "@/lib/enumerations/TextEnum";
 
@@ -28,7 +28,7 @@ const Hero = ({ badge, text, buttons, image, className }: HeroProps) => {
                 else if (item.size === TextEnum.H3)
                   return (<H3 key={index} className={item.className}>{item.text}</H3>);
                 else
-                  return (<p key={index} className={item.className}>{item.text}</p>);
+                  return (<P key={index} className={item.className}>{item.text}</P>);
               })}
               {buttons &&
                 <div className="flex w-full flex-col gap-2 sm:flex-row justify-start">
