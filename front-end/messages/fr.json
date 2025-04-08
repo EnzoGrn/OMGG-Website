@@ -7,8 +7,13 @@
         "submit"   : "Soumettre un jeu"
     },
     "Hero": {
-        "heading"   : "Notre Mission :",
+        "heading"    : "Notre Mission :",
         "description": "Offrir une nouvelle dimension à vos jeux.",
-        "imageAlt"  : "Logo d'OMGG"
+        "imageAlt"   : "Logo d'OMGG"
+    },
+    "About": {
+        "title"       : "Qui sommes nous ?",
+        "description" : "Chez OMGG (One More Good Game) nous cherchons à réinventer le jeu de société à l'ère du numérique.",
+        "text"        : "Notre mission est d'offrir aux joueurs et aux créateurs une nouvelle manière d'imaginer, de jouer et de partager des expériences uniques, en combinant la créativité du jeu de société avec les codes du jeu vidéo."
     }
 }
