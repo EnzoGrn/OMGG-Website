@@ -4,8 +4,10 @@ import { use                     } from "react";
 import { Navbar                  } from "@/components/Navbar/Navbar";
 import { Hero                    } from "@/components/Section/Hero";
 import { Header                  } from "@/components/Navbar/Constant";
+import { Container               } from "@/components/Section/Container";
+import { TextEnum } from "@/lib/enumerations/TextEnum";
 
-function renderLogo()
+function renderNavbar()
 {
   const t = useTranslations('NavbarLinks');
 
@@ -17,9 +19,9 @@ function renderLogo()
 
   return(
     <header className="sticky top-0 z-50 bg-background shadow-sm w-full">
-      <div className="mx-auto max-w-[1440px] w-full px-4 sm:px-6 lg:px-8">
+      <Container>
         <Navbar logo={Header.logo} menu={Header.menu} submit={Header.submit} />
-      </div>
+      </Container>
     </header>
   );
 }
@@ -30,12 +32,43 @@ function renderHero()
 
   return(
     <Hero
-      heading={t('heading')}
-      description={t('description')}
+      text={[
+        { text: t('heading'), size: TextEnum.H2, className: "" },
+        { text: t('description'), size: TextEnum.H1, className: "" }
+      ]}
       image={{
-        src: "./OMGG/Logo/Logo_SideFullText_Big.svg",
+        src: "./OMGG/Logo/Logo_OMGG.svg",
         alt: t('imageAlt'),
+        className: "max-h-96"
       }}
+      className="bg-gradient-to-br from-[var(--primary)] to-[var(--detail)] min-h-[660px] lg:min-h-[690px]"
+    />
+  );
+}
+
+function renderAbout()
+{
+  const t = useTranslations('About');
+
+  return(
+    <Hero
+      text={[
+        { text: t('title'), size: TextEnum.H2, className: "mb-6" },
+        { text: t('description'), size: TextEnum.P, className: "font-bold max-w-full md:max-w-2/3 lg:max-w-full" },
+        { text: t('text'), size: TextEnum.P, className: "my-6 max-w-full md:max-w-2/3 lg:max-w-full" },
+      ]}
+      image={{
+        src: "./OMGG/Illustrations/orange_dots.svg",
+        alt: "OMGG's dots illustration",
+        className: "max-h-48 items-end justify-end lg:translate-x-0 lg:translate-y-0 translate-x-3/5 -translate-y-1/3"
+      }}
+      buttons={{
+        primary: {
+          text: "En savoir plus",
+          url: "#",
+        }
+      }}
+      className="h-max-[450px]"
     />
   );
 }
@@ -46,12 +79,11 @@ export default function Home({ params }: { params: Promise<{locale: Locale}> })
 
   setRequestLocale(locale);
 
-  const t = useTranslations('NavbarLinks');
-
   return (
     <main className="w-full h-full">
-      {renderLogo()}
+      {renderNavbar()}
       {renderHero()}
+      {renderAbout()}
     </main>
   );
 }

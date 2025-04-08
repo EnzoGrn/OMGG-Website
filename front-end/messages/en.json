@@ -7,8 +7,13 @@
         "submit"   : "Submit a game"
     },
     "Hero": {
-        "heading"   : "Our Mission:",
+        "heading"    : "Our Mission:",
         "description": "To offer a new dimension to your games.",
-        "imageAlt"  : "OMGG's logo"
+        "imageAlt"   : "OMGG's logo"
+    },
+    "About": {
+        "title"      : "Who are we?",
+        "description": "At OMGG (One More Good Game) we are looking to reinvent board games in the digital age.",
+        "text"       : "Our mission is to offer players and creators a new way to imagine, play and share unique experiences, combining the creativity of board games with the codes of video games."
     }
 }

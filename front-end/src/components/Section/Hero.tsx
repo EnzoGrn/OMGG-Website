@@ -1,49 +1,59 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { Badge                    } from "@/components/ui/badge";
-import { Button                   } from "@/components/ui/button";
-import { HeroProps                } from "./Interface";
+import { ArrowRight, ArrowUpRight    } from "lucide-react";
+import { Badge                       } from "@/components/ui/badge";
+import { Button                      } from "@/components/ui/button";
+import { HeroProps                   } from "./Interface";
+import { Container, ContainerContent } from "./Container";
+import { H1, H2, H3                      } from "@/components/Text/Text";
+import { cn                          } from "@/lib/utils";
+import { TextEnum } from "@/lib/enumerations/TextEnum";
 
-const Hero = ({ badge, heading, description, buttons, image }: HeroProps) => {
+const Hero = ({ badge, text, buttons, image, className }: HeroProps) => {
   return (
-    <section className="py-32 bg-gradient-to-br from-[var(--primary)] to-[var(--detail)] flex justify-center items-center min-h-[660px] lg:min-h-[690px] w-full">
-      <div className="container mx-auto w-full px-4 sm:px-6 lg:px-8 max-w-[1440px]">
-        <div className="grid items-center gap-8 lg:grid-cols-2">
-          <div className="flex flex-col items-start text-left">
-            {badge && (
-              <Badge variant="outline">
-                {badge}
-                <ArrowUpRight className="ml-2 size-4" />
-              </Badge>
-            )}
-            <h2 className="mt-6 max-w-xl text-pretty lg:text-2xl font-bold">
-              {heading}
-            </h2>
-            <h1 className="mb-6 text-4xl font-bold text-pretty lg:text-6xl">
-              {description}
-            </h1>
-            {buttons &&
-              <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
-                {buttons.primary && (
-                  <Button asChild className="w-full sm:w-auto">
-                    <a href={buttons.primary.url}>{buttons.primary.text}</a>
-                  </Button>
-                )}
-                {buttons.secondary && (
-                  <Button asChild variant="outline" className="w-full sm:w-auto">
-                    <a href={buttons.secondary.url}>
-                      {buttons.secondary.text}
-                      <ArrowRight className="size-4" />
-                    </a>
-                  </Button>
-                )}
-              </div>
+    <section className={cn("py-12 flex justify-center items-center w-full overflow-hidden", className)}>
+      <Container>
+        <ContainerContent>
+          <div className="grid items-center gap-8 lg:grid-cols-2">
+            <div className="flex flex-col items-start text-left">
+              {badge && (
+                <Badge variant="outline">
+                  {badge}
+                  <ArrowUpRight className="ml-2 size-4" />
+                </Badge>
+              )}
+              {text && text.map((item, index) => {
+                if (item.size === TextEnum.H1)
+                  return (<H1 key={index} className={item.className}>{item.text}</H1>);
+                else if (item.size === TextEnum.H2)
+                  return (<H2 key={index} className={item.className}>{item.text}</H2>);
+                else if (item.size === TextEnum.H3)
+                  return (<H3 key={index} className={item.className}>{item.text}</H3>);
+                else
+                  return (<p key={index} className={item.className}>{item.text}</p>);
+              })}
+              {buttons &&
+                <div className="flex w-full flex-col gap-2 sm:flex-row justify-start">
+                  {buttons.primary && (
+                    <Button asChild className="w-full sm:w-auto max-w-1/2 lg:max-w-full">
+                      <a href={buttons.primary.url}>{buttons.primary.text}</a>
+                    </Button>
+                  )}
+                  {buttons.secondary && (
+                    <Button asChild variant="outline" className="w-full sm:w-auto max-w-1/2 lg:max-w-full">
+                      <a href={buttons.secondary.url}>
+                        {buttons.secondary.text}
+                        <ArrowRight className="size-4" />
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              }
+            </div>
+            {image &&
+              <img src={image.src} alt={image.alt} className={cn("w-full rounded-md object-fill select-none", image.className)} />
             }
           </div>
-          {image &&
-            <img src={image.src} alt={image.alt} className="max-h-96 w-full rounded-md object-cover" />
-          }
-        </div>
-      </div>
+        </ContainerContent>
+      </Container>
     </section>
   );
 };
