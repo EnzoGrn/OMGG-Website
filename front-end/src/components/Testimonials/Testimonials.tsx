@@ -66,8 +66,8 @@ const Testimonial = () => {
   }, [api, current]);
 
   return (
-    <Container className="py-8 pb-16 overflow-visible relative">
-      <img src="./OMGG/Illustrations/yellow_dots2.svg" alt="OMGG's dots illustration" className="max-w-96 max-h-48 h-1/3 w-2/3 absolute -top-8 lg:-top-16 left-1/2 -translate-x-1/2 z-0 pointer-events-none" />
+    <Container className="pb-16 pt-32 overflow-visible relative">
+      <img src="./OMGG/Illustrations/yellow_dots2.svg" alt="OMGG's dots illustration" className="max-w-96 max-h-48 h-1/3 w-2/3 absolute top-10 left-1/2 -translate-x-1/2 z-0 select-none" />
       <Carousel setApi={setApi}>
         <CarouselContent>
           {testimonials.map((testimonial) => (
