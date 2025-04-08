@@ -27,7 +27,7 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
 
   return (
     <html lang={locale}>
-      <body>
+      <body className="min-h-screen bg-background">
         <NextIntlClientProvider>
           {children}
         </NextIntlClientProvider>
