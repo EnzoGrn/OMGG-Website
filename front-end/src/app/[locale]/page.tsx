@@ -143,7 +143,8 @@ function renderLogos()
 
 function renderFooter()
 {
-  const t = useTranslations('NavbarLinks');
+  const tH = useTranslations('NavbarLinks');
+  const tF = useTranslations('Footer');
 
   const menu = [{
       title: "Nos créations",
@@ -167,10 +168,10 @@ function renderFooter()
       ],
   }];
 
-  menu[0].title = t('portfolio');
-  menu[1].title = t('omgg');
-  menu[2].title = t('blog');
-  Footer_Logo.alt = t('logoAlt');
+  menu[0].title   = tH('portfolio');
+  menu[1].title   = tH('omgg');
+  menu[2].title   = tH('blog');
+  Footer_Logo.alt = tF('logoAlt');
 
   return(
     <Footer logo={{
