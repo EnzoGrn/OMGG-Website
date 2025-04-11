@@ -18,5 +18,11 @@
     },
     "Logos": {
         "title": "Ils nous ont fait confiance"
+    },
+    "Blog": {
+        "title"      : "Actualités et dernières sorties",
+        "description": "Restez à l'affût des dernières nouvelles sur notre blog. Suivez nos avancées, découvrez les tendances du secteur et explorez nos réflexions sur l’édition, le développement, la technologie et les opportunités du marché. On vous partage tout !",
+        "read"       : "Lire l'article",
+        "access"     : "Accéder au blog"
     }
 }

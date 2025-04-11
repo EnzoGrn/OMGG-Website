@@ -33,7 +33,9 @@ const Navbar = ({ logo, menu, submit }: Header.NavbarProps) => {
           }
           {submit &&
             <Button asChild size="sm">
-              <a href={submit.url}>{submit.title}</a>
+              <a href={submit.url} className="uppercase">
+                {submit.title}
+              </a>
             </Button>
           }
         </div>
@@ -74,7 +76,9 @@ const Navbar = ({ logo, menu, submit }: Header.NavbarProps) => {
                 {submit &&
                   <div className="flex flex-col gap-3">
                     <Button asChild>
-                      <a href={submit.url}>{submit.title}</a>
+                      <a href={submit.url} className="uppercase">
+                        {submit.title}
+                      </a>
                     </Button>
                   </div>
                 }
@@ -91,7 +95,7 @@ const renderMenuItem = (item: Header.MenuItem) => {
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger className="transition-colors bg-transparent hover:bg-muted hover:text-accent-foreground">
+        <NavigationMenuTrigger className="transition-colors bg-transparent hover:bg-muted hover:text-accent-foreground uppercase">
           {item.title}
         </NavigationMenuTrigger>
         <NavigationMenuContent className="bg-popover text-popover-foreground">
@@ -107,7 +111,7 @@ const renderMenuItem = (item: Header.MenuItem) => {
 
   return (
     <NavigationMenuItem key={item.title}>
-      <NavigationMenuLink href={item.url} className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground">
+      <NavigationMenuLink href={item.url} className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground uppercase">
         {item.title}
       </NavigationMenuLink>
     </NavigationMenuItem>
@@ -118,7 +122,7 @@ const renderMobileMenuItem = (item: Header.MenuItem) => {
   if (item.items) {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
-        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
+        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline uppercase">
           {item.title}
         </AccordionTrigger>
         <AccordionContent className="mt-2">
@@ -131,7 +135,7 @@ const renderMobileMenuItem = (item: Header.MenuItem) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="text-md font-semibold">
+    <a key={item.title} href={item.url} className="text-md font-semibold uppercase">
       {item.title}
     </a>
   );
