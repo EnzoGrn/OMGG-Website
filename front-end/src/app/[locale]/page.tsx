@@ -5,9 +5,10 @@ import { Navbar                  } from "@/components/Navbar/Navbar";
 import { Hero                    } from "@/components/Section/Hero";
 import { Header                  } from "@/components/Navbar/Constant";
 import { Container               } from "@/components/Section/Container";
-import { TextEnum } from "@/lib/enumerations/TextEnum";
-import { Testimonial } from "@/components/Testimonials/Testimonials";
-import { Logos } from "@/components/Logo/Logos";
+import { TextEnum                } from "@/lib/enumerations/TextEnum";
+import { Testimonial             } from "@/components/Testimonials/Testimonials";
+import { Logos                   } from "@/components/Logo/Logos";
+import { BlogSectionSlider       } from "@/components/Blog/Blog";
 
 function renderNavbar()
 {
@@ -150,6 +151,7 @@ export default function Home({ params }: { params: Promise<{locale: Locale}> })
       {renderAbout()}
       {renderLogos()}
       <Testimonial />
+      <BlogSectionSlider />
     </main>
   );
 }

@@ -33,12 +33,12 @@ const Hero = ({ badge, text, buttons, image, className }: HeroProps) => {
               {buttons &&
                 <div className="flex w-full flex-col gap-2 sm:flex-row justify-start">
                   {buttons.primary && (
-                    <Button asChild className="w-full sm:w-auto max-w-1/2 lg:max-w-full">
+                    <Button asChild className="w-full sm:w-auto max-w-1/2 lg:max-w-full uppercase">
                       <a href={buttons.primary.url}>{buttons.primary.text}</a>
                     </Button>
                   )}
                   {buttons.secondary && (
-                    <Button asChild variant="outline" className="w-full sm:w-auto max-w-1/2 lg:max-w-full">
+                    <Button asChild variant="outline" className="w-full sm:w-auto max-w-1/2 lg:max-w-full uppercase">
                       <a href={buttons.secondary.url}>
                         {buttons.secondary.text}
                         <ArrowRight className="size-4" />

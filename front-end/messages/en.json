@@ -18,5 +18,11 @@
     },
     "Logos": {
         "title": "They trusted us"
+    },
+    "Blog": {
+        "title"      : "Actuality and last releases",
+        "description": "Keep up to date with the latest news on our blog. Follow our progress, discover industry trends and explore our thoughts on publishing, development, technology and market opportunities. We'll share it all with you!",
+        "read"       : "Read Article",
+        "access"     : "Access the blog"
     }
 }
