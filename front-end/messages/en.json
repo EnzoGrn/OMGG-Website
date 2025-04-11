@@ -24,5 +24,11 @@
         "description": "Keep up to date with the latest news on our blog. Follow our progress, discover industry trends and explore our thoughts on publishing, development, technology and market opportunities. We'll share it all with you!",
         "read"       : "Read Article",
         "access"     : "Access the blog"
+    },
+    "Footer": {
+        "subtitle": "OMGG - One More Good Game\nFrom the board to the screen, experience the game differently.",
+        "copyright": "© 2025 OMGG. All rights reserved.",
+        "terms"    : "Terms and Conditions",
+        "privacy"  : "Privacy Policy"
     }
 }

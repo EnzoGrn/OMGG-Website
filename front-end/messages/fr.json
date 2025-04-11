@@ -24,5 +24,11 @@
         "description": "Restez à l'affût des dernières nouvelles sur notre blog. Suivez nos avancées, découvrez les tendances du secteur et explorez nos réflexions sur l’édition, le développement, la technologie et les opportunités du marché. On vous partage tout !",
         "read"       : "Lire l'article",
         "access"     : "Accéder au blog"
+    },
+    "Footer": {
+        "subtitle": "OMGG - One More Good Game\nDu plateau à l'écran, vivez le jeu autrement.",
+        "copyright": "© 2025 OMGG. Tous droits réservés.",
+        "terms"    : "Conditions générales",
+        "privacy"  : "Politique de confidentialité"
     }
 }

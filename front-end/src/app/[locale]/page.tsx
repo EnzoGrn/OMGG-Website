@@ -9,6 +9,9 @@ import { TextEnum                } from "@/lib/enumerations/TextEnum";
 import { Testimonial             } from "@/components/Testimonials/Testimonials";
 import { Logos                   } from "@/components/Logo/Logos";
 import { BlogSectionSlider       } from "@/components/Blog/Blog";
+import { Footer                  } from "@/components/Footer/Footer";
+
+import { Footer_Logo } from "@/lib/constants/Footer";
 
 function renderNavbar()
 {
@@ -138,6 +141,48 @@ function renderLogos()
   );
 }
 
+function renderFooter()
+{
+  const t = useTranslations('NavbarLinks');
+
+  const menu = [{
+      title: "Nos créations",
+      links: [
+        { name: "Vermines", href: "#" }
+      ],
+    },
+    {
+      title: "OMGG",
+      links: [
+        { name: "À propos", href: "#" },
+        { name: "Carrières", href: "#" },
+        { name: "Partenaires", href: "#" },
+        { name: "Support", href: "#" }
+      ],
+    },
+    {
+      title: "Blog",
+      links: [
+        { name: "Blog", href: "#" }
+      ],
+  }];
+
+  menu[0].title = t('portfolio');
+  menu[1].title = t('omgg');
+  menu[2].title = t('blog');
+
+  return(
+    <Footer logo={{
+        url: Footer_Logo.url,
+        src: Footer_Logo.src,
+        alt: Footer_Logo.alt
+      }}
+
+      menu={menu}
+    />
+  );
+}
+
 export default function Home({ params }: { params: Promise<{locale: Locale}> })
 {
   const { locale } = use(params);
@@ -152,6 +197,7 @@ export default function Home({ params }: { params: Promise<{locale: Locale}> })
       {renderLogos()}
       <Testimonial />
       <BlogSectionSlider />
+      {renderFooter()}
     </main>
   );
 }
