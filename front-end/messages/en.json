@@ -26,7 +26,8 @@
         "access"     : "Access the blog"
     },
     "Footer": {
-        "subtitle": "OMGG - One More Good Game\nFrom the board to the screen, experience the game differently.",
+        "logoAlt"  : "OMGG's logo",
+        "subtitle" : "OMGG - One More Good Game\nFrom the board to the screen, experience the game differently.",
         "copyright": "© 2025 OMGG. All rights reserved.",
         "terms"    : "Terms and Conditions",
         "privacy"  : "Privacy Policy"

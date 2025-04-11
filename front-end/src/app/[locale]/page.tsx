@@ -170,6 +170,7 @@ function renderFooter()
   menu[0].title = t('portfolio');
   menu[1].title = t('omgg');
   menu[2].title = t('blog');
+  Footer_Logo.alt = t('logoAlt');
 
   return(
     <Footer logo={{

@@ -26,9 +26,10 @@
         "access"     : "Accéder au blog"
     },
     "Footer": {
-        "subtitle": "OMGG - One More Good Game\nDu plateau à l'écran, vivez le jeu autrement.",
+        "logoAlt"  :"Logo d'OMGG",
+        "subtitle" : "OMGG - One More Good Game\nDu plateau à l'écran, vivez le jeu autrement.",
         "copyright": "© 2025 OMGG. Tous droits réservés.",
         "terms"    : "Conditions générales",
-        "privacy"  : "Politique de confidentialité"
+        "privacy"  : "Politique de confidentialité",
     }
 }
