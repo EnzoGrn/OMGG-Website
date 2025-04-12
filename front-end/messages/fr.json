@@ -14,7 +14,18 @@
     "About": {
         "title"       : "Qui sommes nous ?",
         "description" : "Chez OMGG (One More Good Game) nous cherchons à réinventer le jeu de société à l'ère du numérique.",
-        "text"        : "Notre mission est d'offrir aux joueurs et aux créateurs une nouvelle manière d'imaginer, de jouer et de partager des expériences uniques, en combinant la créativité du jeu de société avec les codes du jeu vidéo."
+        "text"        : "Notre mission est d'offrir aux joueurs et aux créateurs une nouvelle manière d'imaginer, de jouer et de partager des expériences uniques, en combinant la créativité du jeu de société avec les codes du jeu vidéo.",
+        "more"        : "En savoir plus",
+        "card1": {
+            "header": "Proposez votre jeu",
+            "text"  : "Vous êtes créateur indépendant ou une maison d'édition avec un jeu à numériser, une idée à prototyper ou une application compagnon à ajouter ? Soumettez-nous votre projet, et ensemble, nous donnerons vie à vos idées !",
+            "footer": "Soumettre mon projet"
+        },
+        "card2": {
+            "header": "Découvrez nos créations",
+            "text"  : "Nous créons des expériences immersives tout en préservant l'âme des jeux que nous adaptons ou prototypons. Chaque projet est pensé pour garder l'identité unique du jeu, tout en l'enrichissant.",
+            "footer": "Voir nos projets"
+        }
     },
     "Logos": {
         "title": "Ils nous ont fait confiance"

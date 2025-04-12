@@ -14,7 +14,18 @@
     "About": {
         "title"      : "Who are we?",
         "description": "At OMGG (One More Good Game) we are looking to reinvent board games in the digital age.",
-        "text"       : "Our mission is to offer players and creators a new way to imagine, play and share unique experiences, combining the creativity of board games with the codes of video games."
+        "text"       : "Our mission is to offer players and creators a new way to imagine, play and share unique experiences, combining the creativity of board games with the codes of video games.",
+        "more"       : "Learn more",
+        "card1": {
+            "header": "Suggest your game",
+            "text"  : "You're an independent designer or a publisher with a game to digitise, an idea to prototype or a companion application to add? Submit your project to us, and together we'll bring your ideas to life!",
+            "footer": "Submit my project"
+        },
+        "card2": {
+            "header": "Discover our creations",
+            "text"  : "We create immersive experiences while preserving the soul of the games we adapt or prototype. Each project is designed to preserve the game's unique identity, while at the same time enriching it.",
+            "footer": "See our projects"
+        }
     },
     "Logos": {
         "title": "They trusted us"
