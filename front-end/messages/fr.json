@@ -36,6 +36,43 @@
         "read"       : "Lire l'article",
         "access"     : "Accéder au blog"
     },
+    "Newsletter": {
+        "title": "Vous voulez en savoir plus sur OMGG, nos jeux, nos actus ou nos emplois ?",
+        "mail": {
+            "label": "Email :",
+            "placeholder": "john@gmail.com"
+        },
+        "company": {
+            "label": "Vous représentez :",
+            "placeholder": [
+                "Un joueur",
+                "Un créateur indépendant",
+                "Une maison d'édition"
+            ]
+        },
+        "newsletter": {
+            "label": "Vous souhaitez recevoir des informations concernant :",
+            "placeholder": [
+                "Le blog",
+                "Les devlogs",
+                "Les nouvelles sorties",
+                "Tout"
+            ]
+        },
+        "error": {
+            "email": {
+                "required": "Veuillez saisir une adresse email",
+                "invalid": "L'email saisie n'est pas valide"
+            },
+            "company": {
+                "required": "Veuillez sélectionner au moins une option"
+            },
+            "newsletter": {
+                "required": "Veuillez sélectionner au moins un contenu"
+            }
+        },
+        "submit": "M'abonner"
+    },
     "Footer": {
         "logoAlt"  :"Logo d'OMGG",
         "subtitle" : "OMGG - One More Good Game\nDu plateau à l'écran, vivez le jeu autrement.",

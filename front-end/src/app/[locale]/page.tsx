@@ -13,6 +13,7 @@ import { Footer                  } from "@/components/Footer/Footer";
 import { Offers                  } from "@/components/Section/Offers";
 
 import { Footer_Logo } from "@/lib/constants/Footer";
+import { NewsLetter } from "@/components/Newsletter/NewsLetter";
 
 function renderNavbar()
 {
@@ -201,6 +202,7 @@ export default function Home({ params }: { params: Promise<{locale: Locale}> })
       {renderLogos()}
       <Testimonial />
       <BlogSectionSlider />
+      <NewsLetter />
       {renderFooter()}
     </main>
   );
