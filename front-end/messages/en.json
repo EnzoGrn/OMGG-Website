@@ -14,7 +14,18 @@
     "About": {
         "title"      : "Who are we?",
         "description": "At OMGG (One More Good Game) we are looking to reinvent board games in the digital age.",
-        "text"       : "Our mission is to offer players and creators a new way to imagine, play and share unique experiences, combining the creativity of board games with the codes of video games."
+        "text"       : "Our mission is to offer players and creators a new way to imagine, play and share unique experiences, combining the creativity of board games with the codes of video games.",
+        "more"       : "Learn more",
+        "card1": {
+            "header": "Suggest your game",
+            "text"  : "You're an independent designer or a publisher with a game to digitise, an idea to prototype or a companion application to add? Submit your project to us, and together we'll bring your ideas to life!",
+            "footer": "Submit my project"
+        },
+        "card2": {
+            "header": "Discover our creations",
+            "text"  : "We create immersive experiences while preserving the soul of the games we adapt or prototype. Each project is designed to preserve the game's unique identity, while at the same time enriching it.",
+            "footer": "See our projects"
+        }
     },
     "Logos": {
         "title": "They trusted us"
@@ -24,6 +35,43 @@
         "description": "Keep up to date with the latest news on our blog. Follow our progress, discover industry trends and explore our thoughts on publishing, development, technology and market opportunities. We'll share it all with you!",
         "read"       : "Read Article",
         "access"     : "Access the blog"
+    },
+    "Newsletter": {
+        "title": "You want to know more about OMGG, our games, our news or our jobs?",
+        "mail": {
+            "label": "Email:",
+            "placeholder": "john@gmail.com"
+        },
+        "company": {
+            "label": "You represent:",
+            "placeholder": [
+                "A player",
+                "An independent creator",
+                "A publishing house"
+            ]
+        },
+        "newsletter": {
+            "label": "You want to receive information about:",
+            "placeholder": [
+                "The blog",
+                "The devlogs",
+                "New releases",
+                "Everything"
+            ]
+        },
+        "error": {
+            "email": {
+                "required": "Please enter your email address.",
+                "invalid": "Please enter a valid email address."
+            },
+            "company": {
+                "required": "Please select a company."
+            },
+            "newsletter": {
+                "required": "Please select at least one option."
+            }
+        },
+        "submit": "Subscribe"
     },
     "Footer": {
         "logoAlt"  : "OMGG's logo",

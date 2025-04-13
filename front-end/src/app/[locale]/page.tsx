@@ -10,8 +10,10 @@ import { Testimonial             } from "@/components/Testimonials/Testimonials"
 import { Logos                   } from "@/components/Logo/Logos";
 import { BlogSectionSlider       } from "@/components/Blog/Blog";
 import { Footer                  } from "@/components/Footer/Footer";
+import { Offers                  } from "@/components/Section/Offers";
 
 import { Footer_Logo } from "@/lib/constants/Footer";
+import { NewsLetter } from "@/components/Newsletter/NewsLetter";
 
 function renderNavbar()
 {
@@ -70,7 +72,7 @@ function renderAbout()
       }}
       buttons={{
         primary: {
-          text: "En savoir plus",
+          text: t('more'),
           url: "#",
         }
       }}
@@ -196,9 +198,11 @@ export default function Home({ params }: { params: Promise<{locale: Locale}> })
       {renderNavbar()}
       {renderHero()}
       {renderAbout()}
+      <Offers />
       {renderLogos()}
       <Testimonial />
       <BlogSectionSlider />
+      <NewsLetter />
       {renderFooter()}
     </main>
   );

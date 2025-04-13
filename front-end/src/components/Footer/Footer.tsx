@@ -19,9 +19,9 @@ const Footer = ({ logo, menu }: FooterProps) => {
   const t = useTranslations('Footer');
 
   return (
-    <section className="py-8">
+    <section className="py-8 inset-shadow-xs">
       <Container>
-        <footer className="">
+        <footer>
           <div className="flex flex-col items-center lg:items-start justify-between gap-10 text-center lg:flex-row lg:text-left">
             <div className="flex w-full max-w-96 shrink flex-col items-center justify-between gap-6 lg:items-start">
               {/* Logo */}
