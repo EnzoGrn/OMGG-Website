@@ -15,6 +15,8 @@ import { Offers                  } from "@/components/Section/Offers";
 import { Footer_Logo } from "@/lib/constants/Footer";
 import { NewsLetter } from "@/components/Newsletter/NewsLetter";
 
+import FadeInWhenVisible from "@/components/Animator/Fade/FadeInWhenVisible";
+
 function renderNavbar()
 {
   const t = useTranslations('NavbarLinks');
@@ -197,12 +199,31 @@ export default function Home({ params }: { params: Promise<{locale: Locale}> })
     <main className="w-full h-full">
       {renderNavbar()}
       {renderHero()}
-      {renderAbout()}
-      <Offers />
-      {renderLogos()}
-      <Testimonial />
-      <BlogSectionSlider />
-      <NewsLetter />
+
+      <FadeInWhenVisible>
+        {renderAbout()}
+      </FadeInWhenVisible>
+
+      <FadeInWhenVisible>
+        <Offers />
+      </FadeInWhenVisible>
+
+      <FadeInWhenVisible>
+        {renderLogos()}
+      </FadeInWhenVisible>
+
+      <FadeInWhenVisible>
+        <Testimonial />
+      </FadeInWhenVisible>
+
+      <FadeInWhenVisible>
+        <BlogSectionSlider />
+      </FadeInWhenVisible>
+
+      <FadeInWhenVisible>
+        <NewsLetter />
+      </FadeInWhenVisible>
+
       {renderFooter()}
     </main>
   );
