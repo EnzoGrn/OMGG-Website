@@ -1,10 +1,18 @@
 {
-    "NavbarLinks": {
-        "logoAlt"  : "OMGG's logo",
+    "Navigation": {
+        "logoAlt": "OMGG's logo",
         "portfolio": "Our creations",
-        "omgg"     : "OMGG",
-        "blog"     : "Blog",
+        "omgg": "OMGG",
+        "blog": "Blog"
+    },
+    "Navbar": {
         "submit"   : "Submit a game"
+    },
+    "Footer": {
+        "subtitle" : "OMGG - One More Good Game\nFrom the board to the screen, experience the game differently.",
+        "copyright": "© 2025 OMGG. All rights reserved.",
+        "terms"    : "Terms and Conditions",
+        "privacy"  : "Privacy Policy"
     },
     "Hero": {
         "heading"    : "Our Mission:",
@@ -72,12 +80,5 @@
             }
         },
         "submit": "Subscribe"
-    },
-    "Footer": {
-        "logoAlt"  : "OMGG's logo",
-        "subtitle" : "OMGG - One More Good Game\nFrom the board to the screen, experience the game differently.",
-        "copyright": "© 2025 OMGG. All rights reserved.",
-        "terms"    : "Terms and Conditions",
-        "privacy"  : "Privacy Policy"
     }
 }
