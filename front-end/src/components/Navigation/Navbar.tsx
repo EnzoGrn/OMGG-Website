@@ -4,10 +4,9 @@ import { Button                                                                 
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger                                                               } from "@/components/ui/sheet";
 import { Logo                                                                                                                     } from "@/components/Logo/Logo";
+import { MenuProps, NavbarProps                                                                                                   } from "./NavigationProps";
 
-import { Header } from "./Interface";
-
-const Navbar = ({ logo, menu, submit }: Header.NavbarProps) => {
+const Navbar = ({ logo, menu, submit }: NavbarProps) => {
   return (
     <section className="py-4">
 
@@ -91,7 +90,7 @@ const Navbar = ({ logo, menu, submit }: Header.NavbarProps) => {
   );
 };
 
-const renderMenuItem = (item: Header.MenuItem) => {
+const renderMenuItem = (item: MenuProps) => {
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title}>
@@ -118,7 +117,7 @@ const renderMenuItem = (item: Header.MenuItem) => {
   );
 };
 
-const renderMobileMenuItem = (item: Header.MenuItem) => {
+const renderMobileMenuItem = (item: MenuProps) => {
   if (item.items) {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
@@ -141,7 +140,7 @@ const renderMobileMenuItem = (item: Header.MenuItem) => {
   );
 };
 
-const SubMenuLink = ({ item }: { item: Header.MenuItem }) => {
+const SubMenuLink = ({ item }: { item: MenuProps }) => {
   return (
     <a className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground" href={item.url}>
       <div className="text-foreground">
