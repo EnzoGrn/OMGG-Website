@@ -6,7 +6,7 @@ import { Hero                    } from "@/components/Section/Hero";
 import { Header                  } from "@/components/Navbar/Constant";
 import { Container               } from "@/components/Section/Container";
 import { TextEnum                } from "@/lib/enumerations/TextEnum";
-import { Testimonial             } from "@/components/Testimonials/Testimonials";
+import { Testimonials            } from "@/components/Testimonials/Testimonials";
 import { Logos                   } from "@/components/Logo/Logos";
 import { BlogSectionSlider       } from "@/components/Blog/Blog";
 import { Footer                  } from "@/components/Footer/Footer";
@@ -213,7 +213,7 @@ export default function Home({ params }: { params: Promise<{locale: Locale}> })
       </FadeInWhenVisible>
 
       <FadeInWhenVisible>
-        <Testimonial />
+        <Testimonials />
       </FadeInWhenVisible>
 
       <FadeInWhenVisible>
