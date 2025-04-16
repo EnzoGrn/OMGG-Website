@@ -3,7 +3,7 @@ import { setRequestLocale        } from "next-intl/server";
 import { use                     } from "react";
 import { Hero                    } from "@/components/Section/Hero";
 import { TextEnum                } from "@/lib/enumerations/TextEnum";
-import { Testimonial             } from "@/components/Testimonials/Testimonials";
+import { Testimonials            } from "@/components/Testimonials/Testimonials";
 import { Logos                   } from "@/components/Logo/Logos";
 import { BlogSectionSlider       } from "@/components/Blog/Blog";
 import { Offers                  } from "@/components/Section/Offers";
@@ -143,7 +143,7 @@ export default function Home({ params }: { params: Promise<{locale: Locale}> })
       </FadeInWhenVisible>
 
       <FadeInWhenVisible>
-        <Testimonial />
+        <Testimonials />
       </FadeInWhenVisible>
 
       <FadeInWhenVisible>
