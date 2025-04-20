@@ -1,8 +1,8 @@
 import { TextEnum } from "@/lib/enumerations/TextEnum";
 
 interface Text {
-  text: string;
-  size: TextEnum;
+  text      : string;
+  size      : TextEnum;
   className?: string;
 };
 

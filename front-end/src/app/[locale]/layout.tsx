@@ -3,9 +3,9 @@ import { getMessages, setRequestLocale             } from "next-intl/server";
 import { notFound                                  } from "next/navigation";
 import { routing                                   } from "@/i18n/routing";
 import { OMGGNavbar                                } from "@/components/OMGG/Navigation/Navbar";
+import { OMGGFooter                                } from "@/components/OMGG/Navigation/Footer";
 
 import "@/app/globals.css";
-import { OMGGFooter } from "@/components/OMGG/Navigation/Footer";
 
 export function generateStaticParams()
 {

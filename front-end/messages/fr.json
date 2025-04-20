@@ -20,7 +20,7 @@
         "imageAlt"   : "Logo d'OMGG"
     },
     "About": {
-        "title"       : "Qui sommes nous ?",
+        "heading"     : "Qui sommes nous ?",
         "description" : "Chez OMGG (One More Good Game) nous cherchons à réinventer le jeu de société à l'ère du numérique.",
         "text"        : "Notre mission est d'offrir aux joueurs et aux créateurs une nouvelle manière d'imaginer, de jouer et de partager des expériences uniques, en combinant la créativité du jeu de société avec les codes du jeu vidéo.",
         "more"        : "En savoir plus",
@@ -36,22 +36,22 @@
         }
     },
     "Logos": {
-        "title": "Ils nous ont fait confiance"
+        "heading": "Ils nous ont fait confiance"
     },
     "Blog": {
-        "title"      : "Actualités et dernières sorties",
+        "heading"    : "Actualités et dernières sorties",
         "description": "Restez à l'affût des dernières nouvelles sur notre blog. Suivez nos avancées, découvrez les tendances du secteur et explorez nos réflexions sur l’édition, le développement, la technologie et les opportunités du marché. On vous partage tout !",
         "read"       : "Lire l'article",
         "access"     : "Accéder au blog"
     },
     "Newsletter": {
-        "title": "Vous voulez en savoir plus sur OMGG, nos jeux, nos actus ou nos emplois ?",
-        "mail": {
-            "label": "Email :",
+        "heading": "Vous voulez en savoir plus sur OMGG, nos jeux, nos actus ou nos emplois ?",
+        "mail"   : {
+            "label"      : "Email :",
             "placeholder": "john@gmail.com"
         },
         "company": {
-            "label": "Vous représentez :",
+            "label"      : "Vous représentez :",
             "placeholder": [
                 "Un joueur",
                 "Un créateur indépendant",
@@ -59,7 +59,7 @@
             ]
         },
         "newsletter": {
-            "label": "Vous souhaitez recevoir des informations concernant :",
+            "label"      : "Vous souhaitez recevoir des informations concernant :",
             "placeholder": [
                 "Le blog",
                 "Les devlogs",
@@ -70,7 +70,7 @@
         "error": {
             "email": {
                 "required": "Veuillez saisir une adresse email",
-                "invalid": "L'email saisie n'est pas valide"
+                "invalid" : "L'email saisie n'est pas valide"
             },
             "company": {
                 "required": "Veuillez sélectionner au moins une option"

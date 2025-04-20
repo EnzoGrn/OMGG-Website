@@ -1,18 +1,16 @@
 'use client'
 
-import { Section         } from '@/components/Section/Section'
-import { Checkbox        } from '@/components/ui/checkbox'
+import { PSection        } from '@/components/Section/Section'
+import { CheckboxLabel   } from '@/components/Input/Checkbox'
 import { Input           } from '@/components/ui/input'
 import { Button          } from '@/components/ui/button'
-import { Label           } from '@/components/ui/label'
+import { RequiredLabel   } from '@/components/Text/Label'
 import { useForm         } from 'react-hook-form'
 import { zodResolver     } from '@hookform/resolvers/zod'
 import { z               } from 'zod'
 import { useTranslations } from 'next-intl'
 
-const RequiredMark = () => <span className="text-primary-foreground">*</span>
-
-const NewsLetter = () => {
+const OMGGNewsLetter = () => {
   const t = useTranslations('Newsletter');
 
   const formSchema = z.object({
@@ -64,56 +62,39 @@ const NewsLetter = () => {
   }
 
   return (
-    <Section padding='py-8 relative overflow-hidden'>
+    <PSection padding="py-8" className="relative overflow-hidden">
       <img src="./OMGG/Illustrations/red_dots.svg" alt="OMGG's dots illustration" className="h-1/3 w-1/3 bottom-10 -right-1/5 absolute -z-10 select-none" />
       <div className="w-full flex flex-col gap-8 items-start justify-start">
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-start">
-          {t('title')}
+          {t('heading')}
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg w-full space-y-8">
           <div className="space-y-2"> 
-            <Label>{t('mail.label')}<RequiredMark /></Label>
+            <RequiredLabel label={t('mail.label')} />
             <Input placeholder={t('mail.placeholder')} {...register('email')} />
             {errors.email && <p className="text-destructive text-sm">{errors.email.message}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label>{t('company.label')}<RequiredMark /></Label>
+            <RequiredLabel label={t('company.label')} />
 
             {[t('company.placeholder.0'), t('company.placeholder.1'), t('company.placeholder.2')].map((option, i) => {
               const id = `company-${i}`
 
-              return (
-                <div key={id} className="flex w-full gap-2">
-                  <Checkbox
-                    id={id}
-                    checked={watch('company')?.includes(option)}
-                    onCheckedChange={(checked) => handleCheckboxChange('company', option, !!checked)}
-                  />
-                  <Label htmlFor={id}>{option}</Label>
-                </div>
-              )
+              return (<CheckboxLabel key={id} id={id} checked={watch('company')?.includes(option)} onChanged={(checked) => handleCheckboxChange('company', option, !!checked)} label={option} />);
             })}
 
             {errors.company && <p className="text-destructive text-sm">{errors.company.message}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label>{t('newsletter.label')}<RequiredMark /></Label>
+            <RequiredLabel label={t('newsletter.label')} />
 
             {[t('newsletter.placeholder.0'), t('newsletter.placeholder.1'), t('newsletter.placeholder.2'), t('newsletter.placeholder.3')].map((option, i) => {
               const id = `newsletter-${i}`
-              return (
-                <div key={id} className="flex w-full gap-2">
-                  <Checkbox
-                    id={id}
-                    checked={watch('newsLetter')?.includes(option)}
-                    onCheckedChange={(checked) => handleCheckboxChange('newsLetter', option, !!checked)}
-                  />
-                  <Label htmlFor={id}>{option}</Label>
-                </div>
-              )
+
+              return (<CheckboxLabel key={id} id={id} checked={watch('newsLetter')?.includes(option)} onChanged={(checked) => handleCheckboxChange('newsLetter', option, !!checked)} label={option} />);
             })}
 
             {errors.newsLetter && <p className="text-destructive text-sm">{errors.newsLetter.message}</p>}
@@ -124,8 +105,8 @@ const NewsLetter = () => {
           </Button>
         </form>
       </div>
-    </Section>
+    </PSection>
   )
 }
 
-export { NewsLetter };
+export { OMGGNewsLetter };

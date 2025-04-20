@@ -1,14 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-import { Container } from "@/components/Section/Container";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState                    } from "react";
+import { Container                              } from "@/components/Section/Container";
+import { Button                                 } from "@/components/ui/button";
 import { Carousel, CarouselApi, CarouselContent } from "@/components/ui/carousel";
-
-import { TestimonialSkeleton } from "@/components/Testimonials/Testimonial/TestimonialSkeleton";
-import { TestimonialProps } from "@/components/Testimonials/Testimonial/TestimonialInterface";
-import { Testimonial } from "@/components/Testimonials/Testimonial/Testimonial";
+import { TestimonialSkeleton                    } from "@/components/Testimonials/TestimonialSkeleton";
+import { TestimonialProps                       } from "@/components/Testimonials/TestimonialInterface";
+import { Testimonial                            } from "@/components/Testimonials/Testimonial";
 
 const testimonials: TestimonialProps[] = [
   {
@@ -34,7 +32,7 @@ const testimonials: TestimonialProps[] = [
   },
 ];
 
-const Testimonials = () => {
+const OMGGTestimonials = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -115,4 +113,4 @@ const Testimonials = () => {
   );
 };
 
-export { Testimonials };
+export { OMGGTestimonials };
