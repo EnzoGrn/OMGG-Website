@@ -1,0 +1,84 @@
+{
+    "Navigation": {
+        "logoAlt": "OMGG's logo",
+        "portfolio": "Our creations",
+        "omgg": "OMGG",
+        "blog": "Blog"
+    },
+    "Navbar": {
+        "submit"   : "Submit a game"
+    },
+    "Footer": {
+        "subtitle" : "OMGG - One More Good Game\nFrom the board to the screen, experience the game differently.",
+        "copyright": "© 2025 OMGG. All rights reserved.",
+        "terms"    : "Terms and Conditions",
+        "privacy"  : "Privacy Policy"
+    },
+    "Hero": {
+        "heading"    : "Our Mission:",
+        "description": "To offer a new dimension to your games.",
+        "imageAlt"   : "OMGG's logo"
+    },
+    "About": {
+        "heading"    : "Who are we?",
+        "description": "At OMGG (One More Good Game) we are looking to reinvent board games in the digital age.",
+        "text"       : "Our mission is to offer players and creators a new way to imagine, play and share unique experiences, combining the creativity of board games with the codes of video games.",
+        "more"       : "Learn more",
+        "card1": {
+            "header": "Suggest your game",
+            "text"  : "You're an independent designer or a publisher with a game to digitise, an idea to prototype or a companion application to add? Submit your project to us, and together we'll bring your ideas to life!",
+            "footer": "Submit my project"
+        },
+        "card2": {
+            "header": "Discover our creations",
+            "text"  : "We create immersive experiences while preserving the soul of the games we adapt or prototype. Each project is designed to preserve the game's unique identity, while at the same time enriching it.",
+            "footer": "See our projects"
+        }
+    },
+    "Logos": {
+        "heading": "They trusted us"
+    },
+    "Blog": {
+        "heading"    : "Actuality and last releases",
+        "description": "Keep up to date with the latest news on our blog. Follow our progress, discover industry trends and explore our thoughts on publishing, development, technology and market opportunities. We'll share it all with you!",
+        "read"       : "Read Article",
+        "access"     : "Access the blog"
+    },
+    "Newsletter": {
+        "heading": "You want to know more about OMGG, our games, our news or our jobs?",
+        "mail"   : {
+            "label"      : "Email:",
+            "placeholder": "john@gmail.com"
+        },
+        "company": {
+            "label"      : "You represent:",
+            "placeholder": [
+                "A player",
+                "An independent creator",
+                "A publishing house"
+            ]
+        },
+        "newsletter": {
+            "label"      : "You want to receive information about:",
+            "placeholder": [
+                "The blog",
+                "The devlogs",
+                "New releases",
+                "Everything"
+            ]
+        },
+        "error": {
+            "email": {
+                "required": "Please enter your email address.",
+                "invalid" : "Please enter a valid email address."
+            },
+            "company": {
+                "required": "Please select a company."
+            },
+            "newsletter": {
+                "required": "Please select at least one option."
+            }
+        },
+        "submit": "Subscribe"
+    }
+}
