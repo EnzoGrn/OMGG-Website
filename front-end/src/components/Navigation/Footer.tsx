@@ -1,12 +1,9 @@
 import { FaInstagram, FaLinkedin, FaReddit, FaTiktok } from "react-icons/fa";
 import { FaBluesky, FaXTwitter                       } from "react-icons/fa6";
 import { Container                                   } from "@/components/Section/Container"
-import { useTranslations                             } from "next-intl";
-import { FooterProps, MenuProps                                 } from "@/components/Navigation/NavigationProps";
+import { FooterProps, MenuProps                      } from "@/components/Navigation/NavigationProps";
 
 const Footer = ({ logo, menu, subtitle, copyright, terms, privacy }: FooterProps) => {
-  const t = useTranslations('Footer');
-
   return (
     <section className="py-8 inset-shadow-xs">
       <Container>
