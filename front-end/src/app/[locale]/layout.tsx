@@ -13,7 +13,7 @@ export function generateStaticParams()
 }
 
 export default async function RootLayout({ children, params }: Readonly<{ children: React.ReactNode, params: Promise<{locale: Locale}>}>) {
-  const {locale} = await params;
+  const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale))
     notFound();
@@ -23,14 +23,14 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
 
   try {
     messages = await getMessages({ locale });
-  } catch (error) {
+  } catch {
     notFound();
   }
 
   return (
     <html lang={locale}>
       <body className="min-h-screen bg-background">
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
           <OMGGNavbar />
           {children}
           <OMGGFooter />

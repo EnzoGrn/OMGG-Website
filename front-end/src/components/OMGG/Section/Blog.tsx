@@ -140,7 +140,7 @@ const OMGGBlog = () => {
     window.addEventListener("keydown", handleKey);
 
     return () => window.removeEventListener("keydown", handleKey);
-  }, []);
+  }, [handlePrevious, handleNext]);
 
   // Scroll to current index
   useEffect(() => {
