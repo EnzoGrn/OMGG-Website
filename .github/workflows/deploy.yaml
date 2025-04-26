@@ -1,0 +1,52 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Connect to ssh and deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          debug: true
+          script: |
+            mkdir -p ~/.ssh
+            chmod 700 ~/.ssh
+
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+            chmod 600 ~/.ssh/id_rsa
+
+            ssh-keyscan github.com > ~/.ssh/known_hosts
+
+            PROJECT_DIR="test_nextjs_actions"
+            REPO_URL="git@github.com:PharaEthan/$PROJECT_DIR.git"
+
+            if [ ! -d "$PROJECT_DIR" ]; then
+              echo "📁 Folder not found, cloning repository..."
+              git clone $REPO_URL || { echo "Cloning failed"; exit 1; }
+              cd $PROJECT_DIR
+            else
+              echo "📁 Folder found, pulling latest changes..."
+              cd $PROJECT_DIR
+              git pull origin main
+            fi
+
+            export NVM_DIR="$HOME/.nvm"
+            source "$NVM_DIR/nvm.sh"
+            
+            cd front-end
+
+            docker ps -a -q --filter "name=omgg-website" | grep -q . && docker stop omgg-website && docker rm omgg-website
+            docker build -t omgg-website .
+            docker run -d -p 3000:3000 --name omgg-website omgg-website
