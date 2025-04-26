@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CarouselItem                        } from "@/components/ui/carousel"
-import { TestimonialProps                    } from "@/components/Testimonials/Testimonial/TestimonialInterface";
+import { TestimonialProps                    } from "@/components/Testimonials/TestimonialInterface";
 
 const Testimonial = (testimonial: TestimonialProps) => {
   return (

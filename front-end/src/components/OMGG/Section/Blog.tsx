@@ -71,7 +71,7 @@ const blogPosts: BlogPostProps[] = [{
       "How to integrate sustainability into your marketing strategy and connect with environmentally conscious consumers.",
 }];
 
-const BlogSectionSlider = () => {
+const OMGGBlog = () => {
   const t = useTranslations('Blog');
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -219,7 +219,7 @@ const BlogSectionSlider = () => {
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div className="space-y-4 max-w-xl text-secondary-foreground">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-              {t('title')}
+              {t('heading')}
             </h2>
             <p className="text-sm md:text-base">
               {t('description')}
@@ -275,4 +275,4 @@ const BlogSectionSlider = () => {
   );
 }
 
-export { BlogSectionSlider };
+export { OMGGBlog };

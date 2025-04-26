@@ -8,9 +8,10 @@ const Container = ({ children, className } : { children: React.ReactNode, classN
   );
 }
 
+// This component works only on 'lg' viewport and above.
 const ContainerContent = ({ children, className } : { children: React.ReactNode, className?: string }) => {
   return(
-    <div className={cn("max-w-[690px] p-0 lg:p-12 lg:max-w-full flex justify-center", className)}>
+    <div className={cn("p-0 lg:p-12", className)}>
       {children}
     </div>
   );

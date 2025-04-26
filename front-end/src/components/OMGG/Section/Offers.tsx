@@ -1,14 +1,14 @@
-import { Section                                   } from "@/components/Section/Section";
+import { PSection                                  } from "@/components/Section/Section";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Button                                    } from "@/components/ui/button";
 import { useTranslations                           } from "next-intl";
 import Link from "next/link";
 
-const Offers = () => {
+const OMGGOffers = () => {
   const t = useTranslations('About');
 
   return (
-    <Section padding={"pb-12"}>
+    <PSection padding={"pb-12"}>
       <div className="grid items-center gap-8 lg:grid-cols-2 w-full relative">
         <img src="./OMGG/Illustrations/red_dots.svg" alt="OMGG's dots illustration" className="h-2/3 w-2/3 absolute bottom-28 md:-bottom-44 right-2/3 -z-10 select-none" />
         <Card className="h-full w-full flex flex-col gap-8 overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow bg-secondary">
@@ -51,8 +51,8 @@ const Offers = () => {
           </CardFooter>
         </Card>
       </div>
-    </Section>
+    </PSection>
   );
 };
 
-export { Offers };
+export { OMGGOffers };
