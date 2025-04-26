@@ -7,7 +7,7 @@ const staticRoutes = ["/"]; // In future, add more static routes here (e.g., "/a
 
 export default function sitemap(): MetadataRoute.Sitemap
 {
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = process.env.BASE_URL || "http://localhost:3000";
 
   const entries: MetadataRoute.Sitemap = [];
 
