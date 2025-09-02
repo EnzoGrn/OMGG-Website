@@ -10,7 +10,7 @@ const OMGGAboutData: HeroProps = {
         { text: "", size: TextEnum.P , className: "my-6 max-w-full md:max-w-2/3 lg:max-w-full"      }
     ],
     image: {
-        src: "./OMGG/Illustrations/orange_dots.svg",
+        src: "/OMGG/Illustrations/orange_dots.svg",
         alt: "OMGG's dots illustration",
         className: "max-h-48 items-end justify-end lg:translate-x-0 lg:translate-y-0 translate-x-3/5 -translate-y-1/3"
     },

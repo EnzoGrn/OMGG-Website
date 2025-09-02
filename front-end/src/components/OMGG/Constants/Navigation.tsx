@@ -4,12 +4,12 @@ import { OMGGFullSideLogo, OMGGSideLogo      } from "./Logo";
 
 export const OMGGNavigation: MenuProps[] = [{
     title: "Nos créations",
-    url: "#",
+    url: "/games",
     items: [{
       title: "Vermines",
       description: "Jeu de cartes de deck-building dans le royaume des abeilles !",
-      icon: <img src="./OMGG/Games/Logo/Icon_Vermines.png" alt="Vermines" className="w-5 h-4 shrink-0" />,
-      url: "/"
+      icon: <img src="/OMGG/Games/Logo/Icon_Vermines.png" alt="Vermines" className="w-5 h-4 shrink-0" />,
+      url: "/games/vermines"
     }]
   },
   {
@@ -18,25 +18,25 @@ export const OMGGNavigation: MenuProps[] = [{
     items: [{
         title: "À propos",
         description: "Notre histoire, notre mission et nos valeurs",
-        icon: <Trees className="size-5 shrink-0" />,
+        icon: <Trees className="w-5 h-4 shrink-0" />,
         url: "/"
       },
       {
         title: "Carrières",
         description: "Découvre nos offres d'emploi et rejoins-nous",
-        icon: <Sunset className="size-5 shrink-0" />,
+        icon: <Sunset className="w-5 h-4 shrink-0" />,
         url: "/"
       },
       {
         title: "Partenaires",
         description: "Tu es éditeur ? Découvre notre solution",
-        icon: <Handshake className="size-5 shrink-0" />,
+        icon: <Handshake className="w-5 h-4 shrink-0" />,
         url: "/"
       },
       {
         title: "Support",
         description: "Besoin d'aide ? Contacte notre équipe",
-        icon: <Zap className="size-5 shrink-0" />,
+        icon: <Zap className="w-5 h-4 shrink-0" />,
         url: "/"
     }]
   },
@@ -50,7 +50,7 @@ export const OMGGNavbarValues: NavbarProps = {
   menu: OMGGNavigation,
   submit: {
     title: "Soumettre un jeu",
-    url: "#"
+    url: "/"
   }
 };
 

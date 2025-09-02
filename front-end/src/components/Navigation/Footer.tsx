@@ -2,6 +2,7 @@ import { FaInstagram, FaLinkedin, FaReddit, FaTiktok } from "react-icons/fa";
 import { FaBluesky, FaXTwitter                       } from "react-icons/fa6";
 import { Container                                   } from "@/components/Section/Container"
 import { FooterProps, MenuProps                      } from "@/components/Navigation/NavigationProps";
+import Link from "next/link";
 
 const Footer = ({ logo, menu, subtitle, copyright, terms, privacy }: FooterProps) => {
   return (
@@ -14,9 +15,9 @@ const Footer = ({ logo, menu, subtitle, copyright, terms, privacy }: FooterProps
               {/* Logo */}
               {logo &&
                 <div className="flex items-center gap-2 lg:justify-start">
-                  <a href={logo.url}>
+                  <Link href={logo.url}>
                     <img src={logo.src} alt={logo.alt} className="h-16" />
-                  </a>
+                  </Link>
                 </div>
               }
 

@@ -6,7 +6,9 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger             
 import { Logo                                                                                                                     } from "@/components/Logo/Logo";
 import { MenuProps, NavbarProps                                                                                                   } from "./NavigationProps";
 
-const Navbar = ({ logo, menu, submit }: NavbarProps) => {
+import Link from "next/link";
+
+const Navbar = ({ logo, menu, submit, locale = 'en' }: NavbarProps) => {
   return (
     <section className="py-4">
 
@@ -25,7 +27,7 @@ const Navbar = ({ logo, menu, submit }: NavbarProps) => {
             <div className="flex gap-10 items-center">
               <NavigationMenu>
                 <NavigationMenuList>
-                  {menu.map((item) => renderMenuItem(item))}
+                  {menu.map((item) => renderMenuItem(item, locale))}
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
@@ -68,7 +70,7 @@ const Navbar = ({ logo, menu, submit }: NavbarProps) => {
               <div className="flex flex-col gap-6 p-4">
                 {menu &&
                   <Accordion type="single" collapsible className="flex w-full flex-col gap-4">
-                    {menu.map((item) => renderMobileMenuItem(item))}
+                    {menu.map((item) => renderMobileMenuItem(item, locale))}
                   </Accordion>               
                 }
 
@@ -90,7 +92,7 @@ const Navbar = ({ logo, menu, submit }: NavbarProps) => {
   );
 };
 
-const renderMenuItem = (item: MenuProps) => {
+const renderMenuItem = (item: MenuProps, locale: string) => {
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title}>
@@ -100,7 +102,7 @@ const renderMenuItem = (item: MenuProps) => {
         <NavigationMenuContent className="bg-popover text-popover-foreground">
           {item.items.map((subItem) => (
             <NavigationMenuLink asChild key={subItem.title} className="w-80">
-              <SubMenuLink item={subItem} />
+              <SubMenuLink item={subItem} locale={locale} />
             </NavigationMenuLink>
           ))}
         </NavigationMenuContent>
@@ -117,7 +119,7 @@ const renderMenuItem = (item: MenuProps) => {
   );
 };
 
-const renderMobileMenuItem = (item: MenuProps) => {
+const renderMobileMenuItem = (item: MenuProps, locale: string) => {
   if (item.items) {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
@@ -126,7 +128,7 @@ const renderMobileMenuItem = (item: MenuProps) => {
         </AccordionTrigger>
         <AccordionContent className="mt-2">
           {item.items.map((subItem) => (
-            <SubMenuLink key={subItem.title} item={subItem} />
+            <SubMenuLink key={subItem.title} item={subItem} locale={locale} />
           ))}
         </AccordionContent>
       </AccordionItem>
@@ -140,11 +142,13 @@ const renderMobileMenuItem = (item: MenuProps) => {
   );
 };
 
-const SubMenuLink = ({ item }: { item: MenuProps }) => {
+const SubMenuLink = ({ item, locale }: { item: MenuProps, locale: string }) => {
+  const url = `/${locale}${item.url}`;
+
   return (
-    <a className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground" href={item.url}>
+    <Link className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground" href={url}>
       <div className="text-foreground">
-        {item.icon}
+        {item.icon && item.icon}
       </div>
       <div>
         <div className="text-sm font-semibold">
@@ -156,7 +160,7 @@ const SubMenuLink = ({ item }: { item: MenuProps }) => {
           </p>
         )}
       </div>
-    </a>
+    </Link>
   );
 };
 

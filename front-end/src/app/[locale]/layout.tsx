@@ -31,7 +31,7 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
     <html lang={locale}>
       <body className="min-h-screen bg-background">
         <NextIntlClientProvider messages={messages}>
-          <OMGGNavbar />
+          <OMGGNavbar locale={locale} />
           {children}
           <OMGGFooter />
         </NextIntlClientProvider>

@@ -10,7 +10,7 @@ const OMGGOffers = () => {
   return (
     <PSection padding={"pb-12"}>
       <div className="grid items-center gap-8 lg:grid-cols-2 w-full relative">
-        <img src="./OMGG/Illustrations/red_dots.svg" alt="OMGG's dots illustration" className="h-2/3 w-2/3 absolute bottom-28 md:-bottom-44 right-2/3 -z-10 select-none" />
+        <img src="/OMGG/Illustrations/red_dots.svg" alt="OMGG's dots illustration" className="h-2/3 w-2/3 absolute bottom-28 md:-bottom-44 right-2/3 -z-10 select-none" />
         <Card className="h-full w-full flex flex-col gap-8 overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow bg-secondary">
           <CardHeader>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-secondary-foreground">
