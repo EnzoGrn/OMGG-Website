@@ -4,7 +4,7 @@ import { OMGGFullSideLogo, OMGGSideLogo      } from "./Logo";
 
 export const OMGGNavigation: MenuProps[] = [{
     title: "Nos créations",
-    url: "/games",
+    url: "/",
     items: [{
       title: "Vermines",
       description: "Jeu de cartes de deck-building dans le royaume des abeilles !",
