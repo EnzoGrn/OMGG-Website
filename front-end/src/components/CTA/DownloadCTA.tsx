@@ -25,7 +25,7 @@ const DownloadCTA = (props : DownloadCTAProps) => {
             <div className="flex flex-col sm:flex-row gap-2 mt-4">
               {props.button && (
                 <Button asChild className="w-full sm:w-auto max-w-2/3 lg:max-w-full uppercase">
-                  <a href={props.button.url}>
+                  <a href={props.button.url} download>
                     {props.button.text}
                     <ArrowUpRight className="ml-2 size-4" />
                   </a>

@@ -4,7 +4,6 @@ import { ChevronLeftIcon, ChevronRightIcon       } from "lucide-react";
 import { useState, useRef, useEffect, TouchEvent } from "react";
 import { Button                                  } from "@/components/ui/button";
 import { Container                               } from "@/components/Section/Container";
-import { BlogPostProps                           } from "@/components/Blog/Post/BlogPostInterface";
 import { useTranslations                         } from "next-intl";
 import { GalleryImagePreview                     } from "../Gallery/GalleryImagePreview";
 import { GalleryImageSkeleton                    } from "../Gallery/GalleryImageSkeleton";
@@ -12,33 +11,43 @@ import { GalleryProps                            } from "../Gallery/GalleryInter
 
 const blogPosts: GalleryProps[] = [{
     id: 1,
-    title: "How Marketing Analytics is Reshaping Business Strategies",
-    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    title: "Illustration from Vermines' Game, in this one you can see the main menu of the game.",
+    imageUrl: '/Vermines/Illustration1.png',
   },
   {
     id: 2,
-    title: "The Rise of Video Marketing: Why You Can't Ignore It",
-    imageUrl: "https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
+    title: "Illustration from Vermines' Game, in this one you can see the cultists selection.",
+    imageUrl: '/Vermines/Illustration2.png',
   },
   {
     id: 3,
-    title: "Building Customer Loyalty Through Content Marketing",
-    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    title: "Illustration from Vermines' Game, in this one you can see the village.",
+    imageUrl: '/Vermines/Illustration3.png',
   },
   {
     id: 4,
-    title: "Social Media Trends That Will Dominate in 2023",
-    imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80",
+    title: "Illustration from Vermines' Game, in this one you can see the sacrifice area.",
+    imageUrl: '/Vermines/Illustration4.png',
   },
   {
     id: 5,
-    title: "Email Marketing Personalization: Going Beyond First Name",
-    imageUrl: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+    title: "Illustration from Vermines' Game, in this one you can see the table of the game, where's you played your card.",
+    imageUrl: '/Vermines/Illustration5.png',
   },
   {
     id: 6,
-    title: "Sustainable Marketing: Building Eco-Friendly Campaigns",
-    imageUrl: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+    title: "Illustration from Vermines' Game, in this one you can see a recap of the earned eloquence at the beginning of your turn.",
+    imageUrl: '/Vermines/Illustration6.png',
+  },
+  {
+    id: 7,
+    title: "Illustration from Vermines' Game, in this one you can see the partisan walking around the village.",
+    imageUrl: '/Vermines/Illustration7.gif',
+  },
+  {
+    id: 8,
+    title: "Illustration from Vermines' Game, in this one you can see the partisan listening you.",
+    imageUrl: '/Vermines/Illustration8.gif',
 }];
 
 const MediaGallery = () => {

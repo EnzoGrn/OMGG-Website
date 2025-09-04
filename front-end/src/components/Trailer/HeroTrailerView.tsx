@@ -57,7 +57,7 @@ const HeroTrailerView = (props : HeroTrailerProps) => {
         {/* Call to Action Download bottom right */}
         {props.button && <div className="absolute bottom-4 left-4 md:left-auto md:right-4 p-4">
           <Button asChild variant="default" size="lg">
-            <a href={props.button.url}>
+            <a href={props.button.url} download>
               {props.button.title}
               <ArrowUpRight className="ml-2 size-4" />
             </a>
