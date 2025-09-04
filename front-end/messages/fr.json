@@ -80,5 +80,25 @@
             }
         },
         "submit": "M'abonner"
+    },
+    "Games": {
+        "hero": {
+            "title": "Vermines",
+            "badge": "Nouveau",
+            "genre": ["Deck-building", "Tour par tour", "Stratégie"],
+            "download": "Télécharger le jeu"
+        },
+        "about": {
+            "heading": "À propos de Vermines",
+            "description": "Dans la cité des abeilles, où vivent en harmonie diverses espèces d'insectes, d'étranges personnages s'immiscent à la cour royale. Ce sont les représentants de divers cultes anciens qui tentent chacun d'invoquer leur dieu démoniaque. Pour cela, ils ont besoin de sacrifier des âmes et plus le sacrifié est noble, plus son âme a de valeur. Lequel de ces personnages sera le premier à réunir le nombre d'âmes nécessaires pour permettre à son dieu de faire régner le chaos sur le royaume ?"
+        },
+        "gallery": {
+            "heading": "Galerie"
+        },
+        "cta": {
+            "heading": "Télécharger Vermines",
+            "subtitle": "Téléchargez dès maintenant la dernière version de Vermines !",
+            "download": "Télécharger le jeu"
+        }
     }
 }

@@ -215,7 +215,7 @@ const OMGGBlog = () => {
   return (
     <section className="py-8 bg-secondary">
       <Container className="container space-y-6 md:space-y-8 relative overflow-hidden">
-        <img src="./OMGG/Illustrations/orange_dots.svg" alt="OMGG's dots illustration" className="invisible lg:visible max-w-96 max-h-48 h-1/3 w-2/3 absolute top-10 right-0 -translate-x-1/2 z-0 select-none" />
+        <img src="/OMGG/Illustrations/orange_dots.svg" alt="OMGG's dots illustration" className="invisible lg:visible max-w-96 max-h-48 h-1/3 w-2/3 absolute top-10 right-0 -translate-x-1/2 z-0 select-none" />
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div className="space-y-4 max-w-xl text-secondary-foreground">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">

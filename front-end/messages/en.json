@@ -80,5 +80,25 @@
             }
         },
         "submit": "Subscribe"
+    },
+    "Games": {
+        "hero": {
+            "title": "Vermines",
+            "badge": "New",
+            "genre": ["Deck-building", "Turn-based", "Strategies"],
+            "download": "Download the game"
+        },
+        "about": {
+            "heading": "About Vermines",
+            "description": "In the city of bees, where various species of insects live in harmony, strange characters intrude upon the royal court. They are representatives of various ancient cults, each attempting to invoke their demonic god. To do so, they need to sacrifice souls, and the more noble the victim, the more valuable their soul. Which of these characters will be the first to gather the number of souls needed to allow their god to wreak havoc on the kingdom?"
+        },
+        "gallery": {
+            "heading": "Gallery"
+        },
+        "cta": {
+            "heading": "Download Vermines",
+            "subtitle": "Get the last version of Vermines now!",
+            "download": "Download the game"
+        }
     }
 }
