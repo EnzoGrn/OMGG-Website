@@ -77,7 +77,7 @@ const OMGGTestimonials = () => {
 
   return (
     <Container className="pb-16 pt-32 overflow-visible relative">
-      <img src="./OMGG/Illustrations/yellow_dots2.svg" alt="OMGG's dots illustration" className="max-w-96 max-h-48 h-1/3 w-2/3 absolute top-10 left-1/2 -translate-x-1/2 z-0 select-none" />
+      <img src="/OMGG/Illustrations/yellow_dots2.svg" alt="OMGG's dots illustration" className="max-w-96 max-h-48 h-1/3 w-2/3 absolute top-10 left-1/2 -translate-x-1/2 z-0 select-none" />
       <Carousel setApi={setApi}>
         <CarouselContent>
           {isLoading ?

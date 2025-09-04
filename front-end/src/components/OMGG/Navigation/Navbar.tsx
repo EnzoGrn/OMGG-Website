@@ -3,7 +3,7 @@ import { Container        } from "@/components/Section/Container";
 import { useTranslations  } from "next-intl";
 import { OMGGNavbarValues } from "@/components/OMGG/Constants/Navigation";
 
-const OMGGNavbar = () => {
+const OMGGNavbar = ({ locale } : { locale: string }) => {
   const tNavigation = useTranslations('Navigation');
   const tNavbar     = useTranslations('Navbar');
 
@@ -20,7 +20,7 @@ const OMGGNavbar = () => {
   return (
     <header className="sticky top-0 z-50 bg-background shadow-sm w-full">
       <Container>
-        <Navbar {...OMGGNavbarValues} />
+        <Navbar {...OMGGNavbarValues} locale={locale} />
       </Container>
     </header>
   );
