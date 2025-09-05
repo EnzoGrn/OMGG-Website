@@ -4,7 +4,7 @@ import { Container                                   } from "@/components/Sectio
 import { FooterProps, MenuProps                      } from "@/components/Navigation/NavigationProps";
 import Link from "next/link";
 
-const Footer = ({ logo, menu, subtitle, copyright, terms, privacy }: FooterProps) => {
+const Footer = ({ logo, menu, subtitle, copyright, terms, privacy, locale = 'en' }: FooterProps) => {
   return (
     <section className="py-8 inset-shadow-xs">
       <Container>
@@ -76,13 +76,13 @@ const Footer = ({ logo, menu, subtitle, copyright, terms, privacy }: FooterProps
                       <>
                         {section.items.map((item: MenuProps, itemIdx) => (
                           <li key={itemIdx} className="font-medium hover:text-primary">
-                            <a href={item.url}>{item.title}</a>
+                            <a href={`/${locale}${item.url}`}>{item.title}</a>
                           </li>
                         ))}
                       </>
                       :
                       <li className="font-medium hover:text-primary">
-                        <a href={section.url}>{section.title}</a>
+                        <a href={`/${locale}${section.url}`}>{section.title}</a>
                       </li>
                     }
                   </ul>

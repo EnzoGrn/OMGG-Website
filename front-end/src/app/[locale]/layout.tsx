@@ -33,7 +33,7 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
         <NextIntlClientProvider messages={messages}>
           <OMGGNavbar locale={locale} />
           {children}
-          <OMGGFooter />
+          <OMGGFooter locale={locale} />
         </NextIntlClientProvider>
       </body>
     </html>
