@@ -33,7 +33,7 @@ const HeroTrailerView = (props : HeroTrailerProps) => {
   return (
     <PSection padding="py-0" className="min-h-[660px] lg:min-h-[690px]">
       <Card className="relative rounded-2xl overflow-hidden h-[calc(660px-6rem)] lg:h-[calc(690px-6rem)] flex-row">
-        <img src="/Vermines/thumbnail.png" alt="Trailer Thumbnail" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/Vermines/thumbnail.webp" alt="Trailer Thumbnail" className="absolute inset-0 w-full h-full object-cover" />
 
         <div className="absolute bottom-16 md:bottom-4 left-4 p-4 flex flex-col gap-2 max-w-xs">
           {props.badge && <Badge>{props.badge}</Badge>}

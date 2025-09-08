@@ -12,42 +12,42 @@ import { GalleryProps                            } from "../Gallery/GalleryInter
 const blogPosts: GalleryProps[] = [{
     id: 1,
     title: "Illustration from Vermines' Game, in this one you can see the main menu of the game.",
-    imageUrl: '/Vermines/Illustration1.png',
+    imageUrl: '/Vermines/Illustration1.webp',
   },
   {
     id: 2,
     title: "Illustration from Vermines' Game, in this one you can see the cultists selection.",
-    imageUrl: '/Vermines/Illustration2.png',
+    imageUrl: '/Vermines/Illustration2.webp',
   },
   {
     id: 3,
     title: "Illustration from Vermines' Game, in this one you can see the village.",
-    imageUrl: '/Vermines/Illustration3.png',
+    imageUrl: '/Vermines/Illustration3.webp',
   },
   {
     id: 4,
     title: "Illustration from Vermines' Game, in this one you can see the sacrifice area.",
-    imageUrl: '/Vermines/Illustration4.png',
+    imageUrl: '/Vermines/Illustration4.webp',
   },
   {
     id: 5,
     title: "Illustration from Vermines' Game, in this one you can see the table of the game, where's you played your card.",
-    imageUrl: '/Vermines/Illustration5.png',
+    imageUrl: '/Vermines/Illustration5.webp',
   },
   {
     id: 6,
     title: "Illustration from Vermines' Game, in this one you can see a recap of the earned eloquence at the beginning of your turn.",
-    imageUrl: '/Vermines/Illustration6.png',
+    imageUrl: '/Vermines/Illustration6.webp',
   },
   {
     id: 7,
     title: "Illustration from Vermines' Game, in this one you can see the partisan walking around the village.",
-    imageUrl: '/Vermines/Illustration7.gif',
+    imageUrl: '/Vermines/Illustration7.webm',
   },
   {
     id: 8,
     title: "Illustration from Vermines' Game, in this one you can see the partisan listening you.",
-    imageUrl: '/Vermines/Illustration8.gif',
+    imageUrl: '/Vermines/Illustration8.webm',
 }];
 
 const MediaGallery = () => {
