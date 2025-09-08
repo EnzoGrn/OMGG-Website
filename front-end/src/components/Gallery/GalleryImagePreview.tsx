@@ -13,8 +13,12 @@ const GalleryImagePreview = (image: GalleryProps) => {
           <DialogTrigger asChild>
             <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden rounded-b-none group cursor-pointer">
 
-              {/* Image */}
-              <img src={image.imageUrl} alt={image.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              {/* Illustration */}
+              {image.imageUrl.endsWith('.webm') || image.imageUrl.endsWith('.mp4') ? (
+                <video src={image.imageUrl} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" autoPlay loop muted playsInline />
+              ) : (
+                <img src={image.imageUrl} alt={image.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              )}
 
               {/* Hover effect */}
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -36,7 +40,12 @@ const GalleryImagePreview = (image: GalleryProps) => {
               <DialogTitle>{image.title}</DialogTitle>
             </VisuallyHidden>
 
-            <img src={image.imageUrl} alt={image.title} className="w-full h-auto rounded-2xl" />
+            {/* Illustration */}
+            {image.imageUrl.endsWith('.webm') || image.imageUrl.endsWith('.mp4') ? (
+              <video src={image.imageUrl} className="w-full h-auto rounded-2xl" autoPlay loop muted playsInline />
+            ) : (
+              <img src={image.imageUrl} alt={image.title} className="w-full h-auto rounded-2xl" />
+            )}
           </DialogContent>
         </Dialog>
 
