@@ -1,5 +1,5 @@
 import { PSection                                                                             } from "../Section/Section";
-import { H1, H2, H3                                                                           } from "../Text/Text";
+import { H1, H2                                                                               } from "../Text/Text";
 import { Badge                                                                                } from "../ui/badge";
 import { Card                                                                                 } from "../ui/card";
 import { RiSwitchFill, RiXboxFill, RiPlaystationFill, RiAppleFill, RiSteamFill, RiWindowsFill } from "react-icons/ri";
