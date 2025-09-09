@@ -9,7 +9,7 @@ const Testimonial = (testimonial: TestimonialProps) => {
 
         {/* Avatar */}
         <Avatar className="mb-8 size-24 select-none">
-          <AvatarImage src={testimonial.avatar} />
+          <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
           <AvatarFallback>{testimonial.name}</AvatarFallback>
         </Avatar>
 

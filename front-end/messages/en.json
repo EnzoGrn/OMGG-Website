@@ -1,4 +1,8 @@
 {
+    "metadata": {
+        "title": "OMGG | Vos jeux de société, autrement - Digitization and digital adaptation",
+        "description": "One More Good Game transforms your board games into interactive digital experiences. Rediscover your classics, anywhere and anytime."
+    },
     "Navigation": {
         "logoAlt": "OMGG's logo",
         "portfolio": "Our creations",
@@ -82,6 +86,10 @@
         "submit": "Subscribe"
     },
     "Games": {
+        "metadata": {
+            "title": "Vermines | Occult deck-building in the city of bees",
+            "description": "Play as a cultist and sacrifice souls to summon your deity. Vermines, a strategic deck-building game, available in digital version."
+        },
         "hero": {
             "title": "Vermines",
             "badge": "New",
