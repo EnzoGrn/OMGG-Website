@@ -30,7 +30,7 @@ const GalleryImagePreview = (image: GalleryProps) => {
           <DialogContent className="md:max-w-4xl p-0 bg-transparent border-0 shadow-none">
 
             <DialogClose asChild>
-              <button className="absolute top-3 right-3 p-1 rounded-full bg-black/50 hover:bg-black/70 text-white transition">
+              <button className="absolute top-3 right-3 p-1 rounded-full bg-black/50 hover:bg-black/70 text-white transition" aria-label="Close">
                 <X className="w-5 h-5" />
               </button>
             </DialogClose>

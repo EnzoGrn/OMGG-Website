@@ -34,32 +34,32 @@ const Footer = ({ logo, menu, subtitle, copyright, terms, privacy, locale = 'en'
               {/* Social Network */}
               <ul className="flex items-center space-x-6 text-muted-foreground">
                 <li className="font-medium hover:text-primary">
-                  <a href="https://x.com/omgg_fr">
+                  <a href="https://x.com/omgg_fr" aria-label="X / Twitter">
                     <FaXTwitter className="size-6" />
                   </a>
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <a href="https://bsky.app/profile/omggfr.bsky.social">
+                  <a href="https://bsky.app/profile/omggfr.bsky.social" aria-label="Bluesky">
                     <FaBluesky className="size-6" />
                   </a>
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <a href="https://www.instagram.com/omgg_fr/">
+                  <a href="https://www.instagram.com/omgg_fr/" aria-label="Instagram">
                     <FaInstagram className="size-6" />
                   </a>
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <a href="https://www.tiktok.com/@omgg_fr">
+                  <a href="https://www.tiktok.com/@omgg_fr" aria-label="TikTok">
                     <FaTiktok className="size-6" />
                   </a>
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <a href="https://www.linkedin.com/company/omggfr/">
+                  <a href="https://www.linkedin.com/company/omggfr/" aria-label="LinkedIn">
                     <FaLinkedin className="size-6" />
                   </a>
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <a href="https://www.reddit.com/user/omgg_fr/">
+                  <a href="https://www.reddit.com/user/omgg_fr/" aria-label="Reddit">
                     <FaReddit className="size-6" />
                   </a>
                 </li>
@@ -76,13 +76,17 @@ const Footer = ({ logo, menu, subtitle, copyright, terms, privacy, locale = 'en'
                       <>
                         {section.items.map((item: MenuProps, itemIdx) => (
                           <li key={itemIdx} className="font-medium hover:text-primary">
-                            <a href={`/${locale}${item.url}`}>{item.title}</a>
+                            <a href={`/${locale}${item.url}`} aria-label={item.title}>
+                              {item.title}
+                            </a>
                           </li>
                         ))}
                       </>
                       :
                       <li className="font-medium hover:text-primary">
-                        <a href={`/${locale}${section.url}`}>{section.title}</a>
+                        <a href={`/${locale}${section.url}`} aria-label={section.title}>
+                          {section.title}
+                        </a>
                       </li>
                     }
                   </ul>
@@ -96,10 +100,14 @@ const Footer = ({ logo, menu, subtitle, copyright, terms, privacy, locale = 'en'
             <p>{copyright}</p>
             <ul className="flex justify-center gap-4 lg:justify-start">
               <li className="hover:text-primary">
-                <a href={terms.url}>{terms.title}</a>
+                <a href={terms.url} aria-label={terms.title}>
+                  {terms.title}
+                </a>
               </li>
               <li className="hover:text-primary">
-                <a href={privacy.url}>{privacy.title}</a>
+                <a href={privacy.url} aria-label={privacy.title}>
+                  {privacy.title}
+                </a>
               </li>
             </ul>
           </div>

@@ -33,8 +33,8 @@ const Navbar = ({ logo, menu, submit, locale = 'en' }: NavbarProps) => {
             </div>
           }
           {submit &&
-            <Button asChild size="sm">
-              <a href={submit.url} className="uppercase">
+            <Button asChild size="sm" aria-label={submit.title}>
+              <a href={submit.url} className="uppercase" aria-label={submit.title}>
                 {submit.title}
               </a>
             </Button>
@@ -48,14 +48,14 @@ const Navbar = ({ logo, menu, submit, locale = 'en' }: NavbarProps) => {
 
           {/* Logo */}
           {logo &&
-            <a href={logo?.url} className="flex items-center gap-2">
+            <a href={logo?.url} className="flex items-center gap-2" aria-label="Home">
               <img src={logo?.src} className="max-h-[43px] w-full" alt={logo?.alt} />
             </a>
           }
 
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon">
+              <Button variant="outline" size="icon" aria-label="Menu">
                 <Menu className="size-4" />
               </Button>
             </SheetTrigger>
@@ -76,8 +76,8 @@ const Navbar = ({ logo, menu, submit, locale = 'en' }: NavbarProps) => {
 
                 {submit &&
                   <div className="flex flex-col gap-3">
-                    <Button asChild>
-                      <a href={submit.url} className="uppercase">
+                    <Button asChild aria-label={submit.title}>
+                      <a href={submit.url} className="uppercase" aria-label={submit.title}>
                         {submit.title}
                       </a>
                     </Button>
@@ -136,7 +136,7 @@ const renderMobileMenuItem = (item: MenuProps, locale: string) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="text-md font-semibold uppercase">
+    <a key={item.title} href={item.url} className="text-md font-semibold uppercase" aria-label={item.title}>
       {item.title}
     </a>
   );
@@ -146,7 +146,7 @@ const SubMenuLink = ({ item, locale }: { item: MenuProps, locale: string }) => {
   const url = `/${locale}${item.url}`;
 
   return (
-    <Link className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground" href={url}>
+    <Link className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground" href={url} aria-label={item.title}>
       <div className="text-foreground">
         {item.icon && item.icon}
       </div>

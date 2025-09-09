@@ -20,12 +20,12 @@ const DownloadCTA = (props : DownloadCTAProps) => {
             <h1 className="text-2xl font-bold text-pretty lg:text-4xl">
               {props.heading}
             </h1>
-            {props.description && <h3 className="max-w-xl lg:text-lg">{props.description}</h3>}
+            {props.description && <h2 className="max-w-xl lg:text-lg">{props.description}</h2>}
 
             <div className="flex flex-col sm:flex-row gap-2 mt-4">
               {props.button && (
-                <Button asChild className="w-full sm:w-auto max-w-2/3 lg:max-w-full uppercase">
-                  <a href={props.button.url} download>
+                <Button asChild className="w-full sm:w-auto max-w-2/3 lg:max-w-full uppercase" aria-label={props.button.text}>
+                  <a href={props.button.url} download aria-label={props.button.text}>
                     {props.button.text}
                     <ArrowUpRight className="ml-2 size-4" />
                   </a>
