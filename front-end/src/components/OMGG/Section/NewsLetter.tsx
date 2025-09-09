@@ -100,7 +100,7 @@ const OMGGNewsLetter = () => {
             {errors.newsLetter && <p className="text-destructive text-sm">{errors.newsLetter.message}</p>}
           </div>
 
-          <Button type="submit" disabled={!isValid} className="w-full uppercase max-w-xs">
+          <Button type="submit" disabled={!isValid} className="w-full uppercase max-w-xs" aria-label={t('submit')}>
             {t('submit')}
           </Button>
         </form>

@@ -263,8 +263,10 @@ const OMGGBlog = () => {
           <Button variant="outline" size="icon" onClick={handlePrevious} disabled={currentIndex === 0} aria-label="Previous slide">
             <ChevronLeftIcon className="h-4 w-4" />
           </Button>
-          <Button variant="outline" asChild>
-            <Link href="#" className="uppercase">{t('access')}</Link>
+          <Button variant="outline" asChild aria-label={t('access')}>
+            <Link href="#" className="uppercase" aria-label={t('access')}>
+              {t('access')}
+            </Link>
           </Button>
           <Button variant="outline" size="icon" onClick={handleNext} disabled={currentIndex === maxIndex} aria-label="Next slide">
             <ChevronRightIcon className="h-4 w-4" />

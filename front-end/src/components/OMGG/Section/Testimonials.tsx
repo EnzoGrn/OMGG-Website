@@ -104,6 +104,7 @@ const OMGGTestimonials = () => {
             onClick={() => {
               api?.scrollTo(index);
             }}
+            aria-label={`Go to testimonial ${index + 1}`}
           >
             <div className={`size-2.5 rounded-full ${index === current ? "bg-primary" : "bg-input"}`} />
           </Button>
