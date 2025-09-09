@@ -20,12 +20,12 @@ const DownloadCTA = (props : DownloadCTAProps) => {
             <h1 className="text-2xl font-bold text-pretty lg:text-4xl">
               {props.heading}
             </h1>
-            {props.description && <h3 className="max-w-xl lg:text-lg">{props.description}</h3>}
+            {props.description && <h2 className="max-w-xl lg:text-lg">{props.description}</h2>}
 
             <div className="flex flex-col sm:flex-row gap-2 mt-4">
               {props.button && (
-                <Button asChild className="w-full sm:w-auto max-w-2/3 lg:max-w-full uppercase">
-                  <a href={props.button.url} download>
+                <Button asChild className="w-full sm:w-auto max-w-2/3 lg:max-w-full uppercase" aria-label={props.button.text}>
+                  <a href={props.button.url} download aria-label={props.button.text}>
                     {props.button.text}
                     <ArrowUpRight className="ml-2 size-4" />
                   </a>
@@ -36,10 +36,10 @@ const DownloadCTA = (props : DownloadCTAProps) => {
 
           {/* Temp Illustration from Vermines Games */}
           <div className="hidden md:block absolute right-0 top-0 h-full w-1/3 pointer-events-none overflow-visible">
-            <img src="/Vermines/Bard.png"       alt="Bard"       className="select-none absolute top-0 left-1/2 translate-x-8 -translate-y-1/4 w-[12rem] lg:w-[14rem]" />
-            <img src="/Vermines/Blacksmith.png" alt="Blacksmith" className="select-none -scale-x-100 absolute top-0 left-1/2 -translate-x-32 -translate-y-1/4 w-[12rem] lg:w-[14rem]" />
-            <img src="/Vermines/Queen.png"      alt="Guerrier"   className="select-none absolute top-0 left-1/2 -translate-x-12 -translate-y-10 w-[12rem] lg:w-[14rem]" />
-            <img src="/Vermines/Dragoleon.png"  alt="Archer"     className="select-none -scale-x-100 absolute top-0 left-1/2 -translate-x-80 -translate-y-1/4 w-[12rem] lg:w-[14rem]" />
+            <img src="/Vermines/Bard.webp"       alt="Bard from Vermines"       className="select-none absolute top-0 left-1/2 translate-x-8 -translate-y-1/4 w-[10rem] lg:w-[12rem]" />
+            <img src="/Vermines/Blacksmith.webp" alt="Blacksmith from Vermines" className="select-none -scale-x-100 absolute top-0 left-1/2 -translate-x-32 -translate-y-1/4 w-[12rem] lg:w-[14rem]" />
+            <img src="/Vermines/Queen.webp"      alt="Queen from Vermines"      className="select-none absolute top-0 left-1/2 -translate-x-12 -translate-y-10 w-[12rem] lg:w-[13rem]" />
+            <img src="/Vermines/Dragoleon.webp"  alt="Dragoleon from Vermines"  className="select-none -scale-x-100 absolute top-0 left-1/2 -translate-x-80 -translate-y-1/4 w-[12rem] lg:w-[14rem]" />
           </div>
         </div>
       </Container>

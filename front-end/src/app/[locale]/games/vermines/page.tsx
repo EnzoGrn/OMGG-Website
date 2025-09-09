@@ -1,14 +1,29 @@
-import { Locale, useTranslations } from "next-intl";
-import { setRequestLocale        } from "next-intl/server";
-import { use                     } from "react";
-import { OMGGNewsLetter          } from "@/components/OMGG/Section/NewsLetter";
-import { MediaGallery            } from "@/components/Section/MediaGallery";
-import { HeroTrailerView         } from "@/components/Trailer/HeroTrailerView";
-import { DownloadCTA             } from "@/components/CTA/DownloadCTA";
-import { HeroSection             } from "@/components/Section/Hero";
-import { TextEnum                } from "@/lib/enumerations/TextEnum";
+import { Locale, useTranslations           } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { OMGGNewsLetter                    } from "@/components/OMGG/Section/NewsLetter";
+import { MediaGallery                      } from "@/components/Section/MediaGallery";
+import { HeroTrailerView                   } from "@/components/Trailer/HeroTrailerView";
+import { DownloadCTA                       } from "@/components/CTA/DownloadCTA";
+import { HeroSection                       } from "@/components/Section/Hero";
+import { TextEnum                          } from "@/lib/enumerations/TextEnum";
+import type { Metadata                     } from "next";
 
 import FadeInWhenVisible from "@/components/Animator/Fade/FadeInWhenVisible";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata>
+{
+  const { locale } = await params;
+  const t          = await getTranslations({ locale, namespace: "Games" });
+
+  return {
+    title: t("metadata.title"),
+    description: t("metadata.description"),
+    openGraph: {
+      title: t("metadata.title"),
+      description: t("metadata.description")
+    }
+  };
+}
 
 const HeroTrailerSection = () => {
   const t = useTranslations('Games.hero');
@@ -62,9 +77,9 @@ const CTASection = () => {
   );
 }
 
-export default function Home({ params }: { params: Promise<{locale: Locale}> })
+export default async function Home({ params }: { params: Promise<{ locale: Locale }> })
 {
-  const { locale } = use(params);
+  const { locale } = await params;
 
   setRequestLocale(locale);
 

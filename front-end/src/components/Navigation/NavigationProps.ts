@@ -30,4 +30,6 @@ export interface FooterProps {
 
     terms  : RedirectButtonProps;
     privacy: RedirectButtonProps;
+
+    locale?: string; // The current locale/language of the application.
 }

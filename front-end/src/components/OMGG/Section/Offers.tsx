@@ -23,8 +23,8 @@ const OMGGOffers = () => {
           </CardContent>
 
           <CardFooter className="px-5 pb-5 pt-0">
-            <Button asChild size="sm" className="text-sm group justify-start text-primary-foreground max-w-[220px]">
-              <Link href="#" className="flex items-center uppercase">
+            <Button asChild size="sm" className="text-sm group justify-start text-primary-foreground max-w-[220px]" aria-label={t('card1.footer')}>
+              <Link href="#" className="flex items-center uppercase" aria-label={t('card1.footer')}>
                 {t('card1.footer')}
               </Link>
             </Button>
@@ -43,8 +43,8 @@ const OMGGOffers = () => {
           </CardContent>
 
           <CardFooter className="px-5 pb-5 pt-0">
-            <Button asChild size="sm" className="w-full text-sm group justify-center text-primary-foreground max-w-[220px]">
-              <Link href="#" className="flex items-center uppercase">
+            <Button asChild size="sm" className="w-full text-sm group justify-center text-primary-foreground max-w-[220px]" aria-label={t('card2.footer')}>
+              <Link href="#" className="flex items-center uppercase" aria-label={t('card2.footer')}>
                 {t('card2.footer')}
               </Link>
             </Button>

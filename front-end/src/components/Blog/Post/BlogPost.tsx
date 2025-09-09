@@ -45,8 +45,8 @@ const BlogPost = (post: BlogPostProps) => {
         </CardContent>
 
         <CardFooter className="px-5 pb-5 pt-0">
-          <Button variant="ghost" size="sm" className="w-full text-sm group justify-start text-primary" asChild>
-            <Link href="#" className="flex items-center">
+          <Button variant="ghost" size="sm" className="w-full text-sm group justify-start text-primary" asChild aria-label={t('read')}>
+            <Link href="#" className="flex items-center" aria-label={t('read')}>
               {t('read')}
               <ArrowRightIcon className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>

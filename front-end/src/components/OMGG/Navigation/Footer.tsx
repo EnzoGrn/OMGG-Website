@@ -2,7 +2,7 @@ import { Footer           } from "@/components/Navigation/Footer";
 import { useTranslations  } from "next-intl";
 import { OMGGFooterValues } from "../Constants/Navigation";
 
-const OMGGFooter = () => {
+const OMGGFooter = ({ locale } : { locale: string }) => {
   const tN = useTranslations('Navigation');
   const tF = useTranslations('Footer');
 
@@ -20,7 +20,7 @@ const OMGGFooter = () => {
   }
 
   return(
-    <Footer {...OMGGFooterValues} />
+    <Footer {...OMGGFooterValues} locale={locale} />
   );
 }
 
