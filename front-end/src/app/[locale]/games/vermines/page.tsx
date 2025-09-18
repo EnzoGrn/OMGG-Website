@@ -38,7 +38,7 @@ const HeroTrailerSection = () => {
       platforms={['Windows']}
       button={{
         title: t('download'),
-        url: '/Vermines/Vermines.exe'
+        url: '/Vermines/VerminesInstaller.exe'
       }}
     />
   );
@@ -72,7 +72,7 @@ const CTASection = () => {
       description={t('subtitle')}
       button={{
         text: t('download'),
-        url: "/Vermines/Vermines.exe"
+        url: "/Vermines/VerminesInstaller.exe"
       }} />
   );
 }
