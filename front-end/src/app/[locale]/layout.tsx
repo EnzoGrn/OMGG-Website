@@ -4,6 +4,8 @@ import { notFound                                  } from "next/navigation";
 import { routing                                   } from "@/i18n/routing";
 import { OMGGNavbar                                } from "@/components/OMGG/Navigation/Navbar";
 import { OMGGFooter                                } from "@/components/OMGG/Navigation/Footer";
+// Backend Fecth
+import { fetchFromStrapi                           } from "@/lib/Strapi"
 
 import "@/app/globals.css";
 
@@ -27,12 +29,20 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
     notFound();
   }
 
+  // Fetch global single type from Strapi
+  const global = await fetchFromStrapi("global", locale);
+
+  console.log("Global : " + global);
+
   return (
     <html lang={locale}>
       <body className="min-h-screen bg-background">
         <NextIntlClientProvider messages={messages}>
-          <OMGGNavbar locale={locale} />
+          <OMGGNavbar locale={locale} global={global?.navbar} />
           {children}
+          { 
+            // TODO: Use Global Single Type 
+          }
           <OMGGFooter locale={locale} />
         </NextIntlClientProvider>
       </body>
