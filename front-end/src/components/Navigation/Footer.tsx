@@ -1,10 +1,12 @@
 import { FaInstagram, FaLinkedin, FaReddit, FaTiktok } from "react-icons/fa";
 import { FaBluesky, FaXTwitter                       } from "react-icons/fa6";
 import { Container                                   } from "@/components/Section/Container"
-import { FooterProps, MenuProps                      } from "@/components/Navigation/NavigationProps";
+import { FooterProps                                 } from "@/components/Navigation/FooterProps";
 import Link from "next/link";
 
-const Footer = ({ logo, menu, subtitle, copyright, terms, privacy, locale = 'en' }: FooterProps) => {
+const NEXT_PUBLIC_STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
+
+const Footer = ({ logo, subtitle, copyright, iconsLink, menu, legal, locale = 'en' }: FooterProps) => {
   return (
     <section className="py-8 inset-shadow-xs">
       <Container>
@@ -15,8 +17,9 @@ const Footer = ({ logo, menu, subtitle, copyright, terms, privacy, locale = 'en'
               {/* Logo */}
               {logo &&
                 <div className="flex items-center gap-2 lg:justify-start">
-                  <Link href={logo.url}>
-                    <img src={logo.src} alt={logo.alt} className="h-16" />
+                  {/* TODO: set an url to logo */}
+                  <Link href="/">
+                    <img src={`${NEXT_PUBLIC_STRAPI_URL}${logo.src}`} alt={logo.alt} className="h-16" />
                   </Link>
                 </div>
               }
@@ -33,6 +36,20 @@ const Footer = ({ logo, menu, subtitle, copyright, terms, privacy, locale = 'en'
 
               {/* Social Network */}
               <ul className="flex items-center space-x-6 text-muted-foreground">
+                {iconsLink && iconsLink.map((iconLink) => {
+                  if (!iconLink.isDisable)
+                    return (
+                      <li className="font-medium hover:text-primary" key={iconLink.id}>
+                        <a href={iconLink.url} aria-label="X / Twitter">
+                          {/* TODO: Get React Icon from slugIcon */}
+                          {/* <FaXTwitter className="size-6" /> */}
+                        </a>
+                      </li>
+                    )
+                  })}
+              </ul>
+
+              {/* <ul className="flex items-center space-x-6 text-muted-foreground">
                 <li className="font-medium hover:text-primary">
                   <a href="https://x.com/omgg_fr" aria-label="X / Twitter">
                     <FaXTwitter className="size-6" />
@@ -63,11 +80,11 @@ const Footer = ({ logo, menu, subtitle, copyright, terms, privacy, locale = 'en'
                     <FaReddit className="size-6" />
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </div>
             
             {/* Menu navigation */}
-            <div className="grid grid-cols-3 gap-6 lg:gap-20">
+            {/* <div className="grid grid-cols-3 gap-6 lg:gap-20">
               {menu && menu.map((section: MenuProps, sectionIdx) => (
                 <div key={sectionIdx}>
                   <h3 className="mb-6 font-bold">{section.title}</h3>
@@ -92,11 +109,11 @@ const Footer = ({ logo, menu, subtitle, copyright, terms, privacy, locale = 'en'
                   </ul>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Copyright */}
-          <div className="mt-8 lg:mt-20 flex flex-col justify-between gap-4 border-t pt-8 text-center text-sm font-medium text-muted-foreground lg:flex-row lg:items-center lg:text-left">
+          {/* <div className="mt-8 lg:mt-20 flex flex-col justify-between gap-4 border-t pt-8 text-center text-sm font-medium text-muted-foreground lg:flex-row lg:items-center lg:text-left">
             <p>{copyright}</p>
             <ul className="flex justify-center gap-4 lg:justify-start">
               <li className="hover:text-primary">
@@ -110,7 +127,7 @@ const Footer = ({ logo, menu, subtitle, copyright, terms, privacy, locale = 'en'
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </footer>
       </Container>
     </section>

@@ -1,20 +1,5 @@
 import { LogoProps } from "@/components/Logo/Interface";
 
-interface RedirectButtonProps {
-  title: string;
-  url  : string;
-}
-
-//TODO: move this in another file
-// export enum Variant {
-//   Default = "Default",
-//   Secondary = "Secondary",
-//   Destructive = "Destructive",
-//   Outline = "Outline",
-//   Ghost = "Ghost",
-//   Link = "Link"
-// }
-
 export interface ItemProps {
     id:                 number,
     title:              string;
@@ -62,22 +47,4 @@ export interface MenuProps {
     items        ?: MenuProps[];     // Submenu (if any).
 }
 
-// export interface NavbarProps {
-//     logo  ?: LogoProps;           // The logo object for the navbar.
-//     menu  ?: MenuProps[];         // An array of menu navigation for the navbar.
-//     submit?: RedirectButtonProps; // A important button to redirect the user.
-//     locale?: string;              // The current locale/language of the application.
-// }
 
-export interface FooterProps {
-    logo   ?: LogoProps;   // The logo object for the footer.
-    subtitle: string;      // The company description.
-    menu   ?: MenuProps[]; // An array of menu navigation for the footer.
-
-    copyright: string;
-
-    terms  : RedirectButtonProps;
-    privacy: RedirectButtonProps;
-
-    locale?: string; // The current locale/language of the application.
-}

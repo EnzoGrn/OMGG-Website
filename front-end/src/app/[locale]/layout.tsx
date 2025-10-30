@@ -43,7 +43,7 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
           { 
             // TODO: Use Global Single Type 
           }
-          <OMGGFooter locale={locale} />
+          <OMGGFooter locale={locale} global={global?.footer}/>
         </NextIntlClientProvider>
       </body>
     </html>
