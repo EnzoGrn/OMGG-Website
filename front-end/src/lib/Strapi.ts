@@ -23,7 +23,7 @@ export async function fetchFromStrapi(path: string, locale?: string) {
     const res = await fetch(url.toString(), {
         headers,
         // ISR (https://nextjs.org/docs/pages/guides/incremental-static-regeneration)
-        next: { revalidate: 60}, // cache 60s
+        next: { revalidate: 3}, // TODO: cache 60s
     });
 
     // Check result of the fetch

@@ -1,57 +1,51 @@
-import { Navbar           } from "@/components/Navigation/Navbar";
-import { Container        } from "@/components/Section/Container";
-import { useTranslations  } from "next-intl";
-import { OMGGNavbarValues } from "@/components/OMGG/Constants/Navigation";
-import { LogoProps } from "@/components/Logo/Interface";
-import { DropdownProps, ItemLinksProps, ItemProps } from "@/components/Navigation/NavigationProps";
+import { Navbar                         } from "@/components/Navigation/Navbar";
+import { Container                      } from "@/components/Section/Container";
+import { LogoProps                      } from "@/components/Logo/Interface";
+import { DropdownProps, ItemLinksProps  } from "@/components/Navigation/NavigationProps";
 
 const OMGGNavbar = ({ locale, global } : { locale: string, global: any }) => {
 
   if (!global)
     return null;
 
-  // const tNavigation = useTranslations('Navigation');
-  // const tNavbar     = useTranslations('Navbar');
-
-  // if (OMGGNavbarValues.logo)
-  //   OMGGNavbarValues.logo.alt = tNavigation('logoAlt');
-  // if (OMGGNavbarValues.submit)
-  //   OMGGNavbarValues.submit.title = tNavbar('submit');
-  // if (OMGGNavbarValues.menu) {
-  //   OMGGNavbarValues.menu[0].title = tNavigation('portfolio');
-  //   OMGGNavbarValues.menu[1].title = tNavigation('omgg');
-  //   OMGGNavbarValues.menu[2].title = tNavigation('blog');
-  // }
-
   // Getting data
   const logo : LogoProps = {
     src: global.logo?.image?.url,
     alt: global.logo?.image?.alternativeText,
-    url: global.logo?.url || "#"
+    url: global.logo?.url || "/"
   }
 
   const dropdowns : DropdownProps[] = global.dropdowns?.map((button: any) => ({
     id:           button.id,
-    title:        button.text,
+    title:        button.title,
     isDisable:    button.isDisable,
     variant:      button.variant,
     items:        button.items?.map((item: any) => ({
       id:                 item.id,
-      title:              item.text,
+      title:              item.title,
       url:                item.url,
-      shortDescription:   item.shortDescription
+      shortDescription:   item.shortDescription,
+
+      // Handle icon of the item
+      isSlugIcon  : item.isSlugIcon,
+      urlIcon     : item?.icon.url,
+      slugIcon    : item.slugIcon, // The slug of the react ui icon
+      alt         : item?.icon?.alternativeText || item.slugIcon
     }))
   }));
 
+  console.log("Dropdowns -> " + JSON.stringify(dropdowns));
+
   const itemLinks: ItemLinksProps[] = global.linkButtons?.map((item: any) => ({
     id:         item.id,
-    title :       item.text,
+    title:      item.title,
     isDisable:  item.isDisable,
-    variant:    item.variant
+    variant:    item.variant,
+    url:        item.url
   }));
 
-  const str = JSON.stringify(itemLinks);
-  console.log("itemLinks data: " + str);
+  console.log("itemLinks -> " + JSON.stringify(global.linkButtons));
+
 
   return (
     <header className="sticky top-0 z-50 bg-background shadow-sm w-full">

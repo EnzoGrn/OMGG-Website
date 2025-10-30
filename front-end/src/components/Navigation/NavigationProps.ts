@@ -22,9 +22,10 @@ export interface ItemProps {
     shortDescription:   string;
 
     // Handle icon of the item
-    // isSlugIcon: boolean;
-    // TODO: Handle logo or react icon with :?
-    icon                ?: any;
+    isSlugIcon  : boolean;
+    urlIcon     ?: string; // The url of the icon (isSlugIcon false)
+    slugIcon    ?: string; // The slug of the react ui icon
+    alt         ?: string;
 }
 
 export interface DropdownProps {
