@@ -13,6 +13,6 @@ export interface TestimonialProps {
 }
 
 export interface TestimonialsProps {
-    testimonials: TestimonialProps[];
+    testimonials:     TestimonialProps[];
     maxTestimonials:  number;
 }

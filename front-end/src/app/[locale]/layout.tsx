@@ -30,6 +30,9 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
   // Fetch global single type from Strapi
   const global = await fetchFromStrapi("global", locale);
 
+  console.log("Global -> ");
+  console.log(global);
+
   return (
     <html lang={locale}>
       <body className="min-h-screen bg-background">

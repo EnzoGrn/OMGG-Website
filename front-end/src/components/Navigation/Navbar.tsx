@@ -5,10 +5,9 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger                                                               } from "@/components/ui/sheet";
 import { ApiLogo                                                                                                                  } from "@/components/Logo/ApiLogo";
 import { DropdownProps, ItemLinksProps, ItemProps, NavbarProps                                                                    } from "./NavigationProps";
+import { getMediaFromUrl                                                                                                          } from "@/lib/strapi";
 
 import Link from "next/link";
-
-const NEXT_PUBLIC_STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 const Navbar = ({ logo, dropdowns, itemLinks, locale = 'en' }: NavbarProps) => {
   return (
@@ -55,7 +54,7 @@ const Navbar = ({ logo, dropdowns, itemLinks, locale = 'en' }: NavbarProps) => {
           {/* Logo */}
           {logo &&
             <a href={logo?.url} className="flex items-center gap-2" aria-label="Home">
-              <img src={`${NEXT_PUBLIC_STRAPI_URL}${logo?.src}`} className="max-h-[43px] w-full" alt={logo?.alt} />
+              <img src={getMediaFromUrl(logo?.url)} className="max-h-[43px] w-full" alt={logo?.alternativeText} />
             </a>
           }
 
@@ -150,8 +149,8 @@ const ItemLink = ({ item, locale }: { item: ItemProps, locale: string }) => {
   return (
     <Link className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground" href={url} aria-label={item.title}>
       <div className="text-foreground">
-        {!item.isSlugIcon && (
-          <img src={`${NEXT_PUBLIC_STRAPI_URL}${item?.urlIcon}`} className="w-5 h-4 shrink-0" alt={item?.alt} />
+        {!item.isSlugIcon && item.urlIcon && (
+          <img src={getMediaFromUrl(item.urlIcon)} className="w-5 h-4 shrink-0" alt={item?.alt} />
         )}
       </div>
       <div>

@@ -6,7 +6,7 @@ import { Button                                  } from "@/components/ui/button"
 import { Container                               } from "@/components/Section/Container";
 import { BlogPostSkeleton                        } from "@/components/Blog/Post/BlogPostSkeleton";
 import { BlogPost                                } from "@/components/Blog/Post/BlogPost";
-import { BlogPostProps, BlogPostsProps                           } from "@/components/Blog/Post/BlogPostInterface";
+import { BlogPostProps, BlogPostsProps           } from "@/components/Blog/Post/BlogPostInterface";
 import { useTranslations                         } from "next-intl";
 import Link  from "next/link";
 

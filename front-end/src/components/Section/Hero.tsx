@@ -1,12 +1,11 @@
-import { ArrowRight, ArrowUpRight   } from "lucide-react";
-import { Badge                      } from "@/components/ui/badge";
-import { Button                     } from "@/components/ui/button";
-import { cn                         } from "@/lib/utils";
-import { PSection                   } from "./Section";
-import { RenderText                 } from "../Utils/TextUtils";
-import { HeroProps                  } from "./Interface";
-
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { Badge                    } from "@/components/ui/badge";
+import { Button                   } from "@/components/ui/button";
+import { cn                       } from "@/lib/utils";
+import { PSection                 } from "./Section";
+import { RenderText               } from "../Utils/TextUtils";
+import { HeroProps                } from "./Interface";
+import { getMediaFromUrl          } from "@/lib/strapi";
 
 const HeroContainer = ({ children, padding, className } : { children: React.ReactNode, padding: string, className?: string }) => {
   return (
@@ -53,7 +52,7 @@ const HeroSection = ({ badge, title, subtitle, buttons, logo, className }: HeroP
       </div>
 
       {logo &&
-        <img src={STRAPI_URL + logo.url} alt={logo.alternativeText} className={cn("w-full rounded-md object-fill select-none", logo.className)} />
+        <img src={getMediaFromUrl(logo.url)} alt={logo.alternativeText} className={cn("w-full rounded-md object-fill select-none", logo.className)} />
       }
     </HeroContainer>
   );

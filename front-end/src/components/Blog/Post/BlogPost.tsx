@@ -4,10 +4,9 @@ import { BlogPostProps                 } from "@/components/Blog/Post/BlogPostIn
 import { Badge                         } from "@/components/ui/badge"
 import { Button                        } from "@/components/ui/button"
 import { useTranslations               } from "next-intl";
+import { getMediaFromUrl               } from "@/lib/strapi"
 import Link from "next/link"
 
-// TODO: Make a function to return the right url of the media
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL
 
 const BlogPost = (post: BlogPostProps) => {
   const t = useTranslations("Blog");
@@ -18,7 +17,7 @@ const BlogPost = (post: BlogPostProps) => {
         
         {/* Image */}
         <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden rounded-b-none">
-          <img src={STRAPI_URL + post.cover.url} alt={post.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+          <img src={getMediaFromUrl(post.cover.url)} alt={post.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
           <div className="absolute top-4 left-4 z-10">
             <Badge className="backdrop-blur bg-white/30 text-white shadow-sm px-3 py-1 rounded-full text-xs font-medium">
               {post.category.name}

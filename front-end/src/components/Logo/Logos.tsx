@@ -5,8 +5,7 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import { SSection                                } from "../Section/Section";
 import { RenderText                              } from "../Utils/TextUtils";
 import { PartnersProps                           } from "./LogoInterface";
-
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL
+import { getMediaFromUrl                         } from "@/lib/strapi";
 
 const Logos = ({ title, logos, classname } : PartnersProps) => {
   return (
@@ -21,14 +20,14 @@ const Logos = ({ title, logos, classname } : PartnersProps) => {
               {logos && logos.map((logo, index) => (
                 <CarouselItem key={index} className="flex basis-1/3 justify-center pl-0 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 gap-2">
                   <div className="mx-10 flex shrink-0 items-center justify-center">
-                    <img src={STRAPI_URL + logo.icon.url} alt={logo.icon.alternativeText} className="h-18 w-auto" />
+                    <img src={getMediaFromUrl(logo.icon.url)} alt={logo.icon.alternativeText} className="h-18 w-auto" />
                   </div>
                 </CarouselItem>
               ))}
               {logos && logos.map((logo, index) => (
                 <CarouselItem key={index} className="flex basis-1/3 justify-center pl-0 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 gap-2">
                   <div className="mx-10 flex shrink-0 items-center justify-center">
-                    <img src={STRAPI_URL + logo.icon.url} alt={logo.icon.alternativeText} className="h-16 w-auto" />
+                    <img src={getMediaFromUrl(logo.icon.url)} alt={logo.icon.alternativeText} className="h-16 w-auto" />
                   </div>
                 </CarouselItem>
               ))}

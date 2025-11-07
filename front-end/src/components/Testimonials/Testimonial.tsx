@@ -1,8 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CarouselItem                        } from "@/components/ui/carousel"
 import { TestimonialProps                    } from "@/components/Testimonials/TestimonialInterface";
-
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL
+import { getMediaFromUrl                     } from "@/lib/strapi";
 
 const Testimonial = (testimonial: TestimonialProps) => {
   return (
@@ -11,7 +10,7 @@ const Testimonial = (testimonial: TestimonialProps) => {
 
         {/* Avatar */}
         <Avatar className="mb-8 size-24 select-none">
-          <AvatarImage src={STRAPI_URL + testimonial.attestant.profilePicture.url} alt={testimonial.attestant.profilePicture.alternativeText} />
+          <AvatarImage src={getMediaFromUrl(testimonial.attestant.profilePicture.url)} alt={testimonial.attestant.profilePicture.alternativeText} />
           <AvatarFallback>{testimonial.attestant.firstName}</AvatarFallback>
         </Avatar>
 

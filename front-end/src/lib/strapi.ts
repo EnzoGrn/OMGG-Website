@@ -1,6 +1,11 @@
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
+export function getMediaFromUrl(url: string)
+{
+    return STRAPI_URL + url;
+}
+
 export async function fetchFromStrapi(path: string, locale?: string,
     paginationSize?: number, paginationPage?: number, populateTarget?: string, populate?: string) {
     // Construct the url
