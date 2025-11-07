@@ -1,6 +1,6 @@
 import { Navbar                         } from "@/components/Navigation/Navbar";
 import { Container                      } from "@/components/Section/Container";
-import { LogoProps                      } from "@/components/Logo/Interface";
+import { LogoProps                      } from "@/components/Logo/LogoInterface";
 import { DropdownProps, ItemLinksProps  } from "@/components/Navigation/NavigationProps";
 
 const OMGGNavbar = ({ locale, global } : { locale: string, global: any }) => {
@@ -34,8 +34,6 @@ const OMGGNavbar = ({ locale, global } : { locale: string, global: any }) => {
     }))
   }));
 
-  console.log("Dropdowns -> " + JSON.stringify(dropdowns));
-
   const itemLinks: ItemLinksProps[] = global.linkButtons?.map((item: any) => ({
     id:         item.id,
     title:      item.title,
@@ -43,9 +41,6 @@ const OMGGNavbar = ({ locale, global } : { locale: string, global: any }) => {
     variant:    item.variant,
     url:        item.url
   }));
-
-  console.log("itemLinks -> " + JSON.stringify(global.linkButtons));
-
 
   return (
     <header className="sticky top-0 z-50 bg-background shadow-sm w-full">

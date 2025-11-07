@@ -1,28 +1,8 @@
 import { Footer           } from "@/components/Navigation/Footer";
-import { useTranslations  } from "next-intl";
-import { OMGGFooterValues } from "../Constants/Navigation";
 import { FooterProps } from "@/components/Navigation/FooterProps";
-import { Logos } from "@/components/Logo/Logos";
-import { LogoProps } from "@/components/Logo/Interface";
+import { LogoProps } from "@/components/Logo/LogoInterface";
 
 const OMGGFooter = ({ locale, global } : { locale: string, global: any }) => {
-  const tN = useTranslations('Navigation');
-  const tF = useTranslations('Footer');
-
-  if (OMGGFooterValues.logo)
-    OMGGFooterValues.logo.alt = tN('logoAlt');
-  OMGGFooterValues.subtitle      = tF('subtitle');
-  OMGGFooterValues.copyright     = tF('copyright');
-  OMGGFooterValues.terms.title   = tF('terms');
-  OMGGFooterValues.privacy.title = tF('privacy');
-
-  if (OMGGFooterValues.menu) {
-    OMGGFooterValues.menu[0].title = tN('portfolio');
-    OMGGFooterValues.menu[1].title = tN('omgg');
-    OMGGFooterValues.menu[2].title = tN('blog');
-  }
-
-  // Getting data
 
   const logo: LogoProps = {
     url: global.logo.text,
@@ -38,7 +18,7 @@ const OMGGFooter = ({ locale, global } : { locale: string, global: any }) => {
       url:        iconLink.url,
       variant:    iconLink.variant,
 
-      slugIcon:   iconLink.variant,
+      slugIcon:   iconLink.slugIcon,
       isSlugIcon: iconLink.isSlugIcon,
       isDisable:  iconLink.isDisable,
     })),
@@ -47,12 +27,13 @@ const OMGGFooter = ({ locale, global } : { locale: string, global: any }) => {
       title:      menuItem.title,
       textLinks:  menuItem.textLinks?.map((textLink: any) => ({
         id:         textLink.id,
-        title:      textLink.title,
+        title:      textLink.text,
         url:        textLink.url,
         isDisable:  textLink.isDisable
-      }))
+      })),
+      isDisable:  menuItem.isDisable
     })),
-    legal:      global.menu?.map((legalItem: any) => ({
+    legal:      global.legal?.map((legalItem: any) => ({
       id          : legalItem.id,
       title       : legalItem.text,
       url         : legalItem.url,
@@ -60,10 +41,6 @@ const OMGGFooter = ({ locale, global } : { locale: string, global: any }) => {
     })),
     logo: logo
   }
-
-  console.log("Test -> " + JSON.stringify(global.subtitle));
-  console.log("FooterData -> " + JSON.stringify(global));
-  console.log("FooterData -> " + JSON.stringify(footerData));
 
   return(
     <Footer {...footerData} locale={locale} />

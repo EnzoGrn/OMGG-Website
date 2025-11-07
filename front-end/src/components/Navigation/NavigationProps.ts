@@ -1,4 +1,4 @@
-import { LogoProps } from "@/components/Logo/Interface";
+import { LogoProps } from "@/components/Logo/LogoInterface";
 
 export interface ItemProps {
     id:                 number,

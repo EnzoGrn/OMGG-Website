@@ -31,17 +31,15 @@ const Navbar = ({ logo, dropdowns, itemLinks, locale = 'en' }: NavbarProps) => {
                 <NavigationMenuList>
                   {dropdowns.map((item) => renderDropdownItem(item, locale))}
                     <div className="flex gap-10">
-                    {itemLinks.map((item) => {
-                      if (item && !item.isDisable)
-                        return (
-                          <Button asChild size="sm" aria-label={item.title} key={item.id}
-                            variant={item.variant.toLowerCase() as "link" | "default" | "destructive" | "outline" | "secondary" | "ghost"}>
-                              <a href={item.url} className="uppercase" aria-label={item.title}>
-                                {item.title}
-                              </a>
-                          </Button>
-                        )
-                    })}
+                    {itemLinks.filter((item) => !item.isDisable)
+                    .map((item) => (
+                      <Button asChild size="sm" aria-label={item.title} key={item.id}
+                        variant={item.variant.toLowerCase() as "link" | "default" | "destructive" | "outline" | "secondary" | "ghost"}>
+                          <a href={item.url} className="uppercase" aria-label={item.title}>
+                            {item.title}
+                          </a>
+                      </Button>
+                    ))}
                     </div>
                 </NavigationMenuList>
               </NavigationMenu>
@@ -78,8 +76,8 @@ const Navbar = ({ logo, dropdowns, itemLinks, locale = 'en' }: NavbarProps) => {
               <div className="flex flex-col gap-6 p-4">
                 {dropdowns && itemLinks &&
                   <Accordion type="single" collapsible className="flex w-full flex-col gap-4">
-                    {dropdowns.map((item: DropdownProps) => renderMobileDropdownItem(item, locale))}
-                    {itemLinks.map((item: ItemLinksProps) => renderMobileItemLink(item, locale))}
+                    {dropdowns.filter((item: DropdownProps) => !item.isDisable).map((item: DropdownProps) => renderMobileDropdownItem(item, locale))}
+                    {itemLinks.filter((item: ItemLinksProps) => !item.isDisable).map((item: ItemLinksProps) => renderMobileItemLink(item, locale))}
                   </Accordion>               
                 }
               </div>
@@ -111,7 +109,7 @@ const renderDropdownItem = (item: DropdownProps, locale: string) => {
 };
 
 const renderMobileDropdownItem = (item: DropdownProps, locale: string) => {
-  if (item.items && !item.isDisable) {
+  if (item.items) {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
         <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline uppercase">
@@ -128,7 +126,7 @@ const renderMobileDropdownItem = (item: DropdownProps, locale: string) => {
 };
 
 const renderMobileItemLink = (item: ItemLinksProps, local: string) => {
-  if (item && !item.isDisable) {
+  if (item) {
     return (
       item.variant == "ghost" ? 
         <AccordionItem key={item.title} value={item.title} className="border-b-0">

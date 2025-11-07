@@ -6,6 +6,9 @@ import { Button                        } from "@/components/ui/button"
 import { useTranslations               } from "next-intl";
 import Link from "next/link"
 
+// TODO: Make a function to return the right url of the media
+const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL
+
 const BlogPost = (post: BlogPostProps) => {
   const t = useTranslations("Blog");
 
@@ -15,10 +18,10 @@ const BlogPost = (post: BlogPostProps) => {
         
         {/* Image */}
         <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden rounded-b-none">
-          <img src={post.imageUrl} alt={post.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+          <img src={STRAPI_URL + post.cover.url} alt={post.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
           <div className="absolute top-4 left-4 z-10">
             <Badge className="backdrop-blur bg-white/30 text-white shadow-sm px-3 py-1 rounded-full text-xs font-medium">
-              {post.category}
+              {post.category.name}
             </Badge>
           </div>
         </div>
@@ -29,7 +32,8 @@ const BlogPost = (post: BlogPostProps) => {
           <div className="flex items-center text-xs text-muted-foreground mb-3">
             <CalendarIcon className="mr-1 h-3 w-3" />
             <span>
-              {post.date}
+              {/* TODO: Change the string to the right language */}
+              {new Date(post.publishedAt).toDateString()}
             </span>
           </div>
 
@@ -40,7 +44,7 @@ const BlogPost = (post: BlogPostProps) => {
 
           {/* Excerpt */}
           <p className="text-muted-foreground text-sm line-clamp-2 sm:line-clamp-3">
-            {post.excerpt}
+            {post.description}
           </p>
         </CardContent>
 

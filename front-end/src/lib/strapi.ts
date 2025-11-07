@@ -1,13 +1,23 @@
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
-export async function fetchFromStrapi(path: string, locale?: string) {
+export async function fetchFromStrapi(path: string, locale?: string,
+    paginationSize?: number, paginationPage?: number, populateTarget?: string, populate?: string) {
     // Construct the url
     const url = new URL(`${STRAPI_URL}/api/${path}`);
 
     // Get the data with localization
     if (locale)
         url.searchParams.set("locale", locale);
+
+    if (paginationSize)
+        url.searchParams.set("pagination[pageSize]", String(paginationSize));
+    
+    if (paginationPage)
+        url.searchParams.set("pagination[page]", String(paginationPage));
+
+    if (populateTarget && populate)
+        url.searchParams.set(populateTarget, populate);
 
     // Build headers
     const headers: Record<string, string> = {
@@ -23,7 +33,7 @@ export async function fetchFromStrapi(path: string, locale?: string) {
     const res = await fetch(url.toString(), {
         headers,
         // ISR (https://nextjs.org/docs/pages/guides/incremental-static-regeneration)
-        next: { revalidate: 3}, // TODO: cache 60s
+        // next: { revalidate: false}, // TODO: cache 3s
     });
 
     // Check result of the fetch
@@ -36,3 +46,4 @@ export async function fetchFromStrapi(path: string, locale?: string) {
     const { data } = await res.json();
     return data || null;
 }
+

@@ -1,4 +1,4 @@
-import { LogoProps } from "@/components/Logo/Interface";
+import { LogoProps } from "@/components/Logo/LogoInterface";
 
 interface RedirectButtonProps {
     id          : number;
@@ -14,14 +14,15 @@ interface IconLinkProps {
 
     isDisable   : boolean;
     newTab      : boolean;
-    slugIcon    : boolean;
+    slugIcon    : string;
     isSlugIcon  : boolean;
 }
 
 export interface MenuProps {
     id          : number;
     title       : string;
-    textLink    : RedirectButtonProps[];
+    textLinks   : RedirectButtonProps[];
+    isDisable   : boolean;
 }
 
 export interface FooterProps {

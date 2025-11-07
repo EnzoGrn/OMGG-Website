@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LogoProps } from "./Interface";
+import { LogoProps } from "./LogoInterface";
 
 const Logo = ({ logo, cn }: { logo: LogoProps, cn?: string }) => {
   return (

@@ -1,7 +1,18 @@
+import { LogoProps } from "../Section/Interface";
+
+export interface AttestantProps {
+    firstName:      string;
+    lastName:       string;
+    role:           string;
+    profilePicture: LogoProps;
+}
+
 export interface TestimonialProps {
-    id    : number;
-    text  : string;
-    name  : string;
-    role  : string;
-    avatar: string;
+    testimonial: string;
+    attestant:   AttestantProps;
+}
+
+export interface TestimonialsProps {
+    testimonials: TestimonialProps[];
+    maxTestimonials:  number;
 }
