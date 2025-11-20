@@ -1,18 +1,20 @@
-import { AboutProps } from "@/components/About/aboutInterface";
+import { GameProps, HeroTrailerSectionProps } from "@/app/[locale]/games/[slug]/page";
 import { AboutSection } from "@/components/About/About";
+import { AboutProps } from "@/components/About/aboutInterface";
 
-const OMGGAbout = ({data}:  {data: AboutProps}) => {
+const OMGGAbout = ({data, additionalData} : {data: AboutProps, additionalData: GameProps}) => {
 
-  // Data not stored in Strapi
-  data.className = "h-max-[450px]";
-  data.logo = {
-    url: "/OMGG/Illustrations/orange_dots.svg",
-    alternativeText: "OMGG's dots illustration",
-    className: "max-h-48 items-end justify-end lg:translate-x-0 lg:translate-y-0 translate-x-3/5 -translate-y-1/3",
-  };
-
-  return(
-    <AboutSection {...data} />
+  return (
+    <>
+      {data && additionalData ? (
+        <AboutSection
+          data={data}
+          additionnalData={additionalData as GameProps}
+        />
+      ) : (
+        <AboutSection data={data} />
+      )}
+    </>
   );
 }
 

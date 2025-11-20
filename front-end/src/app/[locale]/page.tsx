@@ -2,7 +2,7 @@ import { Locale                            } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata                     } from "next";
 import { dynamicComponentFactory           } from "@/components/OMGG/Section/SectionLoader";
-import { fetchFromStrapi                   } from "@/lib/strapi";
+import { fetchDataSearchParams, fetchFromStrapi                   } from "@/lib/strapi";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -22,18 +22,16 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
 {
   
   const { locale } = await params;
-  const landingPageData = await fetchFromStrapi("landing-page", locale);
+  // const landingPageData = await fetchFromStrapi("landing-page", locale);
+  const landingPageData = await fetchDataSearchParams({ path: 'landing-page', forceCache: false, locale: locale});
 
   setRequestLocale(locale);
 
-  console.log("[Home]: landingPageData dump")
-  console.log(landingPageData);
-  console.log("[Home]: landingPageData locale")
-  console.log(locale);
+  console.log("[Home]: landingPageData -> ", landingPageData)
 
   return (
     <main className="w-full h-full">
-      {dynamicComponentFactory(landingPageData.blocks)}
+      {dynamicComponentFactory(landingPageData)}
     </main>
   );
 }

@@ -1,13 +1,12 @@
 import { Footer           } from "@/components/Navigation/Footer";
 import { FooterProps } from "@/components/Navigation/FooterProps";
-import { LogoProps } from "@/components/Logo/LogoInterface";
+import { LogoProps } from "@/components/Section/Interface";
 
 const OMGGFooter = ({ locale, global } : { locale: string, global: any }) => {
 
   const logo: LogoProps = {
-    url: global.logo.text,
-    src: global.logo.image.url,
-    alt: global.logo.image.alternativeText
+    url: global.logo.image.url,
+    alternativeText: global.logo.image.alternativeText
   }
 
   const footerData: FooterProps = {

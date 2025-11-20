@@ -31,6 +31,12 @@ const OMGGNewsLetter = () => {
 
   const onSubmit = (data: FormValues) => {
     console.log('Form submitted:', data)
+
+    fetch('/api/news-letter-form', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ path: 'news-letter-subscriptions', data: { data } })
+    })
   }
 
   const handleCheckboxChange = (field: 'company' | 'newsLetter', value: string, checked: boolean) => {

@@ -17,7 +17,7 @@ const Footer = ({ logo, subtitle, copyright, iconsLink, menu, legal, locale = 'e
                 <div className="flex items-center gap-2 lg:justify-start">
                   {/* TODO: set an url to logo */}
                   <Link href="/">
-                    <img src={getMediaFromUrl(logo.src)} alt={logo.alt} className="h-16" />
+                    <img src={getMediaFromUrl(logo.url)} alt={logo.alt} className="h-16" />
                   </Link>
                 </div>
               }

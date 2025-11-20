@@ -11,7 +11,7 @@ async function OMGGBlog({data}:  {data: BlogPostsProps}): Promise<JSX.Element> {
   data.BlogPost = blogs; 
 
   return (
-    <BlogSection data={data} />
+    <BlogSection data={data} locale={locale} />
   );
 }
 

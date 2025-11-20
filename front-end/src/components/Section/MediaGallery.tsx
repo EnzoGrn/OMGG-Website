@@ -7,51 +7,21 @@ import { Container                               } from "@/components/Section/Co
 import { useTranslations                         } from "next-intl";
 import { GalleryImagePreview                     } from "../Gallery/GalleryImagePreview";
 import { GalleryImageSkeleton                    } from "../Gallery/GalleryImageSkeleton";
-import { GalleryProps                            } from "../Gallery/GalleryInterface";
+import { GalleryProps, GameProps } from "@/app/[locale]/games/[slug]/page";
+import { LogoProps } from "./Interface";
 
-const blogPosts: GalleryProps[] = [{
-    id: 1,
-    title: "Illustration from Vermines' Game, in this one you can see the main menu of the game.",
-    imageUrl: '/Vermines/Illustration1.webp',
-  },
-  {
-    id: 2,
-    title: "Illustration from Vermines' Game, in this one you can see the cultists selection.",
-    imageUrl: '/Vermines/Illustration2.webp',
-  },
-  {
-    id: 3,
-    title: "Illustration from Vermines' Game, in this one you can see the village.",
-    imageUrl: '/Vermines/Illustration3.webp',
-  },
-  {
-    id: 4,
-    title: "Illustration from Vermines' Game, in this one you can see the sacrifice area.",
-    imageUrl: '/Vermines/Illustration4.webp',
-  },
-  {
-    id: 5,
-    title: "Illustration from Vermines' Game, in this one you can see the table of the game, where's you played your card.",
-    imageUrl: '/Vermines/Illustration5.webp',
-  },
-  {
-    id: 6,
-    title: "Illustration from Vermines' Game, in this one you can see a recap of the earned eloquence at the beginning of your turn.",
-    imageUrl: '/Vermines/Illustration6.webp',
-  },
-  {
-    id: 7,
-    title: "Illustration from Vermines' Game, in this one you can see the partisan walking around the village.",
-    imageUrl: '/Vermines/Illustration7.webm',
-  },
-  {
-    id: 8,
-    title: "Illustration from Vermines' Game, in this one you can see the partisan listening you.",
-    imageUrl: '/Vermines/Illustration8.webm',
-}];
 
-const MediaGallery = () => {
+// TODO: Remove this one because not really usefull
+export interface GalleraySectionProps {
+  enableAnimation: boolean
+}
+
+const MediaGallerySection = ({data, additionalData} : {data: GalleraySectionProps, additionalData?: GameProps}) => {
   const t = useTranslations('Games.gallery');
+
+  // console.log("RUN MediaGallerySection ON", typeof window === "undefined" ? "SERVER" : "CLIENT");
+  // console.log("[MediaGallerySection]: data -> ", data);
+  // console.log("[MediaGallerySection]: additionalData -> ", additionalData);
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -71,9 +41,14 @@ const MediaGallery = () => {
 
   const sliderRef    = useRef<HTMLDivElement>(null);
 
+  const gallery: GalleryProps | undefined = additionalData?.gallery;
+
+  if (!gallery)
+    return;
+
   // Calculate visible items based on screen size
   const visibleItems = screenSize.isDesktop ? 3 : screenSize.isTablet ? 2 : 1;
-  const maxIndex     = Math.max(0, blogPosts.length - visibleItems);
+  const maxIndex     = Math.max(0, gallery.assets.length - visibleItems);
 
   // Initialize and update screen size
   useEffect(() => {
@@ -231,8 +206,8 @@ const MediaGallery = () => {
             }
             {!isLoading &&
               <>
-                {blogPosts.map((post: GalleryProps) => (
-                  <GalleryImagePreview key={post.id} {...post} />
+                {gallery.assets.map((post: LogoProps, index) => (
+                  <GalleryImagePreview key={index} {...post} />
                 ))}
               </>
             }
@@ -246,4 +221,4 @@ const MediaGallery = () => {
   );
 }
 
-export { MediaGallery };
+export { MediaGallerySection };

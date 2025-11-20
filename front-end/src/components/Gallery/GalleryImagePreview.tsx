@@ -2,9 +2,10 @@ import { Card                                                           } from "
 import { Search, X                                                      } from "lucide-react"
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogClose } from "@/components/ui/dialog"
 import { VisuallyHidden                                                 } from "@radix-ui/react-visually-hidden"
-import { GalleryProps                                                   } from "./GalleryInterface"
+import { LogoProps } from "../Section/Interface"
+import { getMediaFromUrl } from "@/lib/strapi"
 
-const GalleryImagePreview = (image: GalleryProps) => {
+const GalleryImagePreview = (image: LogoProps) => {
   return (
     <div className="carousel-item flex-none w-full sm:w-1/2 lg:w-1/3 px-2 sm:px-4 snap-start">
       <Card className="py-0 h-full flex flex-col overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow bg-background">
@@ -14,10 +15,10 @@ const GalleryImagePreview = (image: GalleryProps) => {
             <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden rounded-b-none group cursor-pointer">
 
               {/* Illustration */}
-              {image.imageUrl.endsWith('.webm') || image.imageUrl.endsWith('.mp4') ? (
-                <video src={image.imageUrl} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" autoPlay loop muted playsInline />
+              {image.url.endsWith('.webm') || image.url.endsWith('.mp4') ? (
+                <video src={getMediaFromUrl(image.url)} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" autoPlay loop muted playsInline />
               ) : (
-                <img src={image.imageUrl} alt={image.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                <img src={getMediaFromUrl(image.url)} alt={image.alternativeText} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
               )}
 
               {/* Hover effect */}
@@ -37,14 +38,14 @@ const GalleryImagePreview = (image: GalleryProps) => {
 
             {/* Title hide for screen reader users */}
             <VisuallyHidden>
-              <DialogTitle>{image.title}</DialogTitle>
+              <DialogTitle>{image.alternativeText}</DialogTitle>
             </VisuallyHidden>
 
             {/* Illustration */}
-            {image.imageUrl.endsWith('.webm') || image.imageUrl.endsWith('.mp4') ? (
-              <video src={image.imageUrl} className="w-full h-auto rounded-2xl" autoPlay loop muted playsInline />
+            {image.url.endsWith('.webm') || image.url.endsWith('.mp4') ? (
+              <video src={getMediaFromUrl(image.url)} className="w-full h-auto rounded-2xl" autoPlay loop muted playsInline />
             ) : (
-              <img src={image.imageUrl} alt={image.title} className="w-full h-auto rounded-2xl" />
+              <img src={getMediaFromUrl(image.url)} alt={image.alternativeText} className="w-full h-auto rounded-2xl" />
             )}
           </DialogContent>
         </Dialog>

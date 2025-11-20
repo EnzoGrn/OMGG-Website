@@ -3,14 +3,14 @@ import { ArrowRightIcon, CalendarIcon  } from "lucide-react"
 import { BlogPostProps                 } from "@/components/Blog/Post/BlogPostInterface"
 import { Badge                         } from "@/components/ui/badge"
 import { Button                        } from "@/components/ui/button"
-import { useTranslations               } from "next-intl";
+import { Locale, useTranslations               } from "next-intl";
 import { getMediaFromUrl               } from "@/lib/strapi"
 import Link from "next/link"
 
 
-const BlogPost = (post: BlogPostProps) => {
+const BlogPost = ({post, locale}: {post: BlogPostProps, locale: Locale}) => {
   const t = useTranslations("Blog");
-
+  
   return (
     <div className="carousel-item flex-none w-full sm:w-1/2 lg:w-1/3 px-2 sm:px-4 snap-start">
       <Card className="py-0 h-full flex flex-col overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow bg-background">
@@ -32,7 +32,14 @@ const BlogPost = (post: BlogPostProps) => {
             <CalendarIcon className="mr-1 h-3 w-3" />
             <span>
               {/* TODO: Change the string to the right language */}
-              {new Date(post.publishedAt).toDateString()}
+              {
+                new Date(post.publishedAt).toLocaleDateString(locale, {
+                  weekday: "long",
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric"
+                })
+              }
             </span>
           </div>
 

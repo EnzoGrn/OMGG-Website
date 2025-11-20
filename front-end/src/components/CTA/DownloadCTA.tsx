@@ -1,45 +1,62 @@
 import { Button } from "@/components/ui/button";
 import { Container } from "../Section/Container";
 import { ArrowUpRight } from "lucide-react";
+import { GameProps } from "@/app/[locale]/games/[slug]/page";
+import { useTranslations } from "next-intl";
+import { ButtonProps, LogoProps, TextProps } from "../Section/Interface";
+import { RenderText } from "../Utils/TextUtils";
+import { getMediaFromUrl } from "@/lib/strapi";
 
 export interface DownloadCTAProps {
-  heading      : string;
-  description ?: string;
-  button      ?: {
-    text: string;
-    url: string;
-  };
+  title           : TextProps;
+  description    ?: TextProps;
+  downloadButton ?: ButtonProps;
+  image           : LogoProps;
 }
 
-const DownloadCTA = (props : DownloadCTAProps) => {
+const DownloadCTA = ({data, additionalData} : {data: DownloadCTAProps, additionalData: GameProps}) => {
+
+  const t = useTranslations('Games.cta');
+  
+  console.log("[DownloadCTA]: data -> ", data);
+
+  if (data.title && additionalData.name)
+    data.title.text += ' ' + additionalData.name 
+
+  if (data.description && additionalData.name)
+    data.description.text += ' ' + additionalData.name
+
   return (
     <section className="py-8">
       <Container className="container relative overflow-visible space-y-6 md:space-y-8">
         <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16 p-8 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--detail)] relative overflow-visible">
           <div className="flex-1 flex flex-col gap-4 z-10">
-            <h1 className="text-2xl font-bold text-pretty lg:text-4xl">
-              {props.heading}
-            </h1>
-            {props.description && <h2 className="max-w-xl lg:text-lg">{props.description}</h2>}
-
+            <RenderText text={data.title} className="text-2xl font-bold text-pretty lg:text-4xl"/>
+            {data.description && <RenderText text={data.description} className="max-w-xl lg:text-lg"/>}
             <div className="flex flex-col sm:flex-row gap-2 mt-4">
-              {props.button && (
-                <Button asChild className="w-full sm:w-auto max-w-2/3 lg:max-w-full uppercase" aria-label={props.button.text}>
-                  <a href={props.button.url} download aria-label={props.button.text}>
-                    {props.button.text}
+                <Button asChild className="w-full sm:w-auto max-w-2/3 lg:max-w-full uppercase" aria-label={t('download') + ' ' + additionalData.name}>
+                  {additionalData.download.url ? (
+                    <a href={additionalData.download.url} download aria-label={data.downloadButton?.title}>
+                    {data.downloadButton?.title}
                     <ArrowUpRight className="ml-2 size-4" />
                   </a>
+                  ) : (
+                    <a href={data.downloadButton?.url} download aria-label={data.downloadButton?.title}>
+                      {data.downloadButton?.title}
+                      <ArrowUpRight className="ml-2 size-4" />
+                    </a>
+                  )}
                 </Button>
-              )}
             </div>
           </div>
 
-          {/* Temp Illustration from Vermines Games */}
-          <div className="hidden md:block absolute right-0 top-0 h-full w-1/3 pointer-events-none overflow-visible">
-            <img src="/Vermines/Bard.webp"       alt="Bard from Vermines"       className="select-none absolute top-0 left-1/2 translate-x-8 -translate-y-1/4 w-[10rem] lg:w-[12rem]" />
-            <img src="/Vermines/Blacksmith.webp" alt="Blacksmith from Vermines" className="select-none -scale-x-100 absolute top-0 left-1/2 -translate-x-32 -translate-y-1/4 w-[12rem] lg:w-[14rem]" />
-            <img src="/Vermines/Queen.webp"      alt="Queen from Vermines"      className="select-none absolute top-0 left-1/2 -translate-x-12 -translate-y-10 w-[12rem] lg:w-[13rem]" />
-            <img src="/Vermines/Dragoleon.webp"  alt="Dragoleon from Vermines"  className="select-none -scale-x-100 absolute top-0 left-1/2 -translate-x-80 -translate-y-1/4 w-[12rem] lg:w-[14rem]" />
+          <div className="hidden lg:block absolute right-0 top-0 h-full w-1/3 pointer-events-none overflow-visible">
+            {additionalData.pngIllustration ? (
+              // For better look 1280 x 720 is prefered
+              <img src={getMediaFromUrl(additionalData.pngIllustration.url)} alt={data.image.alternativeText} className="select-none w-full h-full object-cover overflow-visible scale-120" />
+            ) : (
+              <img src={getMediaFromUrl(data.image.url)} alt={data.image.alternativeText} className="select-none w-48" />
+            )}
           </div>
         </div>
       </Container>

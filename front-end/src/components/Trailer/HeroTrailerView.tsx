@@ -2,63 +2,48 @@ import { PSection                                                               
 import { H1, H2                                                                               } from "../Text/Text";
 import { Badge                                                                                } from "../ui/badge";
 import { Card                                                                                 } from "../ui/card";
-import { RiSwitchFill, RiXboxFill, RiPlaystationFill, RiAppleFill, RiSteamFill, RiWindowsFill } from "react-icons/ri";
-import { SiEpicgames, SiAndroid                                                               } from "react-icons/si";
 import { Button                                                                               } from "../ui/button";
 import { ArrowUpRight                                                                         } from "lucide-react";
+import { GameProps, HeroTrailerSectionProps } from "@/app/[locale]/games/[slug]/page";
+import { DynamicLoad } from "../Utils/ReactIconUtils";
+import { getMediaFromUrl } from "@/lib/strapi";
+import { useTranslations } from "next-intl";
 
-const platformIcons = {
-  Switch: <RiSwitchFill className="size-6" />,
-  Windows: <RiWindowsFill className="size-6" />,
-  Xbox: <RiXboxFill className="size-6" />,
-  PlayStation: <RiPlaystationFill className="size-6" />,
-  Mobile: <SiAndroid className="size-6" />,
-  EpicGames: <SiEpicgames className="size-6" />,
-  IOS: <RiAppleFill className="size-6" />,
-  Steam: <RiSteamFill className="size-6" />
-};
+const HeroTrailerView = ({gameProps, data } : { gameProps: GameProps, data: HeroTrailerSectionProps}) => {
 
-export interface HeroTrailerProps {
-  title     : string;
-  badge    ?: string;
-  genre    ?: string[];
-  platforms?: (keyof typeof platformIcons)[];
-  button   ?: {
-    title: string;
-    url  : string;
-  }
-}
+  const t = useTranslations('Games');
 
-const HeroTrailerView = (props : HeroTrailerProps) => {
   return (
     <PSection padding="py-0" className="min-h-[660px] lg:min-h-[690px]">
       <Card className="relative rounded-2xl overflow-hidden h-[calc(660px-6rem)] lg:h-[calc(690px-6rem)] flex-row">
-        <img src="/Vermines/thumbnail.webp" alt="Trailer Thumbnail" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={getMediaFromUrl(gameProps.background.url)} alt="Trailer Thumbnail" className="absolute inset-0 w-full h-full object-cover" />
 
         <div className="absolute bottom-16 md:bottom-4 left-4 p-4 flex flex-col gap-2 max-w-xs">
-          {props.badge && <Badge>{props.badge}</Badge>}
-          <H1 className="text-white">{props.title}</H1>
+          {gameProps.isNew && <Badge>{t('hero.badge')}</Badge>}
+          <H1 className="text-white">{gameProps.name}</H1>
 
           {/* Genre */}
-          {props.genre && props.genre.map((subgenre, index) => (
-            <H2 key={index} className="text-white font-semibold">{subgenre}</H2>
+          {gameProps.genrers && gameProps.genrers.map((subgenre, index) => (
+            <H2 key={index} className="text-white font-semibold">{subgenre.name}</H2>
           ))}
 
           {/* Platforms */}
           <div className="flex gap-3 mt-2">
-            {props.platforms && props.platforms.map((platform) => (
-              <div key={platform} className="text-white hover:text-yellow-400 transition-colors" title={platform}>
-                {platformIcons[platform]}
+            {gameProps.platforms && gameProps.platforms.map((platform, index) => (
+              <div key={index} className="text-white hover:text-yellow-400 transition-colors" title={platform.icon.text}>
+                {platform.icon.isSlugIcon && platform.icon?.slugIcon && 
+                  DynamicLoad(platform.icon.slugIcon)
+                }
               </div>
             ))}
           </div>
         </div>
 
         {/* Call to Action Download bottom right */}
-        {props.button && <div className="absolute bottom-4 left-4 md:left-auto md:right-4 p-4">
-          <Button asChild variant="default" size="lg" aria-label={props.button.title}>
-            <a href={props.button.url} download aria-label={props.button.title}>
-              {props.button.title}
+        {data.downloadButton && <div className="absolute bottom-4 left-4 md:left-auto md:right-4 p-4">
+          <Button asChild variant="default" size="lg" aria-label={data.downloadButton.title}>
+            <a href={gameProps.download.url} download aria-label={data.downloadButton.title}>
+              {data.downloadButton.title}
               <ArrowUpRight className="ml-2 size-4" />
             </a>
           </Button>

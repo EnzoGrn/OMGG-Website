@@ -7,10 +7,10 @@ import { Container                               } from "@/components/Section/Co
 import { BlogPostSkeleton                        } from "@/components/Blog/Post/BlogPostSkeleton";
 import { BlogPost                                } from "@/components/Blog/Post/BlogPost";
 import { BlogPostProps, BlogPostsProps           } from "@/components/Blog/Post/BlogPostInterface";
-import { useTranslations                         } from "next-intl";
+import { Locale, useTranslations                         } from "next-intl";
 import Link  from "next/link";
 
-const BlogSection = ({data}:  {data: BlogPostsProps}) => {
+const BlogSection = ({data, locale}:  {data: BlogPostsProps, locale: Locale}) => {
   const t = useTranslations('Blog');
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -188,7 +188,7 @@ const BlogSection = ({data}:  {data: BlogPostsProps}) => {
             {!isLoading &&
               <>
                 {data.BlogPost.map((post: BlogPostProps, index) => (
-                  <BlogPost key={index} {...post} />
+                  <BlogPost key={index} post={post} locale={locale} />
                 ))}
               </>
             }
