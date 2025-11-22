@@ -36,7 +36,7 @@ export async function fetchDataSearchParams( {path, forceCache, searchParams, pa
       headers,
       // ISR (https://nextjs.org/docs/pages/guides/incremental-static-regeneration)
       // next: { revalidate: false}, // TODO: cache 3s
-      // cache: (forceCache) ? 'force-cache' : 'default',
+      cache: (forceCache) ? 'force-cache' : 'default',
     });
 
   if (!res.ok) {
@@ -48,45 +48,7 @@ export async function fetchDataSearchParams( {path, forceCache, searchParams, pa
   return data || null;
 }
 
-// export async function fetchOneFromStrapi(path: string, searchParam: string, game: string, locale?: string)
-// {
-//     const url = new URL(`${STRAPI_URL}/api/${path}`);
-
-//     if (locale)
-//         url.searchParams.set("locale", locale);
-
-//     // Add the game as fetch params
-//     url.searchParams.set(searchParam, game);
-
-//     // Build headers
-//     const headers: Record<string, string> = {
-//         "Content-Type": "application/json",
-//     };
-
-//     // Add Bearer token if available
-//     if (STRAPI_API_TOKEN) {
-//         headers["Authorization"] = `Bearer ${STRAPI_API_TOKEN}`;
-//     }
-
-//     // Fetch the data
-//     const res = await fetch(url.toString(), {
-//         headers,
-//         // ISR (https://nextjs.org/docs/pages/guides/incremental-static-regeneration)
-//         // next: { revalidate: false}, // TODO: cache 3s
-//     });
-
-//     // Check result of the fetch
-//     if (!res.ok) {
-//         // Or throw ???
-//         console.error(`Strapi fetch error for ${path}:`, res.status);
-//         return null;
-//     }
-
-//     const { data } = await res.json();
-//     return data || null;
-// }
-
-export async function fetchFromStrapi(path: string, locale?: string,
+export async function fetchFromStrapi(path: string, forceCache: boolean, locale?: string,
     paginationSize?: number, paginationPage?: number, populateTarget?: string, populate?: string) {
     // Construct the url
     const url = new URL(`${STRAPI_URL}/api/${path}`);
@@ -119,6 +81,7 @@ export async function fetchFromStrapi(path: string, locale?: string,
         headers,
         // ISR (https://nextjs.org/docs/pages/guides/incremental-static-regeneration)
         // next: { revalidate: false}, // TODO: cache 3s
+        cache: (forceCache) ? 'force-cache' : 'default',
     });
 
     // Check result of the fetch

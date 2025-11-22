@@ -6,7 +6,7 @@ import { TestimonialSection } from "@/components/Section/Testimonials";
 
 async function OMGGTestimonials({data}:  {data: TestimonialsProps}): Promise<JSX.Element> {
   const locale = await getLocale();
-  const testimonials = await fetchFromStrapi("testimonials", locale, data.maxTestimonials, 1, "populate[attestant][populate]", "*") as TestimonialProps[];
+  const testimonials = await fetchFromStrapi("testimonials", true, locale, data.maxTestimonials, 1, "populate[attestant][populate]", "*") as TestimonialProps[];
 
   data.testimonials = testimonials;
 

@@ -1,13 +1,12 @@
 'use server'
-import { fetchDataSearchParams, fetchFromStrapi } from "@/lib/strapi";
-import { Locale } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
-import { GameProps } from "./page";
+import { fetchDataSearchParams } from "@/lib/strapi";
+import { Locale                } from "next-intl";
+import { setRequestLocale      } from "next-intl/server";
 
 export async function generateStaticParams({ params } : { params: any })
 {
   const locale = (await params).locale;
-  const gamesRes = await fetchDataSearchParams({path: "games", forceCache: false, locale: locale});
+  const gamesRes = await fetchDataSearchParams({path: "games", forceCache: true, locale: locale});
 
   return gamesRes.data.map((game: any) => ({
     slug:     game.slug,

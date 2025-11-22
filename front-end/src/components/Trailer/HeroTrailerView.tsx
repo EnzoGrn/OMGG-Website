@@ -5,7 +5,7 @@ import { Card                                                                   
 import { Button                                                                               } from "../ui/button";
 import { ArrowUpRight                                                                         } from "lucide-react";
 import { GameProps, HeroTrailerSectionProps } from "@/app/[locale]/games/[slug]/page";
-import { DynamicLoad } from "../Utils/ReactIconUtils";
+import { DynamicLoadIcon } from "../Utils/ReactIconUtils";
 import { getMediaFromUrl } from "@/lib/strapi";
 import { useTranslations } from "next-intl";
 
@@ -32,7 +32,7 @@ const HeroTrailerView = ({gameProps, data } : { gameProps: GameProps, data: Hero
             {gameProps.platforms && gameProps.platforms.map((platform, index) => (
               <div key={index} className="text-white hover:text-yellow-400 transition-colors" title={platform.icon.text}>
                 {platform.icon.isSlugIcon && platform.icon?.slugIcon && 
-                  DynamicLoad(platform.icon.slugIcon)
+                  DynamicLoadIcon(platform.icon.slugIcon)
                 }
               </div>
             ))}

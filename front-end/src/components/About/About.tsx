@@ -27,9 +27,6 @@ const AboutSection = ({ data, additionnalData}: {data: AboutProps, additionnalDa
     className: "max-h-48 items-end justify-end lg:translate-x-0 lg:translate-y-0 translate-x-3/5 -translate-y-1/3",
   };
 
-  console.log("[AboutSection]: data", data);
-  console.log("[AboutSection]: additionnalData", additionnalData?.description);
-
   return (
     <AboutContainer padding="py-12" className={data.className}>
       <div className="flex flex-col items-start text-left">

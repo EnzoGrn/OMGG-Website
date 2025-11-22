@@ -13,7 +13,7 @@ import { BlogPostsProps                 } from "@/components/Blog/Post/BlogPostI
 import { OffersProps                    } from "@/components/Offers/OffersInterface";
 import { PartnersProps                  } from "@/components/Logo/LogoInterface"
 import { CTASection, GameProps, HeroTrailerSection, HeroTrailerSectionProps } from "@/app/[locale]/games/[slug]/page";
-import { GalleraySectionProps, MediaGallerySection            } from "@/components/Section/MediaGallery";
+import { GallerySectionProps, MediaGallerySection            } from "@/components/Section/MediaGallery";
 import { AboutProps } from "@/components/About/aboutInterface";
 import { DownloadCTAProps } from "@/components/CTA/DownloadCTA";
 
@@ -35,7 +35,7 @@ type ComponentTypeMap = {
   "layout.testimonials-section":     React.ComponentType<SectionProps<TestimonialsProps>>;
   "layout.blog-section":             React.ComponentType<SectionProps<BlogPostsProps>>;
   "layout.news-letter-form":         React.ComponentType<SectionProps<any>>;
-  "layout.media-gallery-section":    React.ComponentType<SectionProps<GalleraySectionProps, GameProps>>;
+  "layout.media-gallery-section":    React.ComponentType<SectionProps<GallerySectionProps, GameProps>>;
   "layout.cta-section":              React.ComponentType<SectionProps<DownloadCTAProps, GameProps>>;
 }
 
@@ -69,13 +69,6 @@ export function dynamicComponentFactory(dataBlocks: any) {
 
         const data = castBlockData(block, block.__component);
         if (!data) return null;
-
-        console.log("[dynamicComponentFactory]: block.__component", block.__component)
-        // if (dataBlocks.gameData && dataBlocks.gameData.data)
-        // console.log("[dynamicComponentFactory]: dataBlocks.gameData.data", dataBlocks.gameData.data)
-          
-        // console.log("[dynamicComponentFactory]: data", data)
-        // console.log("RUN OMGGAbout ON", typeof window === "undefined" ? "SERVER" : "CLIENT");
 
         return block.enableAnimation ? (
           <FadeInWhenVisible key={index}>

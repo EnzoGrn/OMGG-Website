@@ -1,6 +1,6 @@
 import { Container              } from "@/components/Section/Container"
 import { FooterProps, MenuProps } from "@/components/Navigation/FooterProps";
-import { DynamicLoad            } from "@/components/Utils/ReactIconUtils";
+import { DynamicLoadIcon            } from "@/components/Utils/ReactIconUtils";
 import { getMediaFromUrl        } from "@/lib/strapi";
 import Link from "next/link";
 
@@ -15,7 +15,6 @@ const Footer = ({ logo, subtitle, copyright, iconsLink, menu, legal, locale = 'e
               {/* Logo */}
               {logo &&
                 <div className="flex items-center gap-2 lg:justify-start">
-                  {/* TODO: set an url to logo */}
                   <Link href="/">
                     <img src={getMediaFromUrl(logo.url)} alt={logo.alt} className="h-16" />
                   </Link>
@@ -41,9 +40,7 @@ const Footer = ({ logo, subtitle, copyright, iconsLink, menu, legal, locale = 'e
                     return (
                       <li className="font-medium hover:text-primary" key={iconLink.id}>
                         <a href={iconLink.url} aria-label="X / Twitter">
-                          {/* TODO: Get React Icon from slugIcon */}
-                          {/* <FaXTwitter className="size-6" /> */}
-                          {DynamicLoad(iconLink.slugIcon)}
+                          {DynamicLoadIcon(iconLink.slugIcon)}
                         </a>
                       </li>
                     )

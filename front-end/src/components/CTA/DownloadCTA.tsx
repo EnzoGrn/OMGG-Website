@@ -18,8 +18,6 @@ const DownloadCTA = ({data, additionalData} : {data: DownloadCTAProps, additiona
 
   const t = useTranslations('Games.cta');
   
-  console.log("[DownloadCTA]: data -> ", data);
-
   if (data.title && additionalData.name)
     data.title.text += ' ' + additionalData.name 
 

@@ -6,7 +6,7 @@ import { JSX                           } from "react";
 
 async function OMGGBlog({data}:  {data: BlogPostsProps}): Promise<JSX.Element> {
   const locale = await getLocale();
-  const blogs = await fetchFromStrapi("articles", locale, data.maxBlog, 1, "populate", "*") as BlogPostProps[];
+  const blogs = await fetchFromStrapi("articles", true, locale, data.maxBlog, 1, "populate", "*") as BlogPostProps[];
 
   data.BlogPost = blogs; 
 

@@ -12,16 +12,12 @@ import { LogoProps } from "./Interface";
 
 
 // TODO: Remove this one because not really usefull
-export interface GalleraySectionProps {
+export interface GallerySectionProps {
   enableAnimation: boolean
 }
 
-const MediaGallerySection = ({data, additionalData} : {data: GalleraySectionProps, additionalData?: GameProps}) => {
+const MediaGallerySection = ({data, additionalData} : {data: GallerySectionProps, additionalData?: GameProps}) => {
   const t = useTranslations('Games.gallery');
-
-  // console.log("RUN MediaGallerySection ON", typeof window === "undefined" ? "SERVER" : "CLIENT");
-  // console.log("[MediaGallerySection]: data -> ", data);
-  // console.log("[MediaGallerySection]: additionalData -> ", additionalData);
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
 

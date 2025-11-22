@@ -31,7 +31,6 @@ const BlogPost = ({post, locale}: {post: BlogPostProps, locale: Locale}) => {
           <div className="flex items-center text-xs text-muted-foreground mb-3">
             <CalendarIcon className="mr-1 h-3 w-3" />
             <span>
-              {/* TODO: Change the string to the right language */}
               {
                 new Date(post.publishedAt).toLocaleDateString(locale, {
                   weekday: "long",

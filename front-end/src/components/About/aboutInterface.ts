@@ -13,5 +13,5 @@ export interface AboutProps {
     className?: string;
   };
 
-  className?: string;
+  className?: string; // Used in frontend not in strapi
 }

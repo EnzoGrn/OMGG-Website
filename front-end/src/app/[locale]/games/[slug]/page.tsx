@@ -1,12 +1,13 @@
 import { Locale, useTranslations           } from "next-intl";
-import { getTranslations, setRequestLocale                   } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { HeroTrailerView                   } from "@/components/Trailer/HeroTrailerView";
 import type { Metadata                     } from "next";
 
 import { ButtonProps, LogoProps, TextProps } from "@/components/Section/Interface";
-import { dynamicComponentFactory } from "@/components/OMGG/Section/SectionLoader";
-import { fetchDataSearchParams } from "@/lib/strapi";
-import { DownloadCTA, DownloadCTAProps } from "@/components/CTA/DownloadCTA";
+import { dynamicComponentFactory           } from "@/components/OMGG/Section/SectionLoader";
+import { fetchDataSearchParams             } from "@/lib/strapi";
+import { DownloadCTA, DownloadCTAProps     } from "@/components/CTA/DownloadCTA";
+import { notFound                          } from "next/navigation";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata>
 {
@@ -66,10 +67,6 @@ export interface HeroTrailerSectionProps {
 
 const HeroTrailerSection = ({data, additionalData} : {data: HeroTrailerSectionProps, additionalData: GameProps}) => {
 
-  console.log("[HeroTrailerSection]: data", data);
-  console.log("[HeroTrailerSection]: additionalData", additionalData);
-  console.log("RUN HeroTrailerSection ON", typeof window === "undefined" ? "SERVER" : "CLIENT");
-
   return(
     <>
       {data && additionalData ? (
@@ -95,19 +92,19 @@ export default async function Home({ params }: { params: Promise<{ slug: string;
   setRequestLocale(locale);
 
   // Get page data with cache to avoid multi fecth
-  const gamePageData = await fetchDataSearchParams({ path: 'games-page', forceCache: false, locale: locale});
+  const gamePageData = await fetchDataSearchParams({ path: 'games-page', forceCache: true, locale: locale});
 
   // Get the data of the game
   const gameDataRes = await fetchDataSearchParams({
     path:         'games/' + slug,
-    forceCache:   false,
+    forceCache:   true,
     locale:       locale
-  }) as GameProps;
+  });
   
-  gamePageData.gameData = gameDataRes;
+  if (gameDataRes == undefined || gameDataRes?.data == null)
+    return notFound();
 
-  console.log("[Home Game Slug]: gameDataRes", gameDataRes);
-  console.log("[Home Game Slug]: gamePageData", gamePageData);
+  gamePageData.gameData = gameDataRes;
 
   return (
     <main className="w-full h-full overflow-hidden">

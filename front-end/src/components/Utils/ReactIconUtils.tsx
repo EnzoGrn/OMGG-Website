@@ -10,7 +10,7 @@ const libs: Record<string, any> = {
     "si": Si
 }
 
-export function DynamicLoad(iconSlug: string) {
+export function DynamicLoadIcon(iconSlug: string) {
     // Split the string "Fa6 FaIcon" into ["Fa6", "FaIcon"]
     const array: string[] = iconSlug.split(' ');
     const lib = libs[array[0]];
