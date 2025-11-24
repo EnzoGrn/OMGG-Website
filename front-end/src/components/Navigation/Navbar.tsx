@@ -76,7 +76,7 @@ const Navbar = ({ logo, dropdowns, itemLinks, locale = 'en' }: NavbarProps) => {
                 {dropdowns && itemLinks &&
                   <Accordion type="single" collapsible className="flex w-full flex-col gap-4">
                     {dropdowns.filter((item: DropdownProps) => !item.isDisable).map((item: DropdownProps) => renderMobileDropdownItem(item, locale))}
-                    {itemLinks.filter((item: ItemLinksProps) => !item.isDisable).map((item: ItemLinksProps) => renderMobileItemLink(item, locale))}
+                    {itemLinks.filter((item: ItemLinksProps) => !item.isDisable).map((item: ItemLinksProps) => renderMobileItemLink(item))}
                   </Accordion>               
                 }
               </div>
@@ -124,7 +124,7 @@ const renderMobileDropdownItem = (item: DropdownProps, locale: string) => {
   }
 };
 
-const renderMobileItemLink = (item: ItemLinksProps, local: string) => {
+const renderMobileItemLink = (item: ItemLinksProps) => {
   if (item) {
     return (
       item.variant == "ghost" ? 

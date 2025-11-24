@@ -53,7 +53,7 @@ const componentMap: Record<string, React.ComponentType<any>> = {
 };
 
 // casting the right type of block data depending on the component key
-function castBlockData<T extends keyof ComponentTypeMap>(block: any, key: T) : 
+function castBlockData<T extends keyof ComponentTypeMap>(block: any, _key: T) : 
   ComponentTypeMap[T] extends React.ComponentType<infer D> ? D : never {
     return block;
 }
@@ -63,6 +63,8 @@ export function dynamicComponentFactory(dataBlocks: any) {
   return (
     <div>
       {dataBlocks.data.blocks.map((block: any, index: number) => {
+
+        console.log(block);
 
         const Component = componentMap[block.__component];
         if (!Component) return null;

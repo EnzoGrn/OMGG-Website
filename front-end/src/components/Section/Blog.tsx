@@ -7,7 +7,7 @@ import { Container                               } from "@/components/Section/Co
 import { BlogPostSkeleton                        } from "@/components/Blog/Post/BlogPostSkeleton";
 import { BlogPost                                } from "@/components/Blog/Post/BlogPost";
 import { BlogPostProps, BlogPostsProps           } from "@/components/Blog/Post/BlogPostInterface";
-import { Locale, useTranslations                         } from "next-intl";
+import { Locale, useTranslations                 } from "next-intl";
 import Link  from "next/link";
 
 const BlogSection = ({data, locale}:  {data: BlogPostsProps, locale: Locale}) => {

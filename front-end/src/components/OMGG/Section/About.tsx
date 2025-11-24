@@ -1,6 +1,6 @@
-import { GameProps, HeroTrailerSectionProps } from "@/app/[locale]/games/[slug]/page";
+import { GameProps    } from "@/app/[locale]/games/[slug]/page";
 import { AboutSection } from "@/components/About/About";
-import { AboutProps } from "@/components/About/aboutInterface";
+import { AboutProps   } from "@/components/About/aboutInterface";
 
 const OMGGAbout = ({data, additionalData} : {data: AboutProps, additionalData: GameProps}) => {
 

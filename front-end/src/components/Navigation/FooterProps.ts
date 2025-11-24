@@ -1,14 +1,15 @@
-import { LogoProps } from "@/components/Logo/LogoInterface";
+import { LogoProps } from "../Section/Interface";
 
 interface RedirectButtonProps {
     id          : number;
-    title       : string;
+    text       : string;
     url         : string;
     isDisable   : boolean;
 }
 
 interface IconLinkProps {
     id      : number; 
+    text    : string;
     url     : string;
     variant : string;
 
@@ -25,8 +26,13 @@ export interface MenuProps {
     isDisable   : boolean;
 }
 
+interface ImageProps {
+    text: string,
+    image: LogoProps
+}
+
 export interface FooterProps {
-    logo        : LogoProps;       // The logo object for the footer.
+    logo        : ImageProps;       // The logo object for the footer.
     subtitle    : string;           // The company description.
     iconsLink   : IconLinkProps[];  // Social networks buttons
 

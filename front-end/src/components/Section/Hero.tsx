@@ -41,9 +41,7 @@ const HeroSection = ({ badge, title, subtitle, buttons, logo, className }: HeroP
                 className="w-full sm:w-auto max-w-1/2 lg:max-w-full uppercase" aria-label={item.title}>
                 <a href={item.url} aria-label={item.title}>
                   {item.title}
-                  {/* TODO: Add Icon
-                    <ArrowRight className="size-4" />
-                  */}
+                  <ArrowRight className="size-4" />
                 </a>
               </Button>
           )

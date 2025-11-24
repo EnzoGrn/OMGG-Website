@@ -4,7 +4,7 @@ import * as Ri from "react-icons/ri";
 import * as Si from "react-icons/si";
 import { IconType } from "react-icons";
 
-const libs: Record<string, any> = {
+const libs: Record<string, Record<string, IconType>> = {
     "fa6": Fa6,
     "ri": Ri,
     "si": Si

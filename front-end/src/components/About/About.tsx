@@ -2,9 +2,8 @@ import { Button     } from "@/components/ui/button";
 import { RenderText } from "../Utils/TextUtils";
 import { AboutProps } from "./aboutInterface";
 import { PSection   } from "../Section/Section";
-import { cn } from "@/lib/utils";
-import { GameProps } from "@/app/[locale]/games/[slug]/page";
-import { TextProps } from "../Section/Interface";
+import { cn         } from "@/lib/utils";
+import { GameProps  } from "@/app/[locale]/games/[slug]/page";
 
 const AboutContainer = ({ children, padding, className } : { children: React.ReactNode, padding: string, className?: string }) => {
   return (

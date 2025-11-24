@@ -1,4 +1,4 @@
-import { Locale, useTranslations           } from "next-intl";
+import { Locale                            } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { HeroTrailerView                   } from "@/components/Trailer/HeroTrailerView";
 import type { Metadata                     } from "next";

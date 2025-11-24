@@ -1,10 +1,11 @@
 import { Container              } from "@/components/Section/Container"
 import { FooterProps, MenuProps } from "@/components/Navigation/FooterProps";
-import { DynamicLoadIcon            } from "@/components/Utils/ReactIconUtils";
+import { DynamicLoadIcon        } from "@/components/Utils/ReactIconUtils";
 import { getMediaFromUrl        } from "@/lib/strapi";
+import { Locale                 } from "next-intl";
 import Link from "next/link";
 
-const Footer = ({ logo, subtitle, copyright, iconsLink, menu, legal, locale = 'en' }: FooterProps) => {
+const Footer = ({footerData, locale = 'en' }: {footerData: FooterProps; locale: Locale}) => {
   return (
     <section className="py-8 inset-shadow-xs">
       <Container>
@@ -13,27 +14,27 @@ const Footer = ({ logo, subtitle, copyright, iconsLink, menu, legal, locale = 'e
             <div className="flex w-full max-w-96 shrink flex-col items-center justify-between gap-6 lg:items-start">
 
               {/* Logo */}
-              {logo &&
+              {footerData.logo &&
                 <div className="flex items-center gap-2 lg:justify-start">
                   <Link href="/">
-                    <img src={getMediaFromUrl(logo.url)} alt={logo.alt} className="h-16" />
+                    <img src={getMediaFromUrl(footerData.logo.image.url)} alt={footerData.logo.image.alternativeText} className="h-16" />
                   </Link>
                 </div>
               }
 
               {/* Subtitle */}
               <p className="text-sm text-muted-foreground">
-                {subtitle.split('\\n').map((line: string, index: number) => (
+                {footerData.subtitle.split('\\n').map((line: string, index: number) => (
                   <span key={index}>
                     {line}
-                    {index < subtitle.split('\\n').length - 1 && <br />}
+                    {index < footerData.subtitle.split('\\n').length - 1 && <br />}
                   </span>
                 ))}
               </p>
 
               {/* Social Network */}
               <ul className="flex items-center space-x-6 text-muted-foreground">
-                {iconsLink && iconsLink
+                {footerData.iconsLink && footerData.iconsLink
                 .filter((iconsLink) => !iconsLink.isDisable)
                 .map((iconLink) => {
                   if (!iconLink.isDisable)
@@ -50,7 +51,7 @@ const Footer = ({ logo, subtitle, copyright, iconsLink, menu, legal, locale = 'e
             
             {/* Menu navigation */}
             <div className="grid grid-cols-3 gap-6 lg:gap-20">
-              {menu && menu
+              {footerData.menu && footerData.menu
                 .filter((menuItem: MenuProps) => !menuItem.isDisable)
                 .map((menuItem: MenuProps) => (
                   <div key={menuItem.id}>
@@ -62,8 +63,8 @@ const Footer = ({ logo, subtitle, copyright, iconsLink, menu, legal, locale = 'e
                             if (!item.isDisable)
                               return (
                                 <li key={item.id} className="font-medium hover:text-primary">
-                                  <a href={`/${locale}${item.url}`} aria-label={item.title}>
-                                    {item.title}
+                                  <a href={`/${locale}${item.url}`} aria-label={item.text}>
+                                    {item.text}
                                   </a>
                                 </li>
                               )
@@ -78,16 +79,16 @@ const Footer = ({ logo, subtitle, copyright, iconsLink, menu, legal, locale = 'e
 
           {/* Copyright */}
           <div className="mt-8 lg:mt-20 flex flex-col justify-between gap-4 border-t pt-8 text-center text-sm font-medium text-muted-foreground lg:flex-row lg:items-center lg:text-left">
-            <p>{copyright}</p>
+            <p>{footerData.copyright}</p>
             <ul className="flex justify-center gap-4 lg:justify-start">
-              {legal
+              {footerData.legal
               .filter((item) => !item.isDisable)
               .map((item) => {
                 if (!item.isDisable)
                   return (
                     <li className="hover:text-primary" key={item.id}>
-                      <a href={`/${locale}${item.url}`} aria-label={item.title}>
-                        {item.title}
+                      <a href={`/${locale}${item.url}`} aria-label={item.text}>
+                        {item.text}
                       </a>
                     </li>
                   )
