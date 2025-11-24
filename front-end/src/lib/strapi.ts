@@ -36,7 +36,7 @@ export async function fetchDataSearchParams( {path, forceCache, searchParams, pa
       headers,
       // ISR (https://nextjs.org/docs/pages/guides/incremental-static-regeneration)
       // next: { revalidate: false}, // TODO: cache 3s
-      cache: (forceCache) ? 'force-cache' : 'default',
+      // cache: (forceCache) ? 'force-cache' : 'default',
     });
 
   if (!res.ok) {
@@ -81,7 +81,7 @@ export async function fetchFromStrapi(path: string, forceCache: boolean, locale?
         headers,
         // ISR (https://nextjs.org/docs/pages/guides/incremental-static-regeneration)
         // next: { revalidate: false}, // TODO: cache 3s
-        cache: (forceCache) ? 'force-cache' : 'default',
+        // cache: (forceCache) ? 'force-cache' : 'default',
     });
 
     // Check result of the fetch
