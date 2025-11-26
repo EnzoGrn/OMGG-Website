@@ -1,26 +1,23 @@
-import { Navbar           } from "@/components/Navigation/Navbar";
-import { Container        } from "@/components/Section/Container";
-import { useTranslations  } from "next-intl";
-import { OMGGNavbarValues } from "@/components/OMGG/Constants/Navigation";
+import { Navbar                        } from "@/components/Navigation/Navbar";
+import { Container                     } from "@/components/Section/Container";
+import { DropdownProps, ItemLinksProps } from "@/components/Navigation/NavigationProps";
+import { LogoProps                     } from "@/components/Section/Interface";
 
-const OMGGNavbar = ({ locale } : { locale: string }) => {
-  const tNavigation = useTranslations('Navigation');
-  const tNavbar     = useTranslations('Navbar');
+interface NavBarPropsProps {
+  logo: LogoProps,
+  dropdowns: DropdownProps[],
+  linkButtons: ItemLinksProps[]
+}
 
-  if (OMGGNavbarValues.logo)
-    OMGGNavbarValues.logo.alt = tNavigation('logoAlt');
-  if (OMGGNavbarValues.submit)
-    OMGGNavbarValues.submit.title = tNavbar('submit');
-  if (OMGGNavbarValues.menu) {
-    OMGGNavbarValues.menu[0].title = tNavigation('portfolio');
-    OMGGNavbarValues.menu[1].title = tNavigation('omgg');
-    OMGGNavbarValues.menu[2].title = tNavigation('blog');
-  }
+const OMGGNavbar = ({ locale, global } : { locale: string, global: NavBarPropsProps }) => {
+
+  if (!global)
+    return null;
 
   return (
     <header className="sticky top-0 z-50 bg-background shadow-sm w-full">
       <Container>
-        <Navbar {...OMGGNavbarValues} locale={locale} />
+        <Navbar logo={global.logo} dropdowns={global.dropdowns} itemLinks={global.linkButtons} locale={locale} />
       </Container>
     </header>
   );

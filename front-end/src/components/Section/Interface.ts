@@ -1,33 +1,38 @@
 import { TextEnum } from "@/lib/enumerations/TextEnum";
 
-interface Text {
-  text      : string;
-  size      : TextEnum;
+export interface Badge {
+  title: string;
+}
+
+export interface TextProps {
+  text:       string;
+  size:       TextEnum;
+  isBold:     boolean;   
   className?: string;
 };
 
+export interface ButtonProps {
+  title: string;
+  url: string;
+  variant: string;
+  isDisable: boolean;
+}
+
+export interface LogoProps {
+  url: string;
+  alternativeText: string;
+  className?: string;
+}
+
 export interface HeroProps {
-  badge?: string;
+  badge?: Badge;
 
-  text: Text[];
+  title:    TextProps;
+  subtitle: TextProps;
 
-  buttons?: {
-    primary?: {
-      text: string;
-      url: string;
-    };
+  buttons?: ButtonProps[];
 
-    secondary?: {
-      text: string;
-      url: string;
-    };
-  };
-
-  image: {
-    src: string;
-    alt: string;
-    className?: string;
-  };
+  logo: LogoProps;
 
   className?: string;
 }
