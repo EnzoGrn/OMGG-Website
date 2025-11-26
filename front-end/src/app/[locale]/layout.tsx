@@ -1,11 +1,11 @@
+import "@/app/globals.css";
 import { hasLocale, Locale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale             } from "next-intl/server";
 import { notFound                                  } from "next/navigation";
 import { routing                                   } from "@/i18n/routing";
 import { OMGGNavbar                                } from "@/components/OMGG/Navigation/Navbar";
 import { OMGGFooter                                } from "@/components/OMGG/Navigation/Footer";
-
-import "@/app/globals.css";
+import { fetchFromStrapi                           } from "@/lib/strapi"
 
 export function generateStaticParams()
 {
@@ -27,13 +27,16 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
     notFound();
   }
 
+  // Fetch global single type from Strapi
+  const global = await fetchFromStrapi("global", true, locale);
+  
   return (
     <html lang={locale}>
       <body className="min-h-screen bg-background">
         <NextIntlClientProvider messages={messages}>
-          <OMGGNavbar locale={locale} />
+          <OMGGNavbar locale={locale} global={global?.navbar} />
           {children}
-          <OMGGFooter locale={locale} />
+          <OMGGFooter locale={locale} global={global?.footer}/>
         </NextIntlClientProvider>
       </body>
     </html>

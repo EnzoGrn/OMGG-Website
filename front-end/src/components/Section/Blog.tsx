@@ -4,21 +4,14 @@ import { ChevronLeftIcon, ChevronRightIcon       } from "lucide-react";
 import { useState, useRef, useEffect, TouchEvent, useCallback } from "react";
 import { Button                                  } from "@/components/ui/button";
 import { Container                               } from "@/components/Section/Container";
-import { useTranslations                         } from "next-intl";
-import { GalleryImagePreview                     } from "../Gallery/GalleryImagePreview";
-import { GalleryImageSkeleton                    } from "../Gallery/GalleryImageSkeleton";
-import { GalleryProps, GameProps } from "@/app/[locale]/games/[slug]/page";
-import { LogoProps } from "./Interface";
+import { BlogPostSkeleton                        } from "@/components/Blog/Post/BlogPostSkeleton";
+import { BlogPost                                } from "@/components/Blog/Post/BlogPost";
+import { BlogPostProps, BlogPostsProps           } from "@/components/Blog/Post/BlogPostInterface";
+import { Locale, useTranslations                 } from "next-intl";
+import Link  from "next/link";
 
-
-// TODO: Remove this one because not really usefull
-export interface GallerySectionProps {
-  enableAnimation: boolean
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const MediaGallerySection = ({data, additionalData} : {data: GallerySectionProps, additionalData?: GameProps}) => {
-  const t = useTranslations('Games.gallery');
+const BlogSection = ({data, locale}:  {data: BlogPostsProps, locale: Locale}) => {
+  const t = useTranslations('Blog');
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -38,12 +31,9 @@ const MediaGallerySection = ({data, additionalData} : {data: GallerySectionProps
 
   const sliderRef    = useRef<HTMLDivElement>(null);
 
-  const gallery: GalleryProps | undefined = additionalData?.gallery;
-
   // Calculate visible items based on screen size
   const visibleItems = screenSize.isDesktop ? 3 : screenSize.isTablet ? 2 : 1;
-
-  const maxIndex   = Math.max(0, (gallery?.assets?.length ?? 0) - visibleItems);
+  const maxIndex     = Math.max(0, data.maxBlog - visibleItems);
 
   // Initialize and update screen size
   useEffect(() => {
@@ -69,13 +59,14 @@ const MediaGallerySection = ({data, additionalData} : {data: GallerySectionProps
     setCurrentIndex((prev) => Math.min(prev, maxIndex));
   }, [screenSize, maxIndex]);
 
+  // Handle navigation
   const handlePrevious = useCallback(() => {
-  setCurrentIndex((prev) => Math.max(0, prev - 1));
-}, []);
+    setCurrentIndex((prev) => Math.max(0, prev - 1));
+  }, []); // No dependencies, only uses setCurrentIndex which is stable
 
-const handleNext = useCallback(() => {
-  setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
-}, [maxIndex]);
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+  }, [maxIndex]); // Depends on maxIndex
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -165,17 +156,13 @@ const handleNext = useCallback(() => {
       <Container className="container space-y-6 md:space-y-8 relative overflow-hidden">
         <img src="/OMGG/Illustrations/orange_dots.svg" alt="OMGG's dots illustration" className="invisible lg:visible max-w-96 max-h-48 h-1/3 w-2/3 absolute top-10 right-0 -translate-x-1/2 z-0 select-none" />
         <div className="flex items-center justify-between flex-wrap gap-4">
-          <h2 className="text-2xl md:text-3xl max-w-xl font-bold tracking-tight text-secondary-foreground">
-            {t('heading')}
-          </h2>
-
-          <div className="flex justify-center mt-2 sm:mt-8 gap-8">
-            <Button variant="outline" size="icon" onClick={handlePrevious} disabled={currentIndex === 0} aria-label="Previous slide">
-              <ChevronLeftIcon className="h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="icon" onClick={handleNext} disabled={currentIndex === maxIndex} aria-label="Next slide">
-              <ChevronRightIcon className="h-4 w-4" />
-            </Button>
+          <div className="space-y-4 max-w-xl text-secondary-foreground">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+              {t('heading')}
+            </h2>
+            <p className="text-sm md:text-base">
+              {t('description')}
+            </p>
           </div>
         </div>
 
@@ -192,16 +179,16 @@ const handleNext = useCallback(() => {
           >
             {isLoading &&
               <>
-                <GalleryImageSkeleton />
-                <GalleryImageSkeleton />
-                <GalleryImageSkeleton />
-                <GalleryImageSkeleton />
+                <BlogPostSkeleton />
+                <BlogPostSkeleton />
+                <BlogPostSkeleton />
+                <BlogPostSkeleton />
               </>
             }
             {!isLoading &&
               <>
-                {gallery?.assets.map((post: LogoProps, index) => (
-                  <GalleryImagePreview key={index} {...post} />
+                {data.BlogPost.map((post: BlogPostProps, index) => (
+                  <BlogPost key={index} post={post} locale={locale} />
                 ))}
               </>
             }
@@ -210,9 +197,23 @@ const handleNext = useCallback(() => {
           {/* Progress indicators for mobile */}
           <div className="sm:hidden">{renderProgressIndicators()}</div>
         </div>
+
+        <div className="flex justify-center mt-2 sm:mt-8 gap-8">
+          <Button variant="outline" size="icon" onClick={handlePrevious} disabled={currentIndex === 0} aria-label="Previous slide">
+            <ChevronLeftIcon className="h-4 w-4" />
+          </Button>
+          <Button variant="outline" asChild aria-label={t('access')}>
+            <Link href="#" className="uppercase" aria-label={t('access')}>
+              {t('access')}
+            </Link>
+          </Button>
+          <Button variant="outline" size="icon" onClick={handleNext} disabled={currentIndex === maxIndex} aria-label="Next slide">
+            <ChevronRightIcon className="h-4 w-4" />
+          </Button>
+        </div>
       </Container>
     </section>
   );
 }
 
-export { MediaGallerySection };
+export { BlogSection };
