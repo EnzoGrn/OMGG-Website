@@ -5,6 +5,9 @@ on:
     branches:
       - main
       - dev
+  push:
+    branches:
+      - feature/issue-50/implement-strapi-backend-with-omgg-website
 
 jobs:
   build:
