@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronLeftIcon, ChevronRightIcon       } from "lucide-react";
-import { useState, useRef, useEffect, TouchEvent } from "react";
+import { useState, useRef, useEffect, TouchEvent, useCallback } from "react";
 import { Button                                  } from "@/components/ui/button";
 import { Container                               } from "@/components/Section/Container";
 import { useTranslations                         } from "next-intl";
@@ -16,6 +16,7 @@ export interface GallerySectionProps {
   enableAnimation: boolean
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const MediaGallerySection = ({data, additionalData} : {data: GallerySectionProps, additionalData?: GameProps}) => {
   const t = useTranslations('Games.gallery');
 
@@ -39,12 +40,10 @@ const MediaGallerySection = ({data, additionalData} : {data: GallerySectionProps
 
   const gallery: GalleryProps | undefined = additionalData?.gallery;
 
-  if (!gallery)
-    return;
-
   // Calculate visible items based on screen size
   const visibleItems = screenSize.isDesktop ? 3 : screenSize.isTablet ? 2 : 1;
-  const maxIndex     = Math.max(0, gallery.assets.length - visibleItems);
+
+  const maxIndex   = Math.max(0, (gallery?.assets?.length ?? 0) - visibleItems);
 
   // Initialize and update screen size
   useEffect(() => {
@@ -70,14 +69,13 @@ const MediaGallerySection = ({data, additionalData} : {data: GallerySectionProps
     setCurrentIndex((prev) => Math.min(prev, maxIndex));
   }, [screenSize, maxIndex]);
 
-  // Handle navigation
-  function handlePrevious() {
-    setCurrentIndex((prev) => Math.max(0, prev - 1));
-  }
+  const handlePrevious = useCallback(() => {
+  setCurrentIndex((prev) => Math.max(0, prev - 1));
+}, []);
 
-  function handleNext() {
-    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
-  }
+const handleNext = useCallback(() => {
+  setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+}, [maxIndex]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -202,7 +200,7 @@ const MediaGallerySection = ({data, additionalData} : {data: GallerySectionProps
             }
             {!isLoading &&
               <>
-                {gallery.assets.map((post: LogoProps, index) => (
+                {gallery?.assets.map((post: LogoProps, index) => (
                   <GalleryImagePreview key={index} {...post} />
                 ))}
               </>

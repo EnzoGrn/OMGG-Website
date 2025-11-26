@@ -49,7 +49,7 @@ const TestimonialSection = ({data}:  {data: TestimonialsProps}) => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [api, current]);
+  }, [api, current, data.testimonials.length]);
 
   return (
     <Container className="pb-16 pt-32 overflow-visible relative">

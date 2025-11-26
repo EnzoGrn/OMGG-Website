@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronLeftIcon, ChevronRightIcon       } from "lucide-react";
-import { useState, useRef, useEffect, TouchEvent } from "react";
+import { useState, useRef, useEffect, TouchEvent, useCallback } from "react";
 import { Button                                  } from "@/components/ui/button";
 import { Container                               } from "@/components/Section/Container";
 import { BlogPostSkeleton                        } from "@/components/Blog/Post/BlogPostSkeleton";
@@ -60,13 +60,13 @@ const BlogSection = ({data, locale}:  {data: BlogPostsProps, locale: Locale}) =>
   }, [screenSize, maxIndex]);
 
   // Handle navigation
-  function handlePrevious() {
+  const handlePrevious = useCallback(() => {
     setCurrentIndex((prev) => Math.max(0, prev - 1));
-  }
+  }, []); // No dependencies, only uses setCurrentIndex which is stable
 
-  function handleNext() {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
-  }
+  }, [maxIndex]); // Depends on maxIndex
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {

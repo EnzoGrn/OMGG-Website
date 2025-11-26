@@ -6,6 +6,8 @@ export function getMediaFromUrl(url: string)
     return STRAPI_URL + url;
 }
 
+// TODO: use the forceCache that is part of the SSR
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function fetchDataSearchParams( {path, forceCache, searchParams, params, locale} : 
   {path: string, forceCache: boolean, searchParams?: string[], params?: string[], locale?: string})
 {

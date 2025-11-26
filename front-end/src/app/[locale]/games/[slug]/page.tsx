@@ -1,12 +1,9 @@
 import { Locale                            } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { HeroTrailerView                   } from "@/components/Trailer/HeroTrailerView";
 import type { Metadata                     } from "next";
-
-import { ButtonProps, LogoProps, TextProps } from "@/components/Section/Interface";
+import { LogoProps, TextProps              } from "@/components/Section/Interface";
 import { dynamicComponentFactory           } from "@/components/OMGG/Section/SectionLoader";
 import { fetchDataSearchParams             } from "@/lib/strapi";
-import { DownloadCTA, DownloadCTAProps     } from "@/components/CTA/DownloadCTA";
 import { notFound                          } from "next/navigation";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata>
@@ -61,30 +58,6 @@ export interface GameProps {
   pngIllustration: LogoProps;
 }
 
-export interface HeroTrailerSectionProps {
-  downloadButton: ButtonProps;
-}
-
-const HeroTrailerSection = ({data, additionalData} : {data: HeroTrailerSectionProps, additionalData: GameProps}) => {
-
-  return(
-    <>
-      {data && additionalData ? (
-        <HeroTrailerView gameProps={additionalData} data={data}/>
-      ) : (
-        <></>
-      )}
-    </>
-  );
-}
-
-const CTASection = ({data, additionalData} : {data: DownloadCTAProps, additionalData: GameProps}) => {
-
-  return (
-    <DownloadCTA data={data} additionalData={additionalData}/>
-  );
-}
-
 export default async function Home({ params }: { params: Promise<{ slug: string; locale: Locale }> })
 {
   const { slug, locale } = await params;
@@ -113,5 +86,3 @@ export default async function Home({ params }: { params: Promise<{ slug: string;
     </main>
   );
 }
-
-export { HeroTrailerSection, HeroTrailerView, CTASection }
