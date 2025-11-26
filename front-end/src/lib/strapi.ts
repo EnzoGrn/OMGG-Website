@@ -12,7 +12,7 @@ export async function fetchDataSearchParams( {path, forceCache, searchParams, pa
   {path: string, forceCache: boolean, searchParams?: string[], params?: string[], locale?: string})
 {
   // Build the url to fetch
-  const url = new URL(`${STRAPI_URL}/api/${path}`);
+  const url = new URL(`${STRAPI_URL}api/${path}`);
 
   // Build headers
   const headers: Record<string, string> = {
@@ -53,7 +53,7 @@ export async function fetchDataSearchParams( {path, forceCache, searchParams, pa
 export async function fetchFromStrapi(path: string, forceCache: boolean, locale?: string,
     paginationSize?: number, paginationPage?: number, populateTarget?: string, populate?: string) {
     // Construct the url
-    const url = new URL(`${STRAPI_URL}/api/${path}`);
+    const url = new URL(`${STRAPI_URL}api/${path}`);
 
     // Get the data with localization
     if (locale)

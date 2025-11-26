@@ -4,7 +4,7 @@ const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337"
 const NEXT_PUBLIC_STRAPI_API_TOKEN = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
 const checkExisting = async (email: string, path: string) => {
-    const url = new URL(`${STRAPI_URL}/api/${path}`);
+    const url = new URL(`${STRAPI_URL}api/${path}`);
     url.searchParams.set("filters[email][$eq]", email);
   
     const res = await fetch(url.toString(), { 
@@ -22,7 +22,7 @@ const checkExisting = async (email: string, path: string) => {
 export async function POST(req: NextRequest)
 {
     const body = await req.json();
-    let url = new URL(`${STRAPI_URL}/api/${body.path}`);
+    let url = new URL(`${STRAPI_URL}api/${body.path}`);
     const existingDataId = await checkExisting(body.data.data.email, body.path);
     const headers: Record<string, string> = {
         "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest)
 
     if (existingDataId != null) {
         method = 'PUT';
-        url = new URL(`${STRAPI_URL}/api/${body.path}/${existingDataId}`);
+        url = new URL(`${STRAPI_URL}api/${body.path}/${existingDataId}`);
         url.searchParams.set("[id]", existingDataId);
     }
 
