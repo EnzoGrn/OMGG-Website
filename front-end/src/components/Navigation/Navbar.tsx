@@ -127,7 +127,7 @@ const renderMobileDropdownItem = (item: DropdownProps, locale: string) => {
 const renderMobileItemLink = (item: ItemLinksProps) => {
   if (item) {
     return (
-      item.variant == "ghost" ? 
+      item.variant === "ghost" ? 
         <AccordionItem key={item.title} value={item.title} className="border-b-0">
           <a href={item.url} className="text-md py-0 font-semibold hover:no-underline uppercase" aria-label={item.title}>
             {item.title}
