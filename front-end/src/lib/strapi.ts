@@ -1,5 +1,5 @@
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
-const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
+const NEXT_PUBLIC_STRAPI_API_TOKEN = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
 export function getMediaFromUrl(url: string)
 {
@@ -20,8 +20,8 @@ export async function fetchDataSearchParams( {path, forceCache, searchParams, pa
   };
 
   // Add Bearer token if available
-  if (STRAPI_API_TOKEN) {
-    headers["Authorization"] = `Bearer ${STRAPI_API_TOKEN}`;
+  if (NEXT_PUBLIC_STRAPI_API_TOKEN) {
+    headers["Authorization"] = `Bearer ${NEXT_PUBLIC_STRAPI_API_TOKEN}`;
   }
 
   if (locale)
@@ -74,8 +74,8 @@ export async function fetchFromStrapi(path: string, forceCache: boolean, locale?
     };
 
     // Add Bearer token if available
-    if (STRAPI_API_TOKEN) {
-        headers["Authorization"] = `Bearer ${STRAPI_API_TOKEN}`;
+    if (NEXT_PUBLIC_STRAPI_API_TOKEN) {
+        headers["Authorization"] = `Bearer ${NEXT_PUBLIC_STRAPI_API_TOKEN}`;
     }
 
     // Fetch the data

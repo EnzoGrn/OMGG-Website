@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
-const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
+const NEXT_PUBLIC_STRAPI_API_TOKEN = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
 const checkExisting = async (email: string, path: string) => {
     const url = new URL(`${STRAPI_URL}/api/${path}`);
@@ -10,7 +10,7 @@ const checkExisting = async (email: string, path: string) => {
     const res = await fetch(url.toString(), { 
         method: 'GET',
         headers: {
-            "Authorization": `Bearer ${STRAPI_API_TOKEN}`,
+            "Authorization": `Bearer ${NEXT_PUBLIC_STRAPI_API_TOKEN}`,
             "Content-Type": "application/json"
         }
     });
@@ -29,8 +29,8 @@ export async function POST(req: NextRequest)
     };
 
     // TODO: create a token only for specific post route
-    if (STRAPI_API_TOKEN) {
-        headers["Authorization"] = `Bearer ${STRAPI_API_TOKEN}`;
+    if (NEXT_PUBLIC_STRAPI_API_TOKEN) {
+        headers["Authorization"] = `Bearer ${NEXT_PUBLIC_STRAPI_API_TOKEN}`;
     }
 
     let method = 'POST';
