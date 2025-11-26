@@ -4,7 +4,7 @@ const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337"
 const NEXT_PUBLIC_STRAPI_API_TOKEN = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
 
 const checkExisting = async (email: string, path: string) => {
-    const url = new URL(`${STRAPI_URL}api/${path}`);
+    const url = new URL(`${STRAPI_URL}/api/${path}`);
     url.searchParams.set("filters[email][$eq]", email);
   
     const res = await fetch(url.toString(), { 
@@ -48,7 +48,7 @@ export async function POST(req: NextRequest)
     })
 
      if (!response.ok) {
-        return NextResponse.json({text: response.text}, {status: response.status});
+        return NextResponse.json({text: await response.text()}, {status: response.status});
     }
 
     return NextResponse.json({status: 200});
