@@ -5,9 +5,6 @@ on:
     branches:
       - main
       - dev
-  push:
-    branches:
-      - feature/issue-50/implement-strapi-backend-with-omgg-website
 
 jobs:
   build:
@@ -26,8 +23,8 @@ jobs:
 
       - name: Run build
         run: | 
-        cd front-end
-        echo "NEXT_PUBLIC_STRAPI_URL=${{ secrets.NEXT_PUBLIC_STRAPI_URL }}"
-        echo "NEXT_PUBLIC_STRAPI_URL=${{ secrets.NEXT_PUBLIC_STRAPI_URL }}" >> .env
-        echo "STRAPI_API_TOKEN=${{ secrets.STRAPI_API_TOKEN }}" >> .env
-        npm run build
+          cd front-end/
+          echo "NEXT_PUBLIC_STRAPI_URL=${{ secrets.NEXT_PUBLIC_STRAPI_URL }}"
+          echo "NEXT_PUBLIC_STRAPI_URL=${{ secrets.NEXT_PUBLIC_STRAPI_URL }}" >> .env
+          echo "STRAPI_API_TOKEN=${{ secrets.STRAPI_API_TOKEN }}" >> .env
+          npm run build
