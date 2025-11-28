@@ -13,7 +13,7 @@ jobs:
       contents: read
       packages: write
     env:
-      IMAGE_NAME: ghcr.io/EnzoGrn/OMGG-Website
+      IMAGE_NAME: ghcr.io/enzogrn/omgg-website
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
