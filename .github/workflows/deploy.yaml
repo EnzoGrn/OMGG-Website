@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feature/issue-50/implement-strapi-backend-with-omgg-website
 
 jobs:
   build-and-push:
@@ -28,7 +29,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: ./frontend
+          context: ./front-end
           file: Dockerfile
           push: true
           tags: |
