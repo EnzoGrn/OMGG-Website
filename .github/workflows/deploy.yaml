@@ -15,8 +15,6 @@ jobs:
       packages: write
     env:
       IMAGE_NAME: ghcr.io/enzogrn/omgg-website
-      NEXT_PUBLIC_STRAPI_URL: ${{ secrets.NEXT_PUBLIC_STRAPI_URL }}
-      NEXT_PUBLIC_STRAPI_API_TOKEN: ${{ secrets.STRAPI_API_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -37,6 +35,9 @@ jobs:
           tags: |
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          build-args: |
+            NEXT_PUBLIC_STRAPI_URL=${{ secrets.NEXT_PUBLIC_STRAPI_URL }}
+            NEXT_PUBLIC_STRAPI_API_TOKEN=${{ secrets.STRAPI_API_TOKEN }}
 
   deploy:
     name: Deploy to Server
