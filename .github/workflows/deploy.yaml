@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - feature/issue-50/implement-strapi-backend-with-omgg-website
+      - feature/issue-55/improve-backend-deployement
 
 jobs:
   build-and-push:
