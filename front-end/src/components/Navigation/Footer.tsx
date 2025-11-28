@@ -37,7 +37,6 @@ const Footer = ({footerData, locale = 'en' }: {footerData: FooterProps; locale: 
                 {footerData.iconsLink && footerData.iconsLink
                 .filter((iconsLink) => !iconsLink.isDisable)
                 .map((iconLink) => {
-                  if (!iconLink.isDisable)
                     return (
                       <li className="font-medium hover:text-primary" key={iconLink.id}>
                         <a href={iconLink.url} aria-label="X / Twitter">
@@ -84,7 +83,6 @@ const Footer = ({footerData, locale = 'en' }: {footerData: FooterProps; locale: 
               {footerData.legal
               .filter((item) => !item.isDisable)
               .map((item) => {
-                if (!item.isDisable)
                   return (
                     <li className="hover:text-primary" key={item.id}>
                       <a href={`/${locale}${item.url}`} aria-label={item.text}>

@@ -112,8 +112,6 @@ export function dynamicComponentFactory(dataBlocks: any) {
     <div>
       {dataBlocks.data.blocks.map((block: BlockProps, index: number) => {
 
-        console.log(block);
-
         const Component = componentMap[block.__component];
         if (!Component) return null;
 

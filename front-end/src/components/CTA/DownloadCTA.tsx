@@ -18,11 +18,16 @@ const DownloadCTA = ({data, additionalData} : {data: DownloadCTAProps, additiona
 
   const t = useTranslations('Games.cta');
   
-  if (data.title && additionalData.name)
-    data.title.text += ' ' + additionalData.name 
+  let dataUpdated: DownloadCTAProps = {
+    ...data,
+    title: {
+      ...data.title,
+      text: data.title.text + ' ' + additionalData.name
+    },
+  };
 
-  if (data.description && additionalData.name)
-    data.description.text += ' ' + additionalData.name
+  if (dataUpdated.description && additionalData.name)
+    dataUpdated.description.text += ' ' + additionalData.name;
 
   return (
     <section className="py-8">

@@ -9,7 +9,7 @@ const OMGGAbout = ({data, additionalData} : {data: AboutProps, additionalData: G
       {data && additionalData ? (
         <AboutSection
           data={data}
-          additionnalData={additionalData as GameProps}
+          additionalData={additionalData as GameProps}
         />
       ) : (
         <AboutSection data={data} />

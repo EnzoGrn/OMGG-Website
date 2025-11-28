@@ -19,6 +19,8 @@ const checkExisting = async (email: string, path: string) => {
     return data.data.length > 0 ? data.data[0].documentId : null;
 };
 
+
+// TODO: Look for validation library like zod to confirm that sended data are safe (no injection)
 export async function POST(req: NextRequest)
 {
     const body = await req.json();
@@ -45,7 +47,7 @@ export async function POST(req: NextRequest)
         method: method,
         body: JSON.stringify(body.data),
         headers,
-    })
+    });
 
      if (!response.ok) {
         return NextResponse.json({text: await response.text()}, {status: response.status});

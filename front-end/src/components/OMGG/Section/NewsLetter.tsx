@@ -30,8 +30,7 @@ const OMGGNewsLetter = () => {
   } = useForm<FormValues>({ resolver: zodResolver(formSchema), mode: 'onChange' });
 
   const onSubmit = (data: FormValues) => {
-    console.log('Form submitted:', data)
-
+    // TODO: display alert in case of error
     fetch('/api/news-letter-form', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },

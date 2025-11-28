@@ -6,8 +6,6 @@ const OMGGFooter = ({ locale, global } : { locale: string, global: FooterProps }
   if (!global)
     return;
 
-  console.log("[OMGGFooter]: data -> ", global);
-
   return(
     <Footer footerData={global} locale={locale} />
   );

@@ -6,7 +6,7 @@ export default function Forbidden() {
   return (
     <html lang="en">
       <body>
-        <Error statusCode={403} />;
+        <Error statusCode={403} />
       </body>
     </html>
   )
