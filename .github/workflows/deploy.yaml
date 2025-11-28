@@ -15,11 +15,6 @@ jobs:
       packages: write
     env:
       IMAGE_NAME: ghcr.io/enzogrn/omgg-website
-    env_file: ./front-end/.env
-    args:
-      PORT: ${PORT}
-      NEXT_PUBLIC_STRAPI_URL: ${NEXT_PUBLIC_STRAPI_URL}
-      NEXT_PUBLIC_STRAPI_API_TOKEN: ${NEXT_PUBLIC_STRAPI_API_TOKEN}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -36,6 +31,10 @@ jobs:
         with:
           context: ./front-end
           file: ./front-end/Dockerfile
+          env:
+            PORT: "3000"
+            NEXT_PUBLIC_STRAPI_URL: ${{ secrets.NEXT_PUBLIC_STRAPI_URL }}
+            NEXT_PUBLIC_STRAPI_API_TOKEN: ${{ secrets.STRAPI_API_TOKEN }}
           push: true
           tags: |
             ${{ env.IMAGE_NAME }}:latest
