@@ -1,15 +1,18 @@
-import { Menu                                                                                                                     } from "lucide-react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger                                                             } from "@/components/ui/accordion";
-import { Button                                                                                                                   } from "@/components/ui/button";
+import { Menu } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger                                                               } from "@/components/ui/sheet";
-import { ApiLogo                                                                                                                  } from "@/components/Logo/ApiLogo";
-import { DropdownProps, ItemLinksProps, ItemProps, NavbarProps                                                                    } from "./NavigationProps";
-import { getMediaFromUrl                                                                                                          } from "@/lib/strapi";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { ApiLogo } from "@/components/Logo/ApiLogo";
+import { DropdownProps, ItemLinksProps, ItemProps, NavbarProps } from "./NavigationProps";
+import { getMediaFromUrl } from "@/lib/strapi";
+import { useLocale } from "next-intl";
 
 import Link from "next/link";
 
-const Navbar = ({ logo, dropdowns, itemLinks, locale = 'en' }: NavbarProps) => {
+const Navbar = ({ logo, dropdowns, itemLinks }: NavbarProps) => {
+  const locale = useLocale();
+
   return (
     <section className="py-4">
 
@@ -29,17 +32,17 @@ const Navbar = ({ logo, dropdowns, itemLinks, locale = 'en' }: NavbarProps) => {
               <NavigationMenu>
                 <NavigationMenuList>
                   {dropdowns.map((item) => renderDropdownItem(item, locale))}
-                    <div className="flex gap-10">
+                  <div className="flex gap-10">
                     {itemLinks.filter((item) => !item.isDisable)
-                    .map((item) => (
-                      <Button asChild size="sm" aria-label={item.title} key={item.id}
-                        variant={item.variant.toLowerCase() as "link" | "default" | "destructive" | "outline" | "secondary" | "ghost"}>
+                      .map((item) => (
+                        <Button asChild size="sm" aria-label={item.title} key={item.id}
+                          variant={item.variant.toLowerCase() as "link" | "default" | "destructive" | "outline" | "secondary" | "ghost"}>
                           <a href={item.url} className="uppercase" aria-label={item.title}>
                             {item.title}
                           </a>
-                      </Button>
-                    ))}
-                    </div>
+                        </Button>
+                      ))}
+                  </div>
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
@@ -77,7 +80,7 @@ const Navbar = ({ logo, dropdowns, itemLinks, locale = 'en' }: NavbarProps) => {
                   <Accordion type="single" collapsible className="flex w-full flex-col gap-4">
                     {dropdowns.filter((item: DropdownProps) => !item.isDisable).map((item: DropdownProps) => renderMobileDropdownItem(item, locale))}
                     {itemLinks.filter((item: ItemLinksProps) => !item.isDisable).map((item: ItemLinksProps) => renderMobileItemLink(item))}
-                  </Accordion>               
+                  </Accordion>
                 }
               </div>
             </SheetContent>
@@ -127,13 +130,13 @@ const renderMobileDropdownItem = (item: DropdownProps, locale: string) => {
 const renderMobileItemLink = (item: ItemLinksProps) => {
   if (item) {
     return (
-      item.variant === "ghost" ? 
+      item.variant === "ghost" ?
         <AccordionItem key={item.title} value={item.title} className="border-b-0">
           <a href={item.url} className="text-md py-0 font-semibold hover:no-underline uppercase" aria-label={item.title}>
             {item.title}
           </a>
         </AccordionItem>
-      :
+        :
         <Button asChild aria-label={item.title} key={item.id} variant={item.variant.toLowerCase() as "link" | "default" | "destructive" | "outline" | "secondary" | "ghost"}>
           <a href={item.url} className="uppercase" aria-label={item.title}>
             {item.title}

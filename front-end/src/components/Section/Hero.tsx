@@ -6,6 +6,7 @@ import { PSection } from "./Section";
 import { RenderText } from "../Utils/TextUtils";
 import { HeroProps } from "./Interface";
 import { getMediaFromUrl } from "@/lib/strapi";
+import { useLocale } from "next-intl";
 
 const HeroContainer = ({ decoration, children, padding, className }: { decoration?: React.ReactNode, children: React.ReactNode, padding: string, className?: string }) => {
   return (
@@ -20,6 +21,8 @@ const HeroContainer = ({ decoration, children, padding, className }: { decoratio
 }
 
 const HeroSection = ({ badge, title, subtitle, buttons, logo, className, decoration }: HeroProps) => {
+  const locale = useLocale();
+
   if (logo)
     logo.className = "max-h-96";
   return (
@@ -39,7 +42,7 @@ const HeroSection = ({ badge, title, subtitle, buttons, logo, className, decorat
           {buttons && buttons.length > 0 && buttons.filter((buttons) => !buttons.isDisable).map((item, index) => {
             return (
               <Button asChild key={index} variant={item?.variant?.toLowerCase() as "link" | "default" | "destructive" | "outline" | "secondary" | "ghost"} className="w-full sm:w-auto max-w-2/3 md:max-w-1/2 lg:max-w-full uppercase group" aria-label={item.title}>
-                <a href={item.url} aria-label={item.title}>
+                <a href={`${locale}${item.url}`} aria-label={item.title}>
                   {item.title}
                   {item?.variant?.toLowerCase() === "default" && <ArrowRight className="size-4 group-hover:translate-x-2 transition-all duration-300 mr-1" />}
                 </a>

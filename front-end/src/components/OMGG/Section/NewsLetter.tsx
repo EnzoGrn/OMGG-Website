@@ -12,6 +12,7 @@ import { useTranslations, useLocale } from 'next-intl'
 import { toast } from 'sonner'
 import { useState } from 'react'
 import Link from 'next/link'
+import { Toaster } from '@/components/ui/sonner'
 
 const OMGGNewsLetter = () => {
   const t = useTranslations('Newsletter');
@@ -162,6 +163,7 @@ const OMGGNewsLetter = () => {
           </div>
         </form>
       </div>
+      <Toaster />
     </PSection>
   )
 }

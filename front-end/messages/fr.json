@@ -44,7 +44,7 @@
     },
     "Blog": {
         "heading": "Actualités et dernières sorties",
-        "description": "Restez à l'affût des dernières nouvelles sur notre blog. Suivez nos avancées, découvrez les tendances du secteur et explorez nos réflexions sur l’édition, le développement, la technologie et les opportunités du marché. On vous partage tout !",
+        "description": "Restez à l'affût des dernières nouvelles sur notre blog. Suivez nos avancées, découvrez les tendances du secteur et explorez nos réflexions sur l'édition, le développement, la technologie et les opportunités du marché. On vous partage tout !",
         "read": "Lire l'article",
         "access": "Accéder au blog"
     },
@@ -73,6 +73,11 @@
             "line1": "Vous pouvez vous désabonner de ces communications à tout moment. Pour plus d'informations, consultez notre",
             "privacyLink": "Politique de confidentialité",
             "line2": "En soumettant vos données, vous consentez à ce qu'OMGG stocke et traite ces informations."
+        },
+        "footer": {
+            "title": "S'abonner",
+            "description": "Recevez les dernières actualités de nos jeux et de notre entreprise !",
+            "consent": "En soumettant vos données, vous consentez à notre"
         },
         "toast": {
             "loading": "Envoi en cours...",

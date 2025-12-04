@@ -57,7 +57,7 @@
         "fields": {
             "label": "I would like to receive the following updates:",
             "placeholder": [
-                "Exculsive Offers, Promotions & Sales",
+                "Exclusive Offers, Promotions & Sales",
                 "Game and Company News & Updates"
             ]
         },
@@ -73,6 +73,11 @@
             "line1": "You can unsubscribe from these communications at any time. For more information, please check out our",
             "privacyLink": "Privacy Policy",
             "line2": "By submitting your data, you consent to OMGG storing and processing the information."
+        },
+        "footer": {
+            "title": "Subscribe",
+            "description": "Get the Latest Game and Company News and More!",
+            "consent": "By submitting your data, you consent to our"
         },
         "toast": {
             "loading": "Sending...",

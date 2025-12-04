@@ -32,12 +32,11 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
 
   return (
     <html lang={locale}>
-      <body className="min-h-screen bg-background">
+      <body className="min-h-screen bg-background flex flex-col justify-between">
         <NextIntlClientProvider messages={messages}>
-          <OMGGNavbar locale={locale} global={global?.navbar} />
+          <OMGGNavbar global={global?.navbar} />
           {children}
-          <OMGGFooter locale={locale} global={global?.footer} />
-          <Toaster />
+          <OMGGFooter global={global?.footer} />
         </NextIntlClientProvider>
       </body>
     </html>
