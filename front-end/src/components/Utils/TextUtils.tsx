@@ -1,10 +1,11 @@
-import { TextEnum      } from "@/lib/enumerations/TextEnum";
-import { TextProps          } from "@/components/Section/Interface";
+import { TextEnum } from "@/lib/enumerations/TextEnum";
+import { TextProps } from "@/components/Section/Interface";
 import { H1, H2, H3, P } from "@/components/Text/Text";
 
-export function RenderText({ text, className }: { text: TextProps, className?: string })
-{
-    className = (text?.isBold) ? className += " font-bold" : className; 
+export function RenderText({ text, className }: { text: TextProps, className?: string }) {
+    if (text === null)
+        return null;
+    className = (text?.isBold) ? className += " font-bold" : className;
 
     switch (text.size) {
         case TextEnum.H1:
