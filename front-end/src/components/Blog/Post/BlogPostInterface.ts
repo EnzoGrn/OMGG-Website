@@ -9,18 +9,19 @@ export interface Category {
 }
 
 export interface BlogPostProps {
-    title:       string;
+    title: string;
     description: string;
     publishedAt: string;
-    author:      AuthorProps;
-    category:    Category;
-    cover:       LogoProps;
-    excerpt:     string;
+    author: AuthorProps;
+    category: Category;
+    cover: LogoProps;
+    excerpt: string;
 }
 
 export interface BlogPostsProps {
-    title:         string;
-    description:   string;
-    maxBlog:       number;
+    title: string;
+    description: string;
+    maxBlog: number;
+    link: string;
     BlogPost: BlogPostProps[];
 }
