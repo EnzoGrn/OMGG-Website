@@ -14,8 +14,6 @@ const HeroTrailerView = ({gameProps, data } : { gameProps: GameProps, data: Hero
 
   const t = useTranslations('Games');
 
-  console.log("[HeroTrailerView] gameProps: ", gameProps);
-
   return (
     <PSection padding="py-0" className="min-h-[660px] lg:min-h-[690px]">
       <Card className="relative rounded-2xl overflow-hidden h-[calc(660px-6rem)] lg:h-[calc(690px-6rem)] flex-row">

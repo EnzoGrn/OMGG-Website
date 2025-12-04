@@ -4,7 +4,7 @@ import { Button                   } from "@/components/ui/button";
 import { cn                       } from "@/lib/utils";
 import { PSection                 } from "./Section";
 import { RenderText               } from "../Utils/TextUtils";
-import { HeroProps                } from "./Interface";
+import { HeroProps, LogoProps     } from "./Interface";
 import { getMediaFromUrl          } from "@/lib/strapi";
 
 const HeroContainer = ({ children, padding, className } : { children: React.ReactNode, padding: string, className?: string }) => {
@@ -19,8 +19,13 @@ const HeroContainer = ({ children, padding, className } : { children: React.Reac
 
 const HeroSection = ({ badge, title, subtitle, buttons, logo, className }: HeroProps) => {
 
-  logo.className = "max-h-96";
-  
+  const logoClassName: string = "max-h-96";
+
+  const logoUpdated: LogoProps = {
+    ...logo,
+    className: logoClassName,
+  }
+
   return (
     <HeroContainer padding="py-12" className={className}>
       <div className="flex flex-col items-start text-left">
@@ -49,8 +54,8 @@ const HeroSection = ({ badge, title, subtitle, buttons, logo, className }: HeroP
         </div>
       </div>
 
-      {logo &&
-        <img src={getMediaFromUrl(logo.url)} alt={logo.alternativeText} className={cn("w-full rounded-md object-fill select-none", logo.className)} />
+      {logoUpdated &&
+        <img src={getMediaFromUrl(logoUpdated.url)} alt={logoUpdated.alternativeText} className={cn("w-full rounded-md object-fill select-none", logoUpdated.className)} />
       }
     </HeroContainer>
   );

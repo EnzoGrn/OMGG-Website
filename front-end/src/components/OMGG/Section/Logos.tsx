@@ -8,11 +8,16 @@ async function OMGGLogos({data}:  {data: PartnersProps}): Promise<JSX.Element> {
   const locale = await getLocale();
   const logos = await fetchFromStrapi("companies", true, locale, data.maxPartners, 1, "populate", "icon") as PartnerProps[];
 
-  data.logos = logos;
-  data.classname = "bg-gradient-to-br from-[var(--primary)] to-[var(--detail)]" ;
+  const classname: string = "bg-gradient-to-br from-[var(--primary)] to-[var(--detail)]";
+
+  const updatedData: PartnersProps = {
+    ...data,
+    logos: logos,
+    classname: classname
+  };
 
   return(
-    <Logos {...data}/>
+    <Logos {...updatedData}/>
   );
 }
 
