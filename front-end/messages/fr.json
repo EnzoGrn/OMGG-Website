@@ -13,29 +13,29 @@
         "submit": "Soumettre un jeu"
     },
     "Footer": {
-        "subtitle" : "OMGG - One More Good Game\nDu plateau à l'écran, vivez le jeu autrement.",
+        "subtitle": "OMGG - One More Good Game\nDu plateau à l'écran, vivez le jeu autrement.",
         "copyright": "© 2025 OMGG. Tous droits réservés.",
-        "terms"    : "Conditions générales",
-        "privacy"  : "Politique de confidentialité"
+        "terms": "Conditions générales",
+        "privacy": "Politique de confidentialité"
     },
     "Hero": {
-        "heading"    : "Notre Mission :",
+        "heading": "Notre Mission :",
         "description": "Offrir une nouvelle dimension à vos jeux.",
-        "imageAlt"   : "Logo d'OMGG"
+        "imageAlt": "Logo d'OMGG"
     },
     "About": {
-        "heading"     : "Qui sommes nous ?",
-        "description" : "Chez OMGG (One More Good Game) nous cherchons à réinventer le jeu de société à l'ère du numérique.",
-        "text"        : "Notre mission est d'offrir aux joueurs et aux créateurs une nouvelle manière d'imaginer, de jouer et de partager des expériences uniques, en combinant la créativité du jeu de société avec les codes du jeu vidéo.",
-        "more"        : "En savoir plus",
+        "heading": "Qui sommes nous ?",
+        "description": "Chez OMGG (One More Good Game) nous cherchons à réinventer le jeu de société à l'ère du numérique.",
+        "text": "Notre mission est d'offrir aux joueurs et aux créateurs une nouvelle manière d'imaginer, de jouer et de partager des expériences uniques, en combinant la créativité du jeu de société avec les codes du jeu vidéo.",
+        "more": "En savoir plus",
         "card1": {
             "header": "Proposez votre jeu",
-            "text"  : "Vous êtes créateur indépendant ou une maison d'édition avec un jeu à numériser, une idée à prototyper ou une application compagnon à ajouter ? Soumettez-nous votre projet, et ensemble, nous donnerons vie à vos idées !",
+            "text": "Vous êtes créateur indépendant ou une maison d'édition avec un jeu à numériser, une idée à prototyper ou une application compagnon à ajouter ? Soumettez-nous votre projet, et ensemble, nous donnerons vie à vos idées !",
             "footer": "Soumettre mon projet"
         },
         "card2": {
             "header": "Découvrez nos créations",
-            "text"  : "Nous créons des expériences immersives tout en préservant l'âme des jeux que nous adaptons ou prototypons. Chaque projet est pensé pour garder l'identité unique du jeu, tout en l'enrichissant.",
+            "text": "Nous créons des expériences immersives tout en préservant l'âme des jeux que nous adaptons ou prototypons. Chaque projet est pensé pour garder l'identité unique du jeu, tout en l'enrichissant.",
             "footer": "Voir nos projets"
         }
     },
@@ -43,47 +43,52 @@
         "heading": "Ils nous ont fait confiance"
     },
     "Blog": {
-        "heading"    : "Actualités et dernières sorties",
+        "heading": "Actualités et dernières sorties",
         "description": "Restez à l'affût des dernières nouvelles sur notre blog. Suivez nos avancées, découvrez les tendances du secteur et explorez nos réflexions sur l’édition, le développement, la technologie et les opportunités du marché. On vous partage tout !",
-        "read"       : "Lire l'article",
-        "access"     : "Accéder au blog"
+        "read": "Lire l'article",
+        "access": "Accéder au blog"
     },
     "Newsletter": {
         "heading": "Vous voulez en savoir plus sur OMGG, nos jeux, nos actus ou nos emplois ?",
-        "mail"   : {
-            "label"      : "Email :",
+        "mail": {
+            "label": "Email :",
             "placeholder": "john@gmail.com"
         },
-        "company": {
-            "label"      : "Vous représentez :",
+        "fields": {
+            "label": "Vous souhaitez recevoir des informations concernant :",
             "placeholder": [
-                "Un joueur",
-                "Un créateur indépendant",
-                "Une maison d'édition"
-            ]
-        },
-        "newsletter": {
-            "label"      : "Vous souhaitez recevoir des informations concernant :",
-            "placeholder": [
-                "Le blog",
-                "Les devlogs",
-                "Les nouvelles sorties",
-                "Tout"
+                "Offres exclusives, ventes et promotions",
+                "Actualités d'OMGG et des jeux"
             ]
         },
         "error": {
             "email": {
-                "required": "Veuillez saisir une adresse email",
-                "invalid" : "L'email saisie n'est pas valide"
+                "required": "Veuillez saisir une adresse email.",
+                "invalid": "L'email saisie n'est pas valide."
             },
-            "company": {
-                "required": "Veuillez sélectionner au moins une option"
-            },
-            "newsletter": {
-                "required": "Veuillez sélectionner au moins un contenu"
-            }
+            "field": "Veuillez sélectionner au moins une option."
         },
-        "submit": "M'abonner"
+        "submit": "M'abonner",
+        "disclaimer": {
+            "line1": "Vous pouvez vous désabonner de ces communications à tout moment. Pour plus d'informations, consultez notre",
+            "privacyLink": "Politique de confidentialité",
+            "line2": "En soumettant vos données, vous consentez à ce qu'OMGG stocke et traite ces informations."
+        },
+        "toast": {
+            "loading": "Envoi en cours...",
+            "sending": "Envoi en cours...",
+            "success": {
+                "title": "Inscription réussie !",
+                "description": "Merci de vous être inscrit à notre newsletter."
+            },
+            "error": {
+                "title": "Échec de l'inscription",
+                "network": {
+                    "title": "Erreur de connexion",
+                    "description": "Impossible de se connecter au serveur."
+                }
+            }
+        }
     },
     "Games": {
         "metadata": {
@@ -93,7 +98,11 @@
         "hero": {
             "title": "Vermines",
             "badge": "Nouveau",
-            "genre": ["Deck-building", "Tour par tour", "Stratégie"],
+            "genre": [
+                "Deck-building",
+                "Tour par tour",
+                "Stratégie"
+            ],
             "download": "Télécharger le jeu"
         },
         "about": {

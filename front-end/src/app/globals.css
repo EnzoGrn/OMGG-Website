@@ -116,7 +116,48 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Sonner toast custom styles */
+[data-sonner-toast][data-type="success"] {
+  background-color: rgb(22 163 74) !important;
+  /* green-600 */
+  border-color: rgb(21 128 61) !important;
+  /* green-700 */
+  color: white !important;
+}
+
+[data-sonner-toast][data-type="success"] [data-title],
+[data-sonner-toast][data-type="success"] [data-description] {
+  color: white !important;
+}
+
+[data-sonner-toast][data-type="error"] {
+  background-color: rgb(220 38 38) !important;
+  /* red-600 */
+  border-color: rgb(185 28 28) !important;
+  /* red-700 */
+  color: white !important;
+}
+
+[data-sonner-toast][data-type="error"] [data-title],
+[data-sonner-toast][data-type="error"] [data-description] {
+  color: white !important;
+}
+
+[data-sonner-toast][data-type="loading"] {
+  background-color: rgb(37 99 235) !important;
+  /* blue-600 */
+  border-color: rgb(29 78 216) !important;
+  /* blue-700 */
+  color: white !important;
+}
+
+[data-sonner-toast][data-type="loading"] [data-title],
+[data-sonner-toast][data-type="loading"] [data-description] {
+  color: white !important;
 }

@@ -10,32 +10,32 @@
         "blog": "Blog"
     },
     "Navbar": {
-        "submit"   : "Submit a game"
+        "submit": "Submit a game"
     },
     "Footer": {
-        "subtitle" : "OMGG - One More Good Game\nFrom the board to the screen, experience the game differently.",
+        "subtitle": "OMGG - One More Good Game\nFrom the board to the screen, experience the game differently.",
         "copyright": "© 2025 OMGG. All rights reserved.",
-        "terms"    : "Terms and Conditions",
-        "privacy"  : "Privacy Policy"
+        "terms": "Terms and Conditions",
+        "privacy": "Privacy Policy"
     },
     "Hero": {
-        "heading"    : "Our Mission:",
+        "heading": "Our Mission:",
         "description": "To offer a new dimension to your games.",
-        "imageAlt"   : "OMGG's logo"
+        "imageAlt": "OMGG's logo"
     },
     "About": {
-        "heading"    : "Who are we?",
+        "heading": "Who are we?",
         "description": "At OMGG (One More Good Game) we are looking to reinvent board games in the digital age.",
-        "text"       : "Our mission is to offer players and creators a new way to imagine, play and share unique experiences, combining the creativity of board games with the codes of video games.",
-        "more"       : "Learn more",
+        "text": "Our mission is to offer players and creators a new way to imagine, play and share unique experiences, combining the creativity of board games with the codes of video games.",
+        "more": "Learn more",
         "card1": {
             "header": "Suggest your game",
-            "text"  : "You're an independent designer or a publisher with a game to digitise, an idea to prototype or a companion application to add? Submit your project to us, and together we'll bring your ideas to life!",
+            "text": "You're an independent designer or a publisher with a game to digitise, an idea to prototype or a companion application to add? Submit your project to us, and together we'll bring your ideas to life!",
             "footer": "Submit my project"
         },
         "card2": {
             "header": "Discover our creations",
-            "text"  : "We create immersive experiences while preserving the soul of the games we adapt or prototype. Each project is designed to preserve the game's unique identity, while at the same time enriching it.",
+            "text": "We create immersive experiences while preserving the soul of the games we adapt or prototype. Each project is designed to preserve the game's unique identity, while at the same time enriching it.",
             "footer": "See our projects"
         }
     },
@@ -43,47 +43,52 @@
         "heading": "They trusted us"
     },
     "Blog": {
-        "heading"    : "Actuality and last releases",
+        "heading": "Actuality and last releases",
         "description": "Keep up to date with the latest news on our blog. Follow our progress, discover industry trends and explore our thoughts on publishing, development, technology and market opportunities. We'll share it all with you!",
-        "read"       : "Read Article",
-        "access"     : "Access the blog"
+        "read": "Read Article",
+        "access": "Access the blog"
     },
     "Newsletter": {
         "heading": "You want to know more about OMGG, our games, our news or our jobs?",
-        "mail"   : {
-            "label"      : "Email:",
+        "mail": {
+            "label": "Email:",
             "placeholder": "john@gmail.com"
         },
-        "company": {
-            "label"      : "You represent:",
+        "fields": {
+            "label": "I would like to receive the following updates:",
             "placeholder": [
-                "A player",
-                "An independent creator",
-                "A publishing house"
-            ]
-        },
-        "newsletter": {
-            "label"      : "You want to receive information about:",
-            "placeholder": [
-                "The blog",
-                "The devlogs",
-                "New releases",
-                "Everything"
+                "Exculsive Offers, Promotions & Sales",
+                "Game and Company News & Updates"
             ]
         },
         "error": {
             "email": {
                 "required": "Please enter your email address.",
-                "invalid" : "Please enter a valid email address."
+                "invalid": "Please enter a valid email address."
             },
-            "company": {
-                "required": "Please select a company."
-            },
-            "newsletter": {
-                "required": "Please select at least one option."
-            }
+            "field": "Please select at least one option."
         },
-        "submit": "Subscribe"
+        "submit": "Subscribe",
+        "disclaimer": {
+            "line1": "You can unsubscribe from these communications at any time. For more information, please check out our",
+            "privacyLink": "Privacy Policy",
+            "line2": "By submitting your data, you consent to OMGG storing and processing the information."
+        },
+        "toast": {
+            "loading": "Sending...",
+            "sending": "Sending...",
+            "success": {
+                "title": "Successfully subscribed!",
+                "description": "Thank you for subscribing to our newsletter."
+            },
+            "error": {
+                "title": "Subscription failed",
+                "network": {
+                    "title": "Connection error",
+                    "description": "Unable to connect to the server."
+                }
+            }
+        }
     },
     "Games": {
         "metadata": {
@@ -93,7 +98,11 @@
         "hero": {
             "title": "Vermines",
             "badge": "New",
-            "genre": ["Deck-building", "Turn-based", "Strategies"],
+            "genre": [
+                "Deck-building",
+                "Turn-based",
+                "Strategies"
+            ],
             "download": "Download the game"
         },
         "about": {
