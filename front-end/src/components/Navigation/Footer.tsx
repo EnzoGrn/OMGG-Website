@@ -4,78 +4,13 @@ import { Container } from "@/components/Section/Container"
 import { FooterProps, MenuProps } from "@/components/Navigation/FooterProps";
 import { DynamicLoadIcon } from "@/components/Utils/ReactIconUtils";
 import { getMediaFromUrl } from "@/lib/strapi";
-import { useLocale, useTranslations } from "next-intl";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
-import { useState } from "react";
+import { useLocale } from "next-intl";
+import { NewsletterForm } from "@/components/Newsletter/NewsletterForm";
 import Link from "next/link";
-import { SendIcon } from "lucide-react";
-import { useIsMobile } from "@/lib/hooks/use-mobile";
+import { Toaster } from "../ui/sonner";
 
 const Footer = ({ footerData }: { footerData: FooterProps; }) => {
   const locale = useLocale();
-  const t = useTranslations('Newsletter');
-  const isMobile = useIsMobile();
-
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-    if (!email || !emailRegex.test(email)) {
-      toast.error(t('error.email.invalid'));
-
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    const loadingToast = toast.loading(t('toast.loading'));
-
-    try {
-      const response = await fetch('/api/news-letter-form', {
-        method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          path: 'news-letter-subscriptions',
-          data: {
-            email: email,
-            offers: true,
-            news: true
-          }
-        })
-      });
-
-      toast.dismiss(loadingToast);
-
-      if (!response.ok) {
-        toast.error(t('toast.error.title'), {
-          duration: 5000,
-        });
-        return;
-      }
-
-      toast.success(t('toast.success.title'), {
-        description: t('toast.success.description'),
-        duration: 5000,
-      });
-
-      setEmail('');
-
-    } catch (error) {
-      toast.dismiss(loadingToast);
-      toast.error(t('toast.error.network.title'), {
-        description: t('toast.error.network.description'),
-        duration: 6000,
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <section className="py-8 inset-shadow-xs">
@@ -148,40 +83,7 @@ const Footer = ({ footerData }: { footerData: FooterProps; }) => {
             </div>
 
             {/* Newsletter Subscribe */}
-            {footerData.newsletter && (
-              <div className="flex flex-col gap-2 text-start">
-                <h3 className="mb-4 font-bold">{t('footer.title')}</h3>
-                <p className="text-sm text-muted-foreground font-medium">{t('footer.description')}</p>
-                <form onSubmit={handleNewsletterSubmit}>
-                  <div className="flex w-full max-w-md items-center gap-2">
-                    <Input
-                      type="email"
-                      placeholder={t('mail.placeholder')}
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      disabled={isSubmitting}
-                      className="flex-1 py-5 lg:py-2"
-                      aria-label={t('mail.label')}
-                    />
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting || !email}
-                      className="shrink-0 py-5 lg:py-2"
-                      aria-label={t('submit')}
-                    >
-                      {!isMobile && t('submit')}
-                      <SendIcon />
-                    </Button>
-                  </div>
-                </form>
-                <p className="text-sm text-muted-foreground font-medium">
-                  {t('footer.consent')}{' '}
-                  <Link className="text-primary hover:underline" href={`/${locale}/privacy`}>
-                    {t('disclaimer.privacyLink')}
-                  </Link>.
-                </p>
-              </div>
-            )}
+            {footerData.newsletter && (<NewsletterForm variant="footer" />)}
           </div>
 
           {/* Copyright */}
@@ -204,6 +106,7 @@ const Footer = ({ footerData }: { footerData: FooterProps; }) => {
           </div>
         </footer>
       </Container>
+      <Toaster />
     </section>
   );
 };

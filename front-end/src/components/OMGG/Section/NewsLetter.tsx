@@ -163,7 +163,6 @@ const OMGGNewsLetter = () => {
           </div>
         </form>
       </div>
-      <Toaster />
     </PSection>
   )
 }
