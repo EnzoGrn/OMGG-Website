@@ -42,7 +42,6 @@ export async function fetchDataSearchParams( {path, forceCache, searchParams, pa
     });
 
   if (!res.ok) {
-    console.error(`Strapi fetch error for ${path}:`, res.status);
     return null;
   }
 
@@ -89,7 +88,6 @@ export async function fetchFromStrapi(path: string, forceCache: boolean, locale?
     // Check result of the fetch
     if (!res.ok) {
         // Or throw ???
-        console.error(`Strapi fetch error for ${path}:`, res.status);
         return null;
     }
 

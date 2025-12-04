@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
             data: body.data
         }),
         headers,
-    })
+    });
 
     if (!response.ok)
         return NextResponse.json({ text: await response.text() }, { status: response.status });

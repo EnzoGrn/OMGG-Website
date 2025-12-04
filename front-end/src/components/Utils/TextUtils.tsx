@@ -5,8 +5,8 @@ import { H1, H2, H3, P } from "@/components/Text/Text";
 export function RenderText({ text, className }: { text: TextProps, className?: string }) {
     if (text === null)
         return null;
-    className = (text?.isBold) ? className += " font-bold" : className;
-
+    if (className)
+        className = (text?.isBold) ? className += " font-bold" : className;
     switch (text.size) {
         case TextEnum.H1:
             return (<H1 className={className}>{text.text}</H1>);

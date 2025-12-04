@@ -8,10 +8,13 @@ async function OMGGTestimonials({data}:  {data: TestimonialsProps}): Promise<JSX
   const locale = await getLocale();
   const testimonials = await fetchFromStrapi("testimonials", true, locale, data.maxTestimonials, 1, "populate[attestant][populate]", "*") as TestimonialProps[];
 
-  data.testimonials = testimonials;
+  const updatedData: TestimonialsProps = {
+    ...data,
+    testimonials,
+  };
 
   return (
-    <TestimonialSection data={data}/>
+    <TestimonialSection data={updatedData}/>
   );
 };
 

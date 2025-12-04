@@ -23,8 +23,6 @@ const HeroContainer = ({ decoration, children, padding, className }: { decoratio
 const HeroSection = ({ badge, title, subtitle, buttons, logo, className, decoration }: HeroProps) => {
   const locale = useLocale();
 
-  if (logo)
-    logo.className = "max-h-96";
   return (
     <HeroContainer padding="py-12" decoration={decoration} className={className}>
       <div className="flex flex-col items-start text-left">
@@ -52,9 +50,7 @@ const HeroSection = ({ badge, title, subtitle, buttons, logo, className, decorat
         </div>
       </div>
 
-      {logo &&
-        <img src={getMediaFromUrl(logo.url)} alt={logo.alternativeText} className={cn("w-full rounded-md object-fill select-none", logo.className)} />
-      }
+      {logo && <img src={getMediaFromUrl(logo.url)} alt={logo.alternativeText} className={cn("w-full rounded-md object-fill select-none max-h-96", logo.className)} />}
     </HeroContainer>
   );
 };

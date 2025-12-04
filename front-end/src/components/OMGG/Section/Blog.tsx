@@ -8,10 +8,13 @@ async function OMGGBlog({data}:  {data: BlogPostsProps}): Promise<JSX.Element> {
   const locale = await getLocale();
   const blogs = await fetchFromStrapi("articles", true, locale, data.maxBlog, 1, "populate", "*") as BlogPostProps[];
 
-  data.BlogPost = blogs; 
+  const dataUpdated: BlogPostsProps = {
+    ...data,
+    BlogPost: blogs
+  }
 
   return (
-    <BlogSection data={data} locale={locale} />
+    <BlogSection data={dataUpdated} locale={locale} />
   );
 }
 

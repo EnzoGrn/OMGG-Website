@@ -74,7 +74,7 @@ export default async function Home({ params }: { params: Promise<{ slug: string;
     locale:       locale
   });
   
-  if (gameDataRes == undefined || gameDataRes?.data == null)
+  if (gameDataRes === undefined || gameDataRes?.data === null)
     return notFound();
 
   gamePageData.gameData = gameDataRes;

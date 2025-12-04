@@ -43,14 +43,13 @@ const Footer = ({ footerData }: { footerData: FooterProps; }) => {
                 {footerData.iconsLink && footerData.iconsLink
                   .filter((iconsLink) => !iconsLink.isDisable)
                   .map((iconLink) => {
-                    if (!iconLink.isDisable)
-                      return (
-                        <li className="font-medium hover:text-primary" key={iconLink.id}>
-                          <a href={iconLink.url} aria-label="X / Twitter">
-                            {DynamicLoadIcon(iconLink.slugIcon)}
-                          </a>
-                        </li>
-                      )
+                    return (
+                      <li className="font-medium hover:text-primary" key={iconLink.id}>
+                        <a href={iconLink.url} aria-label={iconLink.text}>
+                          {DynamicLoadIcon(iconLink.slugIcon)}
+                        </a>
+                      </li>
+                    )
                   })}
               </ul>
             </div>
@@ -93,14 +92,13 @@ const Footer = ({ footerData }: { footerData: FooterProps; }) => {
               {footerData.legal
                 .filter((item) => !item.isDisable)
                 .map((item) => {
-                  if (!item.isDisable)
-                    return (
-                      <li className="hover:text-primary" key={item.id}>
-                        <a href={`/${locale}${item.url}`} aria-label={item.text}>
-                          {item.text}
-                        </a>
-                      </li>
-                    )
+                  return (
+                    <li className="hover:text-primary" key={item.id}>
+                      <a href={`/${locale}${item.url}`} aria-label={item.text}>
+                        {item.text}
+                      </a>
+                    </li>
+                  )
                 })}
             </ul>
           </div>
