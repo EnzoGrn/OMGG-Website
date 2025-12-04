@@ -8,16 +8,16 @@ import { RenderText } from "../Utils/TextUtils";
 import { getMediaFromUrl } from "@/lib/strapi";
 
 export interface DownloadCTAProps {
-  title           : TextProps;
-  description    ?: TextProps;
-  downloadButton ?: ButtonProps;
-  image           : LogoProps;
+  title: TextProps;
+  description?: TextProps;
+  downloadButton?: ButtonProps;
+  image: LogoProps;
 }
 
-const DownloadCTA = ({data, additionalData} : {data: DownloadCTAProps, additionalData: GameProps}) => {
+const DownloadCTA = ({ data, additionalData }: { data: DownloadCTAProps, additionalData: GameProps }) => {
 
   const t = useTranslations('Games.cta');
-  
+
   const dataUpdated: DownloadCTAProps = {
     ...data,
     title: {
@@ -34,22 +34,22 @@ const DownloadCTA = ({data, additionalData} : {data: DownloadCTAProps, additiona
       <Container className="container relative overflow-visible space-y-6 md:space-y-8">
         <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16 p-8 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--detail)] relative overflow-visible">
           <div className="flex-1 flex flex-col gap-4 z-10">
-            <RenderText text={dataUpdated.title} className="text-2xl font-bold text-pretty lg:text-4xl"/>
-            {dataUpdated.description && <RenderText text={dataUpdated.description} className="max-w-xl lg:text-lg"/>}
+            <RenderText text={dataUpdated.title} className="text-2xl font-bold text-pretty lg:text-4xl" />
+            {dataUpdated.description && <RenderText text={dataUpdated.description} className="max-w-xl lg:text-lg" />}
             <div className="flex flex-col sm:flex-row gap-2 mt-4">
-                <Button asChild className="w-full sm:w-auto max-w-2/3 lg:max-w-full uppercase" aria-label={t('download') + ' ' + additionalData.name}>
-                  {additionalData.download.url ? (
-                    <a href={additionalData.download.url} download aria-label={dataUpdated.downloadButton?.title}>
+              <Button asChild className="w-full sm:w-auto md:max-w-2/3 lg:max-w-full uppercase" aria-label={t('download') + ' ' + additionalData.name}>
+                {additionalData.download.url ? (
+                  <a href={additionalData.download.url} download aria-label={dataUpdated.downloadButton?.title}>
                     {dataUpdated.downloadButton?.title}
                     <ArrowUpRight className="ml-2 size-4" />
                   </a>
-                  ) : (
-                    <a href={dataUpdated.downloadButton?.url} download aria-label={dataUpdated.downloadButton?.title}>
-                      {dataUpdated.downloadButton?.title}
-                      <ArrowUpRight className="ml-2 size-4" />
-                    </a>
-                  )}
-                </Button>
+                ) : (
+                  <a href={dataUpdated.downloadButton?.url} download aria-label={dataUpdated.downloadButton?.title}>
+                    {dataUpdated.downloadButton?.title}
+                    <ArrowUpRight className="ml-2 size-4" />
+                  </a>
+                )}
+              </Button>
             </div>
           </div>
 
