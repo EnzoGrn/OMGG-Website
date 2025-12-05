@@ -67,8 +67,9 @@ const NewsletterForm = ({ variant = 'default', showTitle = true, showDescription
       });
 
       setEmail('');
-
     } catch (error) {
+      console.error(error);
+
       toast.dismiss(loadingToast);
       toast.error(t('toast.error.network.title'), {
         description: t('toast.error.network.description'),

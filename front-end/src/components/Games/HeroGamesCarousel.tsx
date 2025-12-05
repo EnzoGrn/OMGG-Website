@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PSection, SSection } from "../Section/Section";
+import { SSection } from "../Section/Section";
 import { H1, H2 } from "../Text/Text";
 import { Badge } from "../ui/badge";
 import { Card } from "../ui/card";

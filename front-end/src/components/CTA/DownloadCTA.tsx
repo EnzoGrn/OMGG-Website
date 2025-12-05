@@ -24,11 +24,12 @@ const DownloadCTA = ({ data, additionalData }: { data: DownloadCTAProps, additio
   dataUpdated.downloadButton.download = true;
 
   return (
-    <CTA data={{
-      title: dataUpdated.title,
-      description: dataUpdated.description,
-      button: dataUpdated.downloadButton,
-    }}
+    <CTA
+      data={{
+        title: dataUpdated.title,
+        description: dataUpdated.description,
+        button: dataUpdated.downloadButton
+      }}
     >
       <div className="hidden lg:block absolute right-0 top-0 h-full w-1/3 pointer-events-none overflow-visible">
         {additionalData.pngIllustration ? (

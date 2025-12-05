@@ -7,11 +7,10 @@ import { RenderText } from "../Utils/TextUtils";
 interface CTAProps {
   title: TextProps;
   description?: TextProps;
-  children?: React.ReactNode;
   button: ButtonProps;
 };
 
-const CTA = ({ data }: { data: CTAProps }) => {
+const CTA = ({ data, children }: { data: CTAProps; children?: React.ReactNode }) => {
   return (
     <section className="py-8">
       <Container className="container relative overflow-visible space-y-6 md:space-y-8">
@@ -35,7 +34,7 @@ const CTA = ({ data }: { data: CTAProps }) => {
             </div>
           </div>
 
-          {data.children}
+          {children}
         </div>
       </Container>
     </section>

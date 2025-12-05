@@ -6,7 +6,6 @@ import { routing } from "@/i18n/routing";
 import { OMGGNavbar } from "@/components/OMGG/Navigation/Navbar";
 import { OMGGFooter } from "@/components/OMGG/Navigation/Footer";
 import { fetchFromStrapi } from "@/lib/strapi"
-import { Toaster } from "@/components/ui/sonner"
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

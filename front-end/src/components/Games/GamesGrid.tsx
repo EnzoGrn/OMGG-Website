@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useState, useEffect, useRef, RefObject } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Container } from "../Section/Container";
 import { GamesFilters, FilterState } from "./GamesFilters";
 import { GameCard } from "./GameCard";
