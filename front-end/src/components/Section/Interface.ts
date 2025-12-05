@@ -16,6 +16,7 @@ export interface ButtonProps {
   url: string;
   variant: string;
   isDisable: boolean;
+  download?: boolean;
 }
 
 export interface LogoProps {

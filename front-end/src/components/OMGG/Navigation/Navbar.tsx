@@ -15,7 +15,7 @@ const OMGGNavbar = ({ global }: { global: NavBarPropsProps }) => {
     return null;
 
   return (
-    <header className="sticky top-0 z-50 bg-background shadow-sm w-full">
+    <header className="sticky top-0 z-50 bg-background shadow-sm w-full" id={'navbar'}>
       <Container>
         <Navbar logo={global.logo} dropdowns={global.dropdowns} itemLinks={global.linkButtons} />
       </Container>

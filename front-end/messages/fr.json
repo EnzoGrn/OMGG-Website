@@ -60,23 +60,20 @@
         }
     },
     "Games": {
-        "metadata": {
-            "title": "Vermines | Deck-building occulte dans la cité des abeilles",
-            "description": "Incarnez un cultiste et sacrifiez des âmes pour invoquer votre divinité. Vermines, un jeu de deck-building stratégique, disponible en version digitale."
+        "title": {
+            "new_games": "Dernières sorties",
+            "our": "Nos",
+            "games": "Jeux"
+        },
+        "submitCTA": {
+            "title": "Votre jeu mérite sa version numérique",
+            "description": "Vous êtes auteur ou éditeur et vous envisagez une version digitale de votre jeu ?\nOMGG vous accompagne pour transformer votre création en expérience numérique complète, fidèle à votre vision.",
+            "button": "Soumettre votre jeu"
         },
         "hero": {
-            "title": "Vermines",
             "badge": "Nouveau",
-            "genre": [
-                "Deck-building",
-                "Tour par tour",
-                "Stratégie"
-            ],
-            "download": "Télécharger le jeu"
-        },
-        "about": {
-            "heading": "À propos de Vermines",
-            "description": "Dans la cité des abeilles, où vivent en harmonie diverses espèces d'insectes, d'étranges personnages s'immiscent à la cour royale. Ce sont les représentants de divers cultes anciens qui tentent chacun d'invoquer leur dieu démoniaque. Pour cela, ils ont besoin de sacrifier des âmes et plus le sacrifié est noble, plus son âme a de valeur. Lequel de ces personnages sera le premier à réunir le nombre d'âmes nécessaires pour permettre à son dieu de faire régner le chaos sur le royaume ?"
+            "download": "Télécharger le jeu",
+            "viewGame": "Voir le jeu"
         },
         "gallery": {
             "heading": "Galerie"
@@ -85,6 +82,22 @@
             "heading": "Télécharger",
             "subtitle": "Téléchargez dès maintenant la dernière version de ",
             "download": "Télécharger le jeu"
-        }
+        },
+        "filters": {
+            "genre": "Genre",
+            "platform": "Plateforme",
+            "releaseDate": "Date de sortie",
+            "filterGames": "Filtrer les jeux",
+            "allGenres": "Tous les genres",
+            "allPlatforms": "Toutes les plateformes",
+            "newest": "Plus récent",
+            "oldest": "Plus ancien",
+            "resetFilters": "Réinitialiser"
+        },
+        "pagination": {
+            "page": "Page",
+            "of": "sur"
+        },
+        "mobileFilterButton": "Filtrer"
     }
 }

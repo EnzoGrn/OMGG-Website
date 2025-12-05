@@ -60,23 +60,20 @@
         }
     },
     "Games": {
-        "metadata": {
-            "title": "Vermines | Occult deck-building in the city of bees",
-            "description": "Play as a cultist and sacrifice souls to summon your deity. Vermines, a strategic deck-building game, available in digital version."
+        "title": {
+            "new_games": "New games",
+            "our": "OUR",
+            "games": "GAMES"
+        },
+        "submitCTA": {
+            "title": "Your game deserves its digital version",
+            "description": "Are you an author or publisher considering a digital version of your game?\nOMGG accompanies you to transform your creation into a complete digital experience, faithful to your vision.",
+            "button": "Submit your game"
         },
         "hero": {
-            "title": "Vermines",
             "badge": "New",
-            "genre": [
-                "Deck-building",
-                "Turn-based",
-                "Strategies"
-            ],
-            "download": "Download the game"
-        },
-        "about": {
-            "heading": "About Vermines",
-            "description": "In the city of bees, where various species of insects live in harmony, strange characters intrude upon the royal court. They are representatives of various ancient cults, each attempting to invoke their demonic god. To do so, they need to sacrifice souls, and the more noble the victim, the more valuable their soul. Which of these characters will be the first to gather the number of souls needed to allow their god to wreak havoc on the kingdom?"
+            "download": "Download the game",
+            "viewGame": "View Game"
         },
         "gallery": {
             "heading": "Gallery"
@@ -85,6 +82,22 @@
             "heading": "Download",
             "subtitle": "Get the last version of",
             "download": "Download the game"
-        }
+        },
+        "filters": {
+            "genre": "Genre",
+            "platform": "Platform",
+            "releaseDate": "Release Date",
+            "filterGames": "Filter Games",
+            "allGenres": "All Genres",
+            "allPlatforms": "All Platforms",
+            "newest": "Newest",
+            "oldest": "Oldest",
+            "resetFilters": "Reset Filters"
+        },
+        "pagination": {
+            "page": "Page",
+            "of": "of"
+        },
+        "mobileFilterButton": "Filter"
     }
 }
