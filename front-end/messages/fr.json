@@ -129,5 +129,9 @@
             "contact": "Nous contacter"
         },
         "trusted": "Recommandé par les auteurs et éditeurs passant au numérique."
+    },
+    "Privacy": {
+        "back": "Retour",
+        "lastUpdated": "Dernière mise à jour le"
     }
 }

@@ -129,5 +129,9 @@
             "contact": "Contact us"
         },
         "trusted": "Trusted by authors & publishers expanding to digital."
+    },
+    "Privacy": {
+        "back": "Back",
+        "lastUpdated": "Last updated at"
     }
 }
