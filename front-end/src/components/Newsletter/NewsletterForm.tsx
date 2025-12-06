@@ -122,7 +122,7 @@ const NewsletterForm = ({ variant = 'default', showTitle = true, showDescription
       {showConsent && (
         <p className="text-sm text-muted-foreground font-medium">
           {t('footer.consent')}{' '}
-          <Link className="text-primary hover:underline" href={`/${locale}/privacy`}>
+          <Link className="text-primary hover:underline" href={`/${locale}/site-policy/privacy`}>
             {t('disclaimer.privacyLink')}
           </Link>.
         </p>

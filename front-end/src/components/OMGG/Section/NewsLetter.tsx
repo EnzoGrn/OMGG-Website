@@ -142,7 +142,7 @@ const OMGGNewsLetter = () => {
           <div className="max-w-lg text-sm text-muted-foreground space-y-2">
             <p>
               {t('disclaimer.line1')}{' '}
-              <Link href={`/${locale}/privacy`} className="text-primary hover:underline">
+              <Link href={`/${locale}/site-policy/privacy`} className="text-primary hover:underline">
                 {t('disclaimer.privacyLink')}
               </Link>.
             </p>
