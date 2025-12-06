@@ -4,7 +4,7 @@ import { useRouter } from '@/i18n/navigation';
 import { ArrowLeft } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { Container } from "@/components/Section/Container";
-import { useTranslations } from 'next-intl';
+import { useTranslations, useFormatter } from 'next-intl';
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useEffect, useState } from 'react';
@@ -17,6 +17,7 @@ type PrivacyProps = {
 
 export default function PrivacyDocument({ title, updatedAt, markdown }: PrivacyProps) {
   const t = useTranslations('Privacy');
+  const format = useFormatter();
   const router = useRouter();
 
   const [headings, setHeadings] = useState<{ id: string; text: string; level: number }[]>([]);
@@ -109,7 +110,7 @@ export default function PrivacyDocument({ title, updatedAt, markdown }: PrivacyP
                 {title}
               </h1>
               <p className="text-muted-foreground text-lg">
-                {t('lastUpdated')} <span className="font-medium text-foreground">{updatedAt}</span>
+                {t('lastUpdated')} <span className="font-medium text-foreground">{format.dateTime(new Date(updatedAt), { year: 'numeric', month: 'numeric', day: 'numeric' })}</span>
               </p>
             </div>
           </div>
