@@ -92,12 +92,42 @@
             "allPlatforms": "Toutes les plateformes",
             "newest": "Plus récent",
             "oldest": "Plus ancien",
-            "resetFilters": "Réinitialiser"
+            "resetFilters": "Réinitialiser",
+            "noResults": {
+                "title": "Aucun jeu trouvé",
+                "description": "Nous n'avons trouvé aucun jeu correspondant à vos filtres actuels. Essayez de modifier vos critères de recherche."
+            },
+            "search": "Rechercher",
+            "searchPlaceholder": "Rechercher par nom"
         },
         "pagination": {
             "page": "Page",
             "of": "sur"
         },
-        "mobileFilterButton": "Filtrer"
+        "mobileFilterButton": "Filtrer",
+        "NotFound": {
+            "title": "Jeu introuvable",
+            "description": "Il semble que le jeu que vous cherchez n'existe pas ou a été déplacé.",
+            "backToGames": "Retour aux jeux",
+            "creators": {
+                "title": "Êtes-vous un créateur de jeux ?",
+                "description": "Voulez-vous voir votre jeu sur notre plateforme ? Soumettez-le maintenant !",
+                "button": "Soumettre un jeu"
+            }
+        }
+    },
+    "CreatorCTA": {
+        "title": "Transformez votre jeu de société en une expérience numérique premium.",
+        "description": "OMGG transforme votre création en une version numérique fidèle, soignée et entièrement jouable — prête pour les joueurs du monde entier.",
+        "features": {
+            "prototype": "Prototype entièrement jouable en quelques semaines",
+            "crossPlatform": "Multiplateforme (Web, Mobile, Bureau)",
+            "monetization": "Prêt pour la monétisation : abonnements, cosmétiques, tournois"
+        },
+        "buttons": {
+            "submit": "Soumettre votre jeu",
+            "contact": "Nous contacter"
+        },
+        "trusted": "Recommandé par les auteurs et éditeurs passant au numérique."
     }
 }

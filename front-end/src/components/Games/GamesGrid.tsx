@@ -7,7 +7,7 @@ import { GamesFilters, FilterState } from "./GamesFilters";
 import { GameCard } from "./GameCard";
 import { GameCardSkeleton } from "./GameCardSkeleton";
 import { Button } from "../ui/button";
-import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search, SearchX } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { GameProps } from "@/app/[locale]/games/[slug]/page";
 
@@ -26,6 +26,12 @@ interface GamesGridProps {
       newest: string;
       oldest: string;
       resetFilters: string;
+      noResults: {
+        title: string;
+        description: string;
+      };
+      search: string;
+      searchPlaceholder: string;
     };
     pagination: {
       page: string;
@@ -57,6 +63,7 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
     genre: "all",
     platform: "all",
     releaseDate: "newest",
+    search: "",
   });
 
   // Refs for scroll calculation
@@ -140,6 +147,14 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
         );
       }
 
+      // Filter by search
+      if (filters.search) {
+        const searchLower = filters.search.toLowerCase();
+        filtered = filtered.filter((game) =>
+          game.name.toLowerCase().includes(searchLower)
+        );
+      }
+
       // Sort by release date
       if (filters.releaseDate === "newest") {
         filtered.sort((a, b) => {
@@ -155,7 +170,7 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
       setCurrentPage(1); // Reset to first page
       setIsFilterSheetOpen(false); // Close mobile sheet
       setIsLoading(false);
-    }, 300); // Small delay for better UX
+    }, 500); // Small delay for better UX
   };
 
   // Handle platform click from game card
@@ -164,6 +179,7 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
       genre: "all",
       platform: platformName,
       releaseDate: "newest",
+      search: "",
     });
   };
 
@@ -211,10 +227,7 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
           <div ref={gridTopRef} className="h-1" />
           <div
             ref={filtersRef}
-            className={`${isBottomReach ?
-              'absolute bottom-0 left-0 right-0' : isSticky ?
-                'fixed top-20 w-[calc((100vw-1280px)/2+1280px/4-2rem)] max-w-xs' : 'sticky top-24'
-              } max-h-[calc(100vh-8rem)] overflow-y-auto transition-all duration-200`}
+            className={`${isBottomReach && currentGames.length > 3 ? 'absolute bottom-0 left-0 right-0' : isSticky && currentGames.length > 3 ? 'fixed top-20' : 'sticky top-24'} max-h-[calc(100vh-8rem)] overflow-y-auto transition-all duration-200 w-[calc((100vw-1280px)/2+1280px/4-2rem)] max-w-xs`}
           >
             <h3 className="text-2xl font-bold mb-6 pt-2">{translations.filters.filterGames}</h3>
             <GamesFilters
@@ -229,6 +242,7 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
 
         {/* Games Grid - Right Column */}
         <div className="lg:col-span-3 space-y-8">
+
           {/* Games Grid */}
           {isLoading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -249,8 +263,27 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground text-lg">No games found matching your filters.</p>
+            <div className="flex flex-col items-center justify-center py-16 text-center space-y-4 animate-in fade-in zoom-in duration-300 h-full">
+              <div className="bg-muted p-6 rounded-full">
+                <SearchX className="size-10 text-muted-foreground" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold">{translations.filters.noResults.title}</h3>
+                <p className="text-muted-foreground max-w-sm mx-auto">
+                  {translations.filters.noResults.description}
+                </p>
+              </div>
+              <Button
+                variant="outline"
+                onClick={() => handleFilterChange({
+                  genre: "all",
+                  platform: "all",
+                  releaseDate: "newest",
+                  search: "",
+                })}
+              >
+                {translations.filters.resetFilters}
+              </Button>
             </div>
           )}
 

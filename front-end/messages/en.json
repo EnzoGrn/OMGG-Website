@@ -92,12 +92,42 @@
             "allPlatforms": "All Platforms",
             "newest": "Newest",
             "oldest": "Oldest",
-            "resetFilters": "Reset Filters"
+            "resetFilters": "Reset Filters",
+            "noResults": {
+                "title": "No games found",
+                "description": "We couldn't find any games matching your current filters. Try adjusting your search criteria."
+            },
+            "search": "Search",
+            "searchPlaceholder": "Search by name"
         },
         "pagination": {
             "page": "Page",
             "of": "of"
         },
-        "mobileFilterButton": "Filter"
+        "mobileFilterButton": "Filter",
+        "NotFound": {
+            "title": "Game not found",
+            "description": "It seems the game you are looking for does not exist or has been moved.",
+            "backToGames": "Back to games",
+            "creators": {
+                "title": "Are you a game creator?",
+                "description": "Do you want to see your game on our platform? Submit it now!",
+                "button": "Submit a game"
+            }
+        }
+    },
+    "CreatorCTA": {
+        "title": "Turn your board game into a premium digital experience.",
+        "description": "OMGG transforms your creation into a faithful, polished and fully playable digital version — ready for players worldwide.",
+        "features": {
+            "prototype": "Fully playable prototype in weeks",
+            "crossPlatform": "Cross-platform (Web, Mobile, Desktop)",
+            "monetization": "Monetization-ready: subscriptions, cosmetics, tournaments"
+        },
+        "buttons": {
+            "submit": "Submit your game",
+            "contact": "Contact us"
+        },
+        "trusted": "Trusted by authors & publishers expanding to digital."
     }
 }

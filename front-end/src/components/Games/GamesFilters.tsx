@@ -4,6 +4,7 @@ import * as React from "react";
 import { Button } from "../ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { Label } from "../ui/label";
+import { Input } from "../ui/input";
 
 interface GamesFiltersProps {
   onFilterChange: (filters: FilterState) => void;
@@ -20,6 +21,8 @@ interface GamesFiltersProps {
     newest: string;
     oldest: string;
     resetFilters: string;
+    search: string;
+    searchPlaceholder: string;
   };
 }
 
@@ -27,6 +30,7 @@ export interface FilterState {
   genre: string;
   platform: string;
   releaseDate: string;
+  search: string;
 }
 
 const GamesFilters = ({ onFilterChange, genres, platforms, currentFilters, translations }: GamesFiltersProps) => {
@@ -51,6 +55,7 @@ const GamesFilters = ({ onFilterChange, genres, platforms, currentFilters, trans
       genre: "all",
       platform: "all",
       releaseDate: "newest",
+      search: "",
     };
 
     setFilters(resetFilters);
@@ -59,6 +64,23 @@ const GamesFilters = ({ onFilterChange, genres, platforms, currentFilters, trans
 
   return (
     <div className="space-y-6 overflow-x-visible">
+      {/* Search Filter */}
+      <div className="space-y-2 px-1">
+        <Label htmlFor="search-filter" className="text-sm font-semibold">
+          {translations.search}
+        </Label>
+        <Input
+          id="search-filter"
+          type="search"
+          placeholder={translations.searchPlaceholder}
+          value={filters.search}
+          onChange={(e) => handleFilterChange("search", e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter')
+              handleApplyFilters();
+          }}
+        />
+      </div>
       {/* Genre Filter */}
       <div className="space-y-2 px-1">
         <Label htmlFor="genre-filter" className="text-sm font-semibold">
