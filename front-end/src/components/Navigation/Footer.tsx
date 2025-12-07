@@ -3,11 +3,10 @@
 import { Container } from "@/components/Section/Container"
 import { FooterProps, MenuProps } from "@/components/Navigation/FooterProps";
 import { DynamicLoadIcon } from "@/components/Utils/ReactIconUtils";
-import { getMediaFromUrl } from "@/lib/strapi";
 import { useLocale } from "next-intl";
 import { NewsletterForm } from "@/components/Newsletter/NewsletterForm";
-import Link from "next/link";
 import { Toaster } from "../ui/sonner";
+import { ApiLogo } from "../Logo/ApiLogo";
 
 const Footer = ({ footerData }: { footerData: FooterProps; }) => {
   const locale = useLocale();
@@ -22,9 +21,7 @@ const Footer = ({ footerData }: { footerData: FooterProps; }) => {
               {/* Logo */}
               {footerData.logo &&
                 <div className="flex items-center gap-2 lg:justify-start">
-                  <Link href="/">
-                    <img src={getMediaFromUrl(footerData.logo.image.url)} alt={footerData.logo.image.alternativeText} className="h-16" />
-                  </Link>
+                  <ApiLogo logo={footerData.logo.image} cn='h-16' />
                 </div>
               }
 
