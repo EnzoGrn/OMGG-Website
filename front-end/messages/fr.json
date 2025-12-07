@@ -133,5 +133,10 @@
     "Privacy": {
         "back": "Retour",
         "lastUpdated": "Dernière mise à jour le"
+    },
+    "NotFound": {
+        "title": "Page introuvable",
+        "description": "Il semble que la page que vous recherchez n'existe pas ou a été déplacée.",
+        "backToHome": "Retour à l'accueil"
     }
 }

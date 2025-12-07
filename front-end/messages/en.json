@@ -108,12 +108,7 @@
         "NotFound": {
             "title": "Game not found",
             "description": "It seems the game you are looking for does not exist or has been moved.",
-            "backToGames": "Back to games",
-            "creators": {
-                "title": "Are you a game creator?",
-                "description": "Do you want to see your game on our platform? Submit it now!",
-                "button": "Submit a game"
-            }
+            "backToGames": "Back to games"
         }
     },
     "CreatorCTA": {
@@ -133,5 +128,10 @@
     "Privacy": {
         "back": "Back",
         "lastUpdated": "Last updated at"
+    },
+    "NotFound": {
+        "title": "Page not found",
+        "description": "It seems the page you are looking for does not exist or has been moved.",
+        "backToHome": "Back to home"
     }
 }

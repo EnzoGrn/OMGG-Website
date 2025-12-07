@@ -1,9 +1,7 @@
 import FadeInWhenVisible from "@/components/Animator/Fade/FadeInWhenVisible";
-import { CTA } from "@/components/CTA/CTA";
 import { HeroGamesCarousel } from "@/components/Games/HeroGamesCarousel";
 import { GamesGrid } from "@/components/Games/GamesGrid";
 import { Container } from "@/components/Section/Container";
-import { TextEnum } from "@/lib/enumerations/TextEnum";
 import { fetchLatestGames, fetchAllGames } from "@/lib/strapi";
 import { Locale } from "next-intl";
 import { getTranslations } from "next-intl/server";
