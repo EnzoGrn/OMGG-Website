@@ -133,5 +133,49 @@
         "title": "Page not found",
         "description": "It seems the page you are looking for does not exist or has been moved.",
         "backToHome": "Back to home"
+    },
+    "Contact": {
+        "title": "Contact us!",
+        "FAQ": {
+            "title": "Frequently Asked Questions",
+            "items": {
+                "faq-1": {
+                    "question": "How does collaboration with OMGG work?",
+                    "answer": "We start by discussing with the publisher to understand their game, objectives, and audience.<br></br>Then, we create a tailored proposal: digital prototype, full version, or companion tool."
+                },
+                "faq-2": {
+                    "question": "What types of games can you digitize?",
+                    "answer": "We adapt all types of board games: card games, board games, strategy, narrative, cooperative games, etc."
+                },
+                "faq-3": {
+                    "question": "How much does digitizing a game cost?",
+                    "answer": "Our projects start at <important>€25,000</important>, depending on the game complexity and target platform."
+                },
+                "faq-4": {
+                    "question": "How long does it take to get a prototype?",
+                    "answer": "On average <important>4 to 8 weeks</important> for a testable prototype, then 3 to 6 months for a full version."
+                },
+                "faq-5": {
+                    "question": "Does the digital version change the game rules?",
+                    "answer": "No. We respect the physical experience and only add features that <important>enrich</important> the game (tutorials, matchmaking, fluidity...)."
+                },
+                "faq-6": {
+                    "question": "Have you worked with publishers before?",
+                    "answer": "Yes, our showcase game <important>Vermines</important> and our exchanges with several publishers validate the interest and relevance of our approach."
+                },
+                "faq-7": {
+                    "question": "On which platforms can you publish a game?",
+                    "answer": "PC, mobile, Steam, mobile stores, and even “companion” versions to accompany the physical game."
+                },
+                "faq-8": {
+                    "question": "How to contact you to discuss a project?",
+                    "answer": "Either at the email address <mail>omgg.contact@gmail.com</mail><br></br>Or via the form found on the page <submit>Submit a project</submit>"
+                }
+            }
+        }
+    },
+    "SubmitGames": {
+        "title": "Submit your board game",
+        "description": "Please complete this detailed form to submit your project to us. We will review your submission as soon as possible."
     }
 }

@@ -138,5 +138,49 @@
         "title": "Page introuvable",
         "description": "Il semble que la page que vous recherchez n'existe pas ou a été déplacée.",
         "backToHome": "Retour à l'accueil"
+    },
+    "Contact": {
+        "title": "Contactez-nous !",
+        "FAQ": {
+            "title": "Questions fréquentes",
+            "items": {
+                "faq-1": {
+                    "question": "Comment fonctionne la collaboration avec OMGG ?",
+                    "answer": "Nous échangeons d'abord avec l'éditeur pour comprendre son jeu, ses objectifs et son public.<br></br>Ensuite, nous créons une proposition adaptée: prototype numérique, version complète, ou outil compagnon."
+                },
+                "faq-2": {
+                    "question": "Quels types de jeux pouvez-vous numériser ?",
+                    "answer": "Nous adaptons tous types de jeux de société : cartes, plateaux, stratégie, jeux narratifs, coopératifs, etc."
+                },
+                "faq-3": {
+                    "question": "Combien coûte la numérisation d'un jeu ?",
+                    "answer": "Nos projets débutent à <important>25 000€</important>, selon la complexité du jeu et la plateforme ciblée."
+                },
+                "faq-4": {
+                    "question": "Combien de temps faut-il pour obtenir un prototype ?",
+                    "answer": "En moyenne <important>4 à 8 semaines</important> pour un prototype testable, puis 3 à 6 mois pour une version complète."
+                },
+                "faq-5": {
+                    "question": "Est-ce que la version digitale modifie les règles du jeu ?",
+                    "answer": "Non. Nous respectons l'expérience physique et ajoutons uniquement des fonctionnalités qui <important>enrichissent</important> le jeu (tutoriels, matchmaking, fluidité…)."
+                },
+                "faq-6": {
+                    "question": "Avez-vous déjà travaillé avec des éditeurs ?",
+                    "answer": "Oui, notre jeu vitrine <important>Vermines</important> et nos échanges avec plusieurs éditeurs valident l'intérêt et la pertinence de notre approche."
+                },
+                "faq-7": {
+                    "question": "Sur quelles plateformes pouvez-vous publier un jeu ?",
+                    "answer": "PC, mobile, Steam, stores mobiles, et même des versions “compagnon” pour accompagner le jeu physique."
+                },
+                "faq-8": {
+                    "question": "Comment vous contacter pour discuter d'un projet ?",
+                    "answer": "Soit à l'adresse mail <mail>omgg.contact@gmail.com</mail><br></br>Soit depuis le formulaire retrouvable sur la page <submit>Soumettre un projet</submit>"
+                }
+            }
+        }
+    },
+    "SubmitGames": {
+        "title": "Soumettre votre jeu de société",
+        "description": "Remplissez ce formulaire détaillé pour nous présenter votre projet. Nous examinerons votre soumission dans les plus brefs délais."
     }
 }

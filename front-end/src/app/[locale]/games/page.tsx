@@ -22,7 +22,7 @@ export default async function GamesPage({ params }: { params: Promise<{ locale: 
       {latestGames && latestGames.length > 0 && (
         <>
           <Container className="pt-8">
-            <h1 className="text-7xl font-extrabold text-start uppercase">NEW GAMES</h1>
+            <h1 className="text-7xl font-extrabold text-start uppercase">{t('title.new_games')}</h1>
           </Container>
           <HeroGamesCarousel
             games={latestGames}
