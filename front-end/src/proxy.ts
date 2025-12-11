@@ -2,7 +2,7 @@ import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { routing } from "./i18n/routing";
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
     // Get the locale from the url
     const { pathname } = req.nextUrl;
     const locale = routing.locales.find((l) => pathname.startsWith(`/${l}`)) || 'fr';

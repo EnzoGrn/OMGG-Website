@@ -52,7 +52,8 @@ const HeroGamesCarousel = ({ games, newBadgeText, viewGameText, locale }: HeroGa
 
   return (
     <div className="w-full">
-      <SSection padding="py-0" className="min-h-[660px] lg:min-h-[690px]">
+      <SSection padding="py-0" className="min-h-[660px] lg:min-h-[690px] relative">
+        <img src="/OMGG/Illustrations/red_dots.svg" alt="OMGG's dots illustration" className="h-1/3 w-1/3 bottom-10 -right-1/5 absolute -z-10 select-none" />
         <Carousel setApi={setApi} opts={{ loop: true }}>
           <CarouselContent>
             {games.map((game, index) => (

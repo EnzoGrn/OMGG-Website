@@ -4,8 +4,8 @@ import { fetchDataSearchParams } from "@/lib/strapi";
 import { Locale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 
-export async function generateStaticParams({ params }: { params: Promise<{ locale: Locale }> }) {
-  const locale = (await params).locale;
+export async function generateStaticParams({ params }: { params: { locale: Locale } }) {
+  const locale = params.locale;
 
   const documents = await fetchDataSearchParams({ path: "legal-documents", forceCache: true, locale: locale });
 
