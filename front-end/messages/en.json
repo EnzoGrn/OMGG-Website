@@ -109,6 +109,10 @@
             "title": "Game not found",
             "description": "It seems the game you are looking for does not exist or has been moved.",
             "backToGames": "Back to games"
+        },
+        "Badge": {
+            "new": "New",
+            "coming": "Coming Soon"
         }
     },
     "CreatorCTA": {

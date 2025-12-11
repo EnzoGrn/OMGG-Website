@@ -10,12 +10,13 @@ import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight, Search, SearchX } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { GameProps } from "@/app/[locale]/games/[slug]/page";
+import { getGameStatus, TIME_CONSIDERATE_AS_NEW } from "./GameStatus";
+import { useTranslations } from "next-intl";
 
 interface GamesGridProps {
   games: GameProps[];
   locale: string;
   translations: {
-    newBadge: string;
     filters: {
       genre: string;
       platform: string;
@@ -49,9 +50,7 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
   // It will be used to check the collision with the top of the grid.
   const navbarRef = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    navbarRef.current = document.getElementById("navbar");
-  }, []);
+  const t = useTranslations('Games.Badge');
 
   const [filteredGames, setFilteredGames] = useState<GameProps[]>(games);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -65,6 +64,12 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
     releaseDate: "newest",
     search: "",
   });
+
+  useEffect(() => {
+    navbarRef.current = document.getElementById("navbar");
+
+    handleFilterChange(currentFilters);
+  }, []);
 
   // Refs for scroll calculation
   const gridTopRef = useRef<HTMLDivElement>(null);
@@ -126,6 +131,37 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
     )
   );
 
+  function getGamePriority(game: GameProps) {
+    const today = new Date();
+
+    if (game.releaseDate === null || game.releaseDate === undefined)
+      return 1;
+    if (new Date(game.releaseDate) > today)
+      return 0;
+    const release = new Date(game.releaseDate);
+    const newLimit = new Date();
+
+    newLimit.setDate(newLimit.getDate() - TIME_CONSIDERATE_AS_NEW);
+
+    if (release >= newLimit && release <= today)
+      return 2;
+    return 3;
+  }
+
+  function sortByRelease(filtered: GameProps[], newest: boolean) {
+    filtered.sort((a, b) => {
+      const pa = getGamePriority(a);
+      const pb = getGamePriority(b);
+
+      if (pa !== pb)
+        return newest ? pa - pb : pb - pa;
+      const da = a.releaseDate ? new Date(a.releaseDate).getTime() : Infinity;
+      const db = b.releaseDate ? new Date(b.releaseDate).getTime() : Infinity;
+
+      return newest ? da - db : db - da;
+    });
+  }
+
   const handleFilterChange = (filters: FilterState) => {
     setCurrentFilters(filters);
     setIsLoading(true);
@@ -156,16 +192,10 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
       }
 
       // Sort by release date
-      if (filters.releaseDate === "newest") {
-        filtered.sort((a, b) => {
-          return new Date(b.slug).getTime() - new Date(a.slug).getTime();
-        });
-      } else {
-        filtered.sort((a, b) => {
-          return new Date(a.slug).getTime() - new Date(b.slug).getTime();
-        });
-      }
-
+      if (filters.releaseDate === "newest")
+        sortByRelease(filtered, true);
+      else
+        sortByRelease(filtered, false);
       setFilteredGames(filtered);
       setCurrentPage(1); // Reset to first page
       setIsFilterSheetOpen(false); // Close mobile sheet
@@ -252,15 +282,19 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
             </div>
           ) : currentGames.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-              {currentGames.map((game, index) => (
-                <GameCard
-                  key={index}
-                  game={game}
-                  locale={locale}
-                  newBadgeText={translations.newBadge}
-                  onPlatformClick={handlePlatformClick}
-                />
-              ))}
+              {currentGames.map((game, index) => {
+                const status = getGameStatus(game.releaseDate);
+
+                return (
+                  <GameCard
+                    key={index}
+                    game={game}
+                    locale={locale}
+                    badgeText={status !== 'none' ? t(status) : ''}
+                    onPlatformClick={handlePlatformClick}
+                  />
+                );
+              })}
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center py-16 text-center space-y-4 animate-in fade-in zoom-in duration-300 h-full">

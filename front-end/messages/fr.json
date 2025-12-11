@@ -114,6 +114,10 @@
                 "description": "Voulez-vous voir votre jeu sur notre plateforme ? Soumettez-le maintenant !",
                 "button": "Soumettre un jeu"
             }
+        },
+        "Badge": {
+            "new": "Nouveau",
+            "coming": "A venir"
         }
     },
     "CreatorCTA": {

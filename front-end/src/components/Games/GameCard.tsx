@@ -1,19 +1,21 @@
 "use client";
 
 import { Card } from "../ui/card";
-import { Badge } from "../ui/badge";
 import { getMediaFromUrl } from "@/lib/strapi";
 import { GameProps } from "@/app/[locale]/games/[slug]/page";
 import { DynamicLoadIcon } from "../Utils/ReactIconUtils";
+import { GameStatusBadge, getGameStatus } from "./GameStatus";
 
 interface GameCardProps {
   game: GameProps;
   locale: string;
-  newBadgeText: string;
+  badgeText: string;
   onPlatformClick?: (platformName: string) => void;
 }
 
-const GameCard = ({ game, locale, newBadgeText, onPlatformClick }: GameCardProps) => {
+const GameCard = ({ game, locale, badgeText, onPlatformClick }: GameCardProps) => {
+  const status = getGameStatus(game.releaseDate);
+
   return (
     <a href={`/${locale}/games/${game.slug}`} className="group block h-full">
       <Card className="relative overflow-hidden h-80 transition-all duration-300 hover:shadow-xl cursor-pointer">
@@ -30,9 +32,11 @@ const GameCard = ({ game, locale, newBadgeText, onPlatformClick }: GameCardProps
         {/* Content */}
         <div className="absolute bottom-0 left-0 right-0 p-4 space-y-2">
           {/* Badge */}
-          {game.isNew && (
+          {status !== 'none' && (
             <div className="mb-2">
-              <Badge>{newBadgeText}</Badge>
+              <GameStatusBadge status={status}>
+                {badgeText}
+              </GameStatusBadge>
             </div>
           )}
 

@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { SSection } from "../Section/Section";
 import { H1, H2 } from "../Text/Text";
-import { Badge } from "../ui/badge";
 import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import { ArrowUpRight } from "lucide-react";
@@ -12,17 +11,20 @@ import { DynamicLoadIcon } from "../Utils/ReactIconUtils";
 import { getMediaFromUrl } from "@/lib/strapi";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Container } from "../Section/Container";
+import { useTranslations } from "next-intl";
+import { GameStatusBadge, getGameStatus } from "./GameStatus";
 
 interface HeroGamesCarouselProps {
   games: GameProps[];
-  newBadgeText: string;
   viewGameText: string;
   locale: string;
 }
 
-const HeroGamesCarousel = ({ games, newBadgeText, viewGameText, locale }: HeroGamesCarouselProps) => {
+const HeroGamesCarousel = ({ games, viewGameText, locale }: HeroGamesCarouselProps) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+
+  const t = useTranslations('Games.Badge');
 
   useEffect(() => {
     if (!api) return;
@@ -56,45 +58,50 @@ const HeroGamesCarousel = ({ games, newBadgeText, viewGameText, locale }: HeroGa
         <img src="/OMGG/Illustrations/red_dots.svg" alt="OMGG's dots illustration" className="h-1/3 w-1/3 bottom-10 -right-1/5 absolute -z-10 select-none" />
         <Carousel setApi={setApi} opts={{ loop: true }}>
           <CarouselContent>
-            {games.map((game, index) => (
-              <CarouselItem key={index}>
-                <Card className="relative rounded-2xl overflow-hidden h-[calc(660px-6rem)] lg:h-[calc(690px-6rem)] w-full flex-row">
-                  <img
-                    src={getMediaFromUrl(game.background.url)}
-                    alt={game.background.alternativeText || game.name}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+            {games.map((game, index) => {
+              const status = getGameStatus(game.releaseDate);
 
-                  <div className="absolute bottom-16 md:bottom-4 left-4 p-4 flex flex-col gap-2 max-w-xs">
-                    {game.isNew && <Badge>{newBadgeText}</Badge>}
-                    <H1 className="text-white">{game.name}</H1>
+              return (
+                <CarouselItem key={index}>
+                  <Card className="relative rounded-2xl overflow-hidden h-[calc(660px-6rem)] lg:h-[calc(690px-6rem)] w-full flex-row">
+                    <img
+                      src={getMediaFromUrl(game.background.url)}
+                      alt={game.background.alternativeText || game.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
 
-                    {game.genrers && game.genrers.map((genre, idx) => (
-                      <H2 key={idx} className="text-white font-semibold">{genre.name}</H2>
-                    ))}
+                    <div className="absolute bottom-16 md:bottom-4 left-4 p-4 flex flex-col gap-2 max-w-xs">
+                      {status !== 'none' && <GameStatusBadge status={status}>{t(status)}</GameStatusBadge>}
 
-                    <div className="flex gap-3 mt-2">
-                      {game.platforms && game.platforms.map((platform, idx) => (
-                        <div key={idx} className="text-white hover:text-yellow-400 transition-colors" title={platform.icon.text}>
-                          {platform.icon.isSlugIcon && platform.icon?.slugIcon &&
-                            DynamicLoadIcon(platform.icon.slugIcon)
-                          }
-                        </div>
+                      <H1 className="text-white">{game.name}</H1>
+
+                      {game.genrers && game.genrers.map((genre, idx) => (
+                        <H2 key={idx} className="text-white font-semibold">{genre.name}</H2>
                       ))}
-                    </div>
-                  </div>
 
-                  <div className="absolute bottom-4 left-4 md:left-auto md:right-4 p-4">
-                    <Button asChild variant="default" size="lg" aria-label={`${viewGameText} ${game.name}`}>
-                      <a href={`/${locale}/games/${game.slug}`} aria-label={`${viewGameText} ${game.name}`}>
-                        {viewGameText}
-                        <ArrowUpRight className="ml-2 size-4" />
-                      </a>
-                    </Button>
-                  </div>
-                </Card>
-              </CarouselItem>
-            ))}
+                      <div className="flex gap-3 mt-2">
+                        {game.platforms && game.platforms.map((platform, idx) => (
+                          <div key={idx} className="text-white hover:text-yellow-400 transition-colors" title={platform.icon.text}>
+                            {platform.icon.isSlugIcon && platform.icon?.slugIcon &&
+                              DynamicLoadIcon(platform.icon.slugIcon)
+                            }
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="absolute bottom-4 left-4 md:left-auto md:right-4 p-4">
+                      <Button asChild variant="default" size="lg" aria-label={`${viewGameText} ${game.name}`}>
+                        <a href={`/${locale}/games/${game.slug}`} aria-label={`${viewGameText} ${game.name}`}>
+                          {viewGameText}
+                          <ArrowUpRight className="ml-2 size-4" />
+                        </a>
+                      </Button>
+                    </div>
+                  </Card>
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
         </Carousel>
       </SSection>

@@ -54,7 +54,7 @@ export interface GameProps {
   name: string;
   description: TextProps;
   slug: string;
-  isNew: boolean;
+  releaseDate?: string;
   background: LogoProps;
   platforms: PlatformProps[];
   genrers: GenrerProps[];

@@ -26,7 +26,6 @@ export default async function GamesPage({ params }: { params: Promise<{ locale: 
           </Container>
           <HeroGamesCarousel
             games={latestGames}
-            newBadgeText={t('hero.badge')}
             viewGameText={t('hero.viewGame')}
             locale={locale}
           />
@@ -41,7 +40,6 @@ export default async function GamesPage({ params }: { params: Promise<{ locale: 
           games={allGames}
           locale={locale}
           translations={{
-            newBadge: t('hero.badge'),
             filters: {
               genre: t('filters.genre'),
               platform: t('filters.platform'),

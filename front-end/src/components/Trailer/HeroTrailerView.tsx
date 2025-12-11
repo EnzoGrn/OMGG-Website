@@ -1,6 +1,5 @@
 import { SSection } from "../Section/Section";
 import { H1, H2 } from "../Text/Text";
-import { Badge } from "../ui/badge";
 import { Card } from "../ui/card";
 import { Button } from "../ui/button";
 import { ArrowUpRight } from "lucide-react";
@@ -9,10 +8,13 @@ import { DynamicLoadIcon } from "../Utils/ReactIconUtils";
 import { getMediaFromUrl } from "@/lib/strapi";
 import { useTranslations } from "next-intl";
 import { HeroTrailerSectionProps } from "./HeroTrailerSection";
+import { GameStatusBadge, getGameStatus } from "../Games/GameStatus";
 
 const HeroTrailerView = ({ gameProps, data }: { gameProps: GameProps, data: HeroTrailerSectionProps }) => {
 
-  const t = useTranslations('Games');
+  const tBadge = useTranslations('Games.Badge');
+
+  const status = getGameStatus(gameProps.releaseDate);
 
   return (
     <SSection padding="py-0" className="min-h-[660px] lg:min-h-[690px]">
@@ -20,7 +22,8 @@ const HeroTrailerView = ({ gameProps, data }: { gameProps: GameProps, data: Hero
         <img src={getMediaFromUrl(gameProps.background.url)} alt="Trailer Thumbnail" className="absolute inset-0 w-full h-full object-cover" />
 
         <div className="absolute bottom-16 md:bottom-4 left-4 p-4 flex flex-col gap-2 max-w-xs">
-          {gameProps.isNew && <Badge>{t('hero.badge')}</Badge>}
+          {status !== 'none' && <GameStatusBadge status={status}>{tBadge(status)}</GameStatusBadge>}
+
           <H1 className="text-white">{gameProps.name}</H1>
 
           {/* Genre */}
