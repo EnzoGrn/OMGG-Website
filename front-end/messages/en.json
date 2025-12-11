@@ -60,6 +60,10 @@
         }
     },
     "Games": {
+        "metadata": {
+            "title": "OMGG | Our creations - Discover our digital adaptations",
+            "description": "Explore all our creations: board games transformed into unique digital experiences. Browse our collection and rediscover your favorites in interactive versions."
+        },
         "title": {
             "new_games": "New games",
             "our": "OUR",

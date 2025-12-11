@@ -1,29 +1,41 @@
 import { Locale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
+import { Metadata } from "next";
 import { LogoProps, TextProps } from "@/components/Section/Interface";
 import { dynamicComponentFactory } from "@/components/OMGG/Section/SectionLoader";
-import { fetchDataSearchParams } from "@/lib/strapi";
+import { fetchDataSearchParams, getMediaFromUrl } from "@/lib/strapi";
 import { notFound } from "next/navigation";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Games" });
+export async function generateMetadata({ params }: { params: Promise<{ slug: string; locale: Locale }> }): Promise<Metadata> {
+  const { slug, locale } = await params;
 
-  return {
-    /*title: t("metadata.title"),
-    description: t("metadata.description"),
+  const gameDataRes = await fetchDataSearchParams({
+    path: 'games/' + slug,
+    forceCache: true,
+    locale: locale
+  });
+
+  const seo = gameDataRes.data.SEO;
+
+  let metaData = {
+    title: seo.metaTitle,
+    description: seo.metaDescription,
     openGraph: {
-      title: t("metadata.title"),
-      description: t("metadata.description")
-    }*/
-    title: 'test',
-    description: 'test',
-    openGraph: {
-      title: 'test',
-      description: 'test'
-    }
+      title: seo.metaTitle,
+      description: seo.metaDescription
+    },
+    twitter: {
+      title: seo.metaTitle,
+      description: seo.metaDescription
+    },
+    icons: [{
+      url: getMediaFromUrl(seo.shareImage?.url),
+      type: 'image/png',
+      sizes: '1200x630'
+    }]
   };
+
+  return metaData;
 }
 
 interface IconProps {

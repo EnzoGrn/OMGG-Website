@@ -6,6 +6,26 @@ import { fetchLatestGames, fetchAllGames } from "@/lib/strapi";
 import { Locale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { CreatorCTA } from "@/components/CTA/CreatorCTA";
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
+  const { locale } = await params;
+
+  const t = await getTranslations({ locale, namespace: "Games.metadata" });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    openGraph: {
+      title: t('title'),
+      description: t('description')
+    },
+    twitter: {
+      title: t('title'),
+      description: t('description')
+    }
+  };
+}
 
 export default async function GamesPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;

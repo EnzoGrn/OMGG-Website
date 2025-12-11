@@ -60,6 +60,10 @@
         }
     },
     "Games": {
+        "metadata": {
+            "title": "OMGG | Nos créations - Découvrez nos adaptations digitales",
+            "description": "Explorez toutes les créations OMGG : des jeux de société transformés en expériences digitales uniques. Parcourez notre collection et redécouvrez vos jeux favoris en version interactive."
+        },
         "title": {
             "new_games": "Dernières sorties",
             "our": "Nos",
