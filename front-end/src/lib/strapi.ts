@@ -200,3 +200,39 @@ export async function fetchAllGames(locale: string, pageSize: number = 100) {
   }
 }
 
+// region FAQ
+
+export async function fetchFAQ(locale: string) {
+  const url = new URL(`${STRAPI_URL}/api/faq`);
+
+  url.searchParams.set("locale", locale);
+  url.searchParams.set("populate", "items");
+
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+  };
+
+  if (NEXT_PUBLIC_STRAPI_API_TOKEN)
+    headers["Authorization"] = `Bearer ${NEXT_PUBLIC_STRAPI_API_TOKEN}`;
+  try {
+    const res = await fetch(url.toString(), {
+      headers,
+      // cache: 'force-cache', // TODO: Adjust cache strategy as needed
+    });
+
+    if (!res.ok) {
+      console.error(`Failed to fetch FAQ: ${res.status} ${res.statusText}`);
+
+      return null;
+    }
+
+    const { data } = await res.json();
+
+    return data || null;
+  } catch (error) {
+    console.error("Error fetching FAQ:", error);
+    return null;
+  }
+}
+
+// endregion

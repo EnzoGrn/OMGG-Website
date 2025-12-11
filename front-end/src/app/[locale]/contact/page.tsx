@@ -3,13 +3,16 @@ import FAQ from '@/components/Section/FAQ';
 import { Locale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Container } from '@/components/Section/Container';
+import { fetchFAQ } from '@/lib/strapi';
 
-export default async function LegalDocumentPage({ params }: { params: Promise<{ locale: Locale }> }) {
+export default async function ContactPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
 
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "Contact" });
+
+  const faqs = await fetchFAQ(locale);
 
   return (
     <main className="h-full w-full overflow-hidden">
@@ -22,7 +25,7 @@ export default async function LegalDocumentPage({ params }: { params: Promise<{ 
       <FadeInWhenVisible>
         <FAQ
           locale={locale}
-          faqsIds={['faq-1', 'faq-2', 'faq-3', 'faq-4', 'faq-5', 'faq-6', 'faq-7', 'faq-8']}
+          faqs={faqs.items}
         />
       </FadeInWhenVisible>
     </main>
