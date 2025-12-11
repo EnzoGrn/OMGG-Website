@@ -15,7 +15,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   const faqs = await fetchFAQ(locale);
 
   return (
-    <main className="h-full w-full overflow-hidden">
+    <main className="min-h-screen w-full overflow-hidden">
       <Container className="pt-8">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">{t('title')}</h1>
       </Container>

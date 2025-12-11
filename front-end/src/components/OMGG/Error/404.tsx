@@ -10,7 +10,7 @@ type Props = {
 
 export default async function NotFound({ title, description, button }: Props) {
   return (
-    <main className="w-full h-full overflow-hidden">
+    <main className="w-full min-h-screen overflow-hidden">
       <PSection padding={'py-8'} className="flex flex-col items-center justify-center min-h-[70vh] text-center space-y-12">
         <div className="flex flex-col items-center space-y-6 max-w-2xl mx-auto animate-in fade-in zoom-in duration-500">
           <div className="relative w-64 h-64 md:w-80 md:h-80 mb-4 drop-shadow-2xl">

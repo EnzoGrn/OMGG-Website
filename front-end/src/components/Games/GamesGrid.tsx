@@ -46,18 +46,12 @@ const ITEMS_PER_PAGE = 12;
 
 const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
 
-  // Get the navbar component.
-  // It will be used to check the collision with the top of the grid.
-  const navbarRef = useRef<HTMLElement | null>(null);
-
   const t = useTranslations('Games.Badge');
 
   const [filteredGames, setFilteredGames] = useState<GameProps[]>(games);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isFilterSheetOpen, setIsFilterSheetOpen] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isSticky, setIsSticky] = useState<boolean>(false);
-  const [isBottomReach, setIsBottomReach] = useState<boolean>(false);
   const [currentFilters, setCurrentFilters] = useState<FilterState>({
     genre: "all",
     platform: "all",
@@ -66,57 +60,8 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
   });
 
   useEffect(() => {
-    navbarRef.current = document.getElementById("navbar");
-
     handleFilterChange(currentFilters);
   }, []);
-
-  // Refs for scroll calculation
-  const gridTopRef = useRef<HTMLDivElement>(null);
-  const gridBottomRef = useRef<HTMLDivElement>(null);
-  const filtersRef = useRef<HTMLDivElement>(null);
-
-  // Scroll Handler Logic
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!gridTopRef.current || !gridBottomRef.current || !filtersRef.current || !navbarRef.current)
-        return;
-      const navbarRect = navbarRef.current.getBoundingClientRect();
-      const gridTopRect = gridTopRef.current.getBoundingClientRect();
-      const gridBottomRect = gridBottomRef.current.getBoundingClientRect();
-      const filtersRect = filtersRef.current.getBoundingClientRect();
-
-      const navbarHeight = navbarRect.height;
-      const stickyTriggerPoint = navbarHeight + 20;
-
-      if (gridTopRect.top > stickyTriggerPoint) {
-        setIsSticky(false);
-        setIsBottomReach(false);
-        return;
-      }
-
-      const availableSpace = gridBottomRect.bottom - stickyTriggerPoint;
-
-      if (availableSpace < filtersRect.height) {
-        setIsSticky(false);
-        setIsBottomReach(true);
-        return;
-      }
-
-      setIsSticky(true);
-      setIsBottomReach(false);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleScroll);
-
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, [filteredGames]);
 
   // Extract unique genres and platforms
   const uniqueGenres = Array.from(
@@ -252,14 +197,11 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
     <Container className="py-12">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-        {/* Desktop Filters - Left Column with Dynamic Sticky */}
-        <div className="hidden lg:block relative">
-          <div ref={gridTopRef} className="h-1" />
-          <div
-            ref={filtersRef}
-            className={`${isBottomReach && currentGames.length > 3 ? 'absolute bottom-0 left-0 right-0' : isSticky && currentGames.length > 3 ? 'fixed top-20' : 'sticky top-24'} max-h-[calc(100vh-8rem)] overflow-y-auto transition-all duration-200 w-[calc((100vw-1280px)/2+1280px/4-2rem)] max-w-xs`}
-          >
+        {/* Desktop Filters - Left Column */}
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
             <h3 className="text-2xl font-bold mb-6 pt-2">{translations.filters.filterGames}</h3>
+
             <GamesFilters
               onFilterChange={handleFilterChange}
               genres={uniqueGenres}
@@ -268,7 +210,7 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
               translations={translations.filters}
             />
           </div>
-        </div>
+        </aside>
 
         {/* Games Grid - Right Column */}
         <div className="lg:col-span-3 space-y-8">
@@ -320,8 +262,6 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
               </Button>
             </div>
           )}
-
-          <div ref={gridBottomRef} className="h-1" />
 
           {/* Pagination */}
           {totalPages > 1 && !isLoading && (
@@ -382,11 +322,11 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
               <span className="sr-only">{translations.mobileFilterButton}</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="bottom" className="h-[85vh] p-6">
+          <SheetContent side="bottom" className="min-h-[85vh] max-h-full p-6">
             <SheetHeader>
               <SheetTitle className="text-2xl">{translations.filters.filterGames}</SheetTitle>
             </SheetHeader>
-            <div className="mt-6 overflow-y-auto max-h-[calc(85vh-8rem)]">
+            <div className="mt-6 overflow-y-auto">
               <GamesFilters
                 onFilterChange={handleFilterChange}
                 genres={uniqueGenres}

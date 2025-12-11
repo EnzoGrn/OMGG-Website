@@ -18,7 +18,7 @@ export default async function GamesPage({ params }: { params: Promise<{ locale: 
   const allGames = await fetchAllGames(locale);
 
   return (
-    <main className="w-full h-full overflow-hidden">
+    <main className="w-full min-h-screen">
       {latestGames && latestGames.length > 0 && (
         <>
           <Container className="pt-8">
