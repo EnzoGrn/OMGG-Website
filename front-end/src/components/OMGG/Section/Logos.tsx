@@ -1,15 +1,13 @@
 import { Logos } from "@/components/Logo/Logos";
 import { fetchDataSearchParams } from "@/lib/strapi";
-import { getLocale } from "@/lib/locale";
 import { JSX } from "react";
-import { PartnerProps, PartnersProps } from "@/components/Logo/LogoInterface";
+import { PartnersProps } from "@/components/Logo/LogoInterface";
 
 async function OMGGLogos({ data }: { data: PartnersProps }): Promise<JSX.Element> {
-  const locale = await getLocale();
   const logos = await fetchDataSearchParams({
     path: "companies",
     forceCache: true,
-    locale,
+    locale: undefined,
     searchParams: {
       "populate": "icon",
       "filters[isPartner][$eq]": "true"

@@ -1,12 +1,12 @@
-import { JSX               } from "react";
-import { TestimonialProps, TestimonialsProps    } from "@/components/Testimonials/TestimonialInterface";
-import { fetchFromStrapi                        } from "@/lib/strapi";
+import { JSX } from "react";
+import { TestimonialProps, TestimonialsProps } from "@/components/Testimonials/TestimonialInterface";
+import { fetchFromStrapi } from "@/lib/strapi";
 import { getLocale } from "next-intl/server";
 import { TestimonialSection } from "@/components/Section/Testimonials";
 
-async function OMGGTestimonials({data}:  {data: TestimonialsProps}): Promise<JSX.Element> {
+async function OMGGTestimonials({ data }: { data: TestimonialsProps }): Promise<JSX.Element> {
   const locale = await getLocale();
-  const testimonials = await fetchFromStrapi("testimonials", true, locale, data.maxTestimonials, 1, "populate[attestant][populate]", "*") as TestimonialProps[];
+  const testimonials = await fetchFromStrapi("testimonials", true, undefined, data.maxTestimonials, 1, "populate[attestant][populate]", "*") as TestimonialProps[];
 
   const updatedData: TestimonialsProps = {
     ...data,
@@ -14,7 +14,7 @@ async function OMGGTestimonials({data}:  {data: TestimonialsProps}): Promise<JSX
   };
 
   return (
-    <TestimonialSection data={updatedData}/>
+    <TestimonialSection data={updatedData} />
   );
 };
 

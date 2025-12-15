@@ -1,4 +1,4 @@
-name: Test Build for Next.js 15
+name: Test Build for Next.js 16
 
 on:
   pull_request:
