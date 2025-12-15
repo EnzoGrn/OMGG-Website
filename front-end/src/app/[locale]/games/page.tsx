@@ -52,8 +52,13 @@ export default async function GamesPage({ params }: { params: Promise<{ locale: 
         </>
       )}
 
-      <FadeInWhenVisible className="relative overflow-hidden">
-        <img src="/OMGG/Illustrations/yellow_dots.svg" alt="OMGG's dots illustration" className="h-1/3 w-1/3 top-2/5 -right-5 absolute -z-10 select-none" />
+      <FadeInWhenVisible className="relative">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <img
+            src="/OMGG/Illustrations/yellow_dots.svg"
+            className="h-1/4 w-1/4 top-2/5 -right-1/10 absolute -z-10"
+          />
+        </div>
 
         <Container className="pt-16">
           <h1 className="text-7xl font-extrabold text-start uppercase"><span className="text-primary">{t('title.our')}</span> {t('title.games')}</h1>

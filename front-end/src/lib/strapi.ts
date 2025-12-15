@@ -25,8 +25,7 @@ export function getMediaFromUrl(url: string) {
 
 // TODO: use the forceCache that is part of the SSR
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function fetchDataSearchParams({ path, forceCache, searchParams, locale }:
-  { path: string, forceCache: boolean, searchParams?: Record<string, string>, locale?: string }) {
+export async function fetchDataSearchParams({ path, forceCache, searchParams, locale }: { path: string, forceCache: boolean, searchParams?: Record<string, string>, locale?: string }) {
   // Build the url to fetch
   const url = new URL(`${STRAPI_URL}/api/${path}`);
 
@@ -64,8 +63,7 @@ export async function fetchDataSearchParams({ path, forceCache, searchParams, lo
   return data || null;
 }
 
-export async function fetchFromStrapi(path: string, forceCache: boolean, locale?: string,
-  paginationSize?: number, paginationPage?: number, populateTarget?: string, populate?: string) {
+export async function fetchFromStrapi(path: string, forceCache: boolean, locale?: string, paginationSize?: number, paginationPage?: number, populateTarget?: string, populate?: string) {
   // Construct the url
   const url = new URL(`${STRAPI_URL}/api/${path}`);
 

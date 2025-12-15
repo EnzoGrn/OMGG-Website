@@ -194,7 +194,7 @@ const GamesGrid = ({ games, locale, translations }: GamesGridProps) => {
   };
 
   return (
-    <Container className="py-12">
+    <Container className="py-12 relative">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
         {/* Desktop Filters - Left Column */}
