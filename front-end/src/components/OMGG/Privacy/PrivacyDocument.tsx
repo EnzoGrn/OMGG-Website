@@ -90,7 +90,7 @@ export default function PrivacyDocument({ title, updatedAt, markdown }: PrivacyP
   };
 
   return (
-    <main className="w-full h-full min-h-screen bg-background text-foreground">
+    <main className="w-full h-full bg-background text-foreground">
       <section className="bg-muted border-b border-border pb-4">
         <Container className="pt-8 pb-4">
           <div className="flex flex-col space-y-6">

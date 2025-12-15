@@ -96,7 +96,7 @@ export default async function Home({ params }: { params: Promise<{ slug: string;
   gamePageData.gameData = gameDataRes;
 
   return (
-    <main className="w-full min-h-screen overflow-hidden">
+    <main className="w-full overflow-hidden">
       {/* {slug} */}
       {dynamicComponentFactory(gamePageData)}
     </main>

@@ -10,7 +10,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
   setRequestLocale(locale);
 
   return (
-    <main className="w-full min-h-screen">
+    <main className="w-full">
       {dynamicComponentFactory(landingPageData)}
     </main>
   );
