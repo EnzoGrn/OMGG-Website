@@ -2,11 +2,10 @@ import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { routing } from "./i18n/routing";
 
-export function middleware(req: NextRequest)
-{
-    // Get the locale form the url
+export function proxy(req: NextRequest) {
+    // Get the locale from the url
     const { pathname } = req.nextUrl;
-    const locale = routing.locales.find((l) => pathname.startsWith(`/${l}`)) || 'en';
+    const locale = routing.locales.find((l) => pathname.startsWith(`/${l}`)) || 'fr';
     const res = NextResponse.next();
 
     // Set cookie if missing or different
@@ -20,7 +19,7 @@ export function middleware(req: NextRequest)
 
 export default createMiddleware({
     locales: ["en", "fr"],
-    defaultLocale: "en"
+    defaultLocale: "fr"
 });
 
 export const config = {

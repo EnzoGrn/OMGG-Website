@@ -1,2 +1,12 @@
 User-Agent: *
-Allow: *
+
+Allow: /
+Allow: /*/
+Allow: /*/games
+Allow: /*/games/*
+
+Disallow: /*?*utm_*
+Disallow: /*/site-policy
+Disallow: /*/site-policy/*
+Disallow: /*/contact
+Disallow: /*/submit

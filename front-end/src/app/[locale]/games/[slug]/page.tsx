@@ -1,24 +1,41 @@
-import { Locale                            } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata                     } from "next";
-import { LogoProps, TextProps              } from "@/components/Section/Interface";
-import { dynamicComponentFactory           } from "@/components/OMGG/Section/SectionLoader";
-import { fetchDataSearchParams             } from "@/lib/strapi";
-import { notFound                          } from "next/navigation";
+import { Locale } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import { Metadata } from "next";
+import { LogoProps, TextProps } from "@/components/Section/Interface";
+import { dynamicComponentFactory } from "@/components/OMGG/Section/SectionLoader";
+import { fetchDataSearchParams, getMediaFromUrl } from "@/lib/strapi";
+import { notFound } from "next/navigation";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata>
-{
-  const { locale } = await params;
-  const t          = await getTranslations({ locale, namespace: "Games" });
+export async function generateMetadata({ params }: { params: Promise<{ slug: string; locale: Locale }> }): Promise<Metadata> {
+  const { slug, locale } = await params;
 
-  return {
-    title: t("metadata.title"),
-    description: t("metadata.description"),
+  const gameDataRes = await fetchDataSearchParams({
+    path: 'games/' + slug,
+    forceCache: true,
+    locale: locale
+  });
+
+  const seo = gameDataRes.data.SEO;
+
+  let metaData = {
+    title: seo.metaTitle,
+    description: seo.metaDescription,
     openGraph: {
-      title: t("metadata.title"),
-      description: t("metadata.description")
-    }
+      title: seo.metaTitle,
+      description: seo.metaDescription
+    },
+    twitter: {
+      title: seo.metaTitle,
+      description: seo.metaDescription
+    },
+    icons: [{
+      url: getMediaFromUrl(seo.shareImage?.url),
+      type: 'image/png',
+      sizes: '1200x630'
+    }]
   };
+
+  return metaData;
 }
 
 interface IconProps {
@@ -49,7 +66,7 @@ export interface GameProps {
   name: string;
   description: TextProps;
   slug: string;
-  isNew: boolean;
+  releaseDate?: string;
   background: LogoProps;
   platforms: PlatformProps[];
   genrers: GenrerProps[];
@@ -58,29 +75,28 @@ export interface GameProps {
   pngIllustration: LogoProps;
 }
 
-export default async function Home({ params }: { params: Promise<{ slug: string; locale: Locale }> })
-{
+export default async function Home({ params }: { params: Promise<{ slug: string; locale: Locale }> }) {
   const { slug, locale } = await params;
-  
+
   setRequestLocale(locale);
 
   // Get page data with cache to avoid multi fecth
-  const gamePageData = await fetchDataSearchParams({ path: 'games-page', forceCache: true, locale: locale});
+  const gamePageData = await fetchDataSearchParams({ path: 'games-page', forceCache: true, locale: locale });
 
   // Get the data of the game
   const gameDataRes = await fetchDataSearchParams({
-    path:         'games/' + slug,
-    forceCache:   true,
-    locale:       locale
+    path: 'games/' + slug,
+    forceCache: true,
+    locale: locale
   });
-  
-  if (gameDataRes == undefined || gameDataRes?.data == null)
+
+  if (gameDataRes === undefined || gameDataRes?.data === null)
     return notFound();
 
   gamePageData.gameData = gameDataRes;
 
   return (
-    <main className="w-full h-full overflow-hidden">
+    <main className="w-full overflow-hidden">
       {/* {slug} */}
       {dynamicComponentFactory(gamePageData)}
     </main>

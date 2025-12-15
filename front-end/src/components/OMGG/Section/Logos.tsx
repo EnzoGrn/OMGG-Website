@@ -1,18 +1,33 @@
-import { Logos                       } from "@/components/Logo/Logos";
-import { fetchFromStrapi             } from "@/lib/strapi";
-import { getLocale                   } from "@/lib/locale";
-import { JSX                         } from "react";
+import { Logos } from "@/components/Logo/Logos";
+import { fetchDataSearchParams } from "@/lib/strapi";
+import { getLocale } from "@/lib/locale";
+import { JSX } from "react";
 import { PartnerProps, PartnersProps } from "@/components/Logo/LogoInterface";
 
-async function OMGGLogos({data}:  {data: PartnersProps}): Promise<JSX.Element> {
+async function OMGGLogos({ data }: { data: PartnersProps }): Promise<JSX.Element> {
   const locale = await getLocale();
-  const logos = await fetchFromStrapi("companies", true, locale, data.maxPartners, 1, "populate", "icon") as PartnerProps[];
+  const logos = await fetchDataSearchParams({
+    path: "companies",
+    forceCache: true,
+    locale,
+    searchParams: {
+      "populate": "icon",
+      "filters[isPartner][$eq]": "true"
+    }
+  });
 
-  data.logos = logos;
-  data.classname = "bg-gradient-to-br from-[var(--primary)] to-[var(--detail)]" ;
+  if (logos.data.length === 0)
+    return <></>;
+  const classname: string = "bg-gradient-to-br from-[var(--primary)] to-[var(--detail)]";
 
-  return(
-    <Logos {...data}/>
+  const updatedData: PartnersProps = {
+    ...data,
+    logos: logos.data,
+    classname: classname
+  };
+
+  return (
+    <Logos {...updatedData} />
   );
 }
 
