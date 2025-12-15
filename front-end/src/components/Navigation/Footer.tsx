@@ -1,11 +1,16 @@
-import { Container              } from "@/components/Section/Container"
-import { FooterProps, MenuProps } from "@/components/Navigation/FooterProps";
-import { DynamicLoadIcon        } from "@/components/Utils/ReactIconUtils";
-import { getMediaFromUrl        } from "@/lib/strapi";
-import { Locale                 } from "next-intl";
-import Link from "next/link";
+'use client'
 
-const Footer = ({footerData, locale = 'en' }: {footerData: FooterProps; locale: Locale}) => {
+import { Container } from "@/components/Section/Container"
+import { FooterProps, MenuProps } from "@/components/Navigation/FooterProps";
+import { DynamicLoadIcon } from "@/components/Utils/ReactIconUtils";
+import { useLocale } from "next-intl";
+import { NewsletterForm } from "@/components/Newsletter/NewsletterForm";
+import { Toaster } from "../ui/sonner";
+import { ApiLogo } from "../Logo/ApiLogo";
+
+const Footer = ({ footerData }: { footerData: FooterProps; }) => {
+  const locale = useLocale();
+
   return (
     <section className="py-8 inset-shadow-xs">
       <Container>
@@ -16,9 +21,7 @@ const Footer = ({footerData, locale = 'en' }: {footerData: FooterProps; locale: 
               {/* Logo */}
               {footerData.logo &&
                 <div className="flex items-center gap-2 lg:justify-start">
-                  <Link href="/">
-                    <img src={getMediaFromUrl(footerData.logo.image.url)} alt={footerData.logo.image.alternativeText} className="h-16" />
-                  </Link>
+                  <ApiLogo logo={footerData.logo.image} cn='h-16' />
                 </div>
               }
 
@@ -35,11 +38,11 @@ const Footer = ({footerData, locale = 'en' }: {footerData: FooterProps; locale: 
               {/* Social Network */}
               <ul className="flex items-center space-x-6 text-muted-foreground">
                 {footerData.iconsLink && footerData.iconsLink
-                .filter((iconsLink) => !iconsLink.isDisable)
-                .map((iconLink) => {
+                  .filter((iconsLink) => !iconsLink.isDisable)
+                  .map((iconLink) => {
                     return (
                       <li className="font-medium hover:text-primary" key={iconLink.id}>
-                        <a href={iconLink.url} aria-label="X / Twitter">
+                        <a href={iconLink.url} aria-label={iconLink.text}>
                           {DynamicLoadIcon(iconLink.slugIcon)}
                         </a>
                       </li>
@@ -47,7 +50,7 @@ const Footer = ({footerData, locale = 'en' }: {footerData: FooterProps; locale: 
                   })}
               </ul>
             </div>
-            
+
             {/* Menu navigation */}
             <div className="grid grid-cols-3 gap-6 lg:gap-20">
               {footerData.menu && footerData.menu
@@ -72,8 +75,11 @@ const Footer = ({footerData, locale = 'en' }: {footerData: FooterProps; locale: 
                       )}
                     </ul>
                   </div>
-              ))}
+                ))}
             </div>
+
+            {/* Newsletter Subscribe */}
+            {footerData.newsletter && (<NewsletterForm variant="footer" />)}
           </div>
 
           {/* Copyright */}
@@ -81,8 +87,8 @@ const Footer = ({footerData, locale = 'en' }: {footerData: FooterProps; locale: 
             <p>{footerData.copyright}</p>
             <ul className="flex justify-center gap-4 lg:justify-start">
               {footerData.legal
-              .filter((item) => !item.isDisable)
-              .map((item) => {
+                .filter((item) => !item.isDisable)
+                .map((item) => {
                   return (
                     <li className="hover:text-primary" key={item.id}>
                       <a href={`/${locale}${item.url}`} aria-label={item.text}>
@@ -90,11 +96,12 @@ const Footer = ({footerData, locale = 'en' }: {footerData: FooterProps; locale: 
                       </a>
                     </li>
                   )
-              })}
+                })}
             </ul>
           </div>
         </footer>
       </Container>
+      <Toaster />
     </section>
   );
 };

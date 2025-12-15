@@ -1,39 +1,28 @@
 "use client";
 
-import { ChevronLeftIcon, ChevronRightIcon       } from "lucide-react";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { useState, useRef, useEffect, TouchEvent, useCallback } from "react";
-import { Button                                  } from "@/components/ui/button";
-import { Container                               } from "@/components/Section/Container";
-import { BlogPostSkeleton                        } from "@/components/Blog/Post/BlogPostSkeleton";
-import { BlogPost                                } from "@/components/Blog/Post/BlogPost";
-import { BlogPostProps, BlogPostsProps           } from "@/components/Blog/Post/BlogPostInterface";
-import { Locale, useTranslations                 } from "next-intl";
-import Link  from "next/link";
+import { Button } from "@/components/ui/button";
+import { Container } from "@/components/Section/Container";
+import { BlogPostSkeleton } from "@/components/Blog/Post/BlogPostSkeleton";
+import { BlogPost } from "@/components/Blog/Post/BlogPost";
+import { BlogPostProps, BlogPostsProps } from "@/components/Blog/Post/BlogPostInterface";
+import { Locale, useTranslations } from "next-intl";
+import Link from "next/link";
 
-const BlogSection = ({data, locale}:  {data: BlogPostsProps, locale: Locale}) => {
+const BlogSection = ({ data, locale }: { data: BlogPostsProps, locale: Locale }) => {
   const t = useTranslations('Blog');
 
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    // Simulate loading state for demo purposes
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // 2 seconds delay
-
-    return () => clearTimeout(timer);
-  }, []);
-
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [isSwiping   , setIsSwiping]    = useState<boolean>(false);
-  const [startX      , setStartX]       = useState<number>(0);
-  const [screenSize  , setScreenSize]   = useState({ isMobile: false, isTablet: false, isDesktop: false });
+  const [isSwiping, setIsSwiping] = useState<boolean>(false);
+  const [startX, setStartX] = useState<number>(0);
+  const [screenSize, setScreenSize] = useState({ isMobile: false, isTablet: false, isDesktop: false });
 
-  const sliderRef    = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   // Calculate visible items based on screen size
   const visibleItems = screenSize.isDesktop ? 3 : screenSize.isTablet ? 2 : 1;
-  const maxIndex     = Math.max(0, data.maxBlog - visibleItems);
+  const maxIndex = Math.max(0, data.maxBlog - visibleItems);
 
   // Initialize and update screen size
   useEffect(() => {
@@ -75,7 +64,7 @@ const BlogSection = ({data, locale}:  {data: BlogPostsProps, locale: Locale}) =>
       if (e.key === "ArrowRight")
         handleNext();
     };
-  
+
     window.addEventListener("keydown", handleKey);
 
     return () => window.removeEventListener("keydown", handleKey);
@@ -86,7 +75,7 @@ const BlogSection = ({data, locale}:  {data: BlogPostsProps, locale: Locale}) =>
     if (sliderRef.current) {
       const scrollToIndex = () => {
         if (sliderRef.current) {
-          const cardWidth  = sliderRef.current.querySelector(".carousel-item")?.clientWidth || 0;
+          const cardWidth = sliderRef.current.querySelector(".carousel-item")?.clientWidth || 0;
           const scrollLeft = cardWidth * currentIndex;
 
           sliderRef.current.scrollTo({ left: scrollLeft, behavior: "smooth" });
@@ -111,7 +100,7 @@ const BlogSection = ({data, locale}:  {data: BlogPostsProps, locale: Locale}) =>
       return;
 
     const currentX = e.touches[0].clientX;
-    const diff     = startX - currentX;
+    const diff = startX - currentX;
 
     // Prevent default to stop page scrolling during swipe
     if (Math.abs(diff) > 5)
@@ -158,10 +147,10 @@ const BlogSection = ({data, locale}:  {data: BlogPostsProps, locale: Locale}) =>
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div className="space-y-4 max-w-xl text-secondary-foreground">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-              {t('heading')}
+              {data.title}
             </h2>
             <p className="text-sm md:text-base">
-              {t('description')}
+              {data.description}
             </p>
           </div>
         </div>
@@ -177,21 +166,20 @@ const BlogSection = ({data, locale}:  {data: BlogPostsProps, locale: Locale}) =>
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            {isLoading &&
+            {(data.BlogPost === null || data.BlogPost.length === 0) ? (
               <>
                 <BlogPostSkeleton />
                 <BlogPostSkeleton />
                 <BlogPostSkeleton />
                 <BlogPostSkeleton />
               </>
-            }
-            {!isLoading &&
+            ) : (
               <>
                 {data.BlogPost.map((post: BlogPostProps, index) => (
                   <BlogPost key={index} post={post} locale={locale} />
                 ))}
               </>
-            }
+            )}
           </div>
 
           {/* Progress indicators for mobile */}
@@ -203,7 +191,7 @@ const BlogSection = ({data, locale}:  {data: BlogPostsProps, locale: Locale}) =>
             <ChevronLeftIcon className="h-4 w-4" />
           </Button>
           <Button variant="outline" asChild aria-label={t('access')}>
-            <Link href="#" className="uppercase" aria-label={t('access')}>
+            <Link href={`${data.link}`} className="uppercase" aria-label={t('access')}>
               {t('access')}
             </Link>
           </Button>

@@ -3,102 +3,81 @@
         "title": "OMGG | Vos jeux de société, autrement - Numérisation et adaptation digitale",
         "description": "One More Good Game transforme vos jeux de société en expériences digitales interactives. Redécouvrez vos classiques, partout et à tout moment."
     },
-    "Navigation": {
-        "logoAlt": "Logo d'OMGG",
-        "portfolio": "Nos créations",
-        "omgg": "OMGG",
-        "blog": "Blog"
-    },
-    "Navbar": {
-        "submit": "Soumettre un jeu"
-    },
-    "Footer": {
-        "subtitle" : "OMGG - One More Good Game\nDu plateau à l'écran, vivez le jeu autrement.",
-        "copyright": "© 2025 OMGG. Tous droits réservés.",
-        "terms"    : "Conditions générales",
-        "privacy"  : "Politique de confidentialité"
-    },
-    "Hero": {
-        "heading"    : "Notre Mission :",
-        "description": "Offrir une nouvelle dimension à vos jeux.",
-        "imageAlt"   : "Logo d'OMGG"
-    },
-    "About": {
-        "heading"     : "Qui sommes nous ?",
-        "description" : "Chez OMGG (One More Good Game) nous cherchons à réinventer le jeu de société à l'ère du numérique.",
-        "text"        : "Notre mission est d'offrir aux joueurs et aux créateurs une nouvelle manière d'imaginer, de jouer et de partager des expériences uniques, en combinant la créativité du jeu de société avec les codes du jeu vidéo.",
-        "more"        : "En savoir plus",
-        "card1": {
-            "header": "Proposez votre jeu",
-            "text"  : "Vous êtes créateur indépendant ou une maison d'édition avec un jeu à numériser, une idée à prototyper ou une application compagnon à ajouter ? Soumettez-nous votre projet, et ensemble, nous donnerons vie à vos idées !",
-            "footer": "Soumettre mon projet"
-        },
-        "card2": {
-            "header": "Découvrez nos créations",
-            "text"  : "Nous créons des expériences immersives tout en préservant l'âme des jeux que nous adaptons ou prototypons. Chaque projet est pensé pour garder l'identité unique du jeu, tout en l'enrichissant.",
-            "footer": "Voir nos projets"
-        }
-    },
     "Logos": {
         "heading": "Ils nous ont fait confiance"
     },
     "Blog": {
-        "heading"    : "Actualités et dernières sorties",
-        "description": "Restez à l'affût des dernières nouvelles sur notre blog. Suivez nos avancées, découvrez les tendances du secteur et explorez nos réflexions sur l’édition, le développement, la technologie et les opportunités du marché. On vous partage tout !",
-        "read"       : "Lire l'article",
-        "access"     : "Accéder au blog"
+        "heading": "Actualités et dernières sorties",
+        "description": "Restez à l'affût des dernières nouvelles sur notre blog. Suivez nos avancées, découvrez les tendances du secteur et explorez nos réflexions sur l'édition, le développement, la technologie et les opportunités du marché. On vous partage tout !",
+        "read": "Lire l'article",
+        "access": "Accéder au blog"
     },
     "Newsletter": {
         "heading": "Vous voulez en savoir plus sur OMGG, nos jeux, nos actus ou nos emplois ?",
-        "mail"   : {
-            "label"      : "Email :",
+        "mail": {
+            "label": "Email :",
             "placeholder": "john@gmail.com"
         },
-        "company": {
-            "label"      : "Vous représentez :",
+        "fields": {
+            "label": "Vous souhaitez recevoir des informations concernant :",
             "placeholder": [
-                "Un joueur",
-                "Un créateur indépendant",
-                "Une maison d'édition"
-            ]
-        },
-        "newsletter": {
-            "label"      : "Vous souhaitez recevoir des informations concernant :",
-            "placeholder": [
-                "Le blog",
-                "Les devlogs",
-                "Les nouvelles sorties",
-                "Tout"
+                "Offres exclusives, ventes et promotions",
+                "Actualités d'OMGG et des jeux"
             ]
         },
         "error": {
             "email": {
-                "required": "Veuillez saisir une adresse email",
-                "invalid" : "L'email saisie n'est pas valide"
+                "required": "Veuillez saisir une adresse email.",
+                "invalid": "L'email saisie n'est pas valide."
             },
-            "company": {
-                "required": "Veuillez sélectionner au moins une option"
-            },
-            "newsletter": {
-                "required": "Veuillez sélectionner au moins un contenu"
-            }
+            "field": "Veuillez sélectionner au moins une option."
         },
-        "submit": "M'abonner"
+        "submit": "M'abonner",
+        "disclaimer": {
+            "line1": "Vous pouvez vous désabonner de ces communications à tout moment. Pour plus d'informations, consultez notre",
+            "privacyLink": "Politique de confidentialité",
+            "line2": "En soumettant vos données, vous consentez à ce qu'OMGG stocke et traite ces informations."
+        },
+        "footer": {
+            "title": "S'abonner",
+            "description": "Recevez les dernières actualités de nos jeux et de notre entreprise !",
+            "consent": "En soumettant vos données, vous consentez à notre"
+        },
+        "toast": {
+            "loading": "Envoi en cours...",
+            "sending": "Envoi en cours...",
+            "success": {
+                "title": "Inscription réussie !",
+                "description": "Merci de vous être inscrit à notre newsletter."
+            },
+            "error": {
+                "title": "Échec de l'inscription",
+                "network": {
+                    "title": "Erreur de connexion",
+                    "description": "Impossible de se connecter au serveur."
+                }
+            }
+        }
     },
     "Games": {
         "metadata": {
-            "title": "Vermines | Deck-building occulte dans la cité des abeilles",
-            "description": "Incarnez un cultiste et sacrifiez des âmes pour invoquer votre divinité. Vermines, un jeu de deck-building stratégique, disponible en version digitale."
+            "title": "OMGG | Nos créations - Découvrez nos adaptations digitales",
+            "description": "Explorez toutes les créations OMGG : des jeux de société transformés en expériences digitales uniques. Parcourez notre collection et redécouvrez vos jeux favoris en version interactive."
+        },
+        "title": {
+            "new_games": "Dernières sorties",
+            "our": "Nos",
+            "games": "Jeux"
+        },
+        "submitCTA": {
+            "title": "Votre jeu mérite sa version numérique",
+            "description": "Vous êtes auteur ou éditeur et vous envisagez une version digitale de votre jeu ?\nOMGG vous accompagne pour transformer votre création en expérience numérique complète, fidèle à votre vision.",
+            "button": "Soumettre votre jeu"
         },
         "hero": {
-            "title": "Vermines",
             "badge": "Nouveau",
-            "genre": ["Deck-building", "Tour par tour", "Stratégie"],
-            "download": "Télécharger le jeu"
-        },
-        "about": {
-            "heading": "À propos de Vermines",
-            "description": "Dans la cité des abeilles, où vivent en harmonie diverses espèces d'insectes, d'étranges personnages s'immiscent à la cour royale. Ce sont les représentants de divers cultes anciens qui tentent chacun d'invoquer leur dieu démoniaque. Pour cela, ils ont besoin de sacrifier des âmes et plus le sacrifié est noble, plus son âme a de valeur. Lequel de ces personnages sera le premier à réunir le nombre d'âmes nécessaires pour permettre à son dieu de faire régner le chaos sur le royaume ?"
+            "download": "Télécharger le jeu",
+            "viewGame": "Voir le jeu"
         },
         "gallery": {
             "heading": "Galerie"
@@ -107,6 +86,297 @@
             "heading": "Télécharger",
             "subtitle": "Téléchargez dès maintenant la dernière version de ",
             "download": "Télécharger le jeu"
+        },
+        "filters": {
+            "genre": "Genre",
+            "platform": "Plateforme",
+            "releaseDate": "Date de sortie",
+            "filterGames": "Filtrer les jeux",
+            "allGenres": "Tous les genres",
+            "allPlatforms": "Toutes les plateformes",
+            "newest": "Plus récent",
+            "oldest": "Plus ancien",
+            "resetFilters": "Réinitialiser",
+            "noResults": {
+                "title": "Aucun jeu trouvé",
+                "description": "Nous n'avons trouvé aucun jeu correspondant à vos filtres actuels. Essayez de modifier vos critères de recherche."
+            },
+            "search": "Rechercher",
+            "searchPlaceholder": "Rechercher par nom"
+        },
+        "pagination": {
+            "page": "Page",
+            "of": "sur"
+        },
+        "mobileFilterButton": "Filtrer",
+        "NotFound": {
+            "title": "Jeu introuvable",
+            "description": "Il semble que le jeu que vous cherchez n'existe pas ou a été déplacé.",
+            "backToGames": "Retour aux jeux",
+            "creators": {
+                "title": "Êtes-vous un créateur de jeux ?",
+                "description": "Voulez-vous voir votre jeu sur notre plateforme ? Soumettez-le maintenant !",
+                "button": "Soumettre un jeu"
+            }
+        },
+        "Badge": {
+            "new": "Nouveau",
+            "coming": "A venir"
+        }
+    },
+    "CreatorCTA": {
+        "title": "Transformez votre jeu de société en une expérience numérique premium.",
+        "description": "OMGG transforme votre création en une version numérique fidèle, soignée et entièrement jouable — prête pour les joueurs du monde entier.",
+        "features": {
+            "prototype": "Prototype entièrement jouable en quelques semaines",
+            "crossPlatform": "Multiplateforme (Web, Mobile, Bureau)",
+            "monetization": "Prêt pour la monétisation : abonnements, cosmétiques, tournois"
+        },
+        "buttons": {
+            "submit": "Soumettre votre jeu",
+            "contact": "Nous contacter"
+        },
+        "trusted": "Recommandé par les auteurs et éditeurs passant au numérique."
+    },
+    "Privacy": {
+        "back": "Retour",
+        "lastUpdated": "Dernière mise à jour le"
+    },
+    "NotFound": {
+        "title": "Page introuvable",
+        "description": "Il semble que la page que vous recherchez n'existe pas ou a été déplacée.",
+        "backToHome": "Retour à l'accueil"
+    },
+    "Contact": {
+        "title": "Contactez-nous !",
+        "FAQ": {
+            "title": "Questions fréquentes"
+        }
+    },
+    "SubmitGames": {
+        "title": "Soumettre votre jeu de société",
+        "description": "Remplissez ce formulaire détaillé pour nous présenter votre projet. Nous examinerons votre soumission dans les plus brefs délais.",
+        "form": {
+            "steps": {
+                "personal": {
+                    "title": "Vos informations",
+                    "subTitle": "Vos informations",
+                    "description": "Présentez-vous et donnez-nous vos coordonnées professionnelles"
+                },
+                "game": {
+                    "title": "Le jeu",
+                    "subTitle": "Informations du jeu de société",
+                    "description": "Donnez-nous les détails essentiels sur votre jeu"
+                },
+                "description": {
+                    "title": "Description",
+                    "subTitle": "Description du jeu",
+                    "description": "Expliquez-nous en détail ce qui rend votre jeu unique"
+                },
+                "media": {
+                    "title": "Médias",
+                    "subTitle": "Médias et ressources",
+                    "description": "Partagez-nous les visuels et documents de votre jeu"
+                },
+                "services": {
+                    "title": "Services",
+                    "subTitle": "Services demandés",
+                    "description": "Indiquez-nous comment nous pouvons vous aider"
+                }
+            },
+            "fields": {
+                "firstname": "Prénom",
+                "lastname": "Nom",
+                "company": "Nom de l'entreprise / Studio",
+                "email": "Email",
+                "phone": "Téléphone",
+                "website": "Site web / Portfolio",
+                "gameName": "Nom du jeu",
+                "gameType": "Type de jeu",
+                "gameTypeOther": "Précisez le type de jeu",
+                "devStage": "Stade de développement",
+                "devStageOther": "Précisez le stade de développement",
+                "playerCount": "Nombre de joueurs",
+                "gameDuration": "Durée du jeu",
+                "recommendedAge": "Âge recommandé",
+                "complexity": "Complexité",
+                "shortDescription": "Description courte (pitch)",
+                "shortDescriptionSub": "Une phrase accrocheuse pour décrire votre jeu (max 200 caractères)",
+                "detailedDescription": "Description détaillée",
+                "detailedDescriptionSub": "Décrivez votre jeu en détail : objectif, déroulement, comment on gagne",
+                "mainMechanic": "Mécanique principale",
+                "mainMechanicSub": "Quelles sont les mécaniques de jeu utilisées ?",
+                "theme": "Thème / Univers",
+                "uniqueFeature": "Caractéristique unique",
+                "uniqueFeatureSub": "Qu'est-ce qui rend votre jeu unique par rapport aux autres ?",
+                "prototypePhotos": "Photos du prototype",
+                "prototypePhotosSub": "Téléchargez des photos du plateau, des cartes, des composants (JPG, PNG)",
+                "rulesDocument": "Règles du jeu",
+                "rulesDocumentSub": "Téléchargez le document PDF des règles (version actuelle, même si non finalisée)",
+                "demoVideo": "Vidéo de démonstration (optionnel)",
+                "demoVideoSub": "Lien vers une vidéo montrant une partie jouée (YouTube, Vimeo, etc.)",
+                "services": "Quels services recherchez-vous ?",
+                "servicesSub": "Sélectionnez tous les services qui vous intéressent",
+                "budget": "Budget estimé",
+                "deadline": "Délai souhaité",
+                "additionalInfo": "Informations complémentaires",
+                "additionalInfoSub": "Tout ce que vous souhaitez nous communiquer"
+            },
+            "placeholders": {
+                "email": "contact@omgg.fr",
+                "phone": "06 12 34 56 78",
+                "website": "https://...",
+                "playerCount": "Ex: 2-4 joueurs",
+                "gameDuration": "Ex: 30-60 minutes",
+                "shortDescription": "Ex: Un jeu de stratégie médiévale où vous devez bâtir votre royaume tout en défendant vos frontières",
+                "mainMechanic": "Ex: Placement d'ouvriers, gestion de ressources, draft de cartes",
+                "theme": "Ex: Médiéval-fantastique, science-fiction, historique...",
+                "uniqueFeature": "- Mécanique asymétrique innovant\\n- Système de combo original\\n- Rejouabilité élevée grâce à...",
+                "demoVideo": "https://youtube.com/watch?v=...",
+                "additionalInfo": "Parlez-nous de votre vision, vos objectifs, vos besoins spécifiques...",
+                "select": "Sélectionnez une option"
+            },
+            "options": {
+                "gameType": {
+                    "plateau": "Jeu de plateau",
+                    "cartes": "Jeu de cartes",
+                    "des": "Jeu de dés",
+                    "pions": "Jeu de pions",
+                    "adresse": "Jeu d'adresse",
+                    "logique": "Jeu de logique",
+                    "quiz": "Jeu de connaissances / quiz",
+                    "lettres": "Jeu de lettres",
+                    "memoire": "Jeu de mémoire",
+                    "cooperatif": "Jeu coopératif",
+                    "strategie": "Jeu de stratégie",
+                    "familial": "Jeu familial",
+                    "party": "Party game / jeu d'ambiance",
+                    "abstrait": "Jeu abstrait",
+                    "expert": "Jeu expert / gamer",
+                    "deckBuilding": "Jeu de deck-building",
+                    "enquete": "Jeu d'enquête",
+                    "legacy": "Jeu Legacy",
+                    "escape": "Escape game",
+                    "other": "Autre (à préciser)"
+                },
+                "devStage": {
+                    "idea": "Idée / concept uniquement",
+                    "paper": "Prototype papier",
+                    "digital": "Prototype numérique",
+                    "finalized": "Jeu finalisé (non publié)",
+                    "published": "Jeu publié",
+                    "adaptation": "En cours d'adaptation numérique",
+                    "other": "Autre (à préciser)"
+                },
+                "complexity": {
+                    "verySimple": "Très simple (initiation / enfants)",
+                    "simple": "Simple (familial, accessible à tous)",
+                    "intermediate": "Intermédiaire (familial + / occasionnels avertis)",
+                    "complex": "Complexe (stratégique / expert)",
+                    "veryComplex": "Très complexe (simulation / gamer confirmé)"
+                },
+                "budget": {
+                    "lessThan10k": "Moins de 10 000€",
+                    "10kTo50k": "10 000€ - 50 000€",
+                    "50kTo100k": "50 000€ - 100 000€",
+                    "100kTo500k": "100 000€ - 500 000€",
+                    "moreThan500k": "Plus de 500 000€",
+                    "tbd": "À déterminer"
+                },
+                "deadline": {
+                    "urgent": "Urgent (moins d'un mois)",
+                    "1to3m": "1-3 mois",
+                    "3to6m": "3-6 mois",
+                    "6to12m": "6-12 mois",
+                    "moreThan12m": "Plus de 12 mois",
+                    "flexible": "Flexible"
+                }
+            },
+            "services": {
+                "fullAdaptation": "Adaptation numérique complète",
+                "mobileApp": "Application compagnon mobile",
+                "interactivePrototype": "Prototypage interactif"
+            },
+            "consents": {
+                "confirmAge": "Je confirme que j'ai plus de 16 ans",
+                "confirmAgeText": "Cochez cette case pour accepter que OMGG vous contacte régulièrement afin de vous informer sur nos jeux et les actualités associées, conformément à la <privacy>politique de confidentialité</privacy>. Vous pouvez vous désabonner à tout moment.",
+                "acceptCommunications": "J'accepte de recevoir d'autres communications de la part d'OMGG",
+                "acceptCommunicationsText": "Afin de vous fournir le contenu demandé, nous devons stocker et traiter vos données personnelles. Si vous acceptez que nous stockions vos données personnelles à cette fin, veuillez cocher la case ci-dessous.",
+                "acceptDataProcessing": "J'accepte que OMGG stocke et traite mes données personnelles",
+                "acceptDataProcessingText": "Vous pouvez vous désabonner de ces communications à tout moment. Pour plus d'informations, veuillez consulter notre <privacy>politique de confidentialité</privacy>."
+            },
+            "errors": {
+                "firstnameRequired": "Le prénom est requis",
+                "lastnameRequired": "Le nom est requis",
+                "emailRequired": "L'email est requis",
+                "emailInvalid": "Email invalide",
+                "phoneRequired": "Le téléphone est requis",
+                "phoneInvalid": "Numéro de téléphone français invalide",
+                "websiteRequired": "Le site web est requis",
+                "websiteInvalid": "URL invalide",
+                "gameNameRequired": "Le nom du jeu est requis",
+                "gameTypeRequired": "Le type de jeu est requis",
+                "gameTypeOtherRequired": "Veuillez préciser le type de jeu",
+                "devStageRequired": "Le stade de développement est requis",
+                "devStageOtherRequired": "Veuillez préciser le stade de développement",
+                "playerCountRequired": "Le nombre de joueurs est requis",
+                "gameDurationRequired": "La durée du jeu est requise",
+                "recommendedAgeRequired": "L'âge recommandé est requis",
+                "complexityRequired": "La complexité est requise",
+                "shortDescriptionRequired": "La description courte est requise",
+                "shortDescriptionMax": "Maximum 200 caractères",
+                "detailedDescriptionRequired": "La description détaillée est requise",
+                "mainMechanicRequired": "La mécanique principale est requise",
+                "prototypePhotosRequired": "Au moins une photo est requise",
+                "rulesDocumentRequired": "Le document de règles est requis",
+                "demoVideoInvalid": "URL invalide",
+                "servicesRequired": "Sélectionnez au moins un service",
+                "budgetRequired": "Le budget est requis",
+                "deadlineRequired": "Le délai est requis",
+                "confirmAgeRequired": "Vous devez confirmer avoir plus de 16 ans",
+                "acceptDataProcessingRequired": "Vous devez accepter le traitement des données"
+            },
+            "buttons": {
+                "previous": "Précédent",
+                "next": "Suivant",
+                "submit": "Soumettre"
+            },
+            "navigation": {
+                "step": "Etape",
+                "of": "sur"
+            },
+            "mediaHelp": {
+                "title": "Conseils :",
+                "description": "Incluez des photos claires du matériel de jeu sous différents angles, ainsi que des photos de parties en cours. Le livret de règles doit être complet même s'il n'est pas encore mis en page professionnellement."
+            },
+            "fileAccept": {
+                "images": "PNG, JPG jusqu'à 10MB par fichier",
+                "pdf": "PDF jusqu'à 30MB"
+            },
+            "fileUpload": {
+                "clickToBrowse": "Cliquez pour parcourir",
+                "dragAndDrop": "ou glissez-déposez vos fichiers",
+                "characters": "caractères"
+            },
+            "alerts": {
+                "submitSuccess": "Formulaire soumis avec succès!"
+            },
+            "toast": {
+                "loading": "Envoi en cours...",
+                "submitting": "Envoi de votre soumission...",
+                "success": {
+                    "title": "Soumission réussie !",
+                    "description": "Votre demande a été envoyée avec succès. Nous vous contacterons bientôt."
+                },
+                "error": {
+                    "title": "Erreur lors de la soumission",
+                    "description": "Une erreur s'est produite. Veuillez réessayer.",
+                    "network": {
+                        "title": "Erreur de connexion",
+                        "description": "Impossible de se connecter au serveur. Veuillez vérifier votre connexion."
+                    }
+                }
+            }
         }
     }
 }

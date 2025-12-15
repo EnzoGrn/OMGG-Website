@@ -5,9 +5,9 @@ export interface Badge {
 }
 
 export interface TextProps {
-  text:       string;
-  size:       TextEnum;
-  isBold:     boolean;   
+  text: string;
+  size: TextEnum;
+  isBold: boolean;
   className?: string;
 };
 
@@ -16,6 +16,7 @@ export interface ButtonProps {
   url: string;
   variant: string;
   isDisable: boolean;
+  download?: boolean;
 }
 
 export interface LogoProps {
@@ -27,12 +28,14 @@ export interface LogoProps {
 export interface HeroProps {
   badge?: Badge;
 
-  title:    TextProps;
+  title: TextProps;
   subtitle: TextProps;
 
   buttons?: ButtonProps[];
 
-  logo: LogoProps;
+  logo?: LogoProps;
 
   className?: string;
+
+  decoration?: React.ReactNode;
 }
