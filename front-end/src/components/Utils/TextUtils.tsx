@@ -3,19 +3,23 @@ import { TextProps } from "@/components/Section/Interface";
 import { H1, H2, H3, P } from "@/components/Text/Text";
 
 function formatText(text: string) {
-  return text.split("\n").map((line, index) => (
-    <span key={index}>
-      {line}
-      {index < text.split("\n").length - 1 && <br />}
-    </span>
-  ));
+  if (text.includes("\n")) {
+    return text.split("\n").map((line, index) => (
+      <span key={index}>
+        {line}
+        {index < text.split("\n").length - 1 && <br />}
+      </span>
+    ));
+  }
+
+  return text;
 }
 
 export function RenderText({ text, className }: { text: TextProps, className?: string }) {
-  if (text === null)
+  if (text === null || text === undefined || text.text === null || text.text === undefined || text.text === '')
     return null;
   if (className)
-    className = (text?.isBold) ? className += " font-bold" : className;
+    className = (text.isBold) ? className += " font-bold" : className;
   const content = formatText(text.text);
 
   switch (text.size) {

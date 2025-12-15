@@ -9,7 +9,14 @@ interface NonPopulatedGameProps {
 
 export async function generateStaticParams({ params }: { params: { locale: Locale } }) {
   const locale = params.locale;
-  const gamesRes = await fetchDataSearchParams({ path: "games", forceCache: true, locale: locale });
+  const gamesRes = await fetchDataSearchParams({
+    path: "games",
+    forceCache: true,
+    locale: locale,
+    searchParams: {
+      'populate': 'SEO'
+    }
+  });
 
   return gamesRes.data.map((game: NonPopulatedGameProps) => ({
     slug: game.slug,
