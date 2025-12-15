@@ -46,7 +46,7 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
 
   return (
     <html lang={locale}>
-      <body className="min-h-screen bg-background flex flex-col justify-between">
+      <body className="min-h-screen bg-background flex flex-col">
         <NextIntlClientProvider messages={messages}>
           <OMGGNavbar global={global?.navbar} />
           {children}
