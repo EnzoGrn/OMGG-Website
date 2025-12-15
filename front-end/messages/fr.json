@@ -155,6 +155,228 @@
     },
     "SubmitGames": {
         "title": "Soumettre votre jeu de société",
-        "description": "Remplissez ce formulaire détaillé pour nous présenter votre projet. Nous examinerons votre soumission dans les plus brefs délais."
+        "description": "Remplissez ce formulaire détaillé pour nous présenter votre projet. Nous examinerons votre soumission dans les plus brefs délais.",
+        "form": {
+            "steps": {
+                "personal": {
+                    "title": "Vos informations",
+                    "subTitle": "Vos informations",
+                    "description": "Présentez-vous et donnez-nous vos coordonnées professionnelles"
+                },
+                "game": {
+                    "title": "Le jeu",
+                    "subTitle": "Informations du jeu de société",
+                    "description": "Donnez-nous les détails essentiels sur votre jeu"
+                },
+                "description": {
+                    "title": "Description",
+                    "subTitle": "Description du jeu",
+                    "description": "Expliquez-nous en détail ce qui rend votre jeu unique"
+                },
+                "media": {
+                    "title": "Médias",
+                    "subTitle": "Médias et ressources",
+                    "description": "Partagez-nous les visuels et documents de votre jeu"
+                },
+                "services": {
+                    "title": "Services",
+                    "subTitle": "Services demandés",
+                    "description": "Indiquez-nous comment nous pouvons vous aider"
+                }
+            },
+            "fields": {
+                "firstname": "Prénom",
+                "lastname": "Nom",
+                "company": "Nom de l'entreprise / Studio",
+                "email": "Email",
+                "phone": "Téléphone",
+                "website": "Site web / Portfolio",
+                "gameName": "Nom du jeu",
+                "gameType": "Type de jeu",
+                "gameTypeOther": "Précisez le type de jeu",
+                "devStage": "Stade de développement",
+                "devStageOther": "Précisez le stade de développement",
+                "playerCount": "Nombre de joueurs",
+                "gameDuration": "Durée du jeu",
+                "recommendedAge": "Âge recommandé",
+                "complexity": "Complexité",
+                "shortDescription": "Description courte (pitch)",
+                "shortDescriptionSub": "Une phrase accrocheuse pour décrire votre jeu (max 200 caractères)",
+                "detailedDescription": "Description détaillée",
+                "detailedDescriptionSub": "Décrivez votre jeu en détail : objectif, déroulement, comment on gagne",
+                "mainMechanic": "Mécanique principale",
+                "mainMechanicSub": "Quelles sont les mécaniques de jeu utilisées ?",
+                "theme": "Thème / Univers",
+                "uniqueFeature": "Caractéristique unique",
+                "uniqueFeatureSub": "Qu'est-ce qui rend votre jeu unique par rapport aux autres ?",
+                "prototypePhotos": "Photos du prototype",
+                "prototypePhotosSub": "Téléchargez des photos du plateau, des cartes, des composants (JPG, PNG)",
+                "rulesDocument": "Règles du jeu",
+                "rulesDocumentSub": "Téléchargez le document PDF des règles (version actuelle, même si non finalisée)",
+                "demoVideo": "Vidéo de démonstration (optionnel)",
+                "demoVideoSub": "Lien vers une vidéo montrant une partie jouée (YouTube, Vimeo, etc.)",
+                "services": "Quels services recherchez-vous ?",
+                "servicesSub": "Sélectionnez tous les services qui vous intéressent",
+                "budget": "Budget estimé",
+                "deadline": "Délai souhaité",
+                "additionalInfo": "Informations complémentaires",
+                "additionalInfoSub": "Tout ce que vous souhaitez nous communiquer"
+            },
+            "placeholders": {
+                "email": "contact@omgg.fr",
+                "phone": "06 12 34 56 78",
+                "website": "https://...",
+                "playerCount": "Ex: 2-4 joueurs",
+                "gameDuration": "Ex: 30-60 minutes",
+                "shortDescription": "Ex: Un jeu de stratégie médiévale où vous devez bâtir votre royaume tout en défendant vos frontières",
+                "mainMechanic": "Ex: Placement d'ouvriers, gestion de ressources, draft de cartes",
+                "theme": "Ex: Médiéval-fantastique, science-fiction, historique...",
+                "uniqueFeature": "- Mécanique asymétrique innovant\\n- Système de combo original\\n- Rejouabilité élevée grâce à...",
+                "demoVideo": "https://youtube.com/watch?v=...",
+                "additionalInfo": "Parlez-nous de votre vision, vos objectifs, vos besoins spécifiques...",
+                "select": "Sélectionnez une option"
+            },
+            "options": {
+                "gameType": {
+                    "plateau": "Jeu de plateau",
+                    "cartes": "Jeu de cartes",
+                    "des": "Jeu de dés",
+                    "pions": "Jeu de pions",
+                    "adresse": "Jeu d'adresse",
+                    "logique": "Jeu de logique",
+                    "quiz": "Jeu de connaissances / quiz",
+                    "lettres": "Jeu de lettres",
+                    "memoire": "Jeu de mémoire",
+                    "cooperatif": "Jeu coopératif",
+                    "strategie": "Jeu de stratégie",
+                    "familial": "Jeu familial",
+                    "party": "Party game / jeu d'ambiance",
+                    "abstrait": "Jeu abstrait",
+                    "expert": "Jeu expert / gamer",
+                    "deckBuilding": "Jeu de deck-building",
+                    "enquete": "Jeu d'enquête",
+                    "legacy": "Jeu Legacy",
+                    "escape": "Escape game",
+                    "other": "Autre (à préciser)"
+                },
+                "devStage": {
+                    "idea": "Idée / concept uniquement",
+                    "paper": "Prototype papier",
+                    "digital": "Prototype numérique",
+                    "finalized": "Jeu finalisé (non publié)",
+                    "published": "Jeu publié",
+                    "adaptation": "En cours d'adaptation numérique",
+                    "other": "Autre (à préciser)"
+                },
+                "complexity": {
+                    "verySimple": "Très simple (initiation / enfants)",
+                    "simple": "Simple (familial, accessible à tous)",
+                    "intermediate": "Intermédiaire (familial + / occasionnels avertis)",
+                    "complex": "Complexe (stratégique / expert)",
+                    "veryComplex": "Très complexe (simulation / gamer confirmé)"
+                },
+                "budget": {
+                    "lessThan10k": "Moins de 10 000€",
+                    "10kTo50k": "10 000€ - 50 000€",
+                    "50kTo100k": "50 000€ - 100 000€",
+                    "100kTo500k": "100 000€ - 500 000€",
+                    "moreThan500k": "Plus de 500 000€",
+                    "tbd": "À déterminer"
+                },
+                "deadline": {
+                    "urgent": "Urgent (moins d'un mois)",
+                    "1to3m": "1-3 mois",
+                    "3to6m": "3-6 mois",
+                    "6to12m": "6-12 mois",
+                    "moreThan12m": "Plus de 12 mois",
+                    "flexible": "Flexible"
+                }
+            },
+            "services": {
+                "fullAdaptation": "Adaptation numérique complète",
+                "mobileApp": "Application compagnon mobile",
+                "interactivePrototype": "Prototypage interactif"
+            },
+            "consents": {
+                "confirmAge": "Je confirme que j'ai plus de 16 ans",
+                "confirmAgeText": "Cochez cette case pour accepter que OMGG vous contacte régulièrement afin de vous informer sur nos jeux et les actualités associées, conformément à la <privacy>politique de confidentialité</privacy>. Vous pouvez vous désabonner à tout moment.",
+                "acceptCommunications": "J'accepte de recevoir d'autres communications de la part d'OMGG",
+                "acceptCommunicationsText": "Afin de vous fournir le contenu demandé, nous devons stocker et traiter vos données personnelles. Si vous acceptez que nous stockions vos données personnelles à cette fin, veuillez cocher la case ci-dessous.",
+                "acceptDataProcessing": "J'accepte que OMGG stocke et traite mes données personnelles",
+                "acceptDataProcessingText": "Vous pouvez vous désabonner de ces communications à tout moment. Pour plus d'informations, veuillez consulter notre <privacy>politique de confidentialité</privacy>."
+            },
+            "errors": {
+                "firstnameRequired": "Le prénom est requis",
+                "lastnameRequired": "Le nom est requis",
+                "emailRequired": "L'email est requis",
+                "emailInvalid": "Email invalide",
+                "phoneRequired": "Le téléphone est requis",
+                "phoneInvalid": "Numéro de téléphone français invalide",
+                "websiteRequired": "Le site web est requis",
+                "websiteInvalid": "URL invalide",
+                "gameNameRequired": "Le nom du jeu est requis",
+                "gameTypeRequired": "Le type de jeu est requis",
+                "gameTypeOtherRequired": "Veuillez préciser le type de jeu",
+                "devStageRequired": "Le stade de développement est requis",
+                "devStageOtherRequired": "Veuillez préciser le stade de développement",
+                "playerCountRequired": "Le nombre de joueurs est requis",
+                "gameDurationRequired": "La durée du jeu est requise",
+                "recommendedAgeRequired": "L'âge recommandé est requis",
+                "complexityRequired": "La complexité est requise",
+                "shortDescriptionRequired": "La description courte est requise",
+                "shortDescriptionMax": "Maximum 200 caractères",
+                "detailedDescriptionRequired": "La description détaillée est requise",
+                "mainMechanicRequired": "La mécanique principale est requise",
+                "prototypePhotosRequired": "Au moins une photo est requise",
+                "rulesDocumentRequired": "Le document de règles est requis",
+                "demoVideoInvalid": "URL invalide",
+                "servicesRequired": "Sélectionnez au moins un service",
+                "budgetRequired": "Le budget est requis",
+                "deadlineRequired": "Le délai est requis",
+                "confirmAgeRequired": "Vous devez confirmer avoir plus de 16 ans",
+                "acceptDataProcessingRequired": "Vous devez accepter le traitement des données"
+            },
+            "buttons": {
+                "previous": "Précédent",
+                "next": "Suivant",
+                "submit": "Soumettre"
+            },
+            "navigation": {
+                "step": "Etape",
+                "of": "sur"
+            },
+            "mediaHelp": {
+                "title": "Conseils :",
+                "description": "Incluez des photos claires du matériel de jeu sous différents angles, ainsi que des photos de parties en cours. Le livret de règles doit être complet même s'il n'est pas encore mis en page professionnellement."
+            },
+            "fileAccept": {
+                "images": "PNG, JPG jusqu'à 10MB par fichier",
+                "pdf": "PDF jusqu'à 30MB"
+            },
+            "fileUpload": {
+                "clickToBrowse": "Cliquez pour parcourir",
+                "dragAndDrop": "ou glissez-déposez vos fichiers",
+                "characters": "caractères"
+            },
+            "alerts": {
+                "submitSuccess": "Formulaire soumis avec succès!"
+            },
+            "toast": {
+                "loading": "Envoi en cours...",
+                "submitting": "Envoi de votre soumission...",
+                "success": {
+                    "title": "Soumission réussie !",
+                    "description": "Votre demande a été envoyée avec succès. Nous vous contacterons bientôt."
+                },
+                "error": {
+                    "title": "Erreur lors de la soumission",
+                    "description": "Une erreur s'est produite. Veuillez réessayer.",
+                    "network": {
+                        "title": "Erreur de connexion",
+                        "description": "Impossible de se connecter au serveur. Veuillez vérifier votre connexion."
+                    }
+                }
+            }
+        }
     }
 }

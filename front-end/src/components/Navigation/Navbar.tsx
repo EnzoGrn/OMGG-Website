@@ -37,7 +37,7 @@ const Navbar = ({ logo, dropdowns, itemLinks }: NavbarProps) => {
                       .map((item) => (
                         <Button asChild size="sm" aria-label={item.title} key={item.id}
                           variant={item.variant.toLowerCase() as "link" | "default" | "destructive" | "outline" | "secondary" | "ghost"}>
-                          <a href={`${locale}${item.url}`} className="uppercase" aria-label={item.title}>
+                          <a href={`/${locale}${item.url}`} className="uppercase" aria-label={item.title}>
                             {item.title}
                           </a>
                         </Button>

@@ -150,6 +150,228 @@
     },
     "SubmitGames": {
         "title": "Submit your board game",
-        "description": "Please complete this detailed form to submit your project to us. We will review your submission as soon as possible."
+        "description": "Please complete this detailed form to submit your project to us. We will review your submission as soon as possible.",
+        "form": {
+            "steps": {
+                "personal": {
+                    "title": "Your information",
+                    "subTitle": "Your information",
+                    "description": "Introduce yourself and provide us with your professional contact details"
+                },
+                "game": {
+                    "title": "The game",
+                    "subTitle": "Board game information",
+                    "description": "Give us the essential details about your game"
+                },
+                "description": {
+                    "title": "Description",
+                    "subTitle": "Game description",
+                    "description": "Explain to us in detail what makes your game unique"
+                },
+                "media": {
+                    "title": "Media",
+                    "subTitle": "Media and resources",
+                    "description": "Share with us the visuals and documents of your game"
+                },
+                "services": {
+                    "title": "Services",
+                    "subTitle": "Requested services",
+                    "description": "Tell us how we can help you"
+                }
+            },
+            "fields": {
+                "firstname": "First name",
+                "lastname": "Last name",
+                "company": "Company / Studio name",
+                "email": "Email",
+                "phone": "Phone",
+                "website": "Website / Portfolio",
+                "gameName": "Game name",
+                "gameType": "Game type",
+                "gameTypeOther": "Specify the game type",
+                "devStage": "Development stage",
+                "devStageOther": "Specify the development stage",
+                "playerCount": "Number of players",
+                "gameDuration": "Game duration",
+                "recommendedAge": "Recommended age",
+                "complexity": "Complexity",
+                "shortDescription": "Short description (pitch)",
+                "shortDescriptionSub": "A catchy sentence to describe your game (max 200 characters)",
+                "detailedDescription": "Detailed description",
+                "detailedDescriptionSub": "Describe your game in detail: objective, gameplay, how to win",
+                "mainMechanic": "Main mechanic",
+                "mainMechanicSub": "What game mechanics are used?",
+                "theme": "Theme / Universe",
+                "uniqueFeature": "Unique feature",
+                "uniqueFeatureSub": "What makes your game unique compared to others?",
+                "prototypePhotos": "Prototype photos",
+                "prototypePhotosSub": "Upload photos of the board, cards, components (JPG, PNG)",
+                "rulesDocument": "Game rules",
+                "rulesDocumentSub": "Upload the PDF document of the rules (current version, even if not finalized)",
+                "demoVideo": "Demo video (optional)",
+                "demoVideoSub": "Link to a video showing a game session (YouTube, Vimeo, etc.)",
+                "services": "What services are you looking for?",
+                "servicesSub": "Select all the services that interest you",
+                "budget": "Estimated budget",
+                "deadline": "Desired deadline",
+                "additionalInfo": "Additional information",
+                "additionalInfoSub": "Anything you want to tell us"
+            },
+            "placeholders": {
+                "email": "contact@omgg.com",
+                "phone": "+33 6 12 34 56 78",
+                "website": "https://...",
+                "playerCount": "E.g: 2-4 players",
+                "gameDuration": "E.g: 30-60 minutes",
+                "shortDescription": "E.g: A medieval strategy game where you must build your kingdom while defending your borders",
+                "mainMechanic": "E.g: Worker placement, resource management, card drafting",
+                "theme": "E.g: Medieval-fantasy, science-fiction, historical...",
+                "uniqueFeature": "- Innovative asymmetric mechanic\\n- Original combo system\\n- High replayability thanks to...",
+                "demoVideo": "https://youtube.com/watch?v=...",
+                "additionalInfo": "Tell us about your vision, your goals, your specific needs...",
+                "select": "Select an option"
+            },
+            "options": {
+                "gameType": {
+                    "plateau": "Board game",
+                    "cartes": "Card game",
+                    "des": "Dice game",
+                    "pions": "Token game",
+                    "adresse": "Dexterity game",
+                    "logique": "Logic game",
+                    "quiz": "Knowledge / quiz game",
+                    "lettres": "Word game",
+                    "memoire": "Memory game",
+                    "cooperatif": "Cooperative game",
+                    "strategie": "Strategy game",
+                    "familial": "Family game",
+                    "party": "Party game",
+                    "abstrait": "Abstract game",
+                    "expert": "Expert / gamer game",
+                    "deckBuilding": "Deck-building game",
+                    "enquete": "Investigation game",
+                    "legacy": "Legacy game",
+                    "escape": "Escape game",
+                    "other": "Other (please specify)"
+                },
+                "devStage": {
+                    "idea": "Idea / concept only",
+                    "paper": "Paper prototype",
+                    "digital": "Digital prototype",
+                    "finalized": "Finalized game (unpublished)",
+                    "published": "Published game",
+                    "adaptation": "Under digital adaptation",
+                    "other": "Other (please specify)"
+                },
+                "complexity": {
+                    "verySimple": "Very simple (introduction / children)",
+                    "simple": "Simple (family-friendly, accessible to all)",
+                    "intermediate": "Intermediate (family + / experienced casual)",
+                    "complex": "Complex (strategic / expert)",
+                    "veryComplex": "Very complex (simulation / experienced gamer)"
+                },
+                "budget": {
+                    "lessThan10k": "Less than €10,000",
+                    "10kTo50k": "€10,000 - €50,000",
+                    "50kTo100k": "€50,000 - €100,000",
+                    "100kTo500k": "€100,000 - €500,000",
+                    "moreThan500k": "More than €500,000",
+                    "tbd": "To be determined"
+                },
+                "deadline": {
+                    "urgent": "Urgent (less than a month)",
+                    "1to3m": "1-3 months",
+                    "3to6m": "3-6 months",
+                    "6to12m": "6-12 months",
+                    "moreThan12m": "More than 12 months",
+                    "flexible": "Flexible"
+                }
+            },
+            "services": {
+                "fullAdaptation": "Complete digital adaptation",
+                "mobileApp": "Mobile companion app",
+                "interactivePrototype": "Interactive prototyping"
+            },
+            "consents": {
+                "confirmAge": "I confirm that I am over 16 years old",
+                "confirmAgeText": "Check this box to accept that OMGG contacts you regularly to inform you about our games and associated news, in accordance with the <privacy>privacy policy</privacy>. You can unsubscribe at any time.",
+                "acceptCommunications": "I accept to receive other communications from OMGG",
+                "acceptCommunicationsText": "In order to provide you with the requested content, we need to store and process your personal data. If you agree to us storing your personal data for this purpose, please check the box below.",
+                "acceptDataProcessing": "I accept that OMGG stores and processes my personal data",
+                "acceptDataProcessingText": "You can unsubscribe from these communications at any time. For more information, please consult our <privacy>privacy policy</privacy>."
+            },
+            "errors": {
+                "firstnameRequired": "First name is required",
+                "lastnameRequired": "Last name is required",
+                "emailRequired": "Email is required",
+                "emailInvalid": "Invalid email",
+                "phoneRequired": "Phone is required",
+                "phoneInvalid": "Invalid French phone number",
+                "websiteRequired": "Website is required",
+                "websiteInvalid": "Invalid URL",
+                "gameNameRequired": "Game name is required",
+                "gameTypeRequired": "Game type is required",
+                "gameTypeOtherRequired": "Please specify the game type",
+                "devStageRequired": "Development stage is required",
+                "devStageOtherRequired": "Please specify the development stage",
+                "playerCountRequired": "Number of players is required",
+                "gameDurationRequired": "Game duration is required",
+                "recommendedAgeRequired": "Recommended age is required",
+                "complexityRequired": "Complexity is required",
+                "shortDescriptionRequired": "Short description is required",
+                "shortDescriptionMax": "Maximum 200 characters",
+                "detailedDescriptionRequired": "Detailed description is required",
+                "mainMechanicRequired": "Main mechanic is required",
+                "prototypePhotosRequired": "At least one photo is required",
+                "rulesDocumentRequired": "Rules document is required",
+                "demoVideoInvalid": "Invalid URL",
+                "servicesRequired": "Select at least one service",
+                "budgetRequired": "Budget is required",
+                "deadlineRequired": "Deadline is required",
+                "confirmAgeRequired": "You must confirm that you are over 16 years old",
+                "acceptDataProcessingRequired": "You must accept data processing"
+            },
+            "buttons": {
+                "previous": "Previous",
+                "next": "Next",
+                "submit": "Submit"
+            },
+            "navigation": {
+                "step": "Step",
+                "of": "of"
+            },
+            "mediaHelp": {
+                "title": "Tips:",
+                "description": "Include clear photos of the game material from different angles, as well as photos of games in progress. The rulebook must be complete even if it is not yet professionally laid out."
+            },
+            "fileAccept": {
+                "images": "PNG, JPG up to 10MB per file",
+                "pdf": "PDF up to 30MB"
+            },
+            "fileUpload": {
+                "clickToBrowse": "Click to browse",
+                "dragAndDrop": "or drag and drop your files",
+                "characters": "characters"
+            },
+            "alerts": {
+                "submitSuccess": "Form submitted successfully!"
+            },
+            "toast": {
+                "loading": "Sending...",
+                "submitting": "Submitting your request...",
+                "success": {
+                    "title": "Submission successful!",
+                    "description": "Your request has been sent successfully. We will contact you soon."
+                },
+                "error": {
+                    "title": "Submission error",
+                    "description": "An error occurred. Please try again.",
+                    "network": {
+                        "title": "Connection error",
+                        "description": "Unable to connect to the server. Please check your connection."
+                    }
+                }
+            }
+        }
     }
 }
