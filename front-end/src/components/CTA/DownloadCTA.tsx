@@ -1,7 +1,8 @@
 import { GameProps } from "@/app/[locale]/games/[slug]/page";
 import { ButtonProps, LogoProps, TextProps } from "../Section/Interface";
+import { CreatorCTA } from "./CreatorCTA";
 import { getMediaFromUrl } from "@/lib/strapi";
-import { CTA } from "./CTA";
+import { useTranslations } from "next-intl";
 
 export interface DownloadCTAProps {
   title: TextProps;
@@ -11,35 +12,27 @@ export interface DownloadCTAProps {
 }
 
 const DownloadCTA = ({ data, additionalData }: { data: DownloadCTAProps, additionalData: GameProps }) => {
-  const dataUpdated: DownloadCTAProps = {
-    ...data,
-    title: {
-      ...data.title,
-      text: data.title.text + ' ' + additionalData.name
-    },
-  };
+  const t = useTranslations("DownloadCTA");
 
-  if (dataUpdated.description && additionalData.name)
-    dataUpdated.description.text += ' ' + additionalData.name;
-  dataUpdated.downloadButton.download = true;
+  const secondaryButton = additionalData.website ? {
+    label: t("buyPhysical"),
+    href: additionalData.website,
+  } : undefined;
 
   return (
-    <CTA
-      data={{
-        title: dataUpdated.title,
-        description: dataUpdated.description,
-        button: dataUpdated.downloadButton
+    <CreatorCTA
+      title={t("title", { gameName: additionalData.name })}
+      description={t("description", { gameName: additionalData.name })}
+      primaryButton={{
+        label: t("playNow"),
+        href: additionalData.download.url
       }}
-    >
-      <div className="hidden lg:block absolute right-0 top-0 h-full w-1/3 pointer-events-none overflow-visible">
-        {additionalData.pngIllustration ? (
-          // For better look 1280 x 720 is prefered
-          <img src={getMediaFromUrl(additionalData.pngIllustration.url)} alt={dataUpdated.image.alternativeText} className="select-none w-full h-full object-cover overflow-visible scale-120" />
-        ) : (
-          <img src={getMediaFromUrl(data.image.url)} alt={dataUpdated.image.alternativeText} className="select-none w-48" />
-        )}
-      </div>
-    </CTA>
+      secondaryButton={secondaryButton}
+      image={{
+        url: getMediaFromUrl(additionalData.pngIllustration ? additionalData.pngIllustration.url : data.image.url),
+        alternativeText: data.image.alternativeText
+      }}
+    />
   );
 };
 

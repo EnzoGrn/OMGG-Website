@@ -136,7 +136,16 @@
             "submit": "Soumettre votre jeu",
             "contact": "Nous contacter"
         },
-        "trusted": "Recommandé par les auteurs et éditeurs passant au numérique."
+        "trusted": "Recommandé par les auteurs et éditeurs passant au numérique.",
+        "image": {
+            "alternativeText": "Illustration du logo d'OMGG content."
+        }
+    },
+    "DownloadCTA": {
+        "title": "Jouer à {gameName}, où que vous soyez",
+        "description": "Découvrez l'adaptation numérique officielle de {gameName}. Une expérience fidèle au jeu de plateau original, fluide, immersive et pensée pour jouer seul ou entre amis, en ligne.",
+        "playNow": "Jouer maintenant",
+        "buyPhysical": "Acheter le jeu physique"
     },
     "Privacy": {
         "back": "Retour",

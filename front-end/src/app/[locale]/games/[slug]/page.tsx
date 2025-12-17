@@ -5,6 +5,7 @@ import { LogoProps, TextProps } from "@/components/Section/Interface";
 import { dynamicComponentFactory } from "@/components/OMGG/Section/SectionLoader";
 import { fetchDataSearchParams, getMediaFromUrl } from "@/lib/strapi";
 import { notFound } from "next/navigation";
+import { CreatorCTA } from "@/components/CTA/CreatorCTA";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string; locale: Locale }> }): Promise<Metadata> {
   const { slug, locale } = await params;
@@ -73,6 +74,7 @@ export interface GameProps {
   gallery: GalleryProps;
   download: DownloadProps;
   pngIllustration: LogoProps;
+  website: string;
 }
 
 export default async function Home({ params }: { params: Promise<{ slug: string; locale: Locale }> }) {

@@ -29,7 +29,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 
 export default async function GamesPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
+
   const t = await getTranslations({ locale, namespace: "Games" });
+  const tCTA = await getTranslations({ locale, namespace: "CreatorCTA" });
 
   // Fetch the 3 latest games for hero carousel
   const latestGames = await fetchLatestGames(locale, 3);
@@ -94,7 +96,24 @@ export default async function GamesPage({ params }: { params: Promise<{ locale: 
       </FadeInWhenVisible>
 
       <FadeInWhenVisible>
-        <CreatorCTA imageSrc={'/OMGG/Illustrations/happy_omgg.webp'} />
+        <CreatorCTA
+          title={tCTA('title')}
+          description={tCTA('description')}
+          bullets={[tCTA('features.prototype'), tCTA('features.crossPlatform'), tCTA('features.monetization')]}
+          image={{
+            url: '/OMGG/Illustrations/happy_omgg.webp',
+            alternativeText: tCTA('image.alternativeText'),
+          }}
+          primaryButton={{
+            label: tCTA('buttons.submit'),
+            href: 'submit',
+          }}
+          secondaryButton={{
+            label: tCTA('buttons.contact'),
+            href: 'contact',
+          }}
+          trusted={tCTA('trusted')}
+        />
       </FadeInWhenVisible>
     </main>
   );

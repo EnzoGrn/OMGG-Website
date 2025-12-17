@@ -131,7 +131,16 @@
             "submit": "Submit your game",
             "contact": "Contact us"
         },
-        "trusted": "Trusted by authors & publishers expanding to digital."
+        "trusted": "Trusted by authors & publishers expanding to digital.",
+        "image": {
+            "alternativeText": "Illustration of OMGG's happy logo."
+        }
+    },
+    "DownloadCTA": {
+        "title": "Play {gameName}, wherever you are",
+        "description": "Discover the official digital adaptation of {gameName}. An experience faithful to the original board game, smooth, immersive and designed to be played alone or with friends, online.",
+        "playNow": "Play now",
+        "buyPhysical": "Buy the physical game"
     },
     "Privacy": {
         "back": "Back",
