@@ -1,11 +1,10 @@
 import { Locale } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Metadata } from "next";
 import { LogoProps, TextProps } from "@/components/Section/Interface";
 import { dynamicComponentFactory } from "@/components/OMGG/Section/SectionLoader";
 import { fetchDataSearchParams, getMediaFromUrl } from "@/lib/strapi";
 import { notFound } from "next/navigation";
-import { CreatorCTA } from "@/components/CTA/CreatorCTA";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string; locale: Locale }> }): Promise<Metadata> {
   const { slug, locale } = await params;
@@ -15,6 +14,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     forceCache: true,
     locale: locale
   });
+
+  if (gameDataRes === undefined || gameDataRes?.data === null) {
+    const t = await getTranslations({ locale, namespace: "metadata" });
+
+    return {
+      title: t("title"),
+      description: t("description"),
+      openGraph: {
+        title: t("title"),
+        description: t("description"),
+      },
+    };
+  }
 
   const seo = gameDataRes.data.SEO;
 

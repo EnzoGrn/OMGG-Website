@@ -7,16 +7,21 @@ import { useLocale } from "next-intl";
 import { NewsletterForm } from "@/components/Newsletter/NewsletterForm";
 import { Toaster } from "../ui/sonner";
 import { ApiLogo } from "../Logo/ApiLogo";
+import { cn } from "@/lib/utils";
 
 const Footer = ({ footerData }: { footerData: FooterProps; }) => {
   const locale = useLocale();
+
+  const activeMenuItems = footerData.menu?.filter((menuItem: MenuProps) => !menuItem.isDisable) || [];
+
+  const gridColsClass = activeMenuItems.length === 1 ? 'grid-cols-1' : activeMenuItems.length === 2 ? 'grid-cols-2' : 'grid-cols-3';
 
   return (
     <section className="py-8 inset-shadow-xs">
       <Container>
         <footer>
           <div className="flex flex-col items-center lg:items-start justify-between gap-10 text-center lg:flex-row lg:text-left">
-            <div className="flex w-full max-w-96 shrink flex-col items-center justify-between gap-6 lg:items-start">
+            <div className="flex max-w-96 shrink flex-col items-center justify-between gap-6 lg:items-start">
 
               {/* Logo */}
               {footerData.logo &&
@@ -52,19 +57,19 @@ const Footer = ({ footerData }: { footerData: FooterProps; }) => {
             </div>
 
             {/* Menu navigation */}
-            <div className="grid grid-cols-3 gap-6 lg:gap-20">
+            <div className={cn(`grid gap-6 lg:gap-20`, gridColsClass)}>
               {footerData.menu && footerData.menu
                 .filter((menuItem: MenuProps) => !menuItem.isDisable)
                 .map((menuItem: MenuProps) => (
                   <div key={menuItem.id}>
-                    <h3 className="mb-6 font-bold">{menuItem.title}</h3>
+                    <h3 className="mb-6 font-bold whitespace-nowrap">{menuItem.title}</h3>
                     <ul className="space-y-4 text-sm text-muted-foreground">
                       {menuItem.textLinks && !menuItem.isDisable && (
                         <>
                           {menuItem.textLinks.map((item) => {
                             if (!item.isDisable)
                               return (
-                                <li key={item.id} className="font-medium hover:text-primary">
+                                <li key={item.id} className="font-medium hover:text-primary whitespace-nowrap">
                                   <a href={`/${locale}${item.url}`} aria-label={item.text}>
                                     {item.text}
                                   </a>

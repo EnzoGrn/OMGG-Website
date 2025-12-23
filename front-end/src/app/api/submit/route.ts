@@ -273,7 +273,7 @@ export async function POST(req: NextRequest) {
         }
 
         // Step 3: Upload photos and rules document
-        let photosData: number[] = [];
+        let photosData: any[] = [];
         let rules = null;
 
         if (photos && photos.length > 0)

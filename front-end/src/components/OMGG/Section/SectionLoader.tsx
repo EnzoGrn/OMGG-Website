@@ -1,23 +1,23 @@
 import React from "react";
-import { OMGGHero                                    } from "@/components/OMGG/Section/Hero";
-import { OMGGAbout                                   } from "@/components/OMGG/Section/About"
-import { OMGGOffers                                  } from "@/components/OMGG/Section/Offers"
-import { OMGGLogos                                   } from "@/components/OMGG/Section/Logos"
-import { OMGGTestimonials                            } from "@/components/OMGG/Section/Testimonials"
-import { OMGGBlog                                    } from "@/components/OMGG/Section/Blog"
-import { OMGGNewsLetter                              } from "@/components/OMGG/Section/NewsLetter"
-import { FadeInWhenVisible                           } from "@/components/Animator/Fade/FadeInWhenVisible";
-import { HeroProps                                   } from "@/components/Section/Interface";
-import { TestimonialsProps                           } from "@/components/Testimonials/TestimonialInterface";
-import { BlogPostsProps                              } from "@/components/Blog/Post/BlogPostInterface";
-import { OffersProps                                 } from "@/components/Offers/OffersInterface";
-import { PartnersProps                               } from "@/components/Logo/LogoInterface"
-import { GameProps                                   } from "@/app/[locale]/games/[slug]/page";
-import { GallerySectionProps, MediaGallerySection    } from "@/components/Section/MediaGallery";
-import { AboutProps                                  } from "@/components/About/aboutInterface";
-import { DownloadCTAProps                            } from "@/components/CTA/DownloadCTA";
+import { OMGGHero } from "@/components/OMGG/Section/Hero";
+import { OMGGAbout } from "@/components/OMGG/Section/About"
+import { OMGGOffers } from "@/components/OMGG/Section/Offers"
+import { OMGGLogos } from "@/components/OMGG/Section/Logos"
+import { OMGGTestimonials } from "@/components/OMGG/Section/Testimonials"
+import { OMGGBlog } from "@/components/OMGG/Section/Blog"
+import { OMGGNewsLetter } from "@/components/OMGG/Section/NewsLetter"
+import { FadeInWhenVisible } from "@/components/Animator/Fade/FadeInWhenVisible";
+import { HeroProps } from "@/components/Section/Interface";
+import { TestimonialsProps } from "@/components/Testimonials/TestimonialInterface";
+import { BlogPostsProps } from "@/components/Blog/Post/BlogPostInterface";
+import { OffersProps } from "@/components/Offers/OffersInterface";
+import { PartnersProps } from "@/components/Logo/LogoInterface"
+import { GameProps } from "@/app/[locale]/games/[slug]/page";
+import { GallerySectionProps, MediaGallerySection } from "@/components/Section/MediaGallery";
+import { AboutProps } from "@/components/About/aboutInterface";
+import { DownloadCTAProps } from "@/components/CTA/DownloadCTA";
 import { HeroTrailerSection, HeroTrailerSectionProps } from "@/components/Trailer/HeroTrailerSection";
-import { CTASection                                  } from "@/components/Section/CTASection";
+import { CTASection } from "@/components/Section/CTASection";
 
 /* Generic Conditionnal Type
 * T represents the type of the main data for the component.
@@ -44,31 +44,31 @@ type SectionProps<T, A = undefined> = A extends undefined ? { data: T } : { data
 * { data: HeroTrailerSectionProps; additionalData: GameProps }
 */
 type ComponentTypeMap = {
-  "layout.hero-section":             React.ComponentType<SectionProps<HeroProps>>;
-  "layout.about":                    React.ComponentType<SectionProps<AboutProps, GameProps>>;
-  "layout.hero-trailer-section":     React.ComponentType<SectionProps<HeroTrailerSectionProps, GameProps>>;
-  "layout.offers":                   React.ComponentType<SectionProps<OffersProps>>;
-  "layout.partners":                 React.ComponentType<SectionProps<PartnersProps>>;
-  "layout.testimonials-section":     React.ComponentType<SectionProps<TestimonialsProps>>;
-  "layout.blog-section":             React.ComponentType<SectionProps<BlogPostsProps>>;
-  "layout.news-letter-form":         React.ComponentType<SectionProps<BlockProps>>;
-  "layout.media-gallery-section":    React.ComponentType<SectionProps<GallerySectionProps, GameProps>>;
-  "layout.cta-section":              React.ComponentType<SectionProps<DownloadCTAProps, GameProps>>;
+  "layout.hero-section": React.ComponentType<SectionProps<HeroProps>>;
+  "layout.about": React.ComponentType<SectionProps<AboutProps, GameProps>>;
+  "layout.hero-trailer-section": React.ComponentType<SectionProps<HeroTrailerSectionProps, GameProps>>;
+  "layout.offers": React.ComponentType<SectionProps<OffersProps>>;
+  "layout.partners": React.ComponentType<SectionProps<PartnersProps>>;
+  "layout.testimonials-section": React.ComponentType<SectionProps<TestimonialsProps>>;
+  "layout.blog-section": React.ComponentType<SectionProps<BlogPostsProps>>;
+  "layout.news-letter-form": React.ComponentType<SectionProps<BlockProps>>;
+  "layout.media-gallery-section": React.ComponentType<SectionProps<GallerySectionProps, GameProps>>;
+  "layout.cta-section": React.ComponentType<SectionProps<DownloadCTAProps, GameProps>>;
 }
 
 // This is basically a map that associate a specifc key to a corresponding Component
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const componentMap: Record<string, React.ComponentType<any>> = {
-  "layout.hero-section":          OMGGHero,
-  "layout.about":                 OMGGAbout,
-  "layout.hero-trailer-section":  HeroTrailerSection,
-  "layout.offers":                OMGGOffers,
-  "layout.partners":              OMGGLogos,
-  "layout.testimonials-section":  OMGGTestimonials,
-  "layout.blog-section":          OMGGBlog,
-  "layout.news-letter-form":      OMGGNewsLetter,
+  "layout.hero-section": OMGGHero,
+  "layout.about": OMGGAbout,
+  "layout.hero-trailer-section": HeroTrailerSection,
+  "layout.offers": OMGGOffers,
+  "layout.partners": OMGGLogos,
+  "layout.testimonials-section": OMGGTestimonials,
+  "layout.blog-section": OMGGBlog,
+  "layout.news-letter-form": OMGGNewsLetter,
   "layout.media-gallery-section": MediaGallerySection,
-  "layout.cta-section":           CTASection,
+  "layout.cta-section": CTASection,
 };
 
 /*
@@ -85,7 +85,7 @@ const componentMap: Record<string, React.ComponentType<any>> = {
 * Yes: SectionProps<AboutProps, GameProps>
 * 
 */
-type BlockCast<T extends keyof ComponentTypeMap> = 
+type BlockCast<T extends keyof ComponentTypeMap> =
   ComponentTypeMap[T] extends React.ComponentType<infer P> ? P : never;
 
 /*
@@ -95,7 +95,7 @@ type BlockCast<T extends keyof ComponentTypeMap> =
 * We don't use key as it's value but as it's type thanks to the component type map
 */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function castBlockData<T extends keyof ComponentTypeMap>(block: unknown, _key: T) : BlockCast<T> {
+function castBlockData<T extends keyof ComponentTypeMap>(block: unknown, _key: T): BlockCast<T> {
   return block as BlockCast<T>;
 }
 
@@ -110,7 +110,7 @@ export function dynamicComponentFactory(dataBlocks: any) {
 
   return (
     <div>
-      {dataBlocks.data.blocks.map((block: BlockProps, index: number) => {
+      {dataBlocks.data.blocks && dataBlocks.data.blocks.map((block: BlockProps, index: number) => {
 
         const Component = componentMap[block.__component];
         if (!Component) return null;
@@ -122,18 +122,18 @@ export function dynamicComponentFactory(dataBlocks: any) {
           <FadeInWhenVisible key={index}>
             {/* TODO: Cast the type of the data depending of the component */}
             {(dataBlocks.gameData && dataBlocks.gameData.data) ? (
-              <Component data={data} additionalData={dataBlocks.gameData.data}/>
+              <Component data={data} additionalData={dataBlocks.gameData.data} />
             ) : (
-              <Component data={data}/>
+              <Component data={data} />
             )}
-            
+
           </FadeInWhenVisible>
         ) : (
           (dataBlocks.gameData && dataBlocks.gameData.data) ? (
-            <Component data={data} additionalData={dataBlocks.gameData.data} key={index}/>
+            <Component data={data} additionalData={dataBlocks.gameData.data} key={index} />
           ) : (
-            <Component data={data} key={index}/>
-          ) 
+            <Component data={data} key={index} />
+          )
         );
       })}
     </div>
