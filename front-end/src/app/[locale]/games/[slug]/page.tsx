@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     locale: locale
   });
 
-  if (gameDataRes === undefined || gameDataRes?.data === null) {
+  if (gameDataRes === undefined || gameDataRes === null || gameDataRes?.data === null) {
     const t = await getTranslations({ locale, namespace: "metadata" });
 
     return {

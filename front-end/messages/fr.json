@@ -7,10 +7,42 @@
         "heading": "Ils nous ont fait confiance"
     },
     "Blog": {
+        "metadata": {
+            "title": "OMGG | Blog - Actualités et dernières sorties",
+            "description": "Restez à l'affût des dernières nouvelles sur notre blog. Suivez nos avancées, découvrez les tendances du secteur et explorez nos réflexions."
+        },
+        "NotFound": {
+            "title": "Article non trouvé",
+            "description": "L'article que vous cherchez n'a pas été trouvé.",
+            "backToBlog": "Retour au blog"
+        },
+        "aside": "Dans cette article",
+        "backToBlog": "Retour au blog",
         "heading": "Actualités et dernières sorties",
         "description": "Restez à l'affût des dernières nouvelles sur notre blog. Suivez nos avancées, découvrez les tendances du secteur et explorez nos réflexions sur l'édition, le développement, la technologie et les opportunités du marché. On vous partage tout !",
+        "headlines": "A la une",
         "read": "Lire l'article",
-        "access": "Accéder au blog"
+        "readMore": "Lire l'article complet",
+        "loadMore": "Charger plus d'articles",
+        "access": "Accéder au blog",
+        "noArticles": "Aucun article disponible pour le moment. Revenez bientôt !",
+        "filters": {
+            "searchPlaceholder": "Rechercher un article...",
+            "allCategories": "Toutes les catégories",
+            "searchButton": "Rechercher",
+            "resetFilters": "Réinitialiser les filtres",
+            "dateFilter": {
+                "title": "Filtrer par date",
+                "startDate": "Date de début",
+                "endDate": "Date de fin",
+                "filterButton": "Filtrer",
+                "cancel": "Annuler"
+            }
+        },
+        "noResults": {
+            "title": "Aucun article trouvé",
+            "description": "Aucun article ne correspond à vos critères de recherche. Essayez de modifier vos filtres."
+        }
     },
     "Newsletter": {
         "heading": "Vous voulez en savoir plus sur OMGG, nos jeux, nos actus ou nos emplois ?",

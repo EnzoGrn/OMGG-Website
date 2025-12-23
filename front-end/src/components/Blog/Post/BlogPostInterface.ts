@@ -16,6 +16,8 @@ export interface BlogPostProps {
     category: Category;
     cover: LogoProps;
     excerpt: string;
+    id: number;
+    slug: string;
 }
 
 export interface BlogPostsProps {

@@ -7,10 +7,42 @@
         "heading": "They trusted us"
     },
     "Blog": {
-        "heading": "Actuality and last releases",
+        "metadata": {
+            "title": "OMGG | Blog - News and Latest Releases",
+            "description": "Stay up to date with the latest news on our blog. Follow our progress, discover industry trends and explore our thoughts."
+        },
+        "NotFound": {
+            "title": "Article not found",
+            "description": "The article you are looking for has not been found.",
+            "backToBlog": "Back to blog"
+        },
+        "aside": "In this article",
+        "backToBlog": "Back to blog",
+        "heading": "News and Latest Releases",
         "description": "Keep up to date with the latest news on our blog. Follow our progress, discover industry trends and explore our thoughts on publishing, development, technology and market opportunities. We'll share it all with you!",
+        "headlines": "In the headlines",
         "read": "Read Article",
-        "access": "Access the blog"
+        "readMore": "Read complete article",
+        "loadMore": "Load more articles",
+        "access": "Access the blog",
+        "noArticles": "No articles available at the moment. Come back soon!",
+        "filters": {
+            "searchPlaceholder": "Search an article...",
+            "allCategories": "All categories",
+            "searchButton": "Search",
+            "resetFilters": "Reset filters",
+            "dateFilter": {
+                "title": "Filter by date",
+                "startDate": "Start date",
+                "endDate": "End date",
+                "filterButton": "Filter",
+                "cancel": "Cancel"
+            }
+        },
+        "noResults": {
+            "title": "No articles found",
+            "description": "No articles match your search criteria. Try adjusting your filters."
+        }
     },
     "Newsletter": {
         "heading": "You want to know more about OMGG, our games, our news or our jobs?",
