@@ -76,7 +76,7 @@ export default function BlogPostClient({ article, locale }: BlogPostClientProps)
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const offset = 120;
+      const offset = -window.innerHeight;
 
       let current = '';
 
