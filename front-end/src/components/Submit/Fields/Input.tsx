@@ -5,6 +5,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { FaUpload } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
+import { InputGroup, InputGroupInput } from "@/components/ui/input-group";
+import { COUNTRIES } from "@/components/Utils/Phone";
 
 export const InputField = ({ id, label, subLabel, required = false, value, onChange, errorsMessage, placeholder }: { id: string, label: string, subLabel?: string, required?: boolean, value?: string, onChange: (e: React.ChangeEvent<HTMLInputElement>) => void, errorsMessage?: string, placeholder?: string }) => {
   return (
@@ -21,6 +23,43 @@ export const InputField = ({ id, label, subLabel, required = false, value, onCha
         className={errorsMessage ? "border-destructive" : ""}
       />
       {errorsMessage && <p className="text-sm text-destructive">{errorsMessage}</p>}
+    </div>
+  );
+}
+
+export const PhoneInputField = ({ label, subLabel, required = false, value, onChange, errorsMessage, countryCode = "+33", handleCountryChange }: { id: string, label: string, subLabel?: string, required?: boolean, value?: string, onChange: (e: React.ChangeEvent<HTMLInputElement>) => void, errorsMessage?: string, countryCode?: string, handleCountryChange?: (code: string) => void }) => {
+  return (
+    <div className="space-y-2">
+      <Label htmlFor="phone">{label} {required && "*"}</Label>
+      {subLabel && <p className="select-none text-sm text-muted-foreground">
+        {subLabel}
+      </p>}
+      <div className="flex gap-2">
+        <InputGroup className={errorsMessage ? "border-destructive" : ""}>
+          <Select value={countryCode} onValueChange={handleCountryChange}>
+            <SelectTrigger className="w-[100px] border-0 bg-transparent shadow-none focus:ring-0 gap-1 px-3">
+              <span>{COUNTRIES.find(c => c.code === countryCode)?.flag}</span>
+              <span className="text-muted-foreground">{countryCode}</span>
+            </SelectTrigger>
+            <SelectContent>
+              {COUNTRIES.map((country) => (
+                <SelectItem key={country.code} value={country.code}>
+                  {country.flag} {country.label} ({country.code})
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <div className="h-4 w-px bg-border my-auto" />
+          <InputGroupInput
+            id="phone"
+            type="tel"
+            placeholder={COUNTRIES.find(c => c.code === countryCode)?.placeholder || "12 34 56 78"}
+            value={value}
+            onChange={(e) => onChange(e)}
+          />
+        </InputGroup>
+      </div>
+      {errorsMessage && <p className="text-destructive text-xs">{errorsMessage}</p>}
     </div>
   );
 }

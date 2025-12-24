@@ -191,8 +191,53 @@
     },
     "Contact": {
         "title": "Contactez-nous !",
+        "description": "Vous avez des questions ? N'hésitez pas à nous contacter !",
         "FAQ": {
             "title": "Questions fréquentes"
+        },
+        "Form": {
+            "firstname": "Prénom",
+            "lastname": "Nom",
+            "email": "Email",
+            "phone": "Téléphone",
+            "object": "Objet",
+            "message": "Message",
+            "services": {
+                "label": "Services",
+                "fullAdaptation": "Adaptation numérique complète",
+                "mobileApp": "Application compagnon mobile",
+                "interactivePrototype": "Prototypage interactif",
+                "other": "Autre"
+            },
+            "submit": "Envoyer le message",
+            "validation": {
+                "required": "Ce champ est obligatoire",
+                "email": "Email invalide",
+                "phone": "Numéro invalide"
+            }
+        },
+        "Chat": {
+            "title": "Discutez avec nous",
+            "speak": "Parlez à notre équipe via chat",
+            "call": "Appelez-nous",
+            "callDesc": "Appelez notre équipe du Lun-Ven de 9h à 18h",
+            "callTime": "Lun-Ven de 9h à 18h"
+        },
+        "Toast": {
+            "loading": "Envoi...",
+            "success": {
+                "title": "Message envoyé !",
+                "description": "Nous avons bien reçu votre message et reviendrons vers vous rapidement."
+            },
+            "error": {
+                "title": "Erreur",
+                "description": "Une erreur est survenue lors de l'envoi du message."
+            }
+        },
+        "CTA": {
+            "title": "Vous avez un jeu ou une idée ?",
+            "description": "N'hésitez pas à nous le soumettre !",
+            "button": "Soumettre un jeu"
         }
     },
     "SubmitGames": {
@@ -353,7 +398,7 @@
                 "emailRequired": "L'email est requis",
                 "emailInvalid": "Email invalide",
                 "phoneRequired": "Le téléphone est requis",
-                "phoneInvalid": "Numéro de téléphone français invalide",
+                "phoneInvalid": "Numéro de téléphone invalide",
                 "websiteRequired": "Le site web est requis",
                 "websiteInvalid": "URL invalide",
                 "gameNameRequired": "Le nom du jeu est requis",
