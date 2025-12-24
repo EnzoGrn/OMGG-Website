@@ -1,6 +1,6 @@
 'use client'
 
-import { PSection } from '@/components/Section/Section'
+import { SSection } from '@/components/Section/Section'
 import { CheckboxLabel } from '@/components/Input/Checkbox'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -110,8 +110,8 @@ const OMGGNewsLetter = () => {
   }
 
   return (
-    <PSection padding="py-8" className="relative overflow-hidden">
-      <img src="/OMGG/Illustrations/red_dots.svg" alt="OMGG's dots illustration" className="h-1/3 w-1/3 bottom-10 -right-1/5 absolute -z-10 select-none" />
+    <SSection padding="py-8" className="relative overflow-hidden">
+      <img src="/OMGG/Illustrations/red_dots.svg" alt="OMGG's dots illustration" className="hidden md:block h-1/3 w-1/3 bottom-10 -right-1/5 absolute -z-10 select-none" />
       <div className="w-full flex flex-col gap-8 items-start justify-start">
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-start">
           {t('heading')}
@@ -162,7 +162,7 @@ const OMGGNewsLetter = () => {
           </div>
         </form>
       </div>
-    </PSection>
+    </SSection>
   )
 }
 

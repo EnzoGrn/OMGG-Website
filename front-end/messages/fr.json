@@ -7,10 +7,43 @@
         "heading": "Ils nous ont fait confiance"
     },
     "Blog": {
+        "metadata": {
+            "title": "OMGG | Blog - Actualités et dernières sorties",
+            "description": "Restez à l'affût des dernières nouvelles sur notre blog. Suivez nos avancées, découvrez les tendances du secteur et explorez nos réflexions."
+        },
+        "NotFound": {
+            "title": "Article non trouvé",
+            "description": "L'article que vous cherchez n'a pas été trouvé.",
+            "backToBlog": "Retour au blog"
+        },
+        "title": "Actualités d'OMGG",
+        "aside": "Dans cette article",
+        "backToBlog": "Retour au blog",
         "heading": "Actualités et dernières sorties",
         "description": "Restez à l'affût des dernières nouvelles sur notre blog. Suivez nos avancées, découvrez les tendances du secteur et explorez nos réflexions sur l'édition, le développement, la technologie et les opportunités du marché. On vous partage tout !",
+        "headlines": "A la une",
         "read": "Lire l'article",
-        "access": "Accéder au blog"
+        "readMore": "Lire l'article complet",
+        "loadMore": "Charger plus d'articles",
+        "access": "Accéder au blog",
+        "noArticles": "Aucun article disponible pour le moment. Revenez bientôt !",
+        "filters": {
+            "searchPlaceholder": "Rechercher un article...",
+            "allCategories": "Toutes les catégories",
+            "searchButton": "Rechercher",
+            "resetFilters": "Réinitialiser les filtres",
+            "dateFilter": {
+                "title": "Filtrer par date",
+                "startDate": "Date de début",
+                "endDate": "Date de fin",
+                "filterButton": "Filtrer",
+                "cancel": "Annuler"
+            }
+        },
+        "noResults": {
+            "title": "Aucun article trouvé",
+            "description": "Aucun article ne correspond à vos critères de recherche. Essayez de modifier vos filtres."
+        }
     },
     "Newsletter": {
         "heading": "Vous voulez en savoir plus sur OMGG, nos jeux, nos actus ou nos emplois ?",
@@ -136,7 +169,16 @@
             "submit": "Soumettre votre jeu",
             "contact": "Nous contacter"
         },
-        "trusted": "Recommandé par les auteurs et éditeurs passant au numérique."
+        "trusted": "Recommandé par les auteurs et éditeurs passant au numérique.",
+        "image": {
+            "alternativeText": "Illustration du logo d'OMGG content."
+        }
+    },
+    "DownloadCTA": {
+        "title": "Jouer à {gameName}, où que vous soyez",
+        "description": "Découvrez l'adaptation numérique officielle de {gameName}. Une expérience fidèle au jeu de plateau original, fluide, immersive et pensée pour jouer seul ou entre amis, en ligne.",
+        "playNow": "Jouer maintenant",
+        "buyPhysical": "Acheter le jeu physique"
     },
     "Privacy": {
         "back": "Retour",
@@ -149,8 +191,53 @@
     },
     "Contact": {
         "title": "Contactez-nous !",
+        "description": "Vous avez des questions ? N'hésitez pas à nous contacter !",
         "FAQ": {
             "title": "Questions fréquentes"
+        },
+        "Form": {
+            "firstname": "Prénom",
+            "lastname": "Nom",
+            "email": "Email",
+            "phone": "Téléphone",
+            "object": "Objet",
+            "message": "Message",
+            "services": {
+                "label": "Services",
+                "fullAdaptation": "Adaptation numérique complète",
+                "mobileApp": "Application compagnon mobile",
+                "interactivePrototype": "Prototypage interactif",
+                "other": "Autre"
+            },
+            "submit": "Envoyer le message",
+            "validation": {
+                "required": "Ce champ est obligatoire",
+                "email": "Email invalide",
+                "phone": "Numéro invalide"
+            }
+        },
+        "Chat": {
+            "title": "Discutez avec nous",
+            "speak": "Parlez à notre équipe via chat",
+            "call": "Appelez-nous",
+            "callDesc": "Appelez notre équipe du Lun-Ven de 9h à 18h",
+            "callTime": "Lun-Ven de 9h à 18h"
+        },
+        "Toast": {
+            "loading": "Envoi...",
+            "success": {
+                "title": "Message envoyé !",
+                "description": "Nous avons bien reçu votre message et reviendrons vers vous rapidement."
+            },
+            "error": {
+                "title": "Erreur",
+                "description": "Une erreur est survenue lors de l'envoi du message."
+            }
+        },
+        "CTA": {
+            "title": "Vous avez un jeu ou une idée ?",
+            "description": "N'hésitez pas à nous le soumettre !",
+            "button": "Soumettre un jeu"
         }
     },
     "SubmitGames": {
@@ -311,7 +398,7 @@
                 "emailRequired": "L'email est requis",
                 "emailInvalid": "Email invalide",
                 "phoneRequired": "Le téléphone est requis",
-                "phoneInvalid": "Numéro de téléphone français invalide",
+                "phoneInvalid": "Numéro de téléphone invalide",
                 "websiteRequired": "Le site web est requis",
                 "websiteInvalid": "URL invalide",
                 "gameNameRequired": "Le nom du jeu est requis",

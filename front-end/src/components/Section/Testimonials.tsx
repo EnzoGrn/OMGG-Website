@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useState                    } from "react";
-import { Container                              } from "@/components/Section/Container";
-import { Button                                 } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { Container } from "@/components/Section/Container";
+import { Button } from "@/components/ui/button";
 import { Carousel, CarouselApi, CarouselContent } from "@/components/ui/carousel";
-import { TestimonialSkeleton                    } from "@/components/Testimonials/TestimonialSkeleton";
-import { TestimonialProps, TestimonialsProps    } from "@/components/Testimonials/TestimonialInterface";
-import { Testimonial                            } from "@/components/Testimonials/Testimonial";
+import { TestimonialSkeleton } from "@/components/Testimonials/TestimonialSkeleton";
+import { TestimonialProps, TestimonialsProps } from "@/components/Testimonials/TestimonialInterface";
+import { Testimonial } from "@/components/Testimonials/Testimonial";
 
-const TestimonialSection = ({data}:  {data: TestimonialsProps}) => {
+const TestimonialSection = ({ data }: { data: TestimonialsProps }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const TestimonialSection = ({data}:  {data: TestimonialsProps}) => {
       return;
 
     const interval = setInterval(() => {
-      const count     = data.testimonials.length;
+      const count = data.testimonials.length;
       const nextIndex = (current + 1) % count;
 
       api.scrollTo(nextIndex);
@@ -51,6 +51,8 @@ const TestimonialSection = ({data}:  {data: TestimonialsProps}) => {
     return () => clearInterval(interval);
   }, [api, current, data.testimonials.length]);
 
+  if (!isLoading && data.testimonials.length === 0)
+    return null;
   return (
     <Container className="pb-16 pt-32 overflow-visible relative">
       <img src="/OMGG/Illustrations/yellow_dots2.svg" alt="OMGG's dots illustration" className="max-w-96 max-h-48 h-1/3 w-2/3 absolute top-10 left-1/2 -translate-x-1/2 z-0 select-none" />
@@ -62,7 +64,7 @@ const TestimonialSection = ({data}:  {data: TestimonialsProps}) => {
               <TestimonialSkeleton />
               <TestimonialSkeleton />
             </>
-          :
+            :
             <>
               {data.testimonials.map((testimonial: TestimonialProps, index) => (
                 <Testimonial key={index} {...testimonial} />

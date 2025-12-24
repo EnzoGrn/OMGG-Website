@@ -2,12 +2,17 @@ import { Locale } from 'next-intl';
 import { Container } from '@/components/Section/Container';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SubmitGameForm } from '@/components/Submit/SubmitGameForm';
+import FadeInWhenVisible from '@/components/Animator/Fade/FadeInWhenVisible';
+import FAQ from '@/components/Section/FAQ';
+import { OMGGNewsLetter } from '@/components/OMGG/Section/NewsLetter';
+import { fetchFAQ } from '@/lib/strapi';
 
 export default async function SubmitGamesPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
 
   setRequestLocale(locale);
 
+  const faqs = await fetchFAQ(locale);
   const t = await getTranslations({ locale, namespace: "SubmitGames" });
 
   return (
@@ -18,6 +23,14 @@ export default async function SubmitGamesPage({ params }: { params: Promise<{ lo
       </Container>
 
       <SubmitGameForm />
+
+      <FadeInWhenVisible>
+        <FAQ locale={locale} faqs={faqs.items} />
+      </FadeInWhenVisible>
+
+      <FadeInWhenVisible>
+        <OMGGNewsLetter />
+      </FadeInWhenVisible>
     </main>
   );
 }
