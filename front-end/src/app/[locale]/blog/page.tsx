@@ -7,6 +7,7 @@ import { Metadata } from "next"
 import FadeInWhenVisible from "@/components/Animator/Fade/FadeInWhenVisible"
 
 import { getBlogPosts } from "@/lib/blog"
+import { OMGGNewsLetter } from "@/components/OMGG/Section/NewsLetter"
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -78,6 +79,10 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: L
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <img src="/OMGG/Illustrations/yellow_dots.svg" className="h-1/4 w-1/4 bottom-0 -left-1/8 absolute -z-10" />
         </div>
+      </FadeInWhenVisible>
+
+      <FadeInWhenVisible>
+        <OMGGNewsLetter />
       </FadeInWhenVisible>
     </main>
   );

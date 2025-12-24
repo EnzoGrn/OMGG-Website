@@ -5,6 +5,8 @@ import { fetchDataSearchParams } from "@/lib/strapi";
 import { notFound } from "next/navigation";
 import BlogPostClient from "@/components/Blog/Post/BlogPostClient";
 import { CreatorCTA } from "@/components/CTA/CreatorCTA";
+import FadeInWhenVisible from "@/components/Animator/Fade/FadeInWhenVisible";
+import { OMGGNewsLetter } from "@/components/OMGG/Section/NewsLetter";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string; locale: Locale }> }): Promise<Metadata> {
   const { slug, locale } = await params;
@@ -76,6 +78,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const article = articleDataRes.data[0];
 
   return (
-    <BlogPostClient article={article} locale={locale} />
+    <>
+      <BlogPostClient article={article} locale={locale} />
+
+      <FadeInWhenVisible>
+        <OMGGNewsLetter />
+      </FadeInWhenVisible>
+    </>
   );
 }
