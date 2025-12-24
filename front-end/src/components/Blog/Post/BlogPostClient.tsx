@@ -25,7 +25,7 @@ interface BlogPostClientProps {
   locale: string;
 }
 
-export default function BlogPostClient({ article, locale, cta }: BlogPostClientProps) {
+export default function BlogPostClient({ article, locale }: BlogPostClientProps) {
   const t = useTranslations('Blog');
   const format = useFormatter();
   const router = useRouter();
@@ -124,7 +124,7 @@ export default function BlogPostClient({ article, locale, cta }: BlogPostClientP
       <section className="bg-muted border-b border-border pb-4">
         <Container className="pt-8 pb-4">
           <div className="flex flex-col space-y-6">
-            <Button variant="ghost" className="w-fit pl-0 hover:bg-transparent hover:text-primary group" onClick={() => router.push(`/${locale}/blog`)}>
+            <Button variant="ghost" className="w-fit pl-0 hover:bg-transparent hover:text-primary group" onClick={() => router.push(`/blog`)}>
               <div className="flex items-center gap-2 text-lg text-primary">
                 <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform duration-300" />
                 {t('backToBlog')}
@@ -230,7 +230,7 @@ export default function BlogPostClient({ article, locale, cta }: BlogPostClientP
                   ),
                   table: ({ node, ...props }) => (
                     <div className="my-8 w-full overflow-y-auto rounded-lg border shadow-sm bg-card/50">
-                      <table className="w-full caption-bottom text-sm" {...props} />
+                      <table className="w-full caption-bottom text-sm py-0 my-0" {...props} />
                     </div>
                   ),
                   thead: ({ node, ...props }) => <thead className="[&_tr]:border-b bg-muted/50" {...props} />,

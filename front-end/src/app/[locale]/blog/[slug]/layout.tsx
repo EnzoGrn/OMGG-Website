@@ -1,4 +1,5 @@
 'use server'
+
 import { fetchDataSearchParams } from "@/lib/strapi";
 import { Locale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -22,7 +23,7 @@ export async function generateStaticParams({ params }: { params: { locale: Local
   }))
 }
 
-export default async function GameLayout({ children, params }: { children: React.ReactNode, params: Promise<{ slug: string; locale: Locale }> }) {
+export default async function ArticleLayout({ children, params }: { children: React.ReactNode, params: Promise<{ slug: string; locale: Locale }> }) {
   // Params contains the game slug
   // If the route is like /blog/omgg_x_festival_oeil_glauque, then params.slug is omgg_x_festival_oeil_glauque
   const { locale } = await params;

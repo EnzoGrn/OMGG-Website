@@ -56,10 +56,7 @@ export default async function GamesPage({ params }: { params: Promise<{ locale: 
 
       <FadeInWhenVisible className="relative">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img
-            src="/OMGG/Illustrations/yellow_dots.svg"
-            className="h-1/4 w-1/4 top-2/5 -right-1/10 absolute -z-10"
-          />
+          <img src="/OMGG/Illustrations/yellow_dots.svg" className="h-1/4 w-1/4 top-2/5 -right-1/10 absolute -z-10" />
         </div>
 
         <Container className="pt-16">

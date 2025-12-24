@@ -5,7 +5,6 @@ import { Locale } from "next-intl"
 import { getTranslations } from "next-intl/server"
 import { Metadata } from "next"
 import FadeInWhenVisible from "@/components/Animator/Fade/FadeInWhenVisible"
-import { OMGGNewsLetter } from "@/components/OMGG/Section/NewsLetter"
 
 import { getBlogPosts } from "@/lib/blog"
 
@@ -38,13 +37,20 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: L
       {articles && articles.length > 0 && (
         <>
           <Container className="pt-8">
-            <h1 className="text-7xl font-extrabold text-start uppercase">OMGG NEWS</h1>
+            <h1 className="text-7xl font-extrabold text-start uppercase">{t('title')}</h1>
           </Container>
           <BlogHero post={articles[0]} />
         </>
       )}
 
       <FadeInWhenVisible className="relative">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <img
+            src="/OMGG/Illustrations/red_dots.svg"
+            className="h-1/4 w-1/4 top-1/5 -right-1/10 absolute -z-10"
+          />
+        </div>
+
         <BlogGrid
           posts={articles}
           locale={locale}
@@ -68,10 +74,10 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: L
             }
           }}
         />
-      </FadeInWhenVisible>
 
-      <FadeInWhenVisible>
-        <OMGGNewsLetter />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <img src="/OMGG/Illustrations/yellow_dots.svg" className="h-1/4 w-1/4 bottom-0 -left-1/8 absolute -z-10" />
+        </div>
       </FadeInWhenVisible>
     </main>
   );
