@@ -21,7 +21,7 @@ const BlogHero = ({ post }: BlogHeroProps) => {
   return (
     <div className="w-full">
       <SSection padding="py-0" className="py-8 relative">
-        <Card className="overflow-hidden border-0 p-0">
+        <Card className="overflow-hidden border-0 p-0 shadow-xl">
           <div className="grid lg:grid-cols-2">
             <CardContent className="w-full p-0 relative">
               <img src={getMediaFromUrl(post.cover.url)} alt={post.title} className="inset-0 w-full h-full object-cover" />
