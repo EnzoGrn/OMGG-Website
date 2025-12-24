@@ -14,7 +14,7 @@ const CTA = ({ data, children }: { data: CTAProps; children?: React.ReactNode })
   return (
     <section className="py-8">
       <Container className="container relative overflow-visible space-y-6 md:space-y-8">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16 p-8 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--detail)] relative overflow-visible">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16 p-8 rounded-xl bg-linear-to-br from-primary to-(--detail) relative overflow-visible">
           <div className="flex-1 flex flex-col gap-4 z-10">
             <RenderText text={data.title} className="text-2xl font-bold text-pretty lg:text-4xl" />
             {data.description && <RenderText text={data.description} className="max-w-xl lg:text-lg" />}

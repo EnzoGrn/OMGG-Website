@@ -105,6 +105,7 @@ export async function fetchFromStrapi(path: string, forceCache: boolean, locale?
   }
 
   const { data } = await res.json();
+
   return data || null;
 }
 

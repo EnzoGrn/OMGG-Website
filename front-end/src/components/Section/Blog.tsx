@@ -168,15 +168,18 @@ const BlogSection = ({ data, locale }: { data: BlogPostsProps, locale: Locale })
           >
             {(data.BlogPost === null || data.BlogPost.length === 0) ? (
               <>
-                <BlogPostSkeleton />
-                <BlogPostSkeleton />
-                <BlogPostSkeleton />
-                <BlogPostSkeleton />
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <div key={i} className="carousel-item flex-none w-full sm:w-1/2 lg:w-1/3 px-2 sm:px-4 snap-start">
+                    <BlogPostSkeleton />
+                  </div>
+                ))}
               </>
             ) : (
               <>
                 {data.BlogPost.map((post: BlogPostProps, index) => (
-                  <BlogPost key={index} post={post} locale={locale} />
+                  <div key={index} className="carousel-item flex-none w-full sm:w-1/2 lg:w-1/3 px-2 sm:px-4 snap-start">
+                    <BlogPost key={index} post={post} locale={locale} />
+                  </div>
                 ))}
               </>
             )}

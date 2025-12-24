@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { register } from '@/lib/api/NewsLetter';
 import slugify from 'slugify';
+import { sendGameSubmissionEmbed } from '@/lib/discord/sendGameSubmissionEmbed';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 const NEXT_PUBLIC_STRAPI_API_TOKEN = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
@@ -99,7 +100,7 @@ async function createOrUpdateAttestant(attestantData: any): Promise<string> {
 
 // Create or update company
 async function createOrUpdateCompany(companyName: string, website: string, attestantId: string): Promise<string> {
-    const slug = slugify(companyName);
+    const slug = slugify(companyName.toLowerCase());
 
     const { attestants, existingCompanyId } = await findCompanyBySlug(slug);
 
@@ -145,7 +146,7 @@ async function createOrUpdateCompany(companyName: string, website: string, attes
 }
 
 // Upload a single file to Strapi
-async function uploadFile(file: File): Promise<number | null> {
+async function uploadFile(file: File) {
     const formData = new FormData();
 
     formData.append('files', file);
@@ -167,17 +168,17 @@ async function uploadFile(file: File): Promise<number | null> {
 
     const data = await response.json();
 
-    return data && data[0] && data[0].id ? data[0].id : null;
+    return data && data[0] ? data[0] : null;
 }
 
 // Upload multiple files
-async function uploadFiles(files: File[]): Promise<number[]> {
+async function uploadFiles(files: File[]) {
     if (!files || files.length === 0)
         return [];
     const uploadPromises = files.map(file => uploadFile(file));
     const results = await Promise.all(uploadPromises);
 
-    return results.filter((id): id is number => id !== null);
+    return results.filter((data) => data !== null);
 }
 
 // Create game
@@ -272,13 +273,13 @@ export async function POST(req: NextRequest) {
         }
 
         // Step 3: Upload photos and rules document
-        let photoIds: number[] = [];
-        let rulesDocumentId: number | null = null;
+        let photosData: any[] = [];
+        let rules = null;
 
         if (photos && photos.length > 0)
-            photoIds = await uploadFiles(photos);
+            photosData = await uploadFiles(photos);
         if (rulesDocument)
-            rulesDocumentId = await uploadFile(rulesDocument);
+            rules = await uploadFile(rulesDocument);
 
         // Step 4: Create game
         const gameData = {
@@ -287,7 +288,10 @@ export async function POST(req: NextRequest) {
             demoVideo: body.gameMedia.demoVideo,
         };
 
-        const gameId = await createGame(gameData, photoIds, rulesDocumentId);
+        console.log(photosData);
+        console.log(rules);
+
+        const gameId = await createGame(gameData, photosData.map((photo) => Number(photo.id)), rules?.id ? Number(rules.id) : null);
 
         // Step 5: Create devis
         const devisId = await createDevis(body.devis, companyId, gameId);
@@ -300,6 +304,14 @@ export async function POST(req: NextRequest) {
                 console.error('Newsletter subscription failed:', error);
             }
         }
+
+        await sendGameSubmissionEmbed({
+            ...body,
+            media: {
+                photosUrls: photosData.map(photo => `${STRAPI_URL}${photo.url}`),
+                rulesUrl: rules?.url ? `${STRAPI_URL}${rules.url}` : undefined,
+            }
+        });
 
         return NextResponse.json({
             success: true,

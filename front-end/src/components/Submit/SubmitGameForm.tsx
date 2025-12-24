@@ -14,8 +14,9 @@ import { FaAngleLeft, FaAngleRight, FaDownload, FaTrash } from "react-icons/fa6"
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/lib/hooks/use-mobile";
 import { useLocale, useTranslations } from "next-intl";
-import { FileInputField, InputField, SelectField, TextAreaField } from "./Fields/Input";
+import { FileInputField, InputField, PhoneInputField, SelectField, TextAreaField } from "./Fields/Input";
 import { toast } from "sonner";
+import { COUNTRIES } from "../Utils/Phone";
 
 interface AttestantInformation {
   firstname: string;
@@ -25,6 +26,7 @@ interface AttestantInformation {
 
   email: string;
   phone: string;
+  countryCode: string; // Added for new formatting logic
   website: string;
 }
 
@@ -107,6 +109,7 @@ const initialFormData: FormData = {
     company: "",
     email: "",
     phone: "",
+    countryCode: "+33",
     website: ""
   },
   gameInformation: {
@@ -218,8 +221,15 @@ export function SubmitGameForm() {
         }
         if (!formData.attestant.phone.trim()) {
           newErrors.phone = t('errors.phoneRequired');
-        } else if (!/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/.test(formData.attestant.phone)) {
-          newErrors.phone = t('errors.phoneInvalid');
+        } else {
+          const country = COUNTRIES.find(c => c.code === formData.attestant.countryCode);
+          const phoneClean = formData.attestant.phone.replace(/\s/g, '');
+          if (country) {
+            if (!country.regex.test(phoneClean)) newErrors.phone = t('errors.phoneInvalid');
+          } else {
+            // Fallback generic validation
+            if (!/^\d{5,15}$/.test(phoneClean)) newErrors.phone = t('errors.phoneInvalid');
+          }
         }
         if (!formData.attestant.website.trim()) {
           newErrors.website = t('errors.websiteRequired');
@@ -326,7 +336,10 @@ export function SubmitGameForm() {
 
         // Add all form data as JSON (except files)
         const jsonData = {
-          attestant: formData.attestant,
+          attestant: {
+            ...formData.attestant,
+            phone: `${formData.attestant.countryCode} ${formData.attestant.phone}`
+          },
           gameInformation: formData.gameInformation,
           gameDescription: formData.gameDescription,
           gameMedia: {
@@ -415,7 +428,7 @@ export function SubmitGameForm() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <InputField id="email" label={t('fields.email')} required value={formData.attestant.email} onChange={(e) => updateFormDataStruct("attestant", "email", e.target.value)} errorsMessage={errors.email} placeholder={t('placeholders.email')} />
-                <InputField id="phone" label={t('fields.phone')} required value={formData.attestant.phone} onChange={(e) => updateFormDataStruct("attestant", "phone", e.target.value)} errorsMessage={errors.phone} placeholder={t('placeholders.phone')} />
+                <PhoneInputField id="phone" label={t('fields.phone')} required value={formData.attestant.phone} onChange={(e) => updateFormDataStruct("attestant", "phone", e.target.value)} errorsMessage={errors.phone} countryCode={formData.attestant.countryCode} handleCountryChange={(code) => updateFormDataStruct("attestant", "countryCode", code)} />
               </div>
 
               <InputField id="website" label={t('fields.website')} required value={formData.attestant.website} onChange={(e) => updateFormDataStruct("attestant", "website", e.target.value)} errorsMessage={errors.website} placeholder={t('placeholders.website')} />

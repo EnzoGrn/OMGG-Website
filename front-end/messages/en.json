@@ -7,10 +7,43 @@
         "heading": "They trusted us"
     },
     "Blog": {
-        "heading": "Actuality and last releases",
+        "metadata": {
+            "title": "OMGG | Blog - News and Latest Releases",
+            "description": "Stay up to date with the latest news on our blog. Follow our progress, discover industry trends and explore our thoughts."
+        },
+        "NotFound": {
+            "title": "Article not found",
+            "description": "The article you are looking for has not been found.",
+            "backToBlog": "Back to blog"
+        },
+        "title": "OMGG News",
+        "aside": "In this article",
+        "backToBlog": "Back to blog",
+        "heading": "News and Latest Releases",
         "description": "Keep up to date with the latest news on our blog. Follow our progress, discover industry trends and explore our thoughts on publishing, development, technology and market opportunities. We'll share it all with you!",
+        "headlines": "In the headlines",
         "read": "Read Article",
-        "access": "Access the blog"
+        "readMore": "Read complete article",
+        "loadMore": "Load more articles",
+        "access": "Access the blog",
+        "noArticles": "No articles available at the moment. Come back soon!",
+        "filters": {
+            "searchPlaceholder": "Search an article...",
+            "allCategories": "All categories",
+            "searchButton": "Search",
+            "resetFilters": "Reset filters",
+            "dateFilter": {
+                "title": "Filter by date",
+                "startDate": "Start date",
+                "endDate": "End date",
+                "filterButton": "Filter",
+                "cancel": "Cancel"
+            }
+        },
+        "noResults": {
+            "title": "No articles found",
+            "description": "No articles match your search criteria. Try adjusting your filters."
+        }
     },
     "Newsletter": {
         "heading": "You want to know more about OMGG, our games, our news or our jobs?",
@@ -131,7 +164,16 @@
             "submit": "Submit your game",
             "contact": "Contact us"
         },
-        "trusted": "Trusted by authors & publishers expanding to digital."
+        "trusted": "Trusted by authors & publishers expanding to digital.",
+        "image": {
+            "alternativeText": "Illustration of OMGG's happy logo."
+        }
+    },
+    "DownloadCTA": {
+        "title": "Play {gameName}, wherever you are",
+        "description": "Discover the official digital adaptation of {gameName}. An experience faithful to the original board game, smooth, immersive and designed to be played alone or with friends, online.",
+        "playNow": "Play now",
+        "buyPhysical": "Buy the physical game"
     },
     "Privacy": {
         "back": "Back",
@@ -144,8 +186,53 @@
     },
     "Contact": {
         "title": "Contact us!",
+        "description": "You have questions? Don't hesitate to contact us!",
         "FAQ": {
             "title": "Frequently Asked Questions"
+        },
+        "Form": {
+            "firstname": "First name",
+            "lastname": "Last name",
+            "email": "Email",
+            "phone": "Phone",
+            "object": "Subject",
+            "message": "Message",
+            "services": {
+                "label": "Services",
+                "fullAdaptation": "Complete digital adaptation",
+                "mobileApp": "Mobile companion app",
+                "interactivePrototype": "Interactive prototyping",
+                "other": "Other"
+            },
+            "submit": "Send message",
+            "validation": {
+                "required": "This field is required",
+                "email": "Invalid email",
+                "phone": "Invalid number"
+            }
+        },
+        "Chat": {
+            "title": "Chat with us",
+            "speak": "Speak to our team via chat",
+            "call": "Call us",
+            "callDesc": "Call our team Mon-Fri from 9am to 6pm",
+            "callTime": "Mon-Fri from 9am to 6pm"
+        },
+        "Toast": {
+            "loading": "Sending...",
+            "success": {
+                "title": "Message sent!",
+                "description": "We received your message and will get back to you shortly."
+            },
+            "error": {
+                "title": "Error",
+                "description": "An error occurred while sending the message."
+            }
+        },
+        "CTA": {
+            "title": "Do you have a game or an idea?",
+            "description": "Don't hesitate to submit it to us!",
+            "button": "Submit a game"
         }
     },
     "SubmitGames": {
@@ -306,7 +393,7 @@
                 "emailRequired": "Email is required",
                 "emailInvalid": "Invalid email",
                 "phoneRequired": "Phone is required",
-                "phoneInvalid": "Invalid French phone number",
+                "phoneInvalid": "Invalid phone number",
                 "websiteRequired": "Website is required",
                 "websiteInvalid": "Invalid URL",
                 "gameNameRequired": "Game name is required",
