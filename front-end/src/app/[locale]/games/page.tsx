@@ -44,7 +44,7 @@ export default async function GamesPage({ params }: { params: Promise<{ locale: 
       {latestGames && latestGames.length > 0 && (
         <>
           <Container className="pt-8">
-            <h1 className="text-7xl font-extrabold text-start uppercase">{t('title.new_games')}</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-start uppercase">{t('title.new_games')}</h1>
           </Container>
           <HeroGamesCarousel
             games={latestGames}
@@ -60,7 +60,7 @@ export default async function GamesPage({ params }: { params: Promise<{ locale: 
         </div>
 
         <Container className="pt-16">
-          <h1 className="text-7xl font-extrabold text-start uppercase"><span className="text-primary">{t('title.our')}</span> {t('title.games')}</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-start uppercase"><span className="text-primary">{t('title.our')}</span> {t('title.games')}</h1>
         </Container>
         <GamesGrid
           games={allGames}
