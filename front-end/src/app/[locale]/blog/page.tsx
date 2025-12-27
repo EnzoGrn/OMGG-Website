@@ -38,7 +38,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: L
       {articles && articles.length > 0 && (
         <>
           <Container className="pt-8">
-            <h1 className="text-7xl font-extrabold text-start uppercase">{t('title')}</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-start uppercase">{t('title')}</h1>
           </Container>
           <BlogHero post={articles[0]} />
         </>

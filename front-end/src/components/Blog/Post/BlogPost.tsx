@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Locale, useTranslations } from "next-intl";
 import { getMediaFromUrl } from "@/lib/strapi"
 import { cn } from "@/lib/utils";
+import { getBlogPostUrl } from "@/lib/blog-url";
 import Link from "next/link"
 
 
@@ -55,7 +56,7 @@ const BlogPost = ({ post, locale, className }: { post: BlogPostProps, locale: Lo
 
       <CardFooter className="px-5 pb-5 pt-0">
         <Button variant="ghost" size="sm" className="w-full text-sm group justify-start text-primary" asChild aria-label={t('read')}>
-          <Link href={`/${locale}/blog/${post.slug}`} className="flex items-center" aria-label={t('read')}>
+          <Link href={getBlogPostUrl(post.slug, locale)} className="flex items-center" aria-label={t('read')}>
             {t('read')}
             <ArrowRightIcon className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
