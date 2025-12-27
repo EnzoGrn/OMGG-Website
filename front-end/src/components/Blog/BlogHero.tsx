@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { CalendarIcon, UserIcon, ArrowRightIcon, TagIcon } from "lucide-react"
 import { useLocale, useTranslations } from "next-intl"
 import { getMediaFromUrl } from "@/lib/strapi"
+import { getBlogPostUrl } from "@/lib/blog-url"
 import Link from "next/link"
 import { SSection } from "../Section/Section";
 
@@ -65,7 +66,7 @@ const BlogHero = ({ post }: BlogHeroProps) => {
 
                 <div>
                   <Button size="lg" className="group" asChild>
-                    <Link href={`/${locale}/blog/${post.slug}`} className="flex items-center gap-2">
+                    <Link href={getBlogPostUrl(post.slug, locale)} className="flex items-center gap-2">
                       {t('readMore')}
                       <ArrowRightIcon className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Link>

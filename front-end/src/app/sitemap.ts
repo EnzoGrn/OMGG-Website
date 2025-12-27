@@ -8,6 +8,7 @@ const staticRoutes = ["/", "/games", "/contact", "/submit", "/blog"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.BASE_URL || "http://localhost:3000";
+  const blogBaseUrl = process.env.NEXT_PUBLIC_BLOG_BASE_URL || baseUrl;
 
   const entries: MetadataRoute.Sitemap = [];
 
@@ -39,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     if (blogRes?.data) {
       for (const blog of blogRes.data) {
         entries.push({
-          url: `${baseUrl}/${locale}/blog/${blog.slug}`,
+          url: `${blogBaseUrl}/${locale}/blog/${blog.slug}`,
           lastModified: new Date(blog.updatedAt || Date.now()),
           changeFrequency: "weekly",
           priority: 0.7,

@@ -4,11 +4,8 @@ import { Button } from "@/components/ui/button";
 import { OffersProps } from "@/components/Offers/OffersInterface";
 
 import Link from "next/link";
-import { useLocale } from "next-intl";
 
 const OMGGOffers = ({ data }: { data: OffersProps }) => {
-  const locale = useLocale();
-
   return (
     <PSection padding={"pb-12"}>
       <div className="grid items-center gap-8 lg:grid-cols-2 w-full relative">
@@ -28,7 +25,7 @@ const OMGGOffers = ({ data }: { data: OffersProps }) => {
 
             <CardFooter className="px-5 pb-5 pt-0">
               <Button asChild size="sm" className="text-sm group justify-start text-primary-foreground max-w-[220px]" aria-label={card.callToAction.title}>
-                <Link href={`${locale}${card.callToAction.url}`} className="flex items-center uppercase" aria-label={card.callToAction.title}>
+                <Link href={card.callToAction.url} className="flex items-center uppercase" aria-label={card.callToAction.title}>
                   {card.callToAction.title}
                 </Link>
               </Button>
