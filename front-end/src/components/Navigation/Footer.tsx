@@ -3,15 +3,12 @@
 import { Container } from "@/components/Section/Container"
 import { FooterProps, MenuProps } from "@/components/Navigation/FooterProps";
 import { DynamicLoadIcon } from "@/components/Utils/ReactIconUtils";
-import { useLocale } from "next-intl";
 import { NewsletterForm } from "@/components/Newsletter/NewsletterForm";
 import { Toaster } from "../ui/sonner";
 import { ApiLogo } from "../Logo/ApiLogo";
 import { cn } from "@/lib/utils";
 
 const Footer = ({ footerData }: { footerData: FooterProps; }) => {
-  const locale = useLocale();
-
   const activeMenuItems = footerData.menu?.filter((menuItem: MenuProps) => !menuItem.isDisable) || [];
 
   const gridColsClass = activeMenuItems.length === 1 ? 'grid-cols-1' : activeMenuItems.length === 2 ? 'grid-cols-2' : 'grid-cols-3';
@@ -70,7 +67,7 @@ const Footer = ({ footerData }: { footerData: FooterProps; }) => {
                             if (!item.isDisable)
                               return (
                                 <li key={item.id} className="font-medium hover:text-primary whitespace-nowrap">
-                                  <a href={`/${locale}${item.url}`} aria-label={item.text}>
+                                  <a href={item.url} aria-label={item.text}>
                                     {item.text}
                                   </a>
                                 </li>
@@ -96,7 +93,7 @@ const Footer = ({ footerData }: { footerData: FooterProps; }) => {
                 .map((item) => {
                   return (
                     <li className="hover:text-primary" key={item.id}>
-                      <a href={`/${locale}${item.url}`} aria-label={item.text}>
+                      <a href={item.url} aria-label={item.text}>
                         {item.text}
                       </a>
                     </li>
