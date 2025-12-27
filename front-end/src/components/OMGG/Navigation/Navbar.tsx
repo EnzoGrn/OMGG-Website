@@ -10,10 +10,8 @@ interface NavBarPropsProps {
 }
 
 const OMGGNavbar = ({ global }: { global: NavBarPropsProps }) => {
-
   if (!global)
     return null;
-
   return (
     <header className="sticky top-0 z-50 bg-background shadow-sm w-full" id={'navbar'}>
       <Container>
