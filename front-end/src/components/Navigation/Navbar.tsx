@@ -21,9 +21,7 @@ const Navbar = ({ logo, dropdowns, itemLinks }: NavbarProps) => {
         <div className="flex items-center">
 
           {/* Logo */}
-          {logo &&
-            <ApiLogo logo={logo} />
-          }
+          {logo && <ApiLogo logo={logo} />}
 
         </div>
         <div className="flex gap-10 items-center">
@@ -31,13 +29,13 @@ const Navbar = ({ logo, dropdowns, itemLinks }: NavbarProps) => {
             <div className="flex gap-10 items-center">
               <NavigationMenu>
                 <NavigationMenuList>
-                  {dropdowns.map((item) => renderDropdownItem(item, locale))}
+                  {dropdowns.map((item) => renderDropdownItem(item))}
                   <div className="flex gap-10">
                     {itemLinks.filter((item) => !item.isDisable)
                       .map((item) => (
                         <Button asChild size="sm" aria-label={item.title} key={item.id}
                           variant={item.variant.toLowerCase() as "link" | "default" | "destructive" | "outline" | "secondary" | "ghost"}>
-                          <a href={`/${locale}${item.url}`} className="uppercase" aria-label={item.title}>
+                          <a href={item.url} className="uppercase" aria-label={item.title}>
                             {item.title}
                           </a>
                         </Button>
@@ -56,7 +54,7 @@ const Navbar = ({ logo, dropdowns, itemLinks }: NavbarProps) => {
 
           {/* Logo */}
           {logo &&
-            <a href={logo?.url} className="flex items-center gap-2" aria-label="Home">
+            <a href={`/${locale}`} className="flex items-center gap-2" aria-label="Home">
               <img src={getMediaFromUrl(logo?.url)} className="max-h-[43px] w-full" alt={logo?.alternativeText} />
             </a>
           }
@@ -78,7 +76,7 @@ const Navbar = ({ logo, dropdowns, itemLinks }: NavbarProps) => {
               <div className="flex flex-col gap-6 p-4">
                 {dropdowns && itemLinks &&
                   <Accordion type="single" collapsible className="flex w-full flex-col gap-4">
-                    {dropdowns.filter((item: DropdownProps) => !item.isDisable).map((item: DropdownProps) => renderMobileDropdownItem(item, locale))}
+                    {dropdowns.filter((item: DropdownProps) => !item.isDisable).map((item: DropdownProps) => renderMobileDropdownItem(item))}
                     {itemLinks.filter((item: ItemLinksProps) => !item.isDisable).map((item: ItemLinksProps) => renderMobileItemLink(item))}
                   </Accordion>
                 }
@@ -91,7 +89,7 @@ const Navbar = ({ logo, dropdowns, itemLinks }: NavbarProps) => {
   );
 };
 
-const renderDropdownItem = (item: DropdownProps, locale: string) => {
+const renderDropdownItem = (item: DropdownProps) => {
   if (item.items && !item.isDisable) {
     return (
       <NavigationMenuItem key={item.title}>
@@ -101,7 +99,7 @@ const renderDropdownItem = (item: DropdownProps, locale: string) => {
         <NavigationMenuContent className="bg-popover text-popover-foreground">
           {item.items.map((subItem) => (
             <NavigationMenuLink asChild key={subItem.title} className="w-80">
-              <ItemLink item={subItem} locale={locale} />
+              <ItemLink item={subItem} />
             </NavigationMenuLink>
           ))}
         </NavigationMenuContent>
@@ -110,7 +108,7 @@ const renderDropdownItem = (item: DropdownProps, locale: string) => {
   }
 };
 
-const renderMobileDropdownItem = (item: DropdownProps, locale: string) => {
+const renderMobileDropdownItem = (item: DropdownProps) => {
   if (item.items) {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
@@ -119,7 +117,7 @@ const renderMobileDropdownItem = (item: DropdownProps, locale: string) => {
         </AccordionTrigger>
         <AccordionContent className="mt-2">
           {item.items.map((subItem) => (
-            <ItemLink key={subItem.title} item={subItem} locale={locale} />
+            <ItemLink key={subItem.title} item={subItem} />
           ))}
         </AccordionContent>
       </AccordionItem>
@@ -146,11 +144,9 @@ const renderMobileItemLink = (item: ItemLinksProps) => {
   }
 }
 
-const ItemLink = ({ item, locale }: { item: ItemProps, locale: string }) => {
-  const url = `/${locale}${item.url}`;
-
+const ItemLink = ({ item }: { item: ItemProps }) => {
   return (
-    <Link className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground" href={url} aria-label={item.title}>
+    <Link className="flex flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground" href={item.url} aria-label={item.title}>
       <div className="text-foreground">
         {!item.isSlugIcon && item.urlIcon && (
           <img src={getMediaFromUrl(item.urlIcon)} className="w-5 h-4 shrink-0" alt={item?.alt} />
